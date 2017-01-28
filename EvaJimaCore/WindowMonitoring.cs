@@ -112,10 +112,12 @@ namespace EveJimaCore
 
             HideAllContainers();
 
+            ucContainreAuthorization.RefreshAuthorizationStatus();
+
             if (IsNeedUpdateApplication() == false)
             {
                 OpenAuthorizationPanel();
-                ucContainreAuthorization.RefreshAuthorizationStatus();
+                
             }
             else
             {
