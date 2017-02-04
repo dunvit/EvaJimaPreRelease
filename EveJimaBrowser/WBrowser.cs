@@ -48,7 +48,10 @@ namespace WBrowser
             getCurrentBrowser().Load(address);
         }
 
-        
+        public void OpenNewTab(string address)
+        {
+            addNewTab(address);
+        }
 
         #region Form load/Closing/Closed
        

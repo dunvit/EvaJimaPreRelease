@@ -47,7 +47,7 @@ namespace EveJimaCore.WhlControls
                 }
             }
 
-            richBrowser.Navigate(url);
+            richBrowser.OpenNewTab(url);
         }
 
         public void ResizeWebBrowser(int width, int height)
