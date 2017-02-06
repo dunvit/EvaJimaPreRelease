@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WindowMonitoring));
             this.lblSolarSystemName = new System.Windows.Forms.Label();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.RefreshTokenTimer = new System.Windows.Forms.Timer(this.components);
@@ -39,12 +40,6 @@
             this.TitleBar = new System.Windows.Forms.Panel();
             this.VersionBar = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBrowserMin = new System.Windows.Forms.Button();
-            this.btnBrowserMax = new System.Windows.Forms.Button();
-            this.cmdPin = new System.Windows.Forms.Button();
-            this.btnOpenBrowserAndStartUrl = new System.Windows.Forms.Button();
-            this.cmdClose = new System.Windows.Forms.Button();
-            this.cmdMinimazeRestore = new System.Windows.Forms.Button();
             this.cmdVersion = new EveJimaCore.whlButton();
             this.cmdShowContainerSolarSystem = new EveJimaCore.whlButton();
             this.cmdOpenWebBrowser = new EveJimaCore.whlButton();
@@ -52,6 +47,14 @@
             this.cmdLocation = new EveJimaCore.whlButton();
             this.cmdShowContainerBookmarks = new EveJimaCore.whlButton();
             this.cmdShowContainerPilots = new EveJimaCore.whlButton();
+            this.crlNotificay = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cmdHide = new System.Windows.Forms.Button();
+            this.btnBrowserMin = new System.Windows.Forms.Button();
+            this.btnBrowserMax = new System.Windows.Forms.Button();
+            this.cmdPin = new System.Windows.Forms.Button();
+            this.btnOpenBrowserAndStartUrl = new System.Windows.Forms.Button();
+            this.cmdClose = new System.Windows.Forms.Button();
+            this.cmdMinimazeRestore = new System.Windows.Forms.Button();
             this.TitleBar.SuspendLayout();
             this.VersionBar.SuspendLayout();
             this.SuspendLayout();
@@ -133,6 +136,7 @@
             // 
             this.TitleBar.BackColor = System.Drawing.Color.Black;
             this.TitleBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TitleBar.Controls.Add(this.cmdHide);
             this.TitleBar.Controls.Add(this.btnBrowserMin);
             this.TitleBar.Controls.Add(this.btnBrowserMax);
             this.TitleBar.Controls.Add(this.cmdPin);
@@ -172,92 +176,6 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "EveJima";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btnBrowserMin
-            // 
-            this.btnBrowserMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowserMin.BackColor = System.Drawing.Color.Black;
-            this.btnBrowserMin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowserMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowserMin.Image = global::EveJimaCore.Properties.Resources.minimize2;
-            this.btnBrowserMin.Location = new System.Drawing.Point(388, 2);
-            this.btnBrowserMin.Name = "btnBrowserMin";
-            this.btnBrowserMin.Size = new System.Drawing.Size(22, 22);
-            this.btnBrowserMin.TabIndex = 48;
-            this.btnBrowserMin.UseVisualStyleBackColor = false;
-            this.btnBrowserMin.Visible = false;
-            this.btnBrowserMin.Click += new System.EventHandler(this.btnBrowserMin_Click);
-            // 
-            // btnBrowserMax
-            // 
-            this.btnBrowserMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrowserMax.BackColor = System.Drawing.Color.Black;
-            this.btnBrowserMax.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowserMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowserMax.Image = global::EveJimaCore.Properties.Resources.minimize1;
-            this.btnBrowserMax.Location = new System.Drawing.Point(414, 2);
-            this.btnBrowserMax.Name = "btnBrowserMax";
-            this.btnBrowserMax.Size = new System.Drawing.Size(22, 22);
-            this.btnBrowserMax.TabIndex = 47;
-            this.btnBrowserMax.UseVisualStyleBackColor = false;
-            this.btnBrowserMax.Visible = false;
-            this.btnBrowserMax.Click += new System.EventHandler(this.btnBrowserMax_Click);
-            // 
-            // cmdPin
-            // 
-            this.cmdPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdPin.BackColor = System.Drawing.Color.Black;
-            this.cmdPin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdPin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPin.Image = global::EveJimaCore.Properties.Resources.pin;
-            this.cmdPin.Location = new System.Drawing.Point(703, 1);
-            this.cmdPin.Name = "cmdPin";
-            this.cmdPin.Size = new System.Drawing.Size(22, 22);
-            this.cmdPin.TabIndex = 3;
-            this.cmdPin.UseVisualStyleBackColor = false;
-            this.cmdPin.Click += new System.EventHandler(this.cmdPin_Click);
-            // 
-            // btnOpenBrowserAndStartUrl
-            // 
-            this.btnOpenBrowserAndStartUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpenBrowserAndStartUrl.BackColor = System.Drawing.Color.Black;
-            this.btnOpenBrowserAndStartUrl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpenBrowserAndStartUrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenBrowserAndStartUrl.Image = global::EveJimaCore.Properties.Resources.url;
-            this.btnOpenBrowserAndStartUrl.Location = new System.Drawing.Point(727, 1);
-            this.btnOpenBrowserAndStartUrl.Name = "btnOpenBrowserAndStartUrl";
-            this.btnOpenBrowserAndStartUrl.Size = new System.Drawing.Size(22, 22);
-            this.btnOpenBrowserAndStartUrl.TabIndex = 46;
-            this.btnOpenBrowserAndStartUrl.UseVisualStyleBackColor = false;
-            this.btnOpenBrowserAndStartUrl.Click += new System.EventHandler(this.Event_OpenBrowserContainer);
-            // 
-            // cmdClose
-            // 
-            this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdClose.BackColor = System.Drawing.Color.Black;
-            this.cmdClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdClose.Image = global::EveJimaCore.Properties.Resources.close;
-            this.cmdClose.Location = new System.Drawing.Point(772, 1);
-            this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(22, 22);
-            this.cmdClose.TabIndex = 0;
-            this.cmdClose.UseVisualStyleBackColor = false;
-            this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
-            // 
-            // cmdMinimazeRestore
-            // 
-            this.cmdMinimazeRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdMinimazeRestore.BackColor = System.Drawing.Color.Black;
-            this.cmdMinimazeRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdMinimazeRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdMinimazeRestore.Image = global::EveJimaCore.Properties.Resources.minimize;
-            this.cmdMinimazeRestore.Location = new System.Drawing.Point(750, 1);
-            this.cmdMinimazeRestore.Name = "cmdMinimazeRestore";
-            this.cmdMinimazeRestore.Size = new System.Drawing.Size(22, 22);
-            this.cmdMinimazeRestore.TabIndex = 2;
-            this.cmdMinimazeRestore.UseVisualStyleBackColor = false;
-            this.cmdMinimazeRestore.Click += new System.EventHandler(this.cmdMinimazeRestore_Click);
             // 
             // cmdVersion
             // 
@@ -350,6 +268,113 @@
             this.cmdShowContainerPilots.Value = "Pilots";
             this.cmdShowContainerPilots.Click += new System.EventHandler(this.Event_ShowContainerPilots);
             // 
+            // crlNotificay
+            // 
+            this.crlNotificay.Icon = ((System.Drawing.Icon)(resources.GetObject("crlNotificay.Icon")));
+            this.crlNotificay.Text = "notifyIcon2";
+            this.crlNotificay.Visible = true;
+            this.crlNotificay.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.crlNotificay_MouseDoubleClick);
+            // 
+            // cmdHide
+            // 
+            this.cmdHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdHide.BackColor = System.Drawing.Color.Black;
+            this.cmdHide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdHide.Image = global::EveJimaCore.Properties.Resources.hide;
+            this.cmdHide.Location = new System.Drawing.Point(732, 1);
+            this.cmdHide.Name = "cmdHide";
+            this.cmdHide.Size = new System.Drawing.Size(22, 22);
+            this.cmdHide.TabIndex = 49;
+            this.cmdHide.UseVisualStyleBackColor = false;
+            this.cmdHide.Click += new System.EventHandler(this.Event_Hide);
+            // 
+            // btnBrowserMin
+            // 
+            this.btnBrowserMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowserMin.BackColor = System.Drawing.Color.Black;
+            this.btnBrowserMin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBrowserMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowserMin.Image = global::EveJimaCore.Properties.Resources.minimize2;
+            this.btnBrowserMin.Location = new System.Drawing.Point(388, 2);
+            this.btnBrowserMin.Name = "btnBrowserMin";
+            this.btnBrowserMin.Size = new System.Drawing.Size(22, 22);
+            this.btnBrowserMin.TabIndex = 48;
+            this.btnBrowserMin.UseVisualStyleBackColor = false;
+            this.btnBrowserMin.Visible = false;
+            this.btnBrowserMin.Click += new System.EventHandler(this.btnBrowserMin_Click);
+            // 
+            // btnBrowserMax
+            // 
+            this.btnBrowserMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBrowserMax.BackColor = System.Drawing.Color.Black;
+            this.btnBrowserMax.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBrowserMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowserMax.Image = global::EveJimaCore.Properties.Resources.minimize1;
+            this.btnBrowserMax.Location = new System.Drawing.Point(414, 2);
+            this.btnBrowserMax.Name = "btnBrowserMax";
+            this.btnBrowserMax.Size = new System.Drawing.Size(22, 22);
+            this.btnBrowserMax.TabIndex = 47;
+            this.btnBrowserMax.UseVisualStyleBackColor = false;
+            this.btnBrowserMax.Visible = false;
+            this.btnBrowserMax.Click += new System.EventHandler(this.btnBrowserMax_Click);
+            // 
+            // cmdPin
+            // 
+            this.cmdPin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdPin.BackColor = System.Drawing.Color.Black;
+            this.cmdPin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdPin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPin.Image = global::EveJimaCore.Properties.Resources.pin;
+            this.cmdPin.Location = new System.Drawing.Point(690, 1);
+            this.cmdPin.Name = "cmdPin";
+            this.cmdPin.Size = new System.Drawing.Size(22, 22);
+            this.cmdPin.TabIndex = 3;
+            this.cmdPin.UseVisualStyleBackColor = false;
+            this.cmdPin.Click += new System.EventHandler(this.cmdPin_Click);
+            // 
+            // btnOpenBrowserAndStartUrl
+            // 
+            this.btnOpenBrowserAndStartUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpenBrowserAndStartUrl.BackColor = System.Drawing.Color.Black;
+            this.btnOpenBrowserAndStartUrl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpenBrowserAndStartUrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenBrowserAndStartUrl.Image = global::EveJimaCore.Properties.Resources.url;
+            this.btnOpenBrowserAndStartUrl.Location = new System.Drawing.Point(712, 1);
+            this.btnOpenBrowserAndStartUrl.Name = "btnOpenBrowserAndStartUrl";
+            this.btnOpenBrowserAndStartUrl.Size = new System.Drawing.Size(22, 22);
+            this.btnOpenBrowserAndStartUrl.TabIndex = 46;
+            this.btnOpenBrowserAndStartUrl.UseVisualStyleBackColor = false;
+            this.btnOpenBrowserAndStartUrl.Click += new System.EventHandler(this.Event_OpenBrowserContainer);
+            // 
+            // cmdClose
+            // 
+            this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdClose.BackColor = System.Drawing.Color.Black;
+            this.cmdClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdClose.Image = global::EveJimaCore.Properties.Resources.close;
+            this.cmdClose.Location = new System.Drawing.Point(772, 1);
+            this.cmdClose.Name = "cmdClose";
+            this.cmdClose.Size = new System.Drawing.Size(22, 22);
+            this.cmdClose.TabIndex = 0;
+            this.cmdClose.UseVisualStyleBackColor = false;
+            this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
+            // 
+            // cmdMinimazeRestore
+            // 
+            this.cmdMinimazeRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdMinimazeRestore.BackColor = System.Drawing.Color.Black;
+            this.cmdMinimazeRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdMinimazeRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdMinimazeRestore.Image = global::EveJimaCore.Properties.Resources.minimize;
+            this.cmdMinimazeRestore.Location = new System.Drawing.Point(752, 1);
+            this.cmdMinimazeRestore.Name = "cmdMinimazeRestore";
+            this.cmdMinimazeRestore.Size = new System.Drawing.Size(22, 22);
+            this.cmdMinimazeRestore.TabIndex = 2;
+            this.cmdMinimazeRestore.UseVisualStyleBackColor = false;
+            this.cmdMinimazeRestore.Click += new System.EventHandler(this.cmdMinimazeRestore_Click);
+            // 
             // WindowMonitoring
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,7 +400,6 @@
             this.Load += new System.EventHandler(this.WindowMonitoring_Load);
             this.ResizeEnd += new System.EventHandler(this.Event_WindowResizeEnd);
             this.DoubleClick += new System.EventHandler(this.Event_WindowDoubleClick);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.WindowMonitoring_MouseDown);
             this.Resize += new System.EventHandler(this.WindowMonitoring_Resize);
             this.TitleBar.ResumeLayout(false);
             this.VersionBar.ResumeLayout(false);
@@ -410,6 +434,8 @@
         private whlButton cmdVersion;
         private System.Windows.Forms.Button btnBrowserMax;
         private System.Windows.Forms.Button btnBrowserMin;
+        private System.Windows.Forms.NotifyIcon crlNotificay;
+        private System.Windows.Forms.Button cmdHide;
 
 
 
