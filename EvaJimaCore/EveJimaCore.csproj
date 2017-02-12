@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\MetricsWriter.cs" />
     <Compile Include="BLL\PilotEntity.cs" />
     <Compile Include="BLL\PilotsEntity.cs" />
     <Compile Include="BLL\SolarSystemEntity.cs" />

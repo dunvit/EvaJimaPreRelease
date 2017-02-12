@@ -126,26 +126,26 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="crlNotificay.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAP///yr///98////gP///4D///+A////gP///4D///+A////gP///4D///+A////gP//
-        /4D///+A////fP///yr////h////////////////////////////////////////////////////////
-        ///////////////////////h////gP////j////M////gP///4D///+A////VgAAAAAAAAAA////WP//
-        /4D///+A////gP///8z////4////gAAAAAD////w////mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAD///+Y////8AAAAAAAAAAA////8P///5gAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAA////mP////AAAAAAAAAAAP////D///+YAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///5j////wAAAAAAAAAAD////w////mAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///+Y////8AAAAAAAAAAA////8P///5gAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////mP////AAAAAAAAAAAP////D///+YAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///5j////wAAAAAAAAAAD////w////m///
-        /wj///8I////CP///wj///8I////CP///wj///8I////CP///wj///+b////8AAAAAAAAAAA////3P//
-        /////////////////////////////////////////////////////////////////9wAAAAAAAAAAP//
-        /y////9+////f////3////9/////f////3////9/////f////3////9/////f////37///8vAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA//8AAP//AADAAwAAAAAAAAPAAACf+QAAn/kAAJ/5AACf+QAAn/kAAJ/5AACf+QAAgAEAAP//
-        AAD//wAA//8AAA==
+        AAABAAEAEBAAAAAAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8B////Af///wH///8B/f39pf7+/tv+/v79///////////+/v79/v7+2/39/aX///8B////Af//
+        /wH///8B////Af///wH///8B////Afz8/B39/f0x/f39v////////////f39v/39/TH8/Pwd////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8B////Af39/YH///////////39/YH///8B////Af//
+        /wH///8B////Af///wH///8B////Af///wH///8B////Af///wH7+/tB/f39gf39/YH7+/tB////Af//
+        /wH///8B////Af///wH///8B/Pz8Vf39/X/9/f2B/f39gf39/YH9/f2B/f39gf39/YH9/f2B/f39gf39
+        /YH9/f2B/f39gf39/YH9/f1//Pz8Vf39/dv9/f2V/f39gf39/YH9/f2B/f39gf39/YH9/f2B/f39gf39
+        /YH9/f2B/f39gf39/YH9/f2B/f39lf39/dv+/v7V/f39K////wH///8B////Af///wH///8B////Af//
+        /wH///8B////Af///wH///8B////Af39/Sv+/v7V/v7+1f39/SsftuULH7TidSC04qsgtOKrILTiqyC1
+        428gteM7H7TjnR+14ZcetuIt////Af///wH9/f0r/v7+1f7+/tX9/f0rH7blER604q8fteKD////Af//
+        /wEhsegFH7Tiyx6044EftOKJH7Tivf///wH///8B/f39K/7+/tX+/v7V/f39Kx+25REetOKvH7Xig///
+        /wH///8BIbHoBSC04kkfteIhHrTibx604tP///8B////Af39/Sv+/v7V/v7+1f39/SsftuURHrTirx+1
+        4tUgtOKrILTioR+14T3///8B////AR604m8etOLT////Af///wH9/f0r/v7+1f7+/tX9/f0rH7blER60
+        4q8fteKD////Af///wH///8B////Af///wEetOJvHrTi0////wH///8B/f39K/7+/tX+/v7V/f39Kx+2
+        5REetOKvH7XirSC04lUftONVH7TiL////wH///8BHrTibx604tP///8B////Af39/Sv+/v7V/v7+1f39
+        /SsftuUHH7TiOyC04lUgtOJVH7TjVR+04i////8B////AR+04iUftOJH////Af///wH9/f0r/v7+1f7+
+        /tv9/f1P/f39K/39/Sv9/f0r/f39K/39/Sv9/f0r/f39K/39/Sv9/f0r/f39K/39/Sv9/f0r/f39T/7+
+        /tv9/f2//v7+2/7+/tX+/v7V/v7+1f7+/tX+/v7V/v7+1f7+/tX+/v7V/v7+1f7+/tX+/v7V/v7+1f7+
+        /tv9/f2/AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA
+        //8AAP//AAD//w==
 </value>
   </data>
 </root>
