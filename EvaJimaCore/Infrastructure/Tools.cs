@@ -1,14 +1,31 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using log4net;
 
-namespace EvaJimaCore.UiTools
+namespace EveJimaCore
 {
     public static class Tools
     {
-        
+        #region
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
+        #endregion
+
+        public static string GetActiveWindowTitle()
+        {
+            const int nChars = 256;
+            var buff = new StringBuilder(nChars);
+            var handle = GetForegroundWindow();
+
+            return GetWindowText(handle, buff, nChars) > 0 ? buff.ToString() : null;
+        }
 
         public static string ReadFile(string urlAddress, ILog log)
         {
