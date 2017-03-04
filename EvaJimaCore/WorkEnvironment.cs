@@ -50,6 +50,23 @@ namespace EveJimaCore
                     }
 
                 }
+
+                var screenCounts = 0;
+
+                foreach (var screen in Screen.AllScreens)
+                {
+                    screenCounts++;
+                }
+
+                if (screenCounts == 1)
+                {
+                    if (LocationMaximizeX < 0) LocationMaximizeX = 0;
+                    if (LocationMaximizeX > Screen.PrimaryScreen.WorkingArea.Width) LocationMaximizeX = 0;
+                    
+                    if (LocationMaximizeY < 0) LocationMaximizeY = 0;
+                    if (LocationMaximizeY > Screen.PrimaryScreen.WorkingArea.Height) LocationMaximizeY = 0;
+                }
+
             }
             catch (Exception ex)
             {
