@@ -19,5 +19,5 @@
 		"Item3": "6IAjc5RByHErBfHTtvejBkf6Sp0GvJ-as4DhJ1z0UfE1",
 		"Item4": "CJQ_2000"
 	}],
-	"Server_MapAddress": "http://www.evajima-maps.somee.com/"
+	"Server_MapAddress": "http://localhost:51135"
 }
