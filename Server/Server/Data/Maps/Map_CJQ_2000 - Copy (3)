@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<Map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Key>CJQ_2000</Key>
+  <Systems>
+    <SolarSystem>
+      <Connections>
+        <string>J151548</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-05-27T15:15:28.630777Z</LastUpdate>
+      <Name>J213734</Name>
+      <LocationInMap>
+        <X>5000</X>
+        <Y>5000</Y>
+      </LocationInMap>
+      <Created>2017-05-27T13:35:43.621469Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J213734</string>
+        <string>Hati</string>
+        <string>J104835</string>
+        <string>J113730</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-05-27T15:21:33.2684682Z</LastUpdate>
+      <Name>J151548</Name>
+      <LocationInMap>
+        <X>4845</X>
+        <Y>4994</Y>
+      </LocationInMap>
+      <Created>2017-05-27T15:15:28.630777Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J151548</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-05-27T15:18:13.1340429Z</LastUpdate>
+      <Name>Hati</Name>
+      <LocationInMap>
+        <X>4812</X>
+        <Y>4820</Y>
+      </LocationInMap>
+      <Created>2017-05-27T15:18:13.1340429Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J151548</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-05-27T15:19:53.1835921Z</LastUpdate>
+      <Name>J104835</Name>
+      <LocationInMap>
+        <X>4710</X>
+        <Y>4906</Y>
+      </LocationInMap>
+      <Created>2017-05-27T15:19:53.1835921Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J151548</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-05-27T15:21:33.2684682Z</LastUpdate>
+      <Name>J113730</Name>
+      <LocationInMap>
+        <X>4812</X>
+        <Y>4898</Y>
+      </LocationInMap>
+      <Created>2017-05-27T15:21:33.2684682Z</Created>
+    </SolarSystem>
+  </Systems>
+</Map>

@@ -1,0 +1,13 @@
+﻿- Update token in new storage (ApplicationSettings) UpdatePilotToStorage(_currentPilot);
+- Add separated task for using (var client = new WebClient())
+
+
+Map:
+
+- Add select Solar system and right mouse button (for relocate operation)
+- Rebuild connection after update and hide not connected to map solar systems
+
+
+Before release:
+
+- Disable click event in inactive button "Location"

@@ -1,0 +1,388 @@
+{"Key":"CJQ_2000","Owner":"Scarlett Orwell","Systems":[{"Key":"J213734","Value":{"Connections":[],"Created":"\/Date(1497080017286)\/","Information":null,"IsDeleted":false,"IsHidden":false,"LastUpdate":"\/Date(1497080017286)\/","LocationInMap":{"x":0,"y":0},"Name":"J213734","Signatures":[],"Type":null}}]}atures>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:31:53.7403757Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>AAI-184</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J213734</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:31:53.7403757Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>CIF-896</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J213734</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:31:53.7413784Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>LAX-067</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J213734</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:31:53.7413784Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>PZA-244</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J213734</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:31:53.7413784Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>QLW-032</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J213734</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:31:53.7413784Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>ZUY-955</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J213734</SolarSystemName>
+        </CosmicSignature>
+      </Signatures>
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J213734</Name>
+      <LocationInMap>
+        <X>5025</X>
+        <Y>4958</Y>
+      </LocationInMap>
+      <Created>2017-05-27T13:35:43.621469Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections />
+      <Signatures>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>ARY-886</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>CXO-376</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>KPP-356</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>NBY-948</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>NRB-135</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>WDZ-744</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:29:54.5708436Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>WMP-900</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J144913</SolarSystemName>
+        </CosmicSignature>
+      </Signatures>
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J144913</Name>
+      <LocationInMap>
+        <X>4944</X>
+        <Y>5265</Y>
+      </LocationInMap>
+      <Created>2017-06-01T16:22:52.5713538Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>Azer</string>
+      </Connections>
+      <Signatures>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:25:14.8867759Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>DBC-016</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>Mosson</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:25:14.8867759Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>RVZ-243</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>Mosson</SolarSystemName>
+        </CosmicSignature>
+      </Signatures>
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>Mosson</Name>
+      <LocationInMap>
+        <X>4965</X>
+        <Y>5149</Y>
+      </LocationInMap>
+      <Created>2017-06-01T16:24:52.5868053Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections />
+      <Signatures>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>CMK-702</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>CZI-700</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>HRV-556</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>HVL-345</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>KCG-778</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>NET-701</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>PGQ-163</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>PRV-978</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>QTO-406</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>QYS-680</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>RBI-112</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>RIJ-700</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>RKM-717</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>RUC-637</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>SEB-050</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>WCA-892</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+        <CosmicSignature>
+          <LastUpdate>2017-06-01T16:27:32.0333416Z</LastUpdate>
+          <Type>Unknown</Type>
+          <Code>WHF-720</Code>
+          <Name>Cosmic Signature</Name>
+          <SolarSystemName>J162828</SolarSystemName>
+        </CosmicSignature>
+      </Signatures>
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J162828</Name>
+      <LocationInMap>
+        <X>5077</X>
+        <Y>5164</Y>
+      </LocationInMap>
+      <Created>2017-06-01T16:27:14.997157Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>Mosson</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>Azer</Name>
+      <LocationInMap>
+        <X>5036</X>
+        <Y>5227</Y>
+      </LocationInMap>
+      <Created>2017-06-01T17:40:29.7429239Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections />
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>Z-2Y2Y</Name>
+      <LocationInMap>
+        <X>4583</X>
+        <Y>4987</Y>
+      </LocationInMap>
+      <Created>2017-06-02T10:25:16.7203513Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections />
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J104606</Name>
+      <LocationInMap>
+        <X>4674</X>
+        <Y>5025</Y>
+      </LocationInMap>
+      <Created>2017-06-02T10:27:24.6968619Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections />
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J143702</Name>
+      <LocationInMap>
+        <X>4802</X>
+        <Y>4777</Y>
+      </LocationInMap>
+      <Created>2017-06-02T10:30:05.6520266Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J213734</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>Arzieh</Name>
+      <LocationInMap>
+        <X>5168</X>
+        <Y>5005</Y>
+      </LocationInMap>
+      <Created>2017-06-03T08:43:25.2045055Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J213734</string>
+        <string>Hakeri</string>
+        <string>J104335</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J150234</Name>
+      <LocationInMap>
+        <X>5093</X>
+        <Y>4849</Y>
+      </LocationInMap>
+      <Created>2017-06-03T08:45:15.3379147Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J150234</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>Hakeri</Name>
+      <LocationInMap>
+        <X>5079</X>
+        <Y>4747</Y>
+      </LocationInMap>
+      <Created>2017-06-03T08:51:35.6747949Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J150234</string>
+        <string>Ossa</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>J104335</Name>
+      <LocationInMap>
+        <X>5250</X>
+        <Y>4899</Y>
+      </LocationInMap>
+      <Created>2017-06-03T09:04:01.5590263Z</Created>
+    </SolarSystem>
+    <SolarSystem>
+      <Connections>
+        <string>J104335</string>
+      </Connections>
+      <Signatures />
+      <LastUpdate>2017-06-03T09:49:02.9807234Z</LastUpdate>
+      <Name>Ossa</Name>
+      <LocationInMap>
+        <X>5224</X>
+        <Y>4757</Y>
+      </LocationInMap>
+      <Created>2017-06-03T09:08:01.5840344Z</Created>
+    </SolarSystem>
+  </Systems>
+</Map>

@@ -1,0 +1,30 @@
+2017-06-07 09:06:22,634 [5] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 433
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284
+2017-06-07 09:06:25,442 [9] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 433
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284
+2017-06-07 09:09:13,730 [7] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 433
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284
+2017-06-07 09:09:15,389 [7] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 433
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284
+2017-06-07 09:48:06,250 [24] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 433
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284
+2017-06-07 09:50:53,330 [21] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 433
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284

@@ -1,0 +1,6 @@
+2017-06-01 07:56:38,260 [26] All ERROR [PublishSignatures] Critical error with map key Map_CJQ_2000 system J213734 exception System.NullReferenceException: Object reference not set to an instance of an object.
+   at EveJimaServerMap.Map.UpdateSignatures(String system, List`1 signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 414
+   at EveJimaServerMap.Router.PublishSignatures(String pilotName, String key, String system, String signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Router.cs:line 176
+2017-06-01 08:09:21,684 [5] All ERROR [PublishSignatures] Critical error with map key Map_CJQ_2000 system J213734 exception System.NullReferenceException: Object reference not set to an instance of an object.
+   at EveJimaServerMap.Map.UpdateSignatures(String system, List`1 signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 414
+   at EveJimaServerMap.Router.PublishSignatures(String pilotName, String key, String system, String signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Router.cs:line 176

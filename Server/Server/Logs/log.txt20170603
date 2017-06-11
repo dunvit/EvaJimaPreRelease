@@ -1,0 +1,6 @@
+2017-06-03 12:25:16,475 [75] All ERROR [PublishSignatures] Critical error with map key threads_636320787014055313 system J214318 exception System.NullReferenceException: Object reference not set to an instance of an object.
+   at EveJimaServerMap.Map.UpdateSignatures(String system, List`1 signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 414
+   at EveJimaServerMap.Router.PublishSignatures(String pilotName, String key, String system, String signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Router.cs:line 176
+2017-06-03 12:27:58,573 [75] All ERROR [PublishSignatures] Critical error with map key threads_636320787014055313 system J214318 exception System.NullReferenceException: Object reference not set to an instance of an object.
+   at EveJimaServerMap.Map.UpdateSignatures(String system, List`1 signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 414
+   at EveJimaServerMap.Router.PublishSignatures(String pilotName, String key, String system, String signatures) in c:\Development\EvaJimaServer\EveJimaServerMap\Router.cs:line 176

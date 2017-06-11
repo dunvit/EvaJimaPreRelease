@@ -1,0 +1,43 @@
+2017-05-29 09:13:53,322 [5] All ERROR [EveJimaServerMap.Tools.DeSerializeObject] File name = C:\Development\EvaJimaServer\Server\Data\Maps\Map_CJQ_2000 Exception = System.InvalidOperationException: There was an error reflecting type 'EveJimaServerMap.Map'. ---> System.NotSupportedException: Cannot serialize member EveJimaServerMap.Map.Systems of type System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[EveJimaUniverse.SolarSystem, EveJimaUniverse, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], because it implements IDictionary.
+   at System.Xml.Serialization.TypeScope.GetDefaultIndexer(Type type, String memberInfo)
+   at System.Xml.Serialization.TypeScope.GetCollectionElementType(Type type, String memberInfo)
+   at System.Xml.Serialization.TypeScope.ImportTypeDesc(Type type, MemberInfo memberInfo, Boolean directReference)
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.StructModel.GetPropertyModel(PropertyInfo propertyInfo)
+   at System.Xml.Serialization.StructModel.GetFieldModel(MemberInfo memberInfo)
+   at System.Xml.Serialization.XmlReflectionImporter.InitializeStructMembers(StructMapping mapping, StructModel model, Boolean openModel, String typeName, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportStructLikeMapping(StructModel model, String ns, Boolean openModel, XmlAttributes a, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportElement(TypeModel model, XmlRootAttribute root, String defaultNamespace, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at EveJimaServerMap.Tools.DeSerializeObject[T](String fileName) in c:\Development\EvaJimaServer\EveJimaServerMap\Tools.cs:line 71
+2017-05-29 09:21:19,415 [4] All ERROR [EveJimaServerMap.Tools.DeSerializeObject] File name = C:\Development\EvaJimaServer\Server\Data\Maps\Map_CJQ_2000 Exception = System.InvalidOperationException: There was an error reflecting type 'EveJimaServerMap.Map'. ---> System.NotSupportedException: Cannot serialize member EveJimaServerMap.Map.Systems of type System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[EveJimaUniverse.SolarSystem, EveJimaUniverse, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], because it implements IDictionary.
+   at System.Xml.Serialization.TypeScope.GetDefaultIndexer(Type type, String memberInfo)
+   at System.Xml.Serialization.TypeScope.GetCollectionElementType(Type type, String memberInfo)
+   at System.Xml.Serialization.TypeScope.ImportTypeDesc(Type type, MemberInfo memberInfo, Boolean directReference)
+   at System.Xml.Serialization.TypeScope.GetTypeDesc(Type type, MemberInfo source, Boolean directReference, Boolean throwOnError)
+   at System.Xml.Serialization.StructModel.GetPropertyModel(PropertyInfo propertyInfo)
+   at System.Xml.Serialization.StructModel.GetFieldModel(MemberInfo memberInfo)
+   at System.Xml.Serialization.XmlReflectionImporter.InitializeStructMembers(StructMapping mapping, StructModel model, Boolean openModel, String typeName, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportStructLikeMapping(StructModel model, String ns, Boolean openModel, XmlAttributes a, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, Boolean repeats, Boolean openModel, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(TypeModel model, String ns, ImportContext context, String dataType, XmlAttributes a, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportElement(TypeModel model, XmlRootAttribute root, String defaultNamespace, RecursionLimiter limiter)
+   at System.Xml.Serialization.XmlReflectionImporter.ImportTypeMapping(Type type, XmlRootAttribute root, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type, String defaultNamespace)
+   at System.Xml.Serialization.XmlSerializer..ctor(Type type)
+   at EveJimaServerMap.Tools.DeSerializeObject[T](String fileName) in c:\Development\EvaJimaServer\EveJimaServerMap\Tools.cs:line 71
+2017-05-29 09:30:33,660 [7] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
+   at EveJimaServerMap.Map.GetSystem(String systemName) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 405
+   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 256

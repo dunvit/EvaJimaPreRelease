@@ -1,0 +1,1277 @@
+2017-05-29 08:44:08,692 [1] Commands INFO  EaveJima server started.
+2017-05-29 08:44:14,445 [10] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 08:45:49,062 [11] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 08:46:04,433 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 08:46:04,438 [13] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 08:46:25,461 [11] Commands INFO  [DeleteSolarSystem] Delete solar system J104835 on map with key CJQ_2000 
+2017-05-29 08:48:03,926 [28] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 08:48:07,156 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 08:48:07,156 [29] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 08:48:41,354 [29] Commands INFO  [DeleteSolarSystem] Delete solar system J113730 on map with key CJQ_2000 
+2017-05-29 08:50:12,600 [36] Commands INFO  [DeleteSolarSystem] Delete solar system Hati on map with key CJQ_2000 
+2017-05-29 09:04:02,459 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:04:04,137 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:04:16,950 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:05:24,419 [9] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:13:44,791 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:13:53,435 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:14:29,890 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:18:37,313 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:21:02,597 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:21:46,550 [4] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:23:49,215 [4] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:23:49,804 [12] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:23:49,846 [12] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:23:50,184 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J165920' 
+2017-05-29 09:23:50,226 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J165920 
+2017-05-29 09:23:50,639 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J165920' to 'J165936' 
+2017-05-29 09:23:50,678 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J165920 to J165936 
+2017-05-29 09:25:11,833 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:25:13,301 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:25:22,560 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:25:22,601 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:26:34,447 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:26:39,112 [6] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:26:50,145 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:30:21,372 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:30:23,288 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:30:32,798 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:30:33,614 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-05-29 09:44:17,140 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:44:18,858 [7] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:44:30,096 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:44:30,173 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:44:48,361 [5] Commands INFO  [DeleteSolarSystem] Delete solar system J104835 on map with key CJQ_2000 
+2017-05-29 09:47:11,619 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:47:16,476 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:47:16,476 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:47:26,434 [5] Commands INFO  [DeleteSolarSystem] Delete solar system J113730 on map with key CJQ_2000 
+2017-05-29 09:47:35,414 [11] Commands INFO  [DeleteSolarSystem] Delete solar system Hati on map with key CJQ_2000 
+2017-05-29 09:51:19,318 [1] Commands INFO  EaveJima server started.
+2017-05-29 09:51:20,963 [5] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:51:23,627 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:51:23,636 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:51:30,809 [5] Commands INFO  [DeleteSolarSystem] Delete solar system J104835 on map with key CJQ_2000 
+2017-05-29 09:58:02,611 [15] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:58:04,242 [15] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:58:04,242 [15] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:58:20,513 [16] Commands INFO  [DeleteSolarSystem] Delete solar system J113730 on map with key CJQ_2000 
+2017-05-29 09:59:24,389 [18] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 09:59:26,021 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 09:59:26,021 [18] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 09:59:55,841 [16] Commands INFO  [DeleteSolarSystem] Delete solar system Hati on map with key CJQ_2000 
+2017-05-29 10:01:31,946 [1] Commands INFO  EaveJima server started.
+2017-05-29 10:01:37,483 [6] Commands INFO  [Map] Load map with key CJQ_2000
+2017-05-29 10:01:50,867 [6] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 10:01:50,871 [6] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 10:02:00,140 [9] Commands INFO  [DeleteSolarSystem] Delete solar system J104835 on map with key CJQ_2000 
+2017-05-29 10:49:17,106 [34] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 10:49:17,106 [34] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 10:52:47,122 [34] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 10:52:47,122 [34] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 11:01:19,456 [49] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 11:01:19,457 [49] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 11:03:48,442 [47] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 11:03:48,442 [47] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 11:05:37,804 [38] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 11:05:37,822 [38] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 11:07:35,141 [51] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 11:07:35,141 [51] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 11:08:52,695 [31] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 11:08:52,711 [31] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 11:12:17,264 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 11:12:17,265 [27] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 13:55:30,362 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 13:55:30,363 [18] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 14:06:44,526 [28] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 14:06:44,526 [28] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 14:12:16,173 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 14:12:16,173 [13] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 14:56:57,979 [64] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 14:56:57,980 [64] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 15:01:24,770 [63] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 15:01:24,770 [63] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-29 15:03:20,711 [60] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-29 15:03:20,711 [60] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 09:00:38,037 [1] Commands INFO  EaveJima server started.
+2017-05-30 09:01:02,061 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 09:01:02,077 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 09:52:09,711 [50] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 09:52:09,712 [50] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 10:01:13,346 [51] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 10:01:13,346 [51] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 10:06:20,439 [14] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 10:06:20,439 [14] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 10:08:12,214 [20] Commands INFO  [DeleteSolarSystem] Delete solar system J151548 on map with key CJQ_2000 
+2017-05-30 10:08:45,579 [50] Commands INFO  [DeleteSolarSystem] Delete solar system Hati on map with key CJQ_2000 
+2017-05-30 10:08:47,209 [50] Commands INFO  [DeleteSolarSystem] Delete solar system Hati on map with key CJQ_2000 
+2017-05-30 10:08:49,851 [50] Commands INFO  [DeleteSolarSystem] Delete solar system J113730 on map with key CJQ_2000 
+2017-05-30 10:43:21,653 [1] Commands INFO  EaveJima server started.
+2017-05-30 10:43:24,594 [9] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 10:43:24,598 [9] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 10:55:41,367 [12] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 10:55:41,367 [12] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:14:09,174 [19] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:14:09,174 [19] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:16:50,380 [17] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:16:50,380 [17] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:17:55,920 [21] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:17:55,921 [21] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:22:42,598 [38] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:22:42,598 [38] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:23:48,677 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:23:48,678 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:29:10,295 [41] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:29:10,296 [41] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:33:16,969 [41] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:33:16,969 [41] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:44:15,694 [44] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:44:15,694 [44] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:45:11,480 [44] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:45:11,480 [44] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:54:52,760 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:54:52,760 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:56:45,343 [41] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:56:45,343 [41] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:57:32,820 [44] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:57:32,821 [44] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:58:38,671 [50] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:58:38,671 [50] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 11:59:07,191 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 11:59:07,191 [45] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:14:24,856 [53] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:14:24,856 [53] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:16:33,556 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:16:33,557 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:17:57,703 [52] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:17:57,703 [52] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:21:02,732 [43] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:21:02,732 [43] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:24:09,039 [1] Commands INFO  EaveJima server started.
+2017-05-30 12:24:11,992 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:24:11,997 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:26:30,314 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:26:30,314 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:38:45,456 [26] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:38:45,456 [26] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:41:02,425 [26] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:41:02,425 [26] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 12:42:16,342 [25] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 12:42:16,342 [25] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 13:51:31,557 [44] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 13:51:31,557 [44] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 16:32:59,674 [54] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 16:32:59,674 [54] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 16:36:10,265 [54] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J105059' 
+2017-05-30 16:36:10,269 [54] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000_Scarlett_Orwell systemTo J105059 systemFrom  coordinates before 0:0
+2017-05-30 16:36:10,273 [54] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000_Scarlett_Orwell system J105059 set oordinates 5000:5000
+2017-05-30 16:36:10,312 [54] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J105059 
+2017-05-30 22:03:05,222 [70] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 22:03:05,223 [70] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000_Scarlett_Orwell systemTo J213734 systemFrom  coordinates before 0:0
+2017-05-30 22:03:05,292 [70] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 22:07:48,555 [1] Commands INFO  EaveJima server started.
+2017-05-30 22:07:51,406 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 22:07:51,409 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-05-30 22:07:51,411 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J213734 set oordinates 5000:5000
+2017-05-30 22:07:51,577 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 22:08:48,492 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J125634' 
+2017-05-30 22:08:48,493 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J125634 systemFrom J213734 coordinates before 0:0
+2017-05-30 22:08:48,496 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J125634 set oordinates 4831:5067 for type 'A'
+2017-05-30 22:08:48,500 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J125634 
+2017-05-30 22:26:43,701 [21] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J125634' 
+2017-05-30 22:26:43,702 [21] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J125634 
+2017-05-30 22:32:43,985 [23] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J125634' 
+2017-05-30 22:32:43,985 [23] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J125634 
+2017-05-30 22:36:50,873 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J125634' 
+2017-05-30 22:36:50,873 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J125634 
+2017-05-30 22:37:08,637 [7] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J125634 set oordinates 4649:5190
+2017-05-30 22:37:38,294 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J125634' 
+2017-05-30 22:37:38,294 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J125634 
+2017-05-30 22:38:23,468 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J125634' 
+2017-05-30 22:38:23,468 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J125634 
+2017-05-30 22:39:23,444 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J125634' 
+2017-05-30 22:39:23,444 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J125634 
+2017-05-30 22:57:38,777 [31] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 22:57:38,777 [31] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 23:07:31,737 [32] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 23:07:31,737 [32] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 23:10:13,288 [33] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 23:10:13,288 [33] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 23:12:43,378 [32] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 23:12:43,378 [32] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 23:14:22,862 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-30 23:14:22,862 [29] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-30 23:14:59,906 [27] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 4842:5077
+2017-05-30 23:15:00,580 [24] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J214901' 
+2017-05-30 23:15:00,581 [24] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J214901 systemFrom J213734 coordinates before 0:0
+2017-05-30 23:15:00,582 [24] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J214901 set oordinates 4745:4957 for type 'A'
+2017-05-30 23:15:00,583 [24] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J214901 
+2017-05-30 23:15:08,617 [27] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 4649:5114
+2017-05-30 23:17:30,235 [37] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J214901' to 'J213734' 
+2017-05-30 23:17:30,235 [37] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J214901 to J213734 
+2017-05-31 11:22:54,237 [94] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-05-31 11:22:54,237 [94] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-05-31 13:23:17,395 [110] Commands INFO  [DeleteSolarSystem] Delete solar system J214901 on map with key CJQ_2000 
+2017-05-31 13:23:27,023 [87] Commands INFO  [DeleteSolarSystem] Delete solar system J125634 on map with key CJQ_2000 
+2017-05-31 13:23:48,282 [88] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J214318' 
+2017-05-31 13:23:48,282 [88] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-05-31 13:23:48,282 [88] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J214318 set oordinates 4496:5011 for type 'A'
+2017-05-31 13:23:48,285 [88] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J214318 
+2017-05-31 13:24:38,396 [88] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J214318' to 'J213734' 
+2017-05-31 13:24:38,396 [88] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J214318 to J213734 
+2017-05-31 13:26:18,429 [87] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J212304' 
+2017-05-31 13:26:18,429 [87] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J212304 systemFrom J213734 coordinates before 0:0
+2017-05-31 13:26:18,429 [87] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J212304 set oordinates 4583:5254 for type 'A'
+2017-05-31 13:26:18,431 [87] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J212304 
+2017-05-31 13:27:18,473 [108] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J212304' to 'J213734' 
+2017-05-31 13:27:18,473 [108] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J212304 to J213734 
+2017-05-31 13:28:08,531 [93] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J132418' 
+2017-05-31 13:28:08,531 [93] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J132418 systemFrom J213734 coordinates before 0:0
+2017-05-31 13:28:08,531 [93] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J132418 set oordinates 4508:5079 for type 'A'
+2017-05-31 13:28:08,534 [93] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J132418 
+2017-05-31 13:28:58,571 [97] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J132418' to 'J213734' 
+2017-05-31 13:28:58,572 [97] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J132418 to J213734 
+2017-06-01 08:09:20,297 [1] Commands INFO  EaveJima server started.
+2017-06-01 08:10:37,342 [1] Commands INFO  EaveJima server started.
+2017-06-01 08:10:51,800 [6] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:10:53,019 [9] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:10:53,634 [7] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:10:54,258 [7] Commands INFO  [DeleteSignature] For map with key CJQ_2000 system J213734 signature code UHT-116
+2017-06-01 08:10:54,903 [7] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:24:19,473 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:24:19,478 [29] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:29:29,134 [22] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:29:29,134 [22] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:30:34,641 [19] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:30:34,641 [19] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:39:47,953 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:39:47,953 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:40:28,140 [15] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:40:28,140 [15] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:44:08,808 [20] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:44:08,808 [20] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:48:20,244 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:48:20,245 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:48:20,777 [32] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J214318' 
+2017-06-01 08:48:20,777 [32] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J214318 
+2017-06-01 08:48:37,898 [32] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:48:38,582 [29] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:48:39,209 [29] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 08:48:39,853 [7] Commands INFO  [DeleteSignature] For map with key CJQ_2000 system J213734 signature code UHT-116
+2017-06-01 08:48:40,481 [23] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J214318 
+2017-06-01 08:49:51,882 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:49:51,882 [18] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:52:52,468 [6] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:52:52,468 [6] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:53:37,081 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:53:37,081 [27] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:55:01,411 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:55:01,411 [27] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:58:06,943 [40] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:58:06,943 [40] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:58:46,595 [40] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:58:46,595 [40] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 08:59:25,580 [36] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 08:59:25,580 [36] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 09:02:55,611 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 09:02:55,612 [27] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 09:40:04,294 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 09:40:04,294 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 09:42:35,823 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 09:42:35,823 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 09:52:25,048 [47] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 09:52:25,048 [47] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 18:10:15,147 [1] Commands INFO  EaveJima server started.
+2017-06-01 18:10:18,281 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 18:10:18,284 [5] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 18:11:39,521 [5] Commands INFO  [DeleteSolarSystem] Delete solar system J214318 on map with key CJQ_2000 
+2017-06-01 18:16:15,946 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 18:16:15,946 [18] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 18:19:57,169 [19] Commands INFO  [DeleteSolarSystem] Delete solar system J212304 on map with key CJQ_2000 
+2017-06-01 18:22:50,127 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 18:22:50,127 [18] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 18:22:58,765 [24] Commands INFO  [DeleteSolarSystem] Delete solar system J132418 on map with key CJQ_2000 
+2017-06-01 18:26:06,426 [1] Commands INFO  EaveJima server started.
+2017-06-01 18:26:11,965 [6] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 18:26:11,972 [6] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 18:30:29,501 [16] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-01 18:30:29,501 [16] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-01 18:30:41,382 [7] Commands INFO  [DeleteSolarSystem] Delete solar system Hati on map with key CJQ_2000 
+2017-06-01 18:31:50,883 [7] Commands INFO  [DeleteSolarSystem] Delete solar system J104835 on map with key CJQ_2000 
+2017-06-01 18:33:05,463 [15] Commands INFO  [DeleteSolarSystem] Delete solar system J113730 on map with key CJQ_2000 
+2017-06-01 18:33:09,106 [18] Commands INFO  [DeleteSolarSystem] Delete solar system J151548 on map with key CJQ_2000 
+2017-06-01 18:33:57,549 [16] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J122832' 
+2017-06-01 18:33:57,550 [16] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J122832 systemFrom J213734 coordinates before 0:0
+2017-06-01 18:33:57,652 [16] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J122832 set oordinates 4879:4933 for type 'A'
+2017-06-01 18:33:57,687 [16] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J122832 
+2017-06-01 18:34:31,893 [16] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J122832 set oordinates 4882:5100
+2017-06-01 19:13:14,623 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J122832' 
+2017-06-01 19:13:14,624 [45] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J122832 
+2017-06-01 19:14:14,490 [47] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J122832 
+2017-06-01 19:14:36,522 [48] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J122832' 
+2017-06-01 19:14:36,522 [48] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J122832 
+2017-06-01 19:15:54,367 [50] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J122832' 
+2017-06-01 19:15:54,367 [50] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J122832 
+2017-06-01 19:16:56,112 [50] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J122832 
+2017-06-01 19:18:33,737 [47] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J122832' 
+2017-06-01 19:18:33,737 [47] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J122832 
+2017-06-01 19:19:01,576 [49] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J122832 
+2017-06-01 19:22:52,559 [49] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'J144913' 
+2017-06-01 19:22:52,571 [49] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J144913 systemFrom J122832 coordinates before 0:0
+2017-06-01 19:22:52,572 [49] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J144913 set oordinates 4944:5265 for type 'A'
+2017-06-01 19:22:52,601 [49] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to J144913 
+2017-06-01 19:24:12,582 [44] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J144913' to 'J122832' 
+2017-06-01 19:24:12,582 [44] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J144913 to J122832 
+2017-06-01 19:24:52,586 [49] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'Mosson' 
+2017-06-01 19:24:52,586 [49] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Mosson systemFrom J122832 coordinates before 0:0
+2017-06-01 19:24:52,600 [49] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Mosson set oordinates 4965:5149 for type 'B'
+2017-06-01 19:24:52,631 [49] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to Mosson 
+2017-06-01 19:25:15,055 [44] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system Mosson 
+2017-06-01 19:26:34,966 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Mosson' to 'J122832' 
+2017-06-01 19:26:34,966 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Mosson to J122832 
+2017-06-01 19:27:14,996 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'J162828' 
+2017-06-01 19:27:14,997 [42] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J162828 systemFrom J122832 coordinates before 0:0
+2017-06-01 19:27:14,997 [42] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J162828 set oordinates 4814:4990 for type 'A'
+2017-06-01 19:27:15,026 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to J162828 
+2017-06-01 19:27:32,210 [45] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J162828 
+2017-06-01 19:28:19,438 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J162828' to 'J122832' 
+2017-06-01 19:28:19,439 [45] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J162828 to J122832 
+2017-06-01 19:28:33,207 [47] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J162828 set oordinates 5077:5164
+2017-06-01 19:29:49,406 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'J144913' 
+2017-06-01 19:29:49,406 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to J144913 
+2017-06-01 19:29:55,080 [47] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J144913 
+2017-06-01 19:30:50,342 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J144913' to 'J122832' 
+2017-06-01 19:30:50,342 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J144913 to J122832 
+2017-06-01 19:31:30,255 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'J213734' 
+2017-06-01 19:31:30,255 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to J213734 
+2017-06-01 19:31:53,918 [42] Commands INFO  [PublishSignatures] For map with key CJQ_2000 system J213734 
+2017-06-01 20:39:00,135 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J122832' 
+2017-06-01 20:39:00,135 [29] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J122832 
+2017-06-01 20:39:39,593 [37] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'Mosson' 
+2017-06-01 20:39:39,593 [37] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to Mosson 
+2017-06-01 20:40:29,742 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Mosson' to 'Azer' 
+2017-06-01 20:40:29,742 [29] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Azer systemFrom Mosson coordinates before 0:0
+2017-06-01 20:40:29,757 [29] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Azer set oordinates 5036:5227 for type 'C'
+2017-06-01 20:40:29,814 [29] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Mosson to Azer 
+2017-06-01 20:42:59,678 [30] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Azer' to 'Mosson' 
+2017-06-01 20:42:59,678 [30] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Azer to Mosson 
+2017-06-01 20:43:39,823 [39] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Mosson' to 'J122832' 
+2017-06-01 20:43:39,823 [39] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Mosson to J122832 
+2017-06-01 20:44:19,755 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J122832' to 'J213734' 
+2017-06-01 20:44:19,755 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J122832 to J213734 
+2017-06-02 12:58:53,821 [76] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-02 12:58:53,821 [76] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-02 12:59:10,403 [80] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J134949' 
+2017-06-02 12:59:10,403 [80] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J134949 systemFrom J213734 coordinates before 0:0
+2017-06-02 12:59:10,403 [80] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J134949 set oordinates 4898:4889 for type 'A'
+2017-06-02 12:59:10,410 [80] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J134949 
+2017-06-02 13:18:31,352 [74] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J134949' to 'Altbrard' 
+2017-06-02 13:18:31,352 [74] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Altbrard systemFrom J134949 coordinates before 0:0
+2017-06-02 13:18:31,352 [74] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Altbrard set oordinates 5002:4764 for type 'B'
+2017-06-02 13:18:31,357 [74] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J134949 to Altbrard 
+2017-06-02 13:19:00,401 [73] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 5002:4764
+2017-06-02 13:19:03,672 [74] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 4794:5006
+2017-06-02 13:25:16,720 [77] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Altbrard' to 'Z-2Y2Y' 
+2017-06-02 13:25:16,720 [77] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Z-2Y2Y systemFrom Altbrard coordinates before 0:0
+2017-06-02 13:25:16,720 [77] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Z-2Y2Y set oordinates 5113:4845 for type 'C'
+2017-06-02 13:25:16,724 [77] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Altbrard to Z-2Y2Y 
+2017-06-02 13:25:56,770 [74] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Z-2Y2Y' to 'Altbrard' 
+2017-06-02 13:25:56,770 [74] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Z-2Y2Y to Altbrard 
+2017-06-02 13:26:05,867 [74] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 4781:4991
+2017-06-02 13:26:10,992 [74] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 4762:4872
+2017-06-02 13:26:28,138 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J134949' 
+2017-06-02 13:26:28,138 [75] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J134949 
+2017-06-02 13:27:06,117 [74] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system Z-2Y2Y set oordinates 4713:5078
+2017-06-02 13:27:24,696 [69] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J134949' to 'J104606' 
+2017-06-02 13:27:24,696 [69] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J104606 systemFrom J134949 coordinates before 0:0
+2017-06-02 13:27:24,696 [69] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J104606 set oordinates 4785:4809 for type 'A'
+2017-06-02 13:27:24,701 [69] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J134949 to J104606 
+2017-06-02 13:28:14,790 [73] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J104606' to 'J134949' 
+2017-06-02 13:28:14,790 [73] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J104606 to J134949 
+2017-06-02 13:29:18,086 [76] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system Z-2Y2Y set oordinates 4583:4987
+2017-06-02 13:29:50,086 [74] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J104606 set oordinates 4674:5025
+2017-06-02 13:30:05,652 [74] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J134949' to 'J143702' 
+2017-06-02 13:30:05,652 [74] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J143702 systemFrom J134949 coordinates before 0:0
+2017-06-02 13:30:05,652 [74] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J143702 set oordinates 4941:4993 for type 'A'
+2017-06-02 13:30:05,655 [74] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J134949 to J143702 
+2017-06-02 13:31:14,823 [77] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J143702' to 'J134949' 
+2017-06-02 13:31:14,823 [77] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J143702 to J134949 
+2017-06-02 13:31:54,841 [76] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J134949' to 'J213734' 
+2017-06-02 13:31:54,841 [76] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J134949 to J213734 
+2017-06-02 16:22:51,472 [89] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J143702 set oordinates 4802:4777
+2017-06-02 16:22:59,579 [86] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J134949 set oordinates 4612:4880
+2017-06-02 16:23:03,834 [86] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J213734 set oordinates 5025:4958
+2017-06-02 16:23:06,798 [86] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system J134949 set oordinates 4837:4950
+2017-06-03 11:34:08,127 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-03 11:34:08,127 [75] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-03 11:43:25,203 [79] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'Arzieh' 
+2017-06-03 11:43:25,204 [79] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Arzieh systemFrom J213734 coordinates before 0:0
+2017-06-03 11:43:25,204 [79] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Arzieh set oordinates 4887:4894 for type 'B'
+2017-06-03 11:43:25,217 [79] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to Arzieh 
+2017-06-03 11:44:35,265 [93] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Arzieh' to 'J213734' 
+2017-06-03 11:44:35,265 [93] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Arzieh to J213734 
+2017-06-03 11:45:06,281 [75] Commands INFO  [UpdateSolarSystemCoordinates] For map with key CJQ_2000 system Arzieh set oordinates 5168:5005
+2017-06-03 11:45:15,337 [82] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J213734' to 'J150234' 
+2017-06-03 11:45:15,337 [82] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J150234 systemFrom J213734 coordinates before 0:0
+2017-06-03 11:45:15,337 [82] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J150234 set oordinates 5093:4849 for type 'A'
+2017-06-03 11:45:15,341 [82] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J213734 to J150234 
+2017-06-03 11:51:35,674 [82] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J150234' to 'Hakeri' 
+2017-06-03 11:51:35,674 [82] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Hakeri systemFrom J150234 coordinates before 0:0
+2017-06-03 11:51:35,675 [82] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Hakeri set oordinates 5079:4747 for type 'B'
+2017-06-03 11:51:35,679 [82] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J150234 to Hakeri 
+2017-06-03 11:54:40,811 [93] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Hakeri' to 'J150234' 
+2017-06-03 11:54:40,811 [93] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Hakeri to J150234 
+2017-06-03 12:04:01,559 [79] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J150234' to 'J104335' 
+2017-06-03 12:04:01,559 [79] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J104335 systemFrom J150234 coordinates before 0:0
+2017-06-03 12:04:01,559 [79] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system J104335 set oordinates 5250:4899 for type 'A'
+2017-06-03 12:04:01,567 [79] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J150234 to J104335 
+2017-06-03 12:08:01,584 [70] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J104335' to 'Ossa' 
+2017-06-03 12:08:01,584 [70] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo Ossa systemFrom J104335 coordinates before 0:0
+2017-06-03 12:08:01,584 [70] Commands INFO  [AddSpaceMapCoordinates] For map with key CJQ_2000 system Ossa set oordinates 5224:4757 for type 'B'
+2017-06-03 12:08:01,588 [70] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J104335 to Ossa 
+2017-06-03 12:08:51,620 [80] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'Ossa' to 'J104335' 
+2017-06-03 12:08:51,620 [80] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from Ossa to J104335 
+2017-06-03 12:09:51,703 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from 'J104335' to 'J150234' 
+2017-06-03 12:09:51,703 [101] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from J104335 to J150234 
+2017-06-03 12:25:05,247 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320787014055313' from '' to 'J213734' 
+2017-06-03 12:25:05,248 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-03 12:25:05,248 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313 system J213734 set oordinates 5000:5000
+2017-06-03 12:25:05,251 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320787014055313 from  to J213734 
+2017-06-03 12:25:05,595 [84] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320787014055313' from 'J213734' to 'J165920' 
+2017-06-03 12:25:05,595 [84] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:25:05,595 [84] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313 system J165920 set oordinates 4992:5154 for type 'A'
+2017-06-03 12:25:05,596 [84] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320787014055313 from J213734 to J165920 
+2017-06-03 12:25:05,959 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320787014055313' from 'J165920' to 'J165936' 
+2017-06-03 12:25:05,959 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:25:05,959 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313 system J165936 set oordinates 5147:5222 for type 'A'
+2017-06-03 12:25:05,961 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320787014055313 from J165920 to J165936 
+2017-06-03 12:25:06,299 [83] Commands INFO  [Map] Load map with key threads_636320787014055313
+2017-06-03 12:25:06,782 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320787014055313' from '' to 'J122635' 
+2017-06-03 12:25:06,782 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-03 12:25:06,782 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313_Dana_Su_Shiloff system J122635 set oordinates 5000:5000
+2017-06-03 12:25:06,783 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320787014055313 from  to J122635 
+2017-06-03 12:25:07,122 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320787014055313' from 'J122635' to 'J168936' 
+2017-06-03 12:25:07,123 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-03 12:25:07,123 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313_Dana_Su_Shiloff system J168936 set oordinates 5155:5093 for type 'A'
+2017-06-03 12:25:07,124 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320787014055313 from J122635 to J168936 
+2017-06-03 12:25:07,434 [101] Commands INFO  [Map] Load map with key threads_636320787014055313
+2017-06-03 12:25:07,762 [83] Commands INFO  [Map] Load map with key threads_636320787014055313
+2017-06-03 12:25:09,040 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320787014055313' from 'J168936' to 'J165920' 
+2017-06-03 12:25:09,041 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:25:09,041 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313_Dana_Su_Shiloff system J165920 set oordinates 5223:5006 for type 'A'
+2017-06-03 12:25:09,045 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:25:09,045 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313 system J168936 set oordinates 4824:5240 for type 'A'
+2017-06-03 12:25:09,045 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320787014055313 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:25:09,045 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320787014055313 system J122635 set oordinates 4781:5347 for type 'A'
+2017-06-03 12:25:09,056 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320787014055313 from J168936 to J165920 
+2017-06-03 12:25:09,377 [75] Commands INFO  [Map] Load map with key threads_636320787014055313
+2017-06-03 12:25:13,636 [83] Commands INFO  [PublishSignatures] For map with key threads_636320787014055313 system J213734 
+2017-06-03 12:25:14,320 [84] Commands INFO  [PublishSignatures] For map with key threads_636320787014055313 system J213734 
+2017-06-03 12:25:15,100 [75] Commands INFO  [PublishSignatures] For map with key threads_636320787014055313 system J213734 
+2017-06-03 12:25:15,777 [83] Commands INFO  [DeleteSignature] For map with key threads_636320787014055313 system J213734 signature code UHT-116
+2017-06-03 12:28:54,527 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320789305368641' from '' to 'J213734' 
+2017-06-03 12:28:54,528 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-03 12:28:54,528 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system J213734 set oordinates 5000:5000
+2017-06-03 12:28:54,530 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from  to J213734 
+2017-06-03 12:28:54,968 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320789305368641' from 'J213734' to 'J165920' 
+2017-06-03 12:28:54,969 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:28:54,969 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system J165920 set oordinates 4812:5030 for type 'A'
+2017-06-03 12:28:54,970 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from J213734 to J165920 
+2017-06-03 12:28:55,347 [69] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320789305368641' from 'J165920' to 'J165936' 
+2017-06-03 12:28:55,347 [69] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:28:55,348 [69] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system J165936 set oordinates 4616:5030 for type 'A'
+2017-06-03 12:28:55,352 [69] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from J165920 to J165936 
+2017-06-03 12:28:55,706 [69] Commands INFO  [Map] Load map with key threads_636320789305368641
+2017-06-03 12:28:56,306 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320789305368641' from '' to 'J122635' 
+2017-06-03 12:28:56,306 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-03 12:28:56,306 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641_Dana_Su_Shiloff system J122635 set oordinates 5000:5000
+2017-06-03 12:28:56,308 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from  to J122635 
+2017-06-03 12:28:56,709 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320789305368641' from 'J122635' to 'J168936' 
+2017-06-03 12:28:56,709 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-03 12:28:56,709 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641_Dana_Su_Shiloff system J168936 set oordinates 5117:4935 for type 'A'
+2017-06-03 12:28:56,710 [75] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from J122635 to J168936 
+2017-06-03 12:28:57,067 [69] Commands INFO  [Map] Load map with key threads_636320789305368641
+2017-06-03 12:28:57,408 [75] Commands INFO  [Map] Load map with key threads_636320789305368641
+2017-06-03 12:28:58,774 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320789305368641' from 'J168936' to 'J165920' 
+2017-06-03 12:28:58,774 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:28:58,774 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641_Dana_Su_Shiloff system J165920 set oordinates 5056:4789 for type 'A'
+2017-06-03 12:28:58,778 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:28:58,778 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system J168936 set oordinates 4929:5011 for type 'A'
+2017-06-03 12:28:58,778 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:28:58,779 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system J122635 set oordinates 5036:5068 for type 'A'
+2017-06-03 12:28:58,781 [75] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from J168936 to J165920 
+2017-06-03 12:28:59,137 [83] Commands INFO  [Map] Load map with key threads_636320789305368641
+2017-06-03 12:28:59,478 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320789305368641' from 'J213734' to 'J214318' 
+2017-06-03 12:28:59,478 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:28:59,478 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system J214318 set oordinates 5035:4857 for type 'A'
+2017-06-03 12:28:59,479 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from J213734 to J214318 
+2017-06-03 12:28:59,888 [81] Commands INFO  [PublishSignatures] For map with key threads_636320789305368641 system J213734 
+2017-06-03 12:29:00,547 [69] Commands INFO  [PublishSignatures] For map with key threads_636320789305368641 system J213734 
+2017-06-03 12:29:01,222 [69] Commands INFO  [PublishSignatures] For map with key threads_636320789305368641 system J213734 
+2017-06-03 12:29:01,891 [70] Commands INFO  [DeleteSignature] For map with key threads_636320789305368641 system J213734 signature code UHT-116
+2017-06-03 12:29:02,539 [81] Commands INFO  [PublishSignatures] For map with key threads_636320789305368641 system J214318 
+2017-06-03 12:29:11,057 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320789305368641' from 'J165920' to 'Jita' 
+2017-06-03 12:29:11,057 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-03 12:29:11,057 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system Jita set oordinates 4970:5108 for type 'B'
+2017-06-03 12:29:11,059 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from J165920 to Jita 
+2017-06-03 12:29:11,399 [70] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320789305368641' from 'Jita' to 'Hek' 
+2017-06-03 12:29:11,400 [70] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320789305368641 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-03 12:29:11,400 [70] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320789305368641 system Hek set oordinates 4869:4969 for type 'C'
+2017-06-03 12:29:11,403 [70] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320789305368641 from Jita to Hek 
+2017-06-03 12:29:11,737 [81] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636320789305368641 
+2017-06-03 12:30:16,633 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320790136591900' from '' to 'J213734' 
+2017-06-03 12:30:16,633 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-03 12:30:16,633 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system J213734 set oordinates 5000:5000
+2017-06-03 12:30:16,636 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from  to J213734 
+2017-06-03 12:30:16,983 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320790136591900' from 'J213734' to 'J165920' 
+2017-06-03 12:30:16,983 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:30:16,983 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system J165920 set oordinates 4980:5137 for type 'A'
+2017-06-03 12:30:16,985 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from J213734 to J165920 
+2017-06-03 12:30:17,367 [92] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320790136591900' from 'J165920' to 'J165936' 
+2017-06-03 12:30:17,367 [92] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:30:17,367 [92] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system J165936 set oordinates 5058:5203 for type 'A'
+2017-06-03 12:30:17,370 [92] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from J165920 to J165936 
+2017-06-03 12:30:17,732 [101] Commands INFO  [Map] Load map with key threads_636320790136591900
+2017-06-03 12:30:18,217 [93] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320790136591900' from '' to 'J122635' 
+2017-06-03 12:30:18,218 [93] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-03 12:30:18,218 [93] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900_Dana_Su_Shiloff system J122635 set oordinates 5000:5000
+2017-06-03 12:30:18,219 [93] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from  to J122635 
+2017-06-03 12:30:18,561 [82] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320790136591900' from 'J122635' to 'J168936' 
+2017-06-03 12:30:18,561 [82] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-03 12:30:18,561 [82] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900_Dana_Su_Shiloff system J168936 set oordinates 4938:4880 for type 'A'
+2017-06-03 12:30:18,562 [82] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from J122635 to J168936 
+2017-06-03 12:30:18,890 [83] Commands INFO  [Map] Load map with key threads_636320790136591900
+2017-06-03 12:30:19,237 [82] Commands INFO  [Map] Load map with key threads_636320790136591900
+2017-06-03 12:30:20,538 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320790136591900' from 'J168936' to 'J165920' 
+2017-06-03 12:30:20,538 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:30:20,538 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900_Dana_Su_Shiloff system J165920 set oordinates 5049:4802 for type 'A'
+2017-06-03 12:30:20,541 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:30:20,541 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system J168936 set oordinates 4886:5171 for type 'A'
+2017-06-03 12:30:20,541 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:30:20,541 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system J122635 set oordinates 4848:5032 for type 'A'
+2017-06-03 12:30:20,544 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from J168936 to J165920 
+2017-06-03 12:30:20,875 [75] Commands INFO  [Map] Load map with key threads_636320790136591900
+2017-06-03 12:30:21,229 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320790136591900' from 'J213734' to 'J214318' 
+2017-06-03 12:30:21,229 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:30:21,229 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system J214318 set oordinates 5073:4931 for type 'A'
+2017-06-03 12:30:21,230 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from J213734 to J214318 
+2017-06-03 12:30:21,580 [92] Commands INFO  [PublishSignatures] For map with key threads_636320790136591900 system J213734 
+2017-06-03 12:30:22,251 [86] Commands INFO  [PublishSignatures] For map with key threads_636320790136591900 system J213734 
+2017-06-03 12:30:22,926 [101] Commands INFO  [PublishSignatures] For map with key threads_636320790136591900 system J213734 
+2017-06-03 12:30:23,573 [92] Commands INFO  [DeleteSignature] For map with key threads_636320790136591900 system J213734 signature code UHT-116
+2017-06-03 12:30:24,222 [92] Commands INFO  [PublishSignatures] For map with key threads_636320790136591900 system J214318 
+2017-06-03 12:30:24,944 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320790136591900' from 'J165920' to 'Jita' 
+2017-06-03 12:30:24,944 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-03 12:30:24,944 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system Jita set oordinates 5146:5144 for type 'B'
+2017-06-03 12:30:24,947 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from J165920 to Jita 
+2017-06-03 12:30:25,296 [86] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320790136591900' from 'Jita' to 'Hek' 
+2017-06-03 12:30:25,296 [86] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320790136591900 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-03 12:30:25,296 [86] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320790136591900 system Hek set oordinates 5248:5068 for type 'C'
+2017-06-03 12:30:25,297 [86] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320790136591900 from Jita to Hek 
+2017-06-03 12:30:25,613 [92] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636320790136591900 
+2017-06-03 12:33:18,794 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320791935677706' from '' to 'J213734' 
+2017-06-03 12:33:18,794 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-03 12:33:18,794 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system J213734 set oordinates 5000:5000
+2017-06-03 12:33:18,797 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from  to J213734 
+2017-06-03 12:33:19,162 [82] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320791935677706' from 'J213734' to 'J165920' 
+2017-06-03 12:33:19,162 [82] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:33:19,162 [82] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system J165920 set oordinates 5046:5113 for type 'A'
+2017-06-03 12:33:19,163 [82] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from J213734 to J165920 
+2017-06-03 12:33:19,516 [69] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320791935677706' from 'J165920' to 'J165936' 
+2017-06-03 12:33:19,516 [69] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:33:19,516 [69] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system J165936 set oordinates 5228:5110 for type 'A'
+2017-06-03 12:33:19,518 [69] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from J165920 to J165936 
+2017-06-03 12:33:19,862 [81] Commands INFO  [Map] Load map with key threads_636320791935677706
+2017-06-03 12:33:20,335 [82] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320791935677706' from '' to 'J122635' 
+2017-06-03 12:33:20,335 [82] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-03 12:33:20,335 [82] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706_Dana_Su_Shiloff system J122635 set oordinates 5000:5000
+2017-06-03 12:33:20,338 [82] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from  to J122635 
+2017-06-03 12:33:20,678 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320791935677706' from 'J122635' to 'J168936' 
+2017-06-03 12:33:20,678 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-03 12:33:20,678 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706_Dana_Su_Shiloff system J168936 set oordinates 4926:5113 for type 'A'
+2017-06-03 12:33:20,679 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from J122635 to J168936 
+2017-06-03 12:33:21,002 [82] Commands INFO  [Map] Load map with key threads_636320791935677706
+2017-06-03 12:33:21,326 [81] Commands INFO  [Map] Load map with key threads_636320791935677706
+2017-06-03 12:33:22,649 [101] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320791935677706' from 'J168936' to 'J165920' 
+2017-06-03 12:33:22,650 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:33:22,650 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706_Dana_Su_Shiloff system J165920 set oordinates 4969:5198 for type 'A'
+2017-06-03 12:33:22,652 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:33:22,652 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system J168936 set oordinates 5159:5163 for type 'A'
+2017-06-03 12:33:22,652 [101] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:33:22,652 [101] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system J122635 set oordinates 5247:5200 for type 'A'
+2017-06-03 12:33:22,654 [101] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from J168936 to J165920 
+2017-06-03 12:33:22,966 [101] Commands INFO  [Map] Load map with key threads_636320791935677706
+2017-06-03 12:33:23,322 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320791935677706' from 'J213734' to 'J214318' 
+2017-06-03 12:33:23,322 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:33:23,322 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system J214318 set oordinates 4823:4984 for type 'A'
+2017-06-03 12:33:23,325 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from J213734 to J214318 
+2017-06-03 12:33:23,689 [101] Commands INFO  [PublishSignatures] For map with key threads_636320791935677706 system J213734 
+2017-06-03 12:33:24,338 [101] Commands INFO  [PublishSignatures] For map with key threads_636320791935677706 system J213734 
+2017-06-03 12:33:24,994 [101] Commands INFO  [PublishSignatures] For map with key threads_636320791935677706 system J213734 
+2017-06-03 12:33:25,693 [83] Commands INFO  [DeleteSignature] For map with key threads_636320791935677706 system J213734 signature code UHT-116
+2017-06-03 12:33:26,365 [83] Commands INFO  [PublishSignatures] For map with key threads_636320791935677706 system J214318 
+2017-06-03 12:33:27,019 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320791935677706' from 'J165920' to 'Jita' 
+2017-06-03 12:33:27,019 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-03 12:33:27,019 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system Jita set oordinates 4863:5056 for type 'B'
+2017-06-03 12:33:27,021 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from J165920 to Jita 
+2017-06-03 12:33:27,372 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320791935677706' from 'Jita' to 'Hek' 
+2017-06-03 12:33:27,372 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320791935677706 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-03 12:33:27,372 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320791935677706 system Hek set oordinates 4878:4905 for type 'C'
+2017-06-03 12:33:27,375 [75] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320791935677706 from Jita to Hek 
+2017-06-03 12:33:27,706 [101] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636320791935677706 
+2017-06-03 12:35:06,997 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320792791938940' from '' to 'J213734' 
+2017-06-03 12:35:06,997 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-03 12:35:06,998 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system J213734 set oordinates 5000:5000
+2017-06-03 12:35:07,001 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from  to J213734 
+2017-06-03 12:35:07,374 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320792791938940' from 'J213734' to 'J165920' 
+2017-06-03 12:35:07,374 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:35:07,376 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system J165920 set oordinates 4957:4854 for type 'A'
+2017-06-03 12:35:07,378 [75] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from J213734 to J165920 
+2017-06-03 12:35:07,721 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320792791938940' from 'J165920' to 'J165936' 
+2017-06-03 12:35:07,721 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:35:07,721 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system J165936 set oordinates 4862:4943 for type 'A'
+2017-06-03 12:35:07,722 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from J165920 to J165936 
+2017-06-03 12:35:08,050 [69] Commands INFO  [Map] Load map with key threads_636320792791938940
+2017-06-03 12:35:08,532 [69] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320792791938940' from '' to 'J122635' 
+2017-06-03 12:35:08,532 [69] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-03 12:35:08,532 [69] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940_Dana_Su_Shiloff system J122635 set oordinates 5000:5000
+2017-06-03 12:35:08,534 [69] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from  to J122635 
+2017-06-03 12:35:08,868 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320792791938940' from 'J122635' to 'J168936' 
+2017-06-03 12:35:08,868 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-03 12:35:08,868 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940_Dana_Su_Shiloff system J168936 set oordinates 4855:4973 for type 'A'
+2017-06-03 12:35:08,870 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from J122635 to J168936 
+2017-06-03 12:35:09,195 [69] Commands INFO  [Map] Load map with key threads_636320792791938940
+2017-06-03 12:35:09,509 [81] Commands INFO  [Map] Load map with key threads_636320792791938940
+2017-06-03 12:35:10,847 [87] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320792791938940' from 'J168936' to 'J165920' 
+2017-06-03 12:35:10,847 [87] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:35:10,847 [87] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940_Dana_Su_Shiloff system J165920 set oordinates 4944:5072 for type 'A'
+2017-06-03 12:35:10,848 [87] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:35:10,848 [87] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system J168936 set oordinates 5124:4848 for type 'A'
+2017-06-03 12:35:10,848 [87] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:35:10,848 [87] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system J122635 set oordinates 5134:4753 for type 'A'
+2017-06-03 12:35:10,850 [87] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from J168936 to J165920 
+2017-06-03 12:35:11,189 [75] Commands INFO  [Map] Load map with key threads_636320792791938940
+2017-06-03 12:35:11,607 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320792791938940' from 'J213734' to 'J214318' 
+2017-06-03 12:35:11,607 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:35:11,607 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system J214318 set oordinates 5088:4981 for type 'A'
+2017-06-03 12:35:11,609 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from J213734 to J214318 
+2017-06-03 12:35:12,013 [76] Commands INFO  [PublishSignatures] For map with key threads_636320792791938940 system J213734 
+2017-06-03 12:35:12,777 [81] Commands INFO  [PublishSignatures] For map with key threads_636320792791938940 system J213734 
+2017-06-03 12:35:13,489 [81] Commands INFO  [PublishSignatures] For map with key threads_636320792791938940 system J213734 
+2017-06-03 12:35:14,207 [76] Commands INFO  [DeleteSignature] For map with key threads_636320792791938940 system J213734 signature code UHT-116
+2017-06-03 12:35:14,889 [76] Commands INFO  [PublishSignatures] For map with key threads_636320792791938940 system J214318 
+2017-06-03 12:35:15,539 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320792791938940' from 'J165920' to 'Jita' 
+2017-06-03 12:35:15,539 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-03 12:35:15,539 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system Jita set oordinates 5078:4776 for type 'B'
+2017-06-03 12:35:15,542 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from J165920 to Jita 
+2017-06-03 12:35:16,017 [81] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320792791938940' from 'Jita' to 'Hek' 
+2017-06-03 12:35:16,017 [81] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320792791938940 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-03 12:35:16,017 [81] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320792791938940 system Hek set oordinates 5014:4862 for type 'C'
+2017-06-03 12:35:16,019 [81] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320792791938940 from Jita to Hek 
+2017-06-03 12:35:16,353 [76] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636320792791938940 
+2017-06-03 12:43:02,604 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320797780981172' from '' to 'J213734' 
+2017-06-03 12:43:02,605 [83] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-03 12:43:02,605 [83] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system J213734 set oordinates 5000:5000
+2017-06-03 12:43:02,609 [83] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from  to J213734 
+2017-06-03 12:43:03,610 [76] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320797780981172' from 'J213734' to 'J165920' 
+2017-06-03 12:43:03,611 [76] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:43:03,614 [76] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system J165920 set oordinates 4896:4989 for type 'A'
+2017-06-03 12:43:03,652 [76] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from J213734 to J165920 
+2017-06-03 12:43:04,269 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320797780981172' from 'J165920' to 'J165936' 
+2017-06-03 12:43:04,269 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:43:04,269 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system J165936 set oordinates 4798:5066 for type 'A'
+2017-06-03 12:43:04,270 [75] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from J165920 to J165936 
+2017-06-03 12:43:04,594 [81] Commands INFO  [Map] Load map with key threads_636320797780981172
+2017-06-03 12:43:05,130 [84] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320797780981172' from '' to 'J122635' 
+2017-06-03 12:43:05,130 [84] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-03 12:43:05,130 [84] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172_Dana_Su_Shiloff system J122635 set oordinates 5000:5000
+2017-06-03 12:43:05,131 [84] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from  to J122635 
+2017-06-03 12:43:05,472 [69] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320797780981172' from 'J122635' to 'J168936' 
+2017-06-03 12:43:05,472 [69] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-03 12:43:05,472 [69] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172_Dana_Su_Shiloff system J168936 set oordinates 4973:5112 for type 'A'
+2017-06-03 12:43:05,473 [69] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from J122635 to J168936 
+2017-06-03 12:43:05,818 [87] Commands INFO  [Map] Load map with key threads_636320797780981172
+2017-06-03 12:43:06,180 [81] Commands INFO  [Map] Load map with key threads_636320797780981172
+2017-06-03 12:43:07,591 [76] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320797780981172' from 'J168936' to 'J165920' 
+2017-06-03 12:43:07,591 [76] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:43:07,591 [76] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172_Dana_Su_Shiloff system J165920 set oordinates 4987:4946 for type 'A'
+2017-06-03 12:43:07,593 [76] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-03 12:43:07,593 [76] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system J168936 set oordinates 4981:4841 for type 'A'
+2017-06-03 12:43:07,593 [76] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-03 12:43:07,593 [76] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system J122635 set oordinates 5049:4745 for type 'A'
+2017-06-03 12:43:07,596 [76] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from J168936 to J165920 
+2017-06-03 12:43:07,949 [69] Commands INFO  [Map] Load map with key threads_636320797780981172
+2017-06-03 12:43:08,282 [75] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636320797780981172' from 'J213734' to 'J214318' 
+2017-06-03 12:43:08,282 [75] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-03 12:43:08,282 [75] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system J214318 set oordinates 5117:4945 for type 'A'
+2017-06-03 12:43:08,284 [75] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from J213734 to J214318 
+2017-06-03 12:43:08,678 [75] Commands INFO  [PublishSignatures] For map with key threads_636320797780981172 system J213734 
+2017-06-03 12:43:09,352 [84] Commands INFO  [PublishSignatures] For map with key threads_636320797780981172 system J213734 
+2017-06-03 12:43:10,143 [69] Commands INFO  [PublishSignatures] For map with key threads_636320797780981172 system J213734 
+2017-06-03 12:43:10,831 [76] Commands INFO  [DeleteSignature] For map with key threads_636320797780981172 system J213734 signature code UHT-116
+2017-06-03 12:43:11,510 [84] Commands INFO  [PublishSignatures] For map with key threads_636320797780981172 system J214318 
+2017-06-03 12:43:12,160 [87] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320797780981172' from 'J165920' to 'Jita' 
+2017-06-03 12:43:12,160 [87] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-03 12:43:12,161 [87] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system Jita set oordinates 4761:4966 for type 'B'
+2017-06-03 12:43:12,163 [87] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from J165920 to Jita 
+2017-06-03 12:43:12,531 [102] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636320797780981172' from 'Jita' to 'Hek' 
+2017-06-03 12:43:12,532 [102] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636320797780981172 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-03 12:43:12,532 [102] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636320797780981172 system Hek set oordinates 4882:5080 for type 'C'
+2017-06-03 12:43:12,535 [102] Commands INFO  [PublishSolarSystem] Publish system with key threads_636320797780981172 from Jita to Hek 
+2017-06-03 12:43:12,859 [69] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636320797780981172 
+2017-06-03 12:48:21,867 [83] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-03 12:48:21,867 [83] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-03 12:48:44,663 [75] Commands INFO  [DeleteSolarSystem] Delete solar system Altbrard on map with key CJQ_2000 
+2017-06-03 12:48:55,360 [83] Commands INFO  [DeleteSolarSystem] Delete solar system J134949 on map with key CJQ_2000 
+2017-06-03 12:49:02,983 [83] Commands INFO  [DeleteSolarSystem] Delete solar system J122832 on map with key CJQ_2000 
+2017-06-06 07:58:43,871 [1] Commands INFO  EaveJima server started.
+2017-06-06 08:05:27,994 [15] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-06 08:05:27,998 [15] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-06 11:43:42,438 [1] Commands INFO  EaveJima server started.
+2017-06-06 11:43:43,777 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323354021593943' from '' to 'J213734' 
+2017-06-06 11:43:43,830 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323354021593943 from  to J213734 
+2017-06-06 11:44:20,579 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323354021593943' from 'J213734' to 'J165920' 
+2017-06-06 11:44:43,705 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323354021593943 from J213734 to J165920 
+2017-06-06 11:45:00,986 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323354021593943' from 'J165920' to 'J165936' 
+2017-06-06 11:48:09,334 [1] Commands INFO  EaveJima server started.
+2017-06-06 11:48:16,998 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323356741846128' from '' to 'J213734' 
+2017-06-06 11:48:30,643 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323356741846128 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:16:39,798 [1] Commands INFO  EaveJima server started.
+2017-06-06 12:16:45,714 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323373864083300' from '' to 'J213734' 
+2017-06-06 12:16:46,609 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323373864083300 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:16:59,374 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323373864083300 from  to J213734 
+2017-06-06 12:33:41,150 [1] Commands INFO  EaveJima server started.
+2017-06-06 12:37:22,401 [1] Commands INFO  EaveJima server started.
+2017-06-06 12:38:19,100 [1] Commands INFO  EaveJima server started.
+2017-06-06 12:47:36,887 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323392531365296' from '' to 'J213734' 
+2017-06-06 12:47:36,889 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:47:40,326 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323392531365296 from  to J213734 
+2017-06-06 12:47:42,372 [19] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323392531365296' from 'J213734' to 'J165920' 
+2017-06-06 12:47:42,373 [19] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:47:42,376 [19] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323392531365296 system J165920 set oordinates 44:-143 for type 'A'
+2017-06-06 12:47:42,377 [19] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323392531365296 from J213734 to J165920 
+2017-06-06 12:47:43,349 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323392531365296' from 'J165920' to 'J165936' 
+2017-06-06 12:47:43,349 [13] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:47:43,349 [13] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323392531365296 system J165936 set oordinates -51:-83 for type 'A'
+2017-06-06 12:47:43,350 [13] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323392531365296 from J165920 to J165936 
+2017-06-06 12:48:08,885 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323392531365296' from '' to 'J122635' 
+2017-06-06 12:48:08,886 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-06 12:48:08,922 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323392531365296 from  to J122635 
+2017-06-06 12:48:09,903 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323392531365296' from 'J122635' to 'J168936' 
+2017-06-06 12:48:09,903 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-06 12:48:09,903 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323392531365296_Dana_Su_Shiloff system J168936 set oordinates -78:59 for type 'A'
+2017-06-06 12:48:09,903 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323392531365296 from J122635 to J168936 
+2017-06-06 12:48:41,144 [15] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323392531365296' from 'J168936' to 'J165920' 
+2017-06-06 12:48:41,145 [15] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:48:41,145 [15] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323392531365296_Dana_Su_Shiloff system J165920 set oordinates -241:-17 for type 'A'
+2017-06-06 12:48:41,149 [15] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:48:41,149 [15] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323392531365296 system J168936 set oordinates -89:-240 for type 'A'
+2017-06-06 12:48:41,149 [15] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323392531365296 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:48:41,149 [15] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323392531365296 system J122635 set oordinates -36:-138 for type 'A'
+2017-06-06 12:48:41,153 [15] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323392531365296 from J168936 to J165920 
+2017-06-06 12:53:35,856 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396152736761' from '' to 'J213734' 
+2017-06-06 12:53:35,856 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:53:35,893 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396152736761 from  to J213734 
+2017-06-06 12:53:36,515 [25] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396152736761' from 'J213734' to 'J165920' 
+2017-06-06 12:53:36,515 [25] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:53:36,515 [25] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396152736761 system J165920 set oordinates -40:147 for type 'A'
+2017-06-06 12:53:36,516 [25] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396152736761 from J213734 to J165920 
+2017-06-06 12:53:37,102 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396152736761' from 'J165920' to 'J165936' 
+2017-06-06 12:53:37,102 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:53:37,102 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396152736761 system J165936 set oordinates 124:190 for type 'A'
+2017-06-06 12:53:37,103 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396152736761 from J165920 to J165936 
+2017-06-06 12:53:39,340 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323396152736761' from '' to 'J122635' 
+2017-06-06 12:53:39,340 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-06 12:53:39,378 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396152736761 from  to J122635 
+2017-06-06 12:53:39,863 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323396152736761' from 'J122635' to 'J168936' 
+2017-06-06 12:53:39,863 [29] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-06 12:53:39,863 [29] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396152736761_Dana_Su_Shiloff system J168936 set oordinates -88:90 for type 'A'
+2017-06-06 12:53:39,864 [29] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396152736761 from J122635 to J168936 
+2017-06-06 12:53:43,098 [28] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323396152736761' from 'J168936' to 'J165920' 
+2017-06-06 12:53:43,098 [28] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:53:43,098 [28] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396152736761_Dana_Su_Shiloff system J165920 set oordinates -230:178 for type 'A'
+2017-06-06 12:53:43,100 [28] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:53:43,100 [28] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396152736761 system J168936 set oordinates -116:225 for type 'A'
+2017-06-06 12:53:43,100 [28] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396152736761 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:53:43,100 [28] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396152736761 system J122635 set oordinates 21:237 for type 'A'
+2017-06-06 12:53:43,102 [28] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396152736761 from J168936 to J165920 
+2017-06-06 12:54:26,874 [9] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396663760966' from '' to 'J213734' 
+2017-06-06 12:54:26,875 [9] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:54:26,909 [9] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from  to J213734 
+2017-06-06 12:54:27,410 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396663760966' from 'J213734' to 'J165920' 
+2017-06-06 12:54:27,410 [29] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:54:27,410 [29] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966 system J165920 set oordinates 60:-126 for type 'A'
+2017-06-06 12:54:27,411 [29] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from J213734 to J165920 
+2017-06-06 12:54:27,930 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396663760966' from 'J165920' to 'J165936' 
+2017-06-06 12:54:27,930 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:54:27,930 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966 system J165936 set oordinates -38:-180 for type 'A'
+2017-06-06 12:54:27,931 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from J165920 to J165936 
+2017-06-06 12:54:30,316 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323396663760966' from '' to 'J122635' 
+2017-06-06 12:54:30,317 [29] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-06 12:54:30,377 [29] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from  to J122635 
+2017-06-06 12:54:30,910 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323396663760966' from 'J122635' to 'J168936' 
+2017-06-06 12:54:30,910 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-06 12:54:30,910 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966_Dana_Su_Shiloff system J168936 set oordinates 109:-79 for type 'A'
+2017-06-06 12:54:30,911 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from J122635 to J168936 
+2017-06-06 12:54:34,159 [30] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323396663760966' from 'J168936' to 'J165920' 
+2017-06-06 12:54:34,159 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:54:34,159 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966_Dana_Su_Shiloff system J165920 set oordinates 186:28 for type 'A'
+2017-06-06 12:54:34,160 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:54:34,160 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966 system J168936 set oordinates 8:-264 for type 'A'
+2017-06-06 12:54:34,160 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:54:34,160 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966 system J122635 set oordinates -100:-143 for type 'A'
+2017-06-06 12:54:34,161 [30] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from J168936 to J165920 
+2017-06-06 12:54:45,593 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323396663760966' from 'J213734' to 'J214318' 
+2017-06-06 12:54:45,593 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323396663760966 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:54:45,593 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323396663760966 system J214318 set oordinates 168:-70 for type 'A'
+2017-06-06 12:54:45,594 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323396663760966 from J213734 to J214318 
+2017-06-06 12:54:46,760 [30] Commands INFO  [PublishSignatures] For map with key threads_636323396663760966 system J213734 
+2017-06-06 12:54:47,693 [27] Commands INFO  [PublishSignatures] For map with key threads_636323396663760966 system J213734 
+2017-06-06 12:54:48,663 [28] Commands INFO  [PublishSignatures] For map with key threads_636323396663760966 system J213734 
+2017-06-06 12:54:49,717 [30] Commands INFO  [DeleteSignature] For map with key threads_636323396663760966 system J213734 signature code UHT-116
+2017-06-06 12:54:50,777 [31] Commands INFO  [PublishSignatures] For map with key threads_636323396663760966 system J214318 
+2017-06-06 12:55:15,010 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323397145010351' from '' to 'J213734' 
+2017-06-06 12:55:15,010 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:55:15,050 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from  to J213734 
+2017-06-06 12:55:15,548 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323397145010351' from 'J213734' to 'J165920' 
+2017-06-06 12:55:15,548 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:55:15,548 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351 system J165920 set oordinates 73:-86 for type 'A'
+2017-06-06 12:55:15,549 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from J213734 to J165920 
+2017-06-06 12:55:16,124 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323397145010351' from 'J165920' to 'J165936' 
+2017-06-06 12:55:16,124 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:55:16,124 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351 system J165936 set oordinates 174:-143 for type 'A'
+2017-06-06 12:55:16,125 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from J165920 to J165936 
+2017-06-06 12:55:18,407 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323397145010351' from '' to 'J122635' 
+2017-06-06 12:55:18,408 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-06 12:55:18,462 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from  to J122635 
+2017-06-06 12:55:19,083 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323397145010351' from 'J122635' to 'J168936' 
+2017-06-06 12:55:19,083 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-06 12:55:19,083 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351_Dana_Su_Shiloff system J168936 set oordinates 145:-104 for type 'A'
+2017-06-06 12:55:19,084 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from J122635 to J168936 
+2017-06-06 12:55:22,370 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323397145010351' from 'J168936' to 'J165920' 
+2017-06-06 12:55:22,370 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:55:22,370 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351_Dana_Su_Shiloff system J165920 set oordinates -23:-108 for type 'A'
+2017-06-06 12:55:22,371 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:55:22,371 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351 system J168936 set oordinates -89:-146 for type 'A'
+2017-06-06 12:55:22,371 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:55:22,371 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351 system J122635 set oordinates -120:44 for type 'A'
+2017-06-06 12:55:22,373 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from J168936 to J165920 
+2017-06-06 12:55:24,354 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323397145010351' from 'J213734' to 'J214318' 
+2017-06-06 12:55:24,354 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323397145010351 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:55:24,354 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323397145010351 system J214318 set oordinates 157:-86 for type 'A'
+2017-06-06 12:55:24,355 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323397145010351 from J213734 to J214318 
+2017-06-06 12:55:37,286 [7] Commands INFO  [PublishSignatures] For map with key threads_636323397145010351 system J213734 
+2017-06-06 12:55:46,791 [7] Commands INFO  [PublishSignatures] For map with key threads_636323397145010351 system J213734 
+2017-06-06 12:55:56,487 [7] Commands INFO  [PublishSignatures] For map with key threads_636323397145010351 system J213734 
+2017-06-06 12:56:04,142 [7] Commands INFO  [DeleteSignature] For map with key threads_636323397145010351 system J213734 signature code UHT-116
+2017-06-06 12:56:12,592 [7] Commands INFO  [PublishSignatures] For map with key threads_636323397145010351 system J214318 
+2017-06-06 12:57:38,382 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323398578908324' from '' to 'J213734' 
+2017-06-06 12:57:38,382 [13] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-06 12:57:38,421 [13] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from  to J213734 
+2017-06-06 12:57:38,944 [26] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323398578908324' from 'J213734' to 'J165920' 
+2017-06-06 12:57:38,945 [26] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:57:38,945 [26] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system J165920 set oordinates -141:-122 for type 'A'
+2017-06-06 12:57:38,945 [26] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from J213734 to J165920 
+2017-06-06 12:57:39,449 [28] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323398578908324' from 'J165920' to 'J165936' 
+2017-06-06 12:57:39,449 [28] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:57:39,449 [28] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system J165936 set oordinates -223:21 for type 'A'
+2017-06-06 12:57:39,450 [28] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from J165920 to J165936 
+2017-06-06 12:57:41,660 [26] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323398578908324' from '' to 'J122635' 
+2017-06-06 12:57:41,660 [26] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-06 12:57:41,695 [26] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from  to J122635 
+2017-06-06 12:57:42,161 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323398578908324' from 'J122635' to 'J168936' 
+2017-06-06 12:57:42,161 [13] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-06 12:57:42,161 [13] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324_Dana_Su_Shiloff system J168936 set oordinates -103:77 for type 'A'
+2017-06-06 12:57:42,162 [13] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from J122635 to J168936 
+2017-06-06 12:57:45,349 [26] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323398578908324' from 'J168936' to 'J165920' 
+2017-06-06 12:57:45,349 [26] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:57:45,349 [26] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324_Dana_Su_Shiloff system J165920 set oordinates -79:258 for type 'A'
+2017-06-06 12:57:45,350 [26] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-06 12:57:45,350 [26] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system J168936 set oordinates -193:-242 for type 'A'
+2017-06-06 12:57:45,350 [26] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-06 12:57:45,350 [26] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system J122635 set oordinates -102:-268 for type 'A'
+2017-06-06 12:57:45,352 [26] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from J168936 to J165920 
+2017-06-06 12:57:47,194 [16] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636323398578908324' from 'J213734' to 'J214318' 
+2017-06-06 12:57:47,194 [16] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-06 12:57:47,194 [16] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system J214318 set oordinates 36:100 for type 'A'
+2017-06-06 12:57:47,195 [16] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from J213734 to J214318 
+2017-06-06 12:57:50,136 [7] Commands INFO  [PublishSignatures] For map with key threads_636323398578908324 system J213734 
+2017-06-06 12:57:51,031 [7] Commands INFO  [PublishSignatures] For map with key threads_636323398578908324 system J213734 
+2017-06-06 12:57:52,129 [13] Commands INFO  [PublishSignatures] For map with key threads_636323398578908324 system J213734 
+2017-06-06 12:57:53,053 [28] Commands INFO  [DeleteSignature] For map with key threads_636323398578908324 system J213734 signature code UHT-116
+2017-06-06 12:57:54,047 [26] Commands INFO  [PublishSignatures] For map with key threads_636323398578908324 system J214318 
+2017-06-06 13:02:38,159 [24] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323398578908324' from 'J165920' to 'Jita' 
+2017-06-06 13:02:38,159 [24] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-06 13:02:38,159 [24] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system Jita set oordinates -57:-36 for type 'B'
+2017-06-06 13:02:38,161 [24] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from J165920 to Jita 
+2017-06-06 13:02:39,126 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636323398578908324' from 'Jita' to 'Hek' 
+2017-06-06 13:02:39,126 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636323398578908324 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-06 13:02:39,126 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636323398578908324 system Hek set oordinates -151:77 for type 'C'
+2017-06-06 13:02:39,127 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636323398578908324 from Jita to Hek 
+2017-06-06 13:02:40,057 [5] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636323398578908324 
+2017-06-07 09:06:21,205 [1] Commands INFO  EaveJima server started.
+2017-06-07 09:06:22,568 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324123679864344' from '' to 'J213734' 
+2017-06-07 09:06:22,578 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324123679864344 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-07 09:06:22,854 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324123679864344 from  to J213734 
+2017-06-07 09:06:24,413 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324123679864344' from 'J213734' to 'J165920' 
+2017-06-07 09:06:24,415 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324123679864344 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-07 09:06:24,419 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324123679864344 system J165920 set oordinates 159:1 for type 'A'
+2017-06-07 09:06:24,420 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324123679864344 from J213734 to J165920 
+2017-06-07 09:06:25,410 [9] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324123679864344' from '' to 'J213734' 
+2017-06-07 09:06:25,411 [9] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324123679864344 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-07 09:06:25,442 [9] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324123679864344 from  to J213734 
+2017-06-07 09:09:12,386 [1] Commands INFO  EaveJima server started.
+2017-06-07 09:09:13,672 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324125377338886' from '' to 'J213734' 
+2017-06-07 09:09:13,681 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324125377338886 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-07 09:09:13,930 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324125377338886 from  to J213734 
+2017-06-07 09:09:14,754 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324125377338886' from 'J213734' to 'J165920' 
+2017-06-07 09:09:14,758 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324125377338886 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-07 09:09:14,761 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324125377338886 system J165920 set oordinates -51:-98 for type 'A'
+2017-06-07 09:09:14,763 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324125377338886 from J213734 to J165920 
+2017-06-07 09:09:15,348 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324125377338886' from '' to 'J213734' 
+2017-06-07 09:09:15,350 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324125377338886 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-07 09:09:15,389 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324125377338886 from  to J213734 
+2017-06-07 09:09:26,933 [7] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key threads_636324125377338886
+2017-06-07 09:48:06,215 [24] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-07 09:48:06,215 [24] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-07 09:48:06,252 [24] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-07 09:50:53,297 [21] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-07 09:50:53,298 [21] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-07 09:50:53,330 [21] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:14:55,298 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:14:55,299 [18] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:14:55,372 [18] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:17:50,166 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'A100' from '' to 'J213734' 
+2017-06-08 08:17:50,167 [29] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key A100 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:17:50,205 [29] Commands INFO  [PublishSolarSystem] Publish system with key A100 from  to J213734 
+2017-06-08 08:17:50,683 [18] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'A100' from 'J213734' to 'J165920' 
+2017-06-08 08:17:50,683 [18] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key A100 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-08 08:17:50,689 [18] Commands INFO  [AddSpaceMapCoordinates] For map with key A100 system J165920 set oordinates 178:27 for type 'A'
+2017-06-08 08:17:50,690 [18] Commands INFO  [PublishSolarSystem] Publish system with key A100 from J213734 to J165920 
+2017-06-08 08:17:51,233 [29] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'A100' from '' to 'J213734' 
+2017-06-08 08:17:51,233 [29] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key A100 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:17:51,272 [29] Commands INFO  [PublishSolarSystem] Publish system with key A100 from  to J213734 
+2017-06-08 08:18:00,319 [20] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key A100
+2017-06-08 08:18:36,317 [31] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:18:36,318 [31] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:18:36,351 [31] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:20:27,304 [20] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:20:27,304 [20] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:20:27,349 [20] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:24:01,444 [20] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324962409563040' from '' to 'J213734' 
+2017-06-08 08:24:01,444 [20] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:24:01,480 [20] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from  to J213734 
+2017-06-08 08:24:01,991 [34] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324962409563040' from 'J213734' to 'J165920' 
+2017-06-08 08:24:01,991 [34] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-08 08:24:01,991 [34] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system J165920 set oordinates -113:-107 for type 'A'
+2017-06-08 08:24:01,992 [34] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from J213734 to J165920 
+2017-06-08 08:24:02,523 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324962409563040' from 'J165920' to 'J165936' 
+2017-06-08 08:24:02,523 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-08 08:24:02,523 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system J165936 set oordinates -82:55 for type 'A'
+2017-06-08 08:24:02,524 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from J165920 to J165936 
+2017-06-08 08:24:04,652 [32] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324962409563040' from '' to 'J122635' 
+2017-06-08 08:24:04,652 [32] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-08 08:24:04,688 [32] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from  to J122635 
+2017-06-08 08:24:05,147 [30] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324962409563040' from 'J122635' to 'J168936' 
+2017-06-08 08:24:05,147 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-08 08:24:05,147 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040_Dana_Su_Shiloff system J168936 set oordinates 127:-45 for type 'A'
+2017-06-08 08:24:05,149 [30] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from J122635 to J168936 
+2017-06-08 08:24:08,297 [32] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324962409563040' from 'J168936' to 'J165920' 
+2017-06-08 08:24:08,298 [32] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-08 08:24:08,298 [32] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040_Dana_Su_Shiloff system J165920 set oordinates 126:-211 for type 'A'
+2017-06-08 08:24:08,299 [32] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-08 08:24:08,299 [32] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system J168936 set oordinates -265:-174 for type 'A'
+2017-06-08 08:24:08,300 [32] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-08 08:24:08,300 [32] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system J122635 set oordinates -327:-20 for type 'A'
+2017-06-08 08:24:08,307 [32] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from J168936 to J165920 
+2017-06-08 08:24:10,300 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324962409563040' from 'J213734' to 'J214318' 
+2017-06-08 08:24:10,300 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-08 08:24:10,300 [27] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system J214318 set oordinates 7:166 for type 'A'
+2017-06-08 08:24:10,301 [27] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from J213734 to J214318 
+2017-06-08 08:24:12,221 [20] Commands INFO  [PublishSignatures] For map with key threads_636324962409563040 system J213734 
+2017-06-08 08:24:13,163 [32] Commands INFO  [PublishSignatures] For map with key threads_636324962409563040 system J213734 
+2017-06-08 08:24:14,070 [12] Commands INFO  [PublishSignatures] For map with key threads_636324962409563040 system J213734 
+2017-06-08 08:24:15,002 [30] Commands INFO  [DeleteSignature] For map with key threads_636324962409563040 system J213734 signature code UHT-116
+2017-06-08 08:24:15,911 [32] Commands INFO  [PublishSignatures] For map with key threads_636324962409563040 system J214318 
+2017-06-08 08:24:16,793 [32] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324962409563040' from 'J165920' to 'Jita' 
+2017-06-08 08:24:16,793 [32] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-08 08:24:16,794 [32] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system Jita set oordinates -263:-9 for type 'B'
+2017-06-08 08:24:16,795 [32] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from J165920 to Jita 
+2017-06-08 08:24:17,268 [34] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324962409563040' from 'Jita' to 'Hek' 
+2017-06-08 08:24:17,268 [34] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324962409563040 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-08 08:24:17,268 [34] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324962409563040 system Hek set oordinates -417:-54 for type 'C'
+2017-06-08 08:24:17,269 [34] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324962409563040 from Jita to Hek 
+2017-06-08 08:24:18,398 [32] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636324962409563040 
+2017-06-08 08:25:35,199 [20] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:25:35,199 [20] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:25:35,237 [20] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:28:36,436 [31] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:28:36,436 [31] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:28:36,470 [31] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:29:34,569 [37] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:29:34,569 [37] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:29:34,603 [37] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:32:37,279 [31] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:32:37,279 [31] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:32:37,315 [31] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:38:46,728 [30] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:38:46,728 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:38:46,763 [30] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:42:30,338 [30] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from '' to 'J213734' 
+2017-06-08 08:42:30,338 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:42:30,377 [30] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J213734 
+2017-06-08 08:42:30,912 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from 'J213734' to 'J165920' 
+2017-06-08 08:42:30,912 [42] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-08 08:42:30,912 [42] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system J165920 set oordinates 106:-13 for type 'A'
+2017-06-08 08:42:30,913 [42] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from J213734 to J165920 
+2017-06-08 08:42:31,397 [40] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from 'J165920' to 'J165936' 
+2017-06-08 08:42:31,398 [40] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J165936 systemFrom J165920 coordinates before 0:0
+2017-06-08 08:42:31,398 [40] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system J165936 set oordinates 14:-77 for type 'A'
+2017-06-08 08:42:31,398 [40] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from J165920 to J165936 
+2017-06-08 08:42:33,707 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324973316144820' from '' to 'J122635' 
+2017-06-08 08:42:33,708 [42] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820_Dana_Su_Shiloff systemTo J122635 systemFrom  coordinates before 0:0
+2017-06-08 08:42:33,740 [42] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J122635 
+2017-06-08 08:42:34,188 [37] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324973316144820' from 'J122635' to 'J168936' 
+2017-06-08 08:42:34,188 [37] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820_Dana_Su_Shiloff systemTo J168936 systemFrom J122635 coordinates before 0:0
+2017-06-08 08:42:34,188 [37] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820_Dana_Su_Shiloff system J168936 set oordinates 60:80 for type 'A'
+2017-06-08 08:42:34,189 [37] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from J122635 to J168936 
+2017-06-08 08:42:37,374 [30] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324973316144820' from 'J168936' to 'J165920' 
+2017-06-08 08:42:37,374 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820_Dana_Su_Shiloff systemTo J165920 systemFrom J168936 coordinates before 0:0
+2017-06-08 08:42:37,374 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820_Dana_Su_Shiloff system J165920 set oordinates 160:71 for type 'A'
+2017-06-08 08:42:37,375 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J168936 systemFrom J165920 coordinates before 0:0
+2017-06-08 08:42:37,375 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system J168936 set oordinates 269:38 for type 'A'
+2017-06-08 08:42:37,375 [30] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J122635 systemFrom J168936 coordinates before 0:0
+2017-06-08 08:42:37,375 [30] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system J122635 set oordinates 77:71 for type 'A'
+2017-06-08 08:42:37,376 [30] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from J168936 to J165920 
+2017-06-08 08:42:39,178 [40] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from 'J213734' to 'J214318' 
+2017-06-08 08:42:39,178 [40] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J214318 systemFrom J213734 coordinates before 0:0
+2017-06-08 08:42:39,178 [40] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system J214318 set oordinates -71:-88 for type 'A'
+2017-06-08 08:42:39,179 [40] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from J213734 to J214318 
+2017-06-08 08:42:41,205 [33] Commands INFO  [PublishSignatures] For map with key threads_636324973316144820 system J213734 
+2017-06-08 08:42:42,096 [41] Commands INFO  [PublishSignatures] For map with key threads_636324973316144820 system J213734 
+2017-06-08 08:42:42,975 [40] Commands INFO  [PublishSignatures] For map with key threads_636324973316144820 system J213734 
+2017-06-08 08:42:43,837 [40] Commands INFO  [DeleteSignature] For map with key threads_636324973316144820 system J213734 signature code UHT-116
+2017-06-08 08:42:44,726 [40] Commands INFO  [PublishSignatures] For map with key threads_636324973316144820 system J214318 
+2017-06-08 08:42:45,602 [37] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324973316144820' from 'J165920' to 'Jita' 
+2017-06-08 08:42:45,602 [37] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-08 08:42:45,602 [37] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system Jita set oordinates 197:-129 for type 'B'
+2017-06-08 08:42:45,603 [37] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from J165920 to Jita 
+2017-06-08 08:42:46,072 [43] Commands INFO  [PublishSolarSystem] Relocate pilot 'Dana Su-Shiloff' system with key 'threads_636324973316144820' from 'Jita' to 'Hek' 
+2017-06-08 08:42:46,072 [43] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo Hek systemFrom Jita coordinates before 0:0
+2017-06-08 08:42:46,072 [43] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636324973316144820 system Hek set oordinates 328:-38 for type 'C'
+2017-06-08 08:42:46,073 [43] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from Jita to Hek 
+2017-06-08 08:42:47,873 [37] Commands INFO  [DeleteSolarSystem] Delete solar system Jita on map with key threads_636324973316144820 
+2017-06-08 08:44:12,160 [41] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:44:12,160 [41] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:44:12,194 [41] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:45:47,599 [33] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:45:47,599 [33] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:45:47,633 [33] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 08:50:38,884 [39] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 08:50:38,884 [39] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 08:50:38,923 [39] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:01:17,699 [46] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:01:17,699 [46] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:01:17,730 [46] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:01:38,303 [40] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from '' to 'J213734' 
+2017-06-08 09:01:38,303 [40] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:01:38,363 [40] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J213734 
+2017-06-08 09:03:44,616 [38] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:03:44,616 [38] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:03:44,649 [38] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:04:45,785 [42] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:04:45,785 [42] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:04:45,826 [42] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:05:08,379 [46] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from '' to 'J213734' 
+2017-06-08 09:05:08,379 [46] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:05:08,426 [46] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J213734 
+2017-06-08 09:05:47,033 [46] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from '' to 'J213734' 
+2017-06-08 09:05:47,034 [46] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:05:47,069 [46] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J213734 
+2017-06-08 09:07:06,826 [38] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:07:06,826 [38] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:07:06,870 [38] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:07:45,190 [38] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:07:45,190 [38] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:07:45,223 [38] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:08:02,265 [38] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from '' to 'J213734' 
+2017-06-08 09:08:02,266 [38] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:08:02,296 [38] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J213734 
+2017-06-08 09:26:28,015 [35] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:26:28,015 [35] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:26:28,049 [35] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:28:46,662 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:28:46,662 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:28:46,708 [45] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:28:48,742 [37] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-08 09:28:48,742 [37] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:28:48,777 [37] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-08 09:29:02,245 [53] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636324973316144820' from '' to 'J213734' 
+2017-06-08 09:29:02,246 [53] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636324973316144820 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-08 09:29:02,279 [53] Commands INFO  [PublishSolarSystem] Publish system with key threads_636324973316144820 from  to J213734 
+2017-06-10 10:19:58,842 [1] Commands INFO  EaveJima server started.
+2017-06-10 10:20:00,434 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 10:20:00,447 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:20:00,738 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 10:20:01,815 [9] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from 'J213734' to 'J165920' 
+2017-06-10 10:20:01,819 [9] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J165920 systemFrom J213734 coordinates before 0:0
+2017-06-10 10:20:01,824 [9] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326759848639204 system J165920 set oordinates 174:-55 for type 'A'
+2017-06-10 10:20:01,825 [9] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from J213734 to J165920 
+2017-06-10 10:20:44,644 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from 'J165920' to 'Jita' 
+2017-06-10 10:20:44,644 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo Jita systemFrom J165920 coordinates before 0:0
+2017-06-10 10:20:44,645 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326759848639204 system Jita set oordinates 231:59 for type 'B'
+2017-06-10 10:20:44,648 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from J165920 to Jita 
+2017-06-10 10:33:36,955 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:33:37,286 [11] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:33:37,333 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:33:40,010 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:33:40,011 [13] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:33:40,052 [13] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:34:06,820 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 10:34:06,820 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:34:06,851 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 10:48:42,861 [15] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:48:42,861 [15] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:48:42,894 [15] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:48:45,217 [11] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:48:45,218 [11] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:48:45,269 [11] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:51:18,920 [23] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:51:18,920 [23] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:51:18,977 [23] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:51:21,450 [9] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:51:21,450 [9] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:51:21,485 [9] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:54:54,084 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:54:54,084 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:54:54,130 [7] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:54:58,726 [31] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key CJQ_2000
+2017-06-10 10:55:05,050 [31] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:55:05,050 [31] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:55:05,096 [31] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:59:23,162 [27] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:59:23,162 [27] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:59:23,199 [27] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 10:59:23,700 [27] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key CJQ_2000
+2017-06-10 10:59:26,169 [9] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 10:59:26,169 [9] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 10:59:26,221 [9] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:00:59,753 [28] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:00:59,753 [28] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:00:59,787 [28] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:01:00,251 [13] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key CJQ_2000
+2017-06-10 11:01:02,762 [28] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:01:02,762 [28] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:01:02,817 [28] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:23:38,037 [35] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:23:38,037 [35] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:23:38,086 [35] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:23:39,001 [34] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key CJQ_2000
+2017-06-10 11:23:41,920 [24] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:23:41,920 [24] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:23:41,960 [24] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:24:01,822 [35] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:24:01,822 [35] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:24:01,856 [35] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:25:51,431 [26] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:25:51,432 [26] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:25:51,496 [26] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:40:06,898 [41] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:40:06,898 [41] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:40:06,938 [41] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:41:16,803 [39] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:41:16,803 [39] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:41:16,838 [39] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:42:00,578 [39] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:42:00,578 [39] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:42:00,610 [39] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:45:47,989 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:45:47,989 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:45:48,024 [45] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:45:48,564 [45] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key CJQ_2000
+2017-06-10 11:45:50,975 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:45:50,975 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:45:51,032 [45] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:46:07,591 [50] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_20001' from '' to 'J213734' 
+2017-06-10 11:46:07,591 [50] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_20001 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:46:07,636 [50] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_20001 from  to J213734 
+2017-06-10 11:46:40,904 [45] Commands INFO  [DeleteSolarSystem] Delete solar system J213734 on map with key CJQ_20001 
+2017-06-10 11:47:15,355 [46] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:47:15,355 [46] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:47:15,389 [46] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:50:08,715 [47] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:50:08,715 [47] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:50:08,762 [47] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:50:09,428 [48] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key CJQ_2000
+2017-06-10 11:50:11,801 [50] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'CJQ_2000' from '' to 'J213734' 
+2017-06-10 11:50:11,801 [50] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key CJQ_2000 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:50:11,836 [50] Commands INFO  [PublishSolarSystem] Publish system with key CJQ_2000 from  to J213734 
+2017-06-10 11:50:22,313 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:50:22,314 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:50:22,364 [45] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:51:07,114 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:51:07,114 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:51:07,163 [45] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:51:07,813 [50] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key threads_636326759848639204
+2017-06-10 11:51:10,108 [55] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:51:10,108 [55] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:51:10,143 [55] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:51:23,176 [55] Commands INFO  [UpdateSolarSystemCoordinates] For map with key threads_636326759848639204 system J165920 set oordinates 91:-121
+2017-06-10 11:59:39,119 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:59:39,119 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:59:39,159 [45] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 11:59:39,820 [45] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key threads_636326759848639204
+2017-06-10 11:59:42,185 [13] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 11:59:42,185 [13] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 11:59:42,231 [13] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 12:00:34,065 [45] Commands INFO  [UpdateSolarSystemCoordinates] For map with key threads_636326759848639204 system J165920 set oordinates -147:-109
+2017-06-10 12:12:20,755 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 12:12:20,755 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 12:12:20,814 [45] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 12:12:21,280 [55] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key threads_636326759848639204
+2017-06-10 12:12:24,983 [12] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 12:12:24,984 [12] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 12:12:25,020 [12] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 12:19:24,433 [45] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 12:19:24,433 [45] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 12:19:24,468 [45] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 12:19:25,093 [13] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key threads_636326759848639204
+2017-06-10 12:19:27,453 [58] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326759848639204' from '' to 'J213734' 
+2017-06-10 12:19:27,453 [58] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326759848639204 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 12:19:27,499 [58] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326759848639204 from  to J213734 
+2017-06-10 14:46:27,736 [1] Commands INFO  EaveJima server started.
+2017-06-10 14:46:29,265 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326919741370192' from '' to 'J213734' 
+2017-06-10 14:46:54,029 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326919741370192 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 14:50:53,389 [1] Commands INFO  EaveJima server started.
+2017-06-10 14:50:59,931 [6] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326922465170918' from '' to 'J213734' 
+2017-06-10 14:51:14,714 [6] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326922465170918 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 14:54:19,364 [1] Commands INFO  EaveJima server started.
+2017-06-10 14:54:21,650 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326924448291458' from '' to 'J213734' 
+2017-06-10 14:54:24,508 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326924448291458 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 14:54:33,395 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326924448291458 system J213734 set oordinates 5000:5000
+2017-06-10 14:54:33,643 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326924448291458 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 14:55:10,938 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326925093541647' from '' to 'J213734' 
+2017-06-10 14:55:14,200 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326925093541647 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 14:55:17,270 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326925093541647 system J213734 set oordinates 5000:5000
+2017-06-10 14:55:17,281 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326925093541647 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 15:02:27,991 [14] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326929031426180' from '' to 'J213734' 
+2017-06-10 15:02:27,991 [14] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326929031426180 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 15:02:27,991 [14] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326929031426180 system J213734 set oordinates 5000:5000
+2017-06-10 15:02:27,994 [14] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326929031426180 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 15:04:30,858 [17] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326930527176583' from '' to 'J213734' 
+2017-06-10 15:04:30,859 [17] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326930527176583 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 15:04:30,859 [17] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326930527176583 system J213734 set oordinates 5000:5000
+2017-06-10 15:04:30,864 [17] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326930527176583 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 15:12:22,267 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326935122307848' from '' to 'J213734' 
+2017-06-10 15:12:22,268 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326935122307848 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 15:12:22,268 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326935122307848 system J213734 set oordinates 5000:5000
+2017-06-10 15:12:22,271 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326935122307848 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 15:14:34,414 [7] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326936638848240' from '' to 'J213734' 
+2017-06-10 15:14:34,414 [7] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326936638848240 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 15:14:34,414 [7] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326936638848240 system J213734 set oordinates 5000:5000
+2017-06-10 15:14:34,417 [7] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326936638848240 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 15:16:45,911 [5] Commands INFO  [PublishSolarSystem] Relocate pilot 'Scarlett Orwell' system with key 'threads_636326937930058586' from '' to 'J213734' 
+2017-06-10 15:16:45,912 [5] Commands INFO  [AddSolarSystem] [AddSpaceMapCoordinates] For map with key threads_636326937930058586 systemTo J213734 systemFrom  coordinates before 0:0
+2017-06-10 15:16:45,912 [5] Commands INFO  [AddSpaceMapCoordinates] For map with key threads_636326937930058586 system J213734 set oordinates 5000:5000
+2017-06-10 15:16:45,914 [5] Commands INFO  [PublishSolarSystem] Publish system with key threads_636326937930058586 from  to J213734 for pilot Scarlett Orwell
+2017-06-10 15:16:54,341 [5] Commands INFO  [Map.GetMapOwner] Return map owner Scarlett Orwell with map key threads_636326937930058586
