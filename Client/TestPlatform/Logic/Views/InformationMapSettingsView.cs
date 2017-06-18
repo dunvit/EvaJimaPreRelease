@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EveJimaCore.Logic
+namespace TestPlatform.Logic.Views
 {
-    public partial class MapInformationControl : Form
+    public partial class InformationMapSettingsView : UserControl
     {
-        public MapInformationControl()
+        public InformationMapSettingsView()
         {
             InitializeComponent();
         }

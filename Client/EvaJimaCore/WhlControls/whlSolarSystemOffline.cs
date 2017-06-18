@@ -7,7 +7,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlSolarSystemOffline : baseContainer
+    public partial class whlSolarSystemOffline : BaseContainer
     {
         public BrowserNavigate OnBrowserNavigate;
 

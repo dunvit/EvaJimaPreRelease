@@ -10,7 +10,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlRouter : baseContainer
+    public partial class whlRouter : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlRouter));
 

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EveJimaCore.Logic;
 
-namespace EveJimaCore.Logic
+namespace TestPlatform.Logic
 {
-    public class AMapInformationPresenter
+    class AMapInformationModel : IAMapInformationModel
     {
 
     }

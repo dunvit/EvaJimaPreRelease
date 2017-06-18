@@ -13,7 +13,7 @@ using CefSharp.WinForms.Internals;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlBrowser : baseContainer
+    public partial class whlBrowser : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlBrowser));
 

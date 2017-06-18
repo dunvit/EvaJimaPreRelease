@@ -1,6 +1,0 @@
-2017-05-30 10:08:55,988 [34] All ERROR [GetDeletedSystems] Get updates (deleted systems) with key CJQ_2000 ticks 636317249279538106 exception System.NullReferenceException: Object reference not set to an instance of an object.
-   at EveJimaServerMap.Map.GetDeleted(DateTime lastUpdate) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 223
-   at EveJimaServerMap.Router.GetDeletedSystems(String mapKey, String pilot, Int64 ticks, Boolean deleted) in c:\Development\EvaJimaServer\EveJimaServerMap\Router.cs:line 113
-2017-05-30 22:03:05,273 [70] All ERROR [Map.AddSpaceMapCoordinates] Critical error System.NullReferenceException: Object reference not set to an instance of an object.
-   at EveJimaServerMap.Map.GetLocationPoint(SolarSystem fromSystem) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 326
-   at EveJimaServerMap.Map.AddSpaceMapCoordinates(String systemTo, String systemFrom, Boolean isFirstStarSystemInMap) in c:\Development\EvaJimaServer\EveJimaServerMap\Map.cs:line 284

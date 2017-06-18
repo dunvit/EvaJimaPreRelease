@@ -28,6 +28,8 @@ namespace EvaJimaCore
 
         public static LostSolarSystems LostAndFoundOffice;
 
+        public static EveJimaPresenter Presenter;
+
         public static void Initialization()
         {
 
@@ -57,6 +59,8 @@ namespace EvaJimaCore
             InternalBrowser = new InternalBrowser();
 
             LostAndFoundOffice = new LostSolarSystems();
+
+            Presenter = new EveJimaPresenter();
         }
     }
 }

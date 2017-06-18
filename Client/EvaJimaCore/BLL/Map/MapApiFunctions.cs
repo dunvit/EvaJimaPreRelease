@@ -178,15 +178,25 @@ namespace EveJimaCore.BLL.Map
             }
         }
 
-        public string PublishDeadLetter(string pilotName, string key, string systemName, string type, string code, string name)
+        public string PublishDeadLetter(string mapKey, string pilot, string systemFrom, string systemTo)
         {
-            var address = _mapServerAddress + "/api/Signatures?mapKey=" + key + "&systemName=" + systemName + "&type=" + type + "&code=" + code + "&name=" + name + "";
-
-            using (var client = new WebClient())
+            try
             {
-                var dataVerification = client.DownloadString(address);
+                var address = _mapServerAddress + "/api/Signatures?mapKey=" + mapKey + "&pilot=" + pilot + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo + "";
 
-                return dataVerification;
+                using (var client = new WebClient())
+                {
+                    var dataVerification = client.DownloadString(address);
+
+                    _commandsLog.InfoFormat("[MapApiFunctions.PublishDeadLetter] PublishDeadLetter in system {2}, previous syste, {3} with map key ='{0}' for pilot ='{1}'", mapKey, pilot, systemTo, systemFrom);
+
+                    return dataVerification;
+                }
+            }
+            catch (Exception ex)
+            {
+                _errorsLog.ErrorFormat("[MapApiFunctions.PublishDeadLetter] PublishDeadLetter in system {2}, previous syste, {3} with map key ='{0}' for pilot ='{1}' exception is {4}", mapKey, pilot, systemTo, systemFrom, ex);
+                return "Failure";
             }
         }
 

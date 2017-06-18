@@ -274,6 +274,8 @@ namespace EveJimaServerMap
         {
             var list = new List<SolarSystem>();
 
+            if(lastUpdate.Year == 1) return list;
+
             foreach (var solarSystem in DeletedSystems.Values)
             {
                 if (solarSystem.LastUpdate > lastUpdate)

@@ -294,6 +294,8 @@ namespace EveJimaCore.BLL
 
             try
             {
+                SpaceMap.SelectedSolarSystemName = LocationCurrentSystemName;
+                Global.Presenter.ActivatePilot(Name);
                 if(OnChangeSolarSystem != null) OnChangeSolarSystem(this, LocationPreviousSystemName, LocationCurrentSystemName);
                 if(OnEnterToSolarSystem != null)  OnEnterToSolarSystem(Name, LocationPreviousSystemName, LocationCurrentSystemName);
             }

@@ -2,7 +2,7 @@
 
 namespace EveJimaCore.WhlControls
 {
-    partial class whlPilotInfo : baseContainer
+    partial class whlPilotInfo : BaseContainer
     {
         /// <summary> 
         /// Required designer variable.

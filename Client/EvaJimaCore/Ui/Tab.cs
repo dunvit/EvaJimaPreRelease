@@ -6,7 +6,7 @@ namespace EveJimaCore.Ui
 {
     public class Tab
     {
-        public baseContainer Container { get; set; }
+        public BaseContainer Container { get; set; }
 
         public Button Button { get; set; }
 

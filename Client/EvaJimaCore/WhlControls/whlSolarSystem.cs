@@ -7,7 +7,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlSolarSystem : baseContainer
+    public partial class whlSolarSystem : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlSolarSystem));
 
@@ -202,6 +202,11 @@ namespace EveJimaCore.WhlControls
         private void Event_ShowRouter(object sender, EventArgs e)
         {
             OnContainerActivate("Router");
+        }
+
+        private void cmdShow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

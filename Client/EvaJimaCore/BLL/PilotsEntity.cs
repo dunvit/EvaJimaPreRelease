@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using EvaJimaCore;
 using log4net;
+using log4net.Util;
 
 namespace EveJimaCore.BLL
 {
@@ -34,7 +36,14 @@ namespace EveJimaCore.BLL
             }
         }
 
-        public PilotEntity Selected { get; set; }
+        public PilotEntity Selected { get; private set; }
+
+        public void SetSelected(PilotEntity pilot)
+        {
+            Selected = pilot;
+            Global.Presenter.ActivatePilot(pilot.Name);
+            Global.Presenter.ChangeActivePilot(pilot.Name);
+        }
 
         public void Add(PilotEntity newPilot)
         {
@@ -52,6 +61,8 @@ namespace EveJimaCore.BLL
             {
                 Log.DebugFormat("[PilotsEntity.Activate] pilot.Name {0}", pilot.Name);
                 Selected = pilot;
+                Global.Presenter.ActivatePilot(pilot.Name);
+                Global.Presenter.ChangeActivePilot(pilot.Name);
                 if (OnActivatePilot != null) OnActivatePilot(pilot);
             }
         }

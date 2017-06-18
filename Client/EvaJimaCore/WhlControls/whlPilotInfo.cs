@@ -5,7 +5,7 @@ using EvaJimaCore;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlPilotInfo : baseContainer
+    public partial class whlPilotInfo : BaseContainer
     {
         public BrowserNavigate OnBrowserNavigate;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 
 namespace EveJimaUniverse
 {
@@ -18,7 +19,13 @@ namespace EveJimaUniverse
 
         public DateTime Created { get; set; }
 
-        public StarSystemEntity Information { get; set; }
+        public StarSystemEntity Information
+        {
+            get;
+            set;
+        }
+
+
 
         public string Type { get; set; }
 

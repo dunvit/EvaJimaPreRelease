@@ -21,7 +21,7 @@ namespace EvaJimaCore.Ui
 
 
 
-        public void AddTab(string name, TabSize size, Button button, baseContainer container)
+        public void AddTab(string name, TabSize size, Button button, BaseContainer container)
         {
             var sizeTab = new Size(564, 325);
 

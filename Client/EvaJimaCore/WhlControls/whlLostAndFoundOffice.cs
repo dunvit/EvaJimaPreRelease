@@ -8,7 +8,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlLostAndFoundOffice : baseContainer
+    public partial class whlLostAndFoundOffice : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlLostAndFoundOffice));
 

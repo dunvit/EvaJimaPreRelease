@@ -6,7 +6,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlBookmarks : baseContainer
+    public partial class whlBookmarks : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlBookmarks));
 

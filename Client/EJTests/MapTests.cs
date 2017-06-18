@@ -60,6 +60,24 @@ namespace EJTests
         }
 
         [TestMethod]
+        public void LoadRealMap()
+        {
+            var name = "CJQ_2000";
+            const string pilotFirst = "Scarlett Orwell";
+
+            Global.MapApiFunctions = new MapApiFunctions();
+            Global.MapApiFunctions.Initialization(Server_MapAddress);
+
+            var map = new Map { ActivePilot = pilotFirst, Key = name };
+
+            var retValue = Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "", "J213734");
+
+            Assert.AreEqual(retValue, "\"Ok\"");
+
+            map.Update();
+        }
+
+        [TestMethod]
         public void GetMapOwnerTest()
         {
             var name = "threads_" + DateTime.UtcNow.Ticks;

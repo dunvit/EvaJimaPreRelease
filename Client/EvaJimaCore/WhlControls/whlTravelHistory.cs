@@ -13,7 +13,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlTravelHistory : baseContainer
+    public partial class whlTravelHistory : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlTravelHistory));
         public StarSystemEntity SolarSystem { get; set; }

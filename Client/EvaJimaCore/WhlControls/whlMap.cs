@@ -16,7 +16,7 @@ using log4net;
 namespace EveJimaCore.WhlControls
 {
 
-    public partial class whlMap : baseContainer
+    public partial class whlMap : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger("All");
         readonly ILog _commandsLog = LogManager.GetLogger("Commands");

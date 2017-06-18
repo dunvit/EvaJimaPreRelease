@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace EveJimaCore.WhlControls
 {
-    public class baseContainer : UserControl
+    public class BaseContainer : UserControl
     {
 
-        public baseContainer()
+        public BaseContainer()
         {
             //Visible = false;
             BackColor = Color.Black;

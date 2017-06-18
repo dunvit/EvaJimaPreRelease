@@ -61,13 +61,13 @@
     <Compile Include="Tools.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Github\EveJima\EveJima\EveJimaUniverse\EveJimaUniverse.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Client\EveJimaUniverse\EveJimaUniverse.csproj">
       <Project>{7ccc5a5f-14c3-4ba3-998b-d4177085bfeb}</Project>
       <Name>EveJimaUniverse</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using EvaJimaCore;
 using EvaJimaCore.Ui;
 using EveJimaCore.BLL;
+using EveJimaCore.Logic.MapInformation;
 using EveJimaCore.Properties;
 using EveJimaCore.Ui;
 using EveJimaCore.UiTools;
@@ -38,7 +39,8 @@ namespace EveJimaCore
         private whlSolarSystemOffline _containerSolarSystemOffline;
         private whlVersion _containerVersion;
         private ucRichBrowser _containerBrowser;
-        private crlSpaceMap _containerMap;
+        //private crlSpaceMap _containerMap;
+        private MapControl _containerMap;
         private whlLostAndFoundOffice _containerLostAndFoundOffice;
         private whlRouter _containerRouter;
 
@@ -317,7 +319,7 @@ namespace EveJimaCore
             _containerSolarSystemOffline.OnBrowserNavigate += Event_BrowserNavigate;
             #endregion
 
-            _containerMap = new crlSpaceMap();
+            _containerMap = new MapControl();
             //OnChangeSolarSystem += _containerMap.ChangeCurrentLocation;
 
             _containerVersion = new whlVersion();
@@ -452,7 +454,7 @@ namespace EveJimaCore
                         Global.Pilots.Selected.Key = Global.Pilots.Selected.Name;
                         //Global.Pilots.Selected.SpaceMap = Global.Pilots.Selected.Name;
                     }
-                    _containerMap = new crlSpaceMap();
+                    _containerMap = new MapControl();
                     _containerMap.ActivateContainer();
                     //ContainerTabs.AddTab("Map", TabSize.Map, cmdMap, _containerMap);
                 }
@@ -874,14 +876,14 @@ namespace EveJimaCore
 
                     if (activeProgramName == null) return;
 
-                    Log.DebugFormat("[WindowMonitoring.Event_RefreshActivePilot] Active title {0}", activeProgramName);
+                    //Log.DebugFormat("[WindowMonitoring.Event_RefreshActivePilot] Active title {0}", activeProgramName);
 
                     if (!activeProgramName.StartsWith("EVE - ")) return;
 
                     var pilotName = activeProgramName.Replace("EVE - ", "") + "";
 
-                    Log.DebugFormat("[WindowMonitoring.Event_RefreshActivePilot] pilotName {0}", pilotName);
-                    Log.DebugFormat("[WindowMonitoring.Event_RefreshActivePilot] Global.Pilots.Selected.Name {0}", Global.Pilots.Selected.Name);
+                    //Log.DebugFormat("[WindowMonitoring.Event_RefreshActivePilot] pilotName {0}", pilotName);
+                    //Log.DebugFormat("[WindowMonitoring.Event_RefreshActivePilot] Global.Pilots.Selected.Name {0}", Global.Pilots.Selected.Name);
 
                     if (pilotName == Global.Pilots.Selected.Name) return;
 

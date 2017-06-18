@@ -17,7 +17,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlAuthorization : baseContainer
+    public partial class whlAuthorization : BaseContainer
     {
 
         public DelegateChangeSelectedPilot OnChangeSelectedPilot { get; set; }
@@ -135,7 +135,8 @@ namespace EveJimaCore.WhlControls
 
             cmbPilots.Visible = true;
 
-            Global.Pilots.Selected = _currentPilot;
+            Global.Pilots.SetSelected(_currentPilot);
+
         }
 
 
@@ -175,7 +176,7 @@ namespace EveJimaCore.WhlControls
                 cmbPilots.Items.Add(pilotEntity.Name.Trim());
                 cmbPilots.Text = pilotEntity.Name.Trim();
 
-                Global.Pilots.Selected = pilotEntity;
+                Global.Pilots.SetSelected(pilotEntity);
             }
 
             if (cmbPilots.InvokeRequired)

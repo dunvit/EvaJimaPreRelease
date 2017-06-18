@@ -164,17 +164,73 @@
     <Compile Include="Domain\Map\View\windowMap.Designer.cs">
       <DependentUpon>windowMap.cs</DependentUpon>
     </Compile>
+    <Compile Include="EveJimaPresenter.cs" />
     <Compile Include="Infrastructure\CrestApiFunctions.cs" />
     <Compile Include="Infrastructure\LazyLogger.cs" />
-    <Compile Include="Logic\AMapInformationPresenter.cs" />
-    <Compile Include="Logic\IAMapInformationModel.cs" />
-    <Compile Include="Logic\IAMapInformationView.cs" />
-    <Compile Include="Logic\MapInformationControl.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Logic\MapInformation\AMapInformationModel.cs" />
+    <Compile Include="Logic\MapInformation\AMapInformationPresenter.cs" />
+    <Compile Include="Logic\MapInformation\IAMapInformationModel.cs" />
+    <Compile Include="Logic\MapInformation\IAMapInformationView.cs" />
+    <Compile Include="Logic\IPresenter.cs" />
+    <Compile Include="Logic\IView.cs" />
+    <Compile Include="Logic\MapInformation\MapControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Logic\MapInformationControl.Designer.cs">
+    <Compile Include="Logic\MapInformation\MapControl.Designer.cs">
+      <DependentUpon>MapControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\IMapInformationControl.cs" />
+    <Compile Include="Logic\MapInformation\Views\InformationMapSettingsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\InformationMapSettingsView.Designer.cs">
+      <DependentUpon>InformationMapSettingsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\InformationSignaturesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\InformationSignaturesView.Designer.cs">
+      <DependentUpon>InformationSignaturesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\SolarSystemInformationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\SolarSystemInformationControl.Designer.cs">
+      <DependentUpon>SolarSystemInformationControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\MapInformationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\MapInformationControl.Designer.cs">
       <DependentUpon>MapInformationControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\MapInformation\Views\MapView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\MapView.Designer.cs">
+      <DependentUpon>MapView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\ToolbarView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\ToolbarView.Designer.cs">
+      <DependentUpon>ToolbarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\ScreenUpdateToServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logic\ScreenUpdateToServer.Designer.cs">
+      <DependentUpon>ScreenUpdateToServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\ToolBar\MapToolbarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\ToolBar\MapToolbarControl.Designer.cs">
+      <DependentUpon>MapToolbarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\ToolBar\ToolBarModel.cs" />
+    <Compile Include="Logic\ToolBar\ToolBarPresenter.cs" />
+    <Compile Include="Logic\ToolBar\ToolBarView.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="UiTools\MessageBoxLoader.cs" />
     <Compile Include="UiTools\SystemLine.cs" />
@@ -370,6 +426,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Domain\Map\View\windowMap.resx">
       <DependentUpon>windowMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\MapControl.resx">
+      <DependentUpon>MapControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\InformationMapSettingsView.resx">
+      <DependentUpon>InformationMapSettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\InformationSignaturesView.resx">
+      <DependentUpon>InformationSignaturesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\SolarSystemInformationControl.resx">
+      <DependentUpon>SolarSystemInformationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\MapInformationControl.resx">
+      <DependentUpon>MapInformationControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\MapView.resx">
+      <DependentUpon>MapView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\ToolbarView.resx">
+      <DependentUpon>ToolbarView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\ScreenUpdateToServer.resx">
+      <DependentUpon>ScreenUpdateToServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\ToolBar\MapToolbarControl.resx">
+      <DependentUpon>MapToolbarControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

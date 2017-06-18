@@ -14,7 +14,7 @@ using EveJimaCore.Domain.MapToolbar.View;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class crlSpaceMap : baseContainer
+    public partial class crlSpaceMap : BaseContainer
     {
         readonly WindowMap _windowMap = new WindowMap();
 

@@ -8,7 +8,7 @@ namespace EveJimaCore.WhlControls
 {
     public delegate void DelegateChangeBrowserMode(bool isMax);
 
-    public partial class ucRichBrowser : baseContainer
+    public partial class ucRichBrowser : BaseContainer
     {
         public Form ParentWindow;
 

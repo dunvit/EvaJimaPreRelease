@@ -279,6 +279,7 @@
             this.cmdShow.TabIndex = 79;
             this.cmdShow.Value = "Show";
             this.cmdShow.Click += new System.EventHandler(this.Event_ServiceShow);
+            this.cmdShow.Load += new System.EventHandler(this.cmdShow_Load);
             // 
             // cmdRouter
             // 

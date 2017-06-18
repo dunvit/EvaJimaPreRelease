@@ -9,6 +9,8 @@ namespace EveJimaCore.BLL.Map
 {
     public class Map
     {
+        public event Action<string> OnChangeStatus;
+
         readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
 
         public string Key { get; set; }
@@ -34,6 +36,8 @@ namespace EveJimaCore.BLL.Map
         public Map()
         {
             Systems = new List<SolarSystem>();
+
+            //_lastUpdate = DateTime.UtcNow.Ticks;
         }
 
         public void Activate(string owner, string system)
@@ -91,10 +95,15 @@ namespace EveJimaCore.BLL.Map
 
             if(string.IsNullOrEmpty(Owner))
             {
+                OnChangeStatus?.Invoke($"Get map owner for map {Key}...");
                 Owner = Global.MapApiFunctions.GetMapOwner(Key);
             }
 
+            OnChangeStatus?.Invoke($"Start get updates for map {Key}...");
+
             var updatedSystems = Global.MapApiFunctions.GetUpdates(Key, ActivePilot, _lastUpdate);
+
+            OnChangeStatus?.Invoke($"End get updates for map {Key}. Updated {updatedSystems.Count} solar systems.");
 
             _commandsLog.InfoFormat("[Map.Update] Load systems for map with key ='{0}' for pilot ='{1}' Updated Systems = '{2}' _lastUpdate = '{3}'", Key, ActivePilot, updatedSystems.Count, _lastUpdate);
 
@@ -106,6 +115,8 @@ namespace EveJimaCore.BLL.Map
             }
 
             var deletedSystems = Global.MapApiFunctions.GetDeletes(Key, ActivePilot, _lastUpdate);
+
+            OnChangeStatus?.Invoke($"End get deleted systems for map {Key}. Removed {deletedSystems.Count} solar systems.");
 
             if (deletedSystems.Count > 0)
             {
@@ -119,6 +130,8 @@ namespace EveJimaCore.BLL.Map
 
             var updatePilotes = Global.MapApiFunctions.GetPilotes(Key, _lastUpdate, ActivePilot);
 
+            OnChangeStatus?.Invoke($"End get active pilotes for map {Key}. Updated {updatePilotes.Count} pilotes.");
+
             if (updatePilotes.Count > 0)
             {
                 UpdatePilots(updatePilotes);
@@ -127,6 +140,8 @@ namespace EveJimaCore.BLL.Map
             _lastUpdate = DateTime.UtcNow.Ticks;
 
             HideUnconnectedSystems();
+
+            OnChangeStatus?.Invoke($"End remove old connection for map {Key}.");
 
             _isUpdateInProgress = false;
 
@@ -155,6 +170,8 @@ namespace EveJimaCore.BLL.Map
             _systems.Add(locationSolarSystemName);
 
             if (system == null) return;
+
+            if (system.IsDeleted) return;
 
             system.IsHidden = false;
 
@@ -282,11 +299,15 @@ namespace EveJimaCore.BLL.Map
 
         public void RemoveSystem(string solarSystem)
         {
-            if(solarSystem == LocationSolarSystemName) return;
+            OnChangeStatus?.Invoke($"Check is removed solar system '{solarSystem}' current for selected pilot {Global.Pilots.Selected.Name}...");
+
+            if (solarSystem == LocationSolarSystemName) return;
 
             var deletedSystem = GetSystem(solarSystem);
 
             deletedSystem.IsDeleted = true;
+
+            SelectedSolarSystemName = LocationSolarSystemName;
 
             Update();
         }

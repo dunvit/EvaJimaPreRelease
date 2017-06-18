@@ -8,7 +8,7 @@ using log4net;
 
 namespace EveJimaCore.WhlControls
 {
-    public partial class whlVersion : baseContainer
+    public partial class whlVersion : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlVersion));
 

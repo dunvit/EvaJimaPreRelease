@@ -322,7 +322,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Github\EveJima\EveJima\EveJimaUniverse\EveJimaUniverse.csproj">
+    <ProjectReference Include="..\..\Client\EveJimaUniverse\EveJimaUniverse.csproj">
       <Project>{7ccc5a5f-14c3-4ba3-998b-d4177085bfeb}</Project>
       <Name>EveJimaUniverse</Name>
     </ProjectReference>
