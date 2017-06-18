@@ -27,3 +27,4 @@
 /Server/Server/Data/Maps
 *.suo
 *.gitattributes
+/Server/EveJimaServerMap/obj/Debug
