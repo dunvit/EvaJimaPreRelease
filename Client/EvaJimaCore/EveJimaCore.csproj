@@ -98,72 +98,6 @@
     <Compile Include="Browser\Bookmarks.cs" />
     <Compile Include="Browser\History.cs" />
     <Compile Include="Browser\InternalBrowser.cs" />
-    <Compile Include="Domain\MapInformationSignatures\Contracts\IMapInformationSignaturesModel.cs" />
-    <Compile Include="Domain\MapInformationSignatures\Contracts\IMapInformationSignaturesView.cs" />
-    <Compile Include="Domain\MapInformationSignatures\Modes\MapInformationSignaturesModel.cs" />
-    <Compile Include="Domain\MapInformationSignatures\Presenter\MapInformationSignaturesPresenter.cs" />
-    <Compile Include="Domain\MapInformationSignatures\View\ElementMapInformationSignatures.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Domain\MapInformationSignatures\View\ElementMapInformationSignatures.Designer.cs">
-      <DependentUpon>ElementMapInformationSignatures.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Domain\MapInformationSolarSystem\View\ElementMapInformationSolarSystem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Domain\MapInformationSolarSystem\View\ElementMapInformationSolarSystem.Designer.cs">
-      <DependentUpon>ElementMapInformationSolarSystem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Domain\MapInformation\View\ElementMapInformation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Domain\MapInformation\View\ElementMapInformation.Designer.cs">
-      <DependentUpon>ElementMapInformation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Domain\MapSettings\View\ElementMapSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Domain\MapSettings\View\ElementMapSettings.Designer.cs">
-      <DependentUpon>ElementMapSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Domain\MapToolbar\Contracts\IMapToolbarModel.cs" />
-    <Compile Include="Domain\MapToolbar\Contracts\IMapToolbarView.cs" />
-    <Compile Include="Domain\MapToolbar\Modes\MapToolbarModel.cs" />
-    <Compile Include="Domain\MapToolbar\Presenter\MapToolbarPresenter.cs" />
-    <Compile Include="Domain\MapToolbar\View\elementMapToolbatView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Domain\MapToolbar\View\elementMapToolbatView.Designer.cs">
-      <DependentUpon>elementMapToolbatView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Domain\MapInformationSolarSystem\Contracts\IMapInformationSolarSystemModel.cs" />
-    <Compile Include="Domain\MapInformationSolarSystem\Contracts\IMapInformationSolarSystemView.cs" />
-    <Compile Include="Domain\MapInformationSolarSystem\Modes\MapInformationSolarSystemModel.cs" />
-    <Compile Include="Domain\MapInformationSolarSystem\Presenter\MapInformationSolarSystemPresenter.cs" />
-    <Compile Include="Domain\MapInformation\Contracts\IMapInformationModel.cs" />
-    <Compile Include="Domain\MapInformation\Contracts\IMapInformationView.cs" />
-    <Compile Include="Domain\MapInformation\Modes\MapInformationModel.cs" />
-    <Compile Include="Domain\MapInformation\Presenter\MapInformationPresenter.cs" />
-    <Compile Include="Domain\MapSettings\Contracts\IMapSettingsModel.cs" />
-    <Compile Include="Domain\MapSettings\Contracts\IMapSettingsView.cs" />
-    <Compile Include="Domain\MapSettings\Modes\MapSettingsModel.cs" />
-    <Compile Include="Domain\MapSettings\Presenter\MapSettingsPresenter.cs" />
-    <Compile Include="Domain\_Template\Contracts\ITemplateView.cs" />
-    <Compile Include="Domain\_Template\Contracts\ITemplateModel.cs" />
-    <Compile Include="Domain\_Template\Modes\TemplateModel.cs" />
-    <Compile Include="Domain\_Template\Presenter\TemplatePresenter.cs" />
-    <Compile Include="Domain\IPresenter.cs" />
-    <Compile Include="Domain\IView.cs" />
-    <Compile Include="Domain\Map\Contracts\IMapModel.cs" />
-    <Compile Include="Domain\Map\Contracts\IMapView.cs" />
-    <Compile Include="Domain\Map\Modes\MapModel.cs" />
-    <Compile Include="Domain\Map\Presenter\MapPresenter.cs" />
-    <Compile Include="Domain\Map\View\windowMap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Domain\Map\View\windowMap.Designer.cs">
-      <DependentUpon>windowMap.cs</DependentUpon>
-    </Compile>
     <Compile Include="EveJimaPresenter.cs" />
     <Compile Include="Infrastructure\CrestApiFunctions.cs" />
     <Compile Include="Infrastructure\LazyLogger.cs" />
@@ -231,15 +165,10 @@
     <Compile Include="Logic\ToolBar\ToolBarModel.cs" />
     <Compile Include="Logic\ToolBar\ToolBarPresenter.cs" />
     <Compile Include="Logic\ToolBar\ToolBarView.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="UiTools\MessageBoxLoader.cs" />
     <Compile Include="UiTools\SystemLine.cs" />
-    <Compile Include="WhlControls\crlSpaceMap.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WhlControls\crlSpaceMap.Designer.cs">
-      <DependentUpon>crlSpaceMap.cs</DependentUpon>
-    </Compile>
     <Compile Include="WhlControls\ejButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -409,24 +338,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Domain\MapInformationSignatures\View\ElementMapInformationSignatures.resx">
-      <DependentUpon>ElementMapInformationSignatures.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Domain\MapInformationSolarSystem\View\ElementMapInformationSolarSystem.resx">
-      <DependentUpon>ElementMapInformationSolarSystem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Domain\MapInformation\View\ElementMapInformation.resx">
-      <DependentUpon>ElementMapInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Domain\MapSettings\View\ElementMapSettings.resx">
-      <DependentUpon>ElementMapSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Domain\MapToolbar\View\elementMapToolbatView.resx">
-      <DependentUpon>elementMapToolbatView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Domain\Map\View\windowMap.resx">
-      <DependentUpon>windowMap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Logic\MapInformation\MapControl.resx">
       <DependentUpon>MapControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -461,9 +372,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WhlControls\baseContainer.resx">
       <DependentUpon>baseContainer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WhlControls\crlSpaceMap.resx">
-      <DependentUpon>crlSpaceMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WhlControls\mapSolarSystem.resx">
       <DependentUpon>mapSolarSystem.cs</DependentUpon>
@@ -604,10 +512,7 @@
     <Content Include="Versions\1.29.txt" />
     <Content Include="Versions\1.28.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\_Template\View\" />
-    <Folder Include="Garbage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\cef.redist.x86.3.2785.1486\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2785.1486\build\cef.redist.x86.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

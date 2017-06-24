@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using EvaJimaCore;
 using EveJimaCore.BLL;
-using EveJimaCore.BLL.Map;
-using EveJimaCore.Domain.Map.Contracts;
-using EveJimaCore.Domain.Map.Modes;
-using EveJimaCore.Domain.Map.Presenter;
-using EveJimaCore.Domain.Map.View;
+using EveJimaCore.Logic;
 using log4net;
 
 namespace EveJimaCore.WhlControls
@@ -38,23 +31,31 @@ namespace EveJimaCore.WhlControls
         {
             InitializeComponent();
 
-            Task.Run(() =>
+            Pilotes = new List<PilotEntity>();
+        }
+
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+
+            if(Visible && !Disposing)
             {
-                try
+                if (Global.ApplicationSettings.Pilots.Count > 0 && Pilotes.Count < 1 )
                 {
-                    LoadAllPilotesFromStorage();
+                    cmdLoadPilotes.Value = $"Load {Global.ApplicationSettings.Pilots.Count} pilotes from cache";
+                    cmdLoadPilotes.Visible = true;
+                    btnLogInWithEveOnline.Visible = false;
+                    
                 }
-                catch (Exception ex)
-                {
-                    Log.ErrorFormat("[whlAuthorization.whlAuthorization] Critical error. Exception {0}", ex);
-                }
-                
-            });
+            }
         }
 
         List<PilotEntity> Pilotes { get; set; }
 
         private bool _isLoadedPilotesFromStorage;
+
+
 
         public void LoadAllPilotesFromStorage()
         {
@@ -63,12 +64,25 @@ namespace EveJimaCore.WhlControls
                 Invoke(new Action(() => LoadAllPilotesFromStorage()));
             }
 
+            var screen = new ScreenUpdateToServer { ActionType = "LoadAllPilotesFromStorage", MapKey = "" };
+            screen.AuthorizeAllPilotsInAccount += AuthorizeAllPilotsInAccount;
+            screen.ShowDialog();
+
+            ShowPilots();
+
+            _isLoadedPilotesFromStorage = true;
+        }
+
+        public void AuthorizeAllPilotsInAccount(string obj)
+        {
             Pilotes = new List<PilotEntity>();
 
-            foreach(var pilot in Global.ApplicationSettings.Pilots)
+            foreach (var pilot in Global.ApplicationSettings.Pilots)
             {
                 try
                 {
+                    Messages.GetInstance().PublishMessage($"Start authorize for {pilot.Item1}");
+
                     var currentPilot = new PilotEntity(pilot.Item2, pilot.Item3);
 
                     currentPilot.Key = pilot.Item4 != "" ? pilot.Item4 : currentPilot.Name.Replace(" ", "_").Replace("-", "_");
@@ -79,12 +93,8 @@ namespace EveJimaCore.WhlControls
                 {
                     Log.ErrorFormat("[whlAuthorization.LoadAllPilotesFromStorage] Critical error. Exception {0}", ex);
                 }
-                
+
             }
-
-            ShowPilots();
-
-            _isLoadedPilotesFromStorage = true; 
         }
 
         private void Event_GoToCCPSSO(object sender, EventArgs e)
@@ -179,19 +189,18 @@ namespace EveJimaCore.WhlControls
                 Global.Pilots.SetSelected(pilotEntity);
             }
 
-            if (cmbPilots.InvokeRequired)
+            
+            cmbPilots.Invoke(new MethodInvoker(delegate
             {
-                cmbPilots.Invoke(new MethodInvoker(delegate
-                {
-                    btnLogInWithEveOnline.Visible = true;
-                    cmbPilots.Visible = true;
-                    crlPilotPortrait.Image = Global.Pilots.Selected.Portrait;
-                    crlPilotPortrait.Refresh();
-                    crlPilotPortrait.Visible = true;
-                    if (OnChangeSelectedPilot != null) OnChangeSelectedPilot();
-                    lblAuthorizationInfo.Text = TextAfterAuthorizationInfo + Environment.NewLine + Environment.NewLine + TextAuthorizationInfo;
-                }));
-            }
+                btnLogInWithEveOnline.Visible = true;
+                cmbPilots.Visible = true;
+                crlPilotPortrait.Image = Global.Pilots.Selected.Portrait;
+                crlPilotPortrait.Refresh();
+                crlPilotPortrait.Visible = true;
+                if (OnChangeSelectedPilot != null) OnChangeSelectedPilot();
+                lblAuthorizationInfo.Text = TextAfterAuthorizationInfo + Environment.NewLine + Environment.NewLine + TextAuthorizationInfo;
+            }));
+            
 
             if ( Global.Pilots.Selected != null )
             {
@@ -237,6 +246,15 @@ namespace EveJimaCore.WhlControls
         private void cmbPilots_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmdLoadPilotes_Click(object sender, EventArgs e)
+        {
+            cmdLoadPilotes.Visible = false;
+
+            LoadAllPilotesFromStorage();
+
+            btnLogInWithEveOnline.Visible = true;
         }
     }
 }

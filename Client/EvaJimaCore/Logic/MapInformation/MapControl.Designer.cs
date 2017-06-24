@@ -68,6 +68,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.Controls.Add(this.containerMap);
             this.Controls.Add(this.containerInformation);
             this.Controls.Add(this.containerToolbar);

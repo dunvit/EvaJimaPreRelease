@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using EvaJimaCore;
 using EvaJimaCore.Ui;
 using EveJimaCore.BLL;
+using EveJimaCore.Logic;
 using EveJimaCore.Logic.MapInformation;
 using EveJimaCore.Properties;
 using EveJimaCore.Ui;
@@ -80,12 +81,12 @@ namespace EveJimaCore
                 ContainerTabs.AddTab("SolarSystem", TabSize.Small, cmdShowContainerSolarSystem1, _containerSolarSystemOffline);
                 ContainerTabs.AddTab("Pilots", TabSize.Small, cmdShowContainerPilots1, _containerPilotInfo);
                 ContainerTabs.AddTab("Bookmarks", TabSize.Small, cmdShowContainerBookmarks1, _containerBookmarks);
-                ContainerTabs.AddTab("Signatures", TabSize.Small, null, _containerTravelHistory);
+                //ContainerTabs.AddTab("Signatures", TabSize.Small, null, _containerTravelHistory);
                 ContainerTabs.AddTab("WebBrowser", TabSize.Large, cmdOpenWebBrowser1, _containerBrowser);
                 ContainerTabs.AddTab("Map", TabSize.Map, cmdMap, _containerMap);
                 //ContainerTabs.AddTab("Version", TabSize.Large, cmdVersion, _containerVersion);
-                ContainerTabs.AddTab("LostAndFoundOffice", TabSize.Small, null, _containerLostAndFoundOffice);
-                ContainerTabs.AddTab("Router", TabSize.Small, null, _containerRouter);
+                //ContainerTabs.AddTab("LostAndFoundOffice", TabSize.Small, null, _containerLostAndFoundOffice);
+                //ContainerTabs.AddTab("Router", TabSize.Small, null, _containerRouter);
 
                 //cmdMap _containerMap
 
@@ -112,6 +113,9 @@ namespace EveJimaCore
 
                 Global.Pilots.OnActivatePilot += GlobalEvent_ActivatePilot;
                 Global.InternalBrowser.OnBrowserNavigate += Event_BrowserNavigate;
+
+                DelegateStartProcess startProcessFunction = StartPilotAuthorizeFlow;
+                new Thread(() => new CrestApiListener().ListenLocalhost(startProcessFunction)) { IsBackground = true }.Start();
             }
             catch (Exception ex)
             {
@@ -385,9 +389,7 @@ namespace EveJimaCore
             
             CreateTooltipsForStatics();
 
-            DelegateStartProcess startProcessFunction = StartPilotAuthorizeFlow;
-
-            new Thread(() => new CrestApiListener().ListenLocalhost(startProcessFunction)) { IsBackground = true }.Start();
+            
 
             SetStyle(ControlStyles.ResizeRedraw, true);
 
@@ -917,6 +919,19 @@ namespace EveJimaCore
                 _windowIsPinned = Global.WorkEnvironment.IsPinned;
 
                 SetPinned();
+
+
+                //Thread.Sleep(3000);
+                //var screen = new ScreenUpdateToServer { ActionType = "LoadAllPilotesFromStorage" };
+                //screen.AuthorizeAllPilotsInAccount += _containerAuthorization.AuthorizeAllPilotsInAccount;
+                //screen.ShowDialog();
+                //_containerAuthorization.LoadAllPilotesFromStorage();
+                //LoadAllPilotesFromStorage();
+                //MessageBox.Show("1");
+
+                
+
+                
             }
         }
 
@@ -926,6 +941,21 @@ namespace EveJimaCore
             {
                 _containerMap.Event_Map_OnResize();
             }
+        }
+
+        private void WindowMonitoring_Shown(object sender, EventArgs e)
+        {
+            //Thread.Sleep(3000);
+            //var screen = new ScreenUpdateToServer { ActionType = "LoadAllPilotesFromStorage" };
+            //screen.AuthorizeAllPilotsInAccount += _containerAuthorization.AuthorizeAllPilotsInAccount;
+            //screen.ShowDialog();
+            //_containerAuthorization.LoadAllPilotesFromStorage();
+            //LoadAllPilotesFromStorage();
+
+
+
+
+
         }
 
 

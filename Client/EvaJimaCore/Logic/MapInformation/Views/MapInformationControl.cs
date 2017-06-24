@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using EveJimaCore.BLL.Map;
 using EveJimaCore.Logic.MapInformation;
 using EveJimaCore.Logic.MapInformation.Views;
+using EveJimaUniverse;
 
 namespace TestPlatform.Logic.Views
 {
@@ -26,6 +27,10 @@ namespace TestPlatform.Logic.Views
 
         public event Action<string> DeathNotice;
 
+        public event Action<string, List<CosmicSignature>> UpdateSignatures;
+
+        public event Action<string> ChangeMapKey;
+
         public MapInformationControl()
         {
             InitializeComponent();
@@ -33,7 +38,10 @@ namespace TestPlatform.Logic.Views
             _informationControls = new Dictionary<string, Panel>();
             _solarSystemInformationControl = new SolarSystemInformationControl { Visible = true, Dock = DockStyle.Fill };
             _informationSignaturesView = new InformationSignaturesView { Visible = true, Dock = DockStyle.Fill };
+            _informationSignaturesView.UpdateSignatures += Event_UpdateSignatures;
+
             _informationMapSettingsView = new InformationMapSettingsView { Visible = true, Dock = DockStyle.Fill };
+            _informationMapSettingsView.ChangeMapKey += Event_ChangeMapKey;
 
             _solarSystemInformationControl.CentreScreenLocationSystem += Event_CentreScreenLocationSystem;
             _solarSystemInformationControl.CentreScreenSelectedSystem += Event_CentreScreenSelectedSystem;
@@ -57,6 +65,16 @@ namespace TestPlatform.Logic.Views
             Controls.Add(mapSettingsPanel);
 
             ActivatePanel("SolarSystem");
+        }
+
+        private void Event_ChangeMapKey(string obj)
+        {
+            ChangeMapKey(obj);
+        }
+
+        private void Event_UpdateSignatures(string arg1, List<CosmicSignature> arg2)
+        {
+            UpdateSignatures(arg1, arg2);
         }
 
         private void Event_DeathNotice(string obj)
@@ -125,6 +143,11 @@ namespace TestPlatform.Logic.Views
         private void MapInformationControl_Load(object sender, System.EventArgs e)
         {
 
+        }
+
+        public void ForceRefresh(Map spaceMap)
+        {
+            ChangeLocation(spaceMap);
         }
     }
 }

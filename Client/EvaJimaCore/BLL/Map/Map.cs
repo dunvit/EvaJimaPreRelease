@@ -15,7 +15,7 @@ namespace EveJimaCore.BLL.Map
 
         public string Key { get; set; }
 
-        public string Owner { get; set; }
+        private string Owner { get; set; }
 
         public string ActivePilot { get; set; }
 
@@ -37,7 +37,7 @@ namespace EveJimaCore.BLL.Map
         {
             Systems = new List<SolarSystem>();
 
-            //_lastUpdate = DateTime.UtcNow.Ticks;
+            _lastUpdate = new DateTime(2015,5,5).Ticks;
         }
 
         public void Activate(string owner, string system)
@@ -50,6 +50,13 @@ namespace EveJimaCore.BLL.Map
             aTimer.Elapsed += Event_Refresh;
             aTimer.Interval = 5000;
             aTimer.Enabled = true;
+        }
+
+        public string GetOwner()
+        {
+            Owner = Global.MapApiFunctions.GetMapOwner(Key);
+
+            return Owner;
         }
 
         private void Event_Refresh(object sender, EventArgs e)
@@ -71,10 +78,11 @@ namespace EveJimaCore.BLL.Map
             _isUpdateInProgress = true;
 
             _commandsLog.InfoFormat("[Map.Reload] Reload map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
-            _lastUpdate = 0;
+            _lastUpdate = new DateTime(2015, 5, 5).Ticks;
             Key = key;
 
-            Global.MapApiFunctions.PublishSolarSystem(ActivePilot, Key, null, LocationSolarSystemName);
+            ApiPublishSolarSystem(ActivePilot, Key, null, LocationSolarSystemName);
+
             Global.Pilots.Selected.Key = key;
             Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, Key);
 
@@ -83,7 +91,56 @@ namespace EveJimaCore.BLL.Map
             Update();
         }
 
+        public List<SolarSystem> ApiPublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)
+        {
+            OnChangeStatus?.Invoke($"Start Publish Solar System for map '{Key}' with pilot '{pilotName}'. Relocated from '{systemFrom}' to '{systemTo}'");
+
+            var updatedSystems = Global.MapApiFunctions.PublishSolarSystem(pilotName, Key, systemFrom, systemTo);
+
+            OnChangeStatus?.Invoke($"End get updates for map '{Key}' after PublishSolarSystem. Updated {updatedSystems.Count} solar systems.");
+
+            UpdateSolarSystems(updatedSystems);
+
+            return updatedSystems;
+        }
+
+        public List<SolarSystem> ApiDeleteSolarSystem(string key , string solarSystemName, string pilotName)
+        {
+            OnChangeStatus?.Invoke($"Start Delete Solar System for map '{key}' with pilot '{pilotName}'. Deleted solar system name is '{solarSystemName}'");
+
+            var updatedSystems = Global.MapApiFunctions.DeleteSolarSystem(key, solarSystemName, pilotName);
+
+            UpdateSolarSystems(updatedSystems);
+
+            RemoveSystem(solarSystemName);
+
+            return updatedSystems;
+
+            
+
+        }
+
+        public List<SolarSystem> ApiPublishSignatures(string key, string solarSystemName, string pilotName, List<CosmicSignature> signatures)
+        {
+            OnChangeStatus?.Invoke($"Start Publish Signatures Solar System '{solarSystemName}' for map '{key}' with pilot '{pilotName}'. signatures count is '{signatures.Count}'");
+
+            var updatedSystems = Global.MapApiFunctions.PublishSignatures(pilotName, key, solarSystemName, signatures);
+
+            UpdateSolarSystems(updatedSystems);
+
+            RemoveSystem(solarSystemName);
+
+            return updatedSystems;
+        }
+
+
         private bool _isUpdateInProgress;
+
+        public long GetLastUpdate()
+        {
+            return _lastUpdate;
+        }
+
 
         public string Update()
         {
@@ -96,7 +153,7 @@ namespace EveJimaCore.BLL.Map
             if(string.IsNullOrEmpty(Owner))
             {
                 OnChangeStatus?.Invoke($"Get map owner for map {Key}...");
-                Owner = Global.MapApiFunctions.GetMapOwner(Key);
+                Owner = GetOwner();
             }
 
             OnChangeStatus?.Invoke($"Start get updates for map {Key}...");
@@ -105,7 +162,7 @@ namespace EveJimaCore.BLL.Map
 
             OnChangeStatus?.Invoke($"End get updates for map {Key}. Updated {updatedSystems.Count} solar systems.");
 
-            _commandsLog.InfoFormat("[Map.Update] Load systems for map with key ='{0}' for pilot ='{1}' Updated Systems = '{2}' _lastUpdate = '{3}'", Key, ActivePilot, updatedSystems.Count, _lastUpdate);
+            _commandsLog.DebugFormat("[Map.Update] Load systems for map with key ='{0}' for pilot ='{1}' Updated Systems = '{2}' _lastUpdate = '{3}'", Key, ActivePilot, updatedSystems.Count, _lastUpdate);
 
             if (updatedSystems.Count > 0)
             {
@@ -126,8 +183,6 @@ namespace EveJimaCore.BLL.Map
                 GarbageCollector(deletedSystems);
             }
 
-            //List<PilotLocation> GetPilotes
-
             var updatePilotes = Global.MapApiFunctions.GetPilotes(Key, _lastUpdate, ActivePilot);
 
             OnChangeStatus?.Invoke($"End get active pilotes for map {Key}. Updated {updatePilotes.Count} pilotes.");
@@ -146,7 +201,6 @@ namespace EveJimaCore.BLL.Map
             _isUpdateInProgress = false;
 
             return message;
-
         }
 
         List<string> _systems = new List<string>();
@@ -187,7 +241,7 @@ namespace EveJimaCore.BLL.Map
 
         public void Publish(string pilotName, string systemFrom, string systemTo)
         {
-            Global.MapApiFunctions.PublishSolarSystem(pilotName, Key, systemFrom, systemTo);
+            ApiPublishSolarSystem(pilotName, Key, systemFrom, systemTo);
 
             Update();
 
@@ -203,14 +257,14 @@ namespace EveJimaCore.BLL.Map
                 if (system != null)
                 {
                     system.LocationInMap = updatedSystem.LocationInMap;
-                    _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} updated system {2} oordinates {1}", Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, system.Name);
+                    _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} updated system {2} Coordinates {1}", Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, system.Name);
                     system.Signatures = updatedSystem.Signatures;
                     system.Connections = updatedSystem.Connections;
                 }
                 else
                 {
                     Systems.Add(updatedSystem);
-                    _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} added system {2} oordinates {1}", Key, updatedSystem.LocationInMap.X + ":" + updatedSystem.LocationInMap.Y, updatedSystem.Name);
+                    _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} added system {2} Coordinates {1}", Key, updatedSystem.LocationInMap.X + ":" + updatedSystem.LocationInMap.Y, updatedSystem.Name);
                 }
 
 
@@ -312,13 +366,17 @@ namespace EveJimaCore.BLL.Map
             Update();
         }
 
-        public void DeathNotice(string locationSolarSystem)
+        public List<SolarSystem> ApiPublishDeathNotice(string locationSolarSystem)
         {
-            Global.MapApiFunctions.DeleteConnectionBetweenSolarSystems(ActivePilot, Key, PreviousLocationSolarSystemName, locationSolarSystem);
+            var updatedSystems = Global.MapApiFunctions.DeleteConnectionBetweenSolarSystems(ActivePilot, Key, PreviousLocationSolarSystemName, locationSolarSystem);
+
+            OnChangeStatus?.Invoke($"End get updates for map '{Key}' after DeathNotice delete connection from system {PreviousLocationSolarSystemName} to system {locationSolarSystem}. Updated {updatedSystems.Count} solar systems.");
+
+            UpdateSolarSystems(updatedSystems);
 
             _commandsLog.InfoFormat("[DeathNotice] For map with key {0} delete connection from system {2} to system {1}", Key, locationSolarSystem, PreviousLocationSolarSystemName);
 
-            Update();
+            return updatedSystems;
         }
     }
 }

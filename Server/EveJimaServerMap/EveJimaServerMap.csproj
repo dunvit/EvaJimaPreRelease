@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Map.cs" />
+    <Compile Include="MapInformation.cs" />
     <Compile Include="MapTools.Type.cs" />
     <Compile Include="PilotLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

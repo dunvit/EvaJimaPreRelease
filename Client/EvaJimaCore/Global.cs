@@ -1,4 +1,5 @@
-﻿using EveJimaCore;
+﻿using System;
+using EveJimaCore;
 using EveJimaCore.BLL;
 using EveJimaCore.BLL.LostAndFound;
 using EveJimaCore.BLL.Map;
@@ -30,6 +31,8 @@ namespace EvaJimaCore
 
         public static EveJimaPresenter Presenter;
 
+        
+
         public static void Initialization()
         {
 
@@ -50,7 +53,7 @@ namespace EvaJimaCore
 
             Pilots = new PilotsEntity();
 
-            //if (ApplicationSettings.IsConverted == false) Tools.ConvertSettings(ApplicationSettings, Settings, WorkEnvironment);
+            if (ApplicationSettings.IsConverted == false) Tools.ConvertSettings(ApplicationSettings, Settings, WorkEnvironment);
 
             Infrastructure = new Infrastructure();
 

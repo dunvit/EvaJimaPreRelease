@@ -253,6 +253,7 @@ namespace EveJimaCore.Logic.MapInformation
                         var connectedSolarSystem = SpaceMap.Systems.FirstOrDefault(system => system.Name == connection);
 
                         if(connectedSolarSystem.Name == null) continue;
+                        if(connectedSolarSystem.IsDeleted) continue;
 
                         var pen = new Pen(Color.Gray, 1);
                         pen.DashStyle = DashStyle.Solid;

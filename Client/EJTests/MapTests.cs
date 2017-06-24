@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using EvaJimaCore;
 using EveJimaCore;
 using EveJimaCore.BLL.Map;
@@ -13,6 +14,28 @@ namespace EJTests
     {
         public string Server_MapAddress = "http://localhost:51135"; // "http://www.evajima-storage.somee.com";
 
+        private string log = "";
+
+        private void InitializationGlobalFunctions()
+        {
+            Global.MapApiFunctions = new MapApiFunctions();
+            Global.MapApiFunctions.Initialization(Server_MapAddress);
+            Global.ApplicationSettings = new ApplicationSettings();
+
+            log4net.Config.XmlConfigurator.Configure();
+        }
+
+        private Map Initialization(string activePilotName, string Key)
+        {
+            InitializationGlobalFunctions();
+
+            var map = new Map { ActivePilot = activePilotName, Key = Key };
+
+            map.OnChangeStatus += AddLogMessage;
+
+            return map;
+        }
+
         [TestMethod]
         public void DeathNotice_Test()
         {
@@ -20,41 +43,53 @@ namespace EJTests
 
             const string pilotFirst = "Scarlett Orwell";
 
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
-            Global.ApplicationSettings = new ApplicationSettings();
+            var map = Initialization(pilotFirst, name);
 
-            var map = new Map { ActivePilot = pilotFirst, Key = name };
+            var updatedSystems = map.ApiPublishSolarSystem(pilotFirst, name, "", "J213734");
+            
+            Assert.AreEqual(updatedSystems[0].LocationInMap.X, 5000);
+            Assert.AreEqual(updatedSystems[0].LocationInMap.Y, 5000);
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "", "J213734"), "\"Ok\"");
-            map.Update();
-            Assert.AreEqual(map.Systems[0].LocationInMap.X, 5000);
-            Assert.AreEqual(map.Systems[0].LocationInMap.Y, 5000);
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "J213734", "J165920"), "\"Ok\"");
-            map.Update();
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "J165920", "Jita"), "\"Ok\"");
-            map.Update();
-            Assert.AreEqual(Global.MapApiFunctions.DeleteConnectionBetweenSolarSystems(pilotFirst, name, "J165920", "Jita"), "\"Ok\"");
+            Assert.AreEqual(map.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J165920").Count, 2);
+
             map.Update();
 
-            Assert.AreEqual(map.Systems[2].Connections.Count, 0);
+            Assert.AreEqual(map.ApiPublishSolarSystem(pilotFirst, name, "J165920", "Jita").Count, 2);
 
+            map.Update();
+
+            map.RelocatePilot(pilotFirst, "J165920", "Jita");
+
+            Assert.AreEqual(map.ApiPublishDeathNotice("Jita").Count, 2);
+
+            map.Update();
+
+            Assert.AreEqual(map.GetSystem("Jita").Connections.Count, 0);
+
+            Assert.AreEqual(map.GetSystem("J165920").Connections.Count, 1);
+
+        }
+
+        private void AddLogMessage(string obj)
+        {
+            log = log + Environment.NewLine + "[" + string.Format("{0:MM/dd/yyyy  hh:mm:ss}", DateTime.UtcNow) + "] " + obj;
         }
 
         [TestMethod]
         public void LoadMapTest()
         {
-            var name = "threads_636324973316144820";
+            var name = "threads_" + DateTime.UtcNow.Ticks;
             const string pilotFirst = "Scarlett Orwell";
 
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
+            var map = Initialization(pilotFirst, name);
 
-            var map = new Map {ActivePilot = pilotFirst, Key = name};
+            var retValue = map.ApiPublishSolarSystem(pilotFirst, name, "", "J213734");
 
-            var retValue = Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "", "J213734");
+            Assert.AreEqual(retValue.Count, 1);
 
-            Assert.AreEqual(retValue, "\"Ok\"");
+            var owner = Global.MapApiFunctions.GetMapOwner(name);
+
+            Assert.AreEqual(owner, pilotFirst);
 
             map.Update();
         }
@@ -62,17 +97,14 @@ namespace EJTests
         [TestMethod]
         public void LoadRealMap()
         {
-            var name = "CJQ_2000";
+            const string name = "CJQ_2000";
             const string pilotFirst = "Scarlett Orwell";
 
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
+            var map = Initialization(pilotFirst, name);
 
-            var map = new Map { ActivePilot = pilotFirst, Key = name };
+            var retValue = map.ApiPublishSolarSystem(pilotFirst, name, "", "J213734");
 
-            var retValue = Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "", "J213734");
-
-            Assert.AreEqual(retValue, "\"Ok\"");
+            Assert.AreNotEqual(retValue.Count, 0);
 
             map.Update();
         }
@@ -85,12 +117,18 @@ namespace EJTests
             const string pilotFirst = "Scarlett Orwell";
             const string pilotSecond = "Dana Su-Shiloff";
 
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
+            var map = Initialization(pilotFirst, name);
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "", "J213734"), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "J213734", "J165920"), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotSecond, name, "", "J213734"), "\"Ok\"");
+            Assert.AreEqual(map.ApiPublishSolarSystem(pilotFirst, name, "", "J213734").Count, 1);
+            Assert.AreEqual(map.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J165920").Count, 2);
+            map.Update();
+            Assert.AreEqual(map.Pilotes.Count, 1);
+
+            Assert.AreEqual(map.ApiPublishSolarSystem(pilotSecond, name, "", "J213734").Count, 0);
+
+            map.Update();
+
+            Assert.AreEqual(map.Pilotes.Count, 2);
 
             var mapOwner = Global.MapApiFunctions.GetMapOwner(name);
 
@@ -98,70 +136,95 @@ namespace EJTests
         }
 
         [TestMethod]
-        public void FullFlowMapTest()
+        public void DeleteSolarSystemTest()
         {
             var name = "threads_" + DateTime.UtcNow.Ticks;
-
-            var someString = $"Some data: {name}, some more data: {name}";
-
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
 
             const string pilotFirst = "Scarlett Orwell";
             const string pilotSecond = "Dana Su-Shiloff";
 
+            var mapFirst = Initialization(pilotFirst, name);
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "", "J213734"), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "J213734", "J165920"), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "J165920", "J165936"), "\"Ok\"");
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "", "Jita").Count, 1);
+            Thread.Sleep(2000);
 
-            var mapFirst = new Map { ActivePilot = pilotFirst, Key = name };
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotSecond, name, "Jita", "Hek").Count, 2);
+            Thread.Sleep(2000);
+
+            Assert.AreEqual(mapFirst.ApiDeleteSolarSystem(name, "Jita", pilotFirst).Count, 1);
+            Thread.Sleep(2000);
+        }
+
+        [TestMethod]
+        public void FullFlowMapTest()
+        {
+            var name = "threads_" + DateTime.UtcNow.Ticks;
+
+            const string pilotFirst = "Scarlett Orwell";
+            const string pilotSecond = "Dana Su-Shiloff";
+
+            var mapFirst = Initialization(pilotFirst, name);
+
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "", "J213734").Count,1);
+            Thread.Sleep(2000);
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J165920").Count, 2);
+            Thread.Sleep(2000);
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J165920", "J165936").Count, 2);
+            Thread.Sleep(2000);
 
             mapFirst.Update();
-            //var mapFirst = mapApiFunctions.LoadMap(name, "J213734", pilotFirst);
 
             Assert.AreEqual(mapFirst.Systems.Count, 3);
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotSecond, name, "", "J122635"), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotSecond, name, "J122635", "J168936"), "\"Ok\"");
+            var mapSecond = Initialization(pilotSecond, name);
 
-            var mapSecond = new Map { ActivePilot = pilotSecond, Key = name };
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "", "J122635").Count , 1);
+            Thread.Sleep(2000);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J122635", "J168936").Count, 2);
+            Thread.Sleep(2000);
 
             mapSecond.Update();
+            mapFirst.Update();
 
             Assert.AreEqual(mapSecond.Systems.Count, 2);
 
             Assert.AreEqual(mapFirst.Systems.Count, 3);
 
-            var updatesFirst = Global.MapApiFunctions.GetUpdates(name, pilotFirst, 0);
+            Assert.AreEqual(mapFirst.Pilotes.Count, 2);
+            Assert.AreEqual(mapSecond.Pilotes.Count, 2);
 
-            Assert.AreEqual(updatesFirst.Count, 3);
-
-            var updatesSecond = Global.MapApiFunctions.GetUpdates(name, pilotSecond, 0);
-
-            Assert.AreEqual(updatesSecond.Count, 2);
-
-            var pilots = Global.MapApiFunctions.GetPilotes(name,0, pilotSecond);
-
-            Assert.AreEqual(pilots.Count, 2);
-
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotSecond, name, "J168936", "J165920"), "\"Ok\"");
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J168936", "J165920").Count, 5);
+            Thread.Sleep(2000);
 
             mapSecond.Update();
+            mapFirst.Update();
 
-            Assert.AreEqual(mapSecond.Systems.Count, 3);
+            Assert.AreEqual(mapSecond.Systems.Count, 5);
+            Assert.AreEqual(mapFirst.Systems.Count, 5);
 
             var systemJ168936 = mapSecond.GetSystem("J168936");
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotFirst, name, "J213734", "J214318"), "\"Ok\"");
+            Assert.AreEqual(systemJ168936.Connections.Count, 2);
 
-            SignaturesTests(name, pilotFirst);
+            var systemJ165920 = mapSecond.GetSystem("J165920");
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotSecond, name, "J165920", "Jita"), "\"Ok\"");
+            Assert.AreEqual(systemJ165920.Connections.Count, 3);
 
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(pilotSecond, name, "Jita", "Hek"), "\"Ok\"");
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J214318").Count, 2);
+            Thread.Sleep(2000);
 
-            Assert.AreEqual(Global.MapApiFunctions.DeleteSolarSystem(name, "Jita", pilotSecond), "\"Ok\"");
+            //SignaturesTests(name, pilotFirst);
+            //Thread.Sleep(2000);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J165920", "Jita").Count, 2);
+            Thread.Sleep(2000);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "Jita", "Hek").Count, 2);
+            Thread.Sleep(2000);
+
+            Assert.AreEqual(Global.MapApiFunctions.DeleteSolarSystem(name, "Jita", pilotSecond).Count, 7);
+            Thread.Sleep(2000);
 
             mapSecond.ActivePilot = pilotFirst;
 
@@ -341,7 +404,7 @@ namespace EJTests
 
             Assert.AreEqual(map.Systems.Count, 10);
 
-            Assert.AreEqual(Global.MapApiFunctions.DeleteSolarSystem(name, "J165953", pilot), "\"Ok\"");
+            Assert.AreEqual(Global.MapApiFunctions.DeleteSolarSystem(name, "J165953", pilot).Count, 1);
 
             map.Update();
 

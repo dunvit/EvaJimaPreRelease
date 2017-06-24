@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Web;
 using EveJimaUniverse;
 using log4net;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ namespace EveJimaServerMap
     public class Router
     {
         readonly ILog _log = LogManager.GetLogger("All");
+        readonly ILog _apiCallsLog = LogManager.GetLogger("ApiCalls");
         readonly ILog _commandsLog = LogManager.GetLogger("Commands");
 
         public Server Server { get; set; }
@@ -31,6 +33,8 @@ namespace EveJimaServerMap
 
         public string LoadMap(string key, string system, string pilot)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 Server.RelocatePilot(key, pilot, system);
@@ -52,6 +56,8 @@ namespace EveJimaServerMap
 
         public string GetMapOwner(string key)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 var mapOwner = Server.GetMapOwner(key);
@@ -69,6 +75,8 @@ namespace EveJimaServerMap
 
         public string DeleteSignature(string pilotName, string key, string system, string code)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 var map = Server.GetMap(key, pilotName);
@@ -91,13 +99,17 @@ namespace EveJimaServerMap
 
         public string DeleteSolarSystem(string mapKey, string system, string pilotName)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
+                var dtTime = DateTime.UtcNow;
+
                 Server.GetMap(mapKey, pilotName).DeleteSolarSystem(system);
 
                 _commandsLog.InfoFormat("[DeleteSolarSystem] Delete solar system {1} on map with key {0} ", mapKey, system);
 
-                return "Ok";
+                return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilotName).GetUpdates(dtTime));
             }
             catch (Exception ex)
             {
@@ -108,6 +120,8 @@ namespace EveJimaServerMap
 
         public string GetUpdatedSystems(string mapKey, string pilot, long ticks)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 var dtTime = new DateTime(ticks);
@@ -124,13 +138,17 @@ namespace EveJimaServerMap
         //DeathNotice
         public string DeathNotice(string mapKey, string pilot, string systemFrom, string systemTo)
         {
+            var dtTime = DateTime.UtcNow;
+
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 var map = Server.GetMap(mapKey, pilot, systemFrom, systemTo);
 
                 map.DeleteSolarSystemConnection(systemTo, systemFrom);
 
-                return "Ok";
+                return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilot).GetUpdates(dtTime));
             }
             catch (Exception ex)
             {
@@ -141,6 +159,8 @@ namespace EveJimaServerMap
 
         public string GetDeletedSystems(string mapKey, string pilot, long ticks, bool deleted)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilot).GetDeleted(new DateTime(ticks)));
@@ -155,6 +175,8 @@ namespace EveJimaServerMap
 
         public string GetUpdatedPilotes(string mapKey, long ticks, string pilot)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 return JsonConvert.SerializeObject(Server.GetPilotes(mapKey, new DateTime(ticks)));
@@ -169,8 +191,12 @@ namespace EveJimaServerMap
 
         public string PublishSolarSystem(string pilot, string mapKey, string systemFrom, string systemTo)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
+                var dtTime = DateTime.UtcNow;
+
                 // First login to EveJima
                 if ( systemFrom == null )
                 {
@@ -187,8 +213,11 @@ namespace EveJimaServerMap
 
                 Server.RelocatePilot(mapKey, pilot, systemTo);
 
+                var updatedSystems = map.GetUpdates(dtTime);
 
-                return "Ok";
+                _commandsLog.InfoFormat("[PublishSolarSystem] Get updated systems after publish system with key {0} from {1} to {2} for pilot {3}. Count updated systems is {4}", mapKey, systemFrom, systemTo, pilot, updatedSystems.Count);
+
+                return JsonConvert.SerializeObject(updatedSystems);
             }
             catch (Exception ex)
             {
@@ -200,8 +229,12 @@ namespace EveJimaServerMap
 
         public string PublishSignatures(string pilotName, string key, string system, string signatures)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
+                var dtTime = DateTime.UtcNow;
+
                 var map = Server.GetMap(key, pilotName);
 
                 var listSignatures = JsonConvert.DeserializeObject<List<CosmicSignature>>(signatures);
@@ -212,7 +245,11 @@ namespace EveJimaServerMap
 
                 map.Save();
 
-                return "Ok";
+                var updatedSystems = map.GetUpdates(dtTime);
+
+                _commandsLog.InfoFormat("[PublishSignatures] Get updated systems after publish system with key {0} for {1} for pilot {2}. Count updated systems is {3}", key, system, pilotName, updatedSystems.Count);
+
+                return JsonConvert.SerializeObject(updatedSystems);
             }
             catch (Exception ex)
             {
@@ -223,6 +260,8 @@ namespace EveJimaServerMap
 
         public string UpdateSolarSystemCoordinates(string mapKey, string system, string pilot, int positionX, int positionY)
         {
+            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+
             try
             {
                 var map = Server.GetMap(mapKey, pilot);

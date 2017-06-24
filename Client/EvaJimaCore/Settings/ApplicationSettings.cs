@@ -2,6 +2,7 @@
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EvaJimaCore;
 using log4net;
 
 namespace EveJimaCore
@@ -97,6 +98,7 @@ namespace EveJimaCore
             if(File.Exists(path))
             {
                 settingsContent = File.ReadAllText(path);
+                IsConverted = true;
             }
             else
             {

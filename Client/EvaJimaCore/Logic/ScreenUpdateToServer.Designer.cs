@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblUpdateLog = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,26 +45,26 @@
             this.panel1.Size = new System.Drawing.Size(284, 126);
             this.panel1.TabIndex = 0;
             // 
+            // lblUpdateLog
+            // 
+            this.lblUpdateLog.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateLog.ForeColor = System.Drawing.Color.DarkGray;
+            this.lblUpdateLog.Location = new System.Drawing.Point(3, 53);
+            this.lblUpdateLog.Name = "lblUpdateLog";
+            this.lblUpdateLog.Size = new System.Drawing.Size(276, 63);
+            this.lblUpdateLog.TabIndex = 1;
+            this.lblUpdateLog.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(33, 27);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 26);
+            this.label1.Size = new System.Drawing.Size(276, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Update server. Please wait.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblUpdateLog
-            // 
-            this.lblUpdateLog.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateLog.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblUpdateLog.Location = new System.Drawing.Point(33, 62);
-            this.lblUpdateLog.Name = "lblUpdateLog";
-            this.lblUpdateLog.Size = new System.Drawing.Size(207, 26);
-            this.lblUpdateLog.TabIndex = 1;
-            this.lblUpdateLog.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ScreenUpdateToServer
             // 
@@ -78,7 +78,9 @@
             this.Name = "ScreenUpdateToServer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ScreenUpdateToServer";
+            this.Activated += new System.EventHandler(this.ScreenUpdateToServer_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScreenUpdateToServer_FormClosing);
+            this.Shown += new System.EventHandler(this.ScreenUpdateToServer_Shown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

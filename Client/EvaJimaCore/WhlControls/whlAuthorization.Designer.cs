@@ -32,6 +32,7 @@
             this.crlPilotPortrait = new System.Windows.Forms.PictureBox();
             this.lblAuthorizationInfo = new System.Windows.Forms.Label();
             this.btnLogInWithEveOnline = new System.Windows.Forms.PictureBox();
+            this.cmdLoadPilotes = new EveJimaCore.whlButton();
             ((System.ComponentModel.ISupportInitialize)(this.crlPilotPortrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogInWithEveOnline)).BeginInit();
             this.SuspendLayout();
@@ -86,11 +87,27 @@
             this.btnLogInWithEveOnline.TabStop = false;
             this.btnLogInWithEveOnline.Click += new System.EventHandler(this.Event_GoToCCPSSO);
             // 
+            // cmdLoadPilotes
+            // 
+            this.cmdLoadPilotes.BackColor = System.Drawing.Color.Black;
+            this.cmdLoadPilotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cmdLoadPilotes.ForeColor = System.Drawing.Color.LightGray;
+            this.cmdLoadPilotes.IsActive = true;
+            this.cmdLoadPilotes.IsTabControlButton = false;
+            this.cmdLoadPilotes.Location = new System.Drawing.Point(142, 112);
+            this.cmdLoadPilotes.Name = "cmdLoadPilotes";
+            this.cmdLoadPilotes.Size = new System.Drawing.Size(270, 25);
+            this.cmdLoadPilotes.TabIndex = 78;
+            this.cmdLoadPilotes.Value = "Create Map";
+            this.cmdLoadPilotes.Visible = false;
+            this.cmdLoadPilotes.Click += new System.EventHandler(this.cmdLoadPilotes_Click);
+            // 
             // whlAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Controls.Add(this.cmdLoadPilotes);
             this.Controls.Add(this.cmbPilots);
             this.Controls.Add(this.crlPilotPortrait);
             this.Controls.Add(this.lblAuthorizationInfo);
@@ -110,5 +127,6 @@
         public System.Windows.Forms.PictureBox crlPilotPortrait;
         public System.Windows.Forms.Label lblAuthorizationInfo;
         private System.Windows.Forms.PictureBox btnLogInWithEveOnline;
+        private whlButton cmdLoadPilotes;
     }
 }

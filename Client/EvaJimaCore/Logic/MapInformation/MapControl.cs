@@ -1,15 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using EvaJimaCore;
 using EveJimaCore.BLL.Map;
 using EveJimaCore.WhlControls;
+using EveJimaUniverse;
 using log4net;
 
 namespace EveJimaCore.Logic.MapInformation
 {
     public partial class MapControl : BaseContainer, IAMapInformationView
     {
-        readonly ILog _commandsLog = LogManager.GetLogger("Errors");
+        readonly ILog _errorsLog = LogManager.GetLogger("Errors");
+        readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
 
         public MapControl()
         {
@@ -18,12 +21,39 @@ namespace EveJimaCore.Logic.MapInformation
             containerInformation.CentreScreenLocationSystem += Event_CentreScreenLocationSystem;
             containerInformation.CentreScreenSelectedSystem += Event_CentreScreenSelectedSystem;
             containerInformation.DeleteSelectedSystem += Event_DeleteSelectedSystem;
+            containerInformation.UpdateSignatures += Event_UpdateSignatures;
             containerInformation.DeathNotice += Event_DeathNotice;
             containerToolbar.OnSelectTab += Event_SelectTab;
+            containerInformation.ChangeMapKey += Event_ChangeMapKey;
             containerMap.SelectSolarSystem += Event_SelectSolarSystem;
             containerMap.RelocateSolarSystem += Event_RelocateSolarSystem;
             Global.Presenter.OnLocationChange += Event_LocationChanged;
             Global.Presenter.OnChangeActivePilot += Event_ActivePilotChanged;
+        }
+
+        private void Event_ChangeMapKey(string key)
+        {
+            var screen = new ScreenUpdateToServer { ActionType  = "ChangeMapKey", MapKey = key};
+            screen.RefreshMapControl += Event_RefreshMap;
+            screen.ShowDialog();
+
+            _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "After change mapKey");
+
+            
+        }
+
+        private void Event_RefreshMap(string obj)
+        {
+            containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
+            containerInformation.ForceRefresh(Global.Pilots.Selected.SpaceMap);
+        }
+
+        private void Event_UpdateSignatures(string arg1, List<CosmicSignature> signatures)
+        {
+            Global.Pilots.Selected.SpaceMap.ApiPublishSignatures(
+                Global.Pilots.Selected.SpaceMap.Key, 
+                Global.Pilots.Selected.SpaceMap.LocationSolarSystemName,
+                Global.Pilots.Selected.Name,signatures);
         }
 
         private void Event_DeathNotice(string selectedSolarSystemName)
@@ -35,15 +65,12 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void Event_DeleteSelectedSystem(string selectedSolarSystemName)
         {
-            var screenUpdateToServer = new ScreenUpdateToServer();
+            Global.MapApiFunctions.DeleteSolarSystem(Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName, Global.Pilots.Selected.Name);
 
-            screenUpdateToServer.ShowDialog(this);
-
-            //Global.MapApiFunctions.DeleteSolarSystem(Global.Pilots.Selected.SpaceMap.Key, selectedSolarSystemName, Global.Pilots.Selected.Name);
-
-            //Global.Pilots.Selected.SpaceMap.RemoveSystem(selectedSolarSystemName);
+            Global.Pilots.Selected.SpaceMap.RemoveSystem(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
 
             containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
+            containerInformation.ForceRefresh(Global.Pilots.Selected.SpaceMap);
         }
 
         private void Event_CentreScreenSelectedSystem(string obj)
@@ -64,7 +91,7 @@ namespace EveJimaCore.Logic.MapInformation
             }
             catch (Exception ex)
             {
-                _commandsLog.ErrorFormat("[MapModel.RelocateSolarSystem] Point = {1} SolarSystemName = {2} Critical error {0}", ex, solarSystemNewLocationInMap, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
+                _errorsLog.ErrorFormat("[MapModel.RelocateSolarSystem] Point = {1} SolarSystemName = {2} Critical error {0}", ex, solarSystemNewLocationInMap, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
             }
         }
 

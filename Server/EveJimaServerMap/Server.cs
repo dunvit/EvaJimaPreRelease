@@ -42,7 +42,7 @@ namespace EveJimaServerMap
 
         private Map MapsMergePostProcessing(Map map, string pilotName, string connectedMapsSystem, string systemFrom)
         {
-            var pilotMapKey = map.Key + "_" + pilotName.Replace(" ", "_").Replace("-", "_");
+            var pilotMapKey = map.Information.Key + "_" + pilotName.Replace(" ", "_").Replace("-", "_");
 
             var localMap = GetMapByKey(pilotMapKey);
 
@@ -56,17 +56,17 @@ namespace EveJimaServerMap
 
             MapsMergeAddSystem(map, localMap, connectedSystem);
 
-            //foreach(var solarSystem in localMap.Systems)
-            //{
-            //    map.AddSolarSystem(null, solarSystem.Name);
-            //}
-
             map.Save();
 
-            var itemToRemove = Maps.Single(r => r.Key == pilotMapKey);
+            var itemToRemove = Maps.Single(r => r.Information.Key == pilotMapKey);
             Maps.Remove(itemToRemove);
 
             localMap.Delete();
+
+            foreach (var solarSystem in map.Systems)
+            {
+                solarSystem.Value.LastUpdate = DateTime.UtcNow;
+            }
 
             return map;
         }
@@ -93,14 +93,14 @@ namespace EveJimaServerMap
 
         private Map GetMapByKey(string key)
         {
-            return Maps.FirstOrDefault(spaceMap => spaceMap.Key == key);
+            return Maps.FirstOrDefault(spaceMap => spaceMap.Information.Key == key);
         }
 
         private Map CreateMap(string key, string pilotName)
         {
             var map = new Map();
             map.Initialization(key, type);
-            map.Owner = pilotName;
+            map.Information.Owner = pilotName;
 
             AddMap(map);
 
@@ -109,9 +109,9 @@ namespace EveJimaServerMap
 
         public string GetMapOwner(string key)
         {
-            foreach(var spaceMap in Maps.Where(spaceMap => spaceMap.Key == key))
+            foreach (var spaceMap in Maps.Where(spaceMap => spaceMap.Information.Key == key))
             {
-                return spaceMap.Owner;
+                return spaceMap.Information.Owner;
             }
 
             return "";
@@ -121,7 +121,7 @@ namespace EveJimaServerMap
         {
             foreach (var spaceMap in Maps)
             {
-                if (spaceMap.Key == key)
+                if (spaceMap.Information.Key == key)
                 {
 
                     var location = Pilots.Find(x => x.MapKey == key && x.Name == pilotName);
@@ -138,7 +138,7 @@ namespace EveJimaServerMap
 
                     foreach (var spaceMapLocal in Maps)
                     {
-                        if (spaceMapLocal.Key == localMapKey)
+                        if (spaceMapLocal.Information.Key == localMapKey)
                         {
                             return spaceMapLocal;
                         }

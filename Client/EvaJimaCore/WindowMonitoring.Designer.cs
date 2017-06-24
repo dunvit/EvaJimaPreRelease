@@ -36,10 +36,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.lblVersionID = new System.Windows.Forms.Label();
             this.TitleBar = new System.Windows.Forms.Panel();
-            this.VersionBar = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.crlNotificay = new System.Windows.Forms.NotifyIcon(this.components);
-            this.RefreshActivePilot = new System.Windows.Forms.Timer(this.components);
             this.cmdHide = new System.Windows.Forms.Button();
             this.btnBrowserMin = new System.Windows.Forms.Button();
             this.btnBrowserMax = new System.Windows.Forms.Button();
@@ -47,6 +43,10 @@
             this.btnOpenBrowserAndStartUrl = new System.Windows.Forms.Button();
             this.cmdClose = new System.Windows.Forms.Button();
             this.cmdMinimazeRestore = new System.Windows.Forms.Button();
+            this.VersionBar = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.crlNotificay = new System.Windows.Forms.NotifyIcon(this.components);
+            this.RefreshActivePilot = new System.Windows.Forms.Timer(this.components);
             this._mapToolbarControl1 = new EveJimaCore.Logic.ToolBar.MapToolbarControl();
             this.cmdOpenWebBrowser1 = new EveJimaCore.WhlControls.ejButton();
             this.cmdShowContainerBookmarks1 = new EveJimaCore.WhlControls.ejButton();
@@ -130,45 +130,6 @@
             this.TitleBar.TabIndex = 47;
             this.TitleBar.DoubleClick += new System.EventHandler(this.Event_TitleBarDoubleClick);
             this.TitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_TitleBarMouseDown);
-            // 
-            // VersionBar
-            // 
-            this.VersionBar.BackColor = System.Drawing.Color.Transparent;
-            this.VersionBar.Controls.Add(this.label1);
-            this.VersionBar.Controls.Add(this.label18);
-            this.VersionBar.Controls.Add(this.label19);
-            this.VersionBar.Controls.Add(this.label20);
-            this.VersionBar.Controls.Add(this.lblVersionID);
-            this.VersionBar.Location = new System.Drawing.Point(10, 330);
-            this.VersionBar.Name = "VersionBar";
-            this.VersionBar.Size = new System.Drawing.Size(540, 28);
-            this.VersionBar.TabIndex = 48;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(8, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 17);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "EveJima";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // crlNotificay
-            // 
-            this.crlNotificay.Icon = ((System.Drawing.Icon)(resources.GetObject("crlNotificay.Icon")));
-            this.crlNotificay.Text = "Eve JIma";
-            this.crlNotificay.Visible = true;
-            this.crlNotificay.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.crlNotificay_MouseDoubleClick);
-            // 
-            // RefreshActivePilot
-            // 
-            this.RefreshActivePilot.Enabled = true;
-            this.RefreshActivePilot.Interval = 1000;
-            this.RefreshActivePilot.Tick += new System.EventHandler(this.Event_RefreshActivePilot);
             // 
             // cmdHide
             // 
@@ -270,7 +231,46 @@
             this.cmdMinimazeRestore.UseVisualStyleBackColor = false;
             this.cmdMinimazeRestore.Click += new System.EventHandler(this.cmdMinimazeRestore_Click);
             // 
-            // toolbarControl1
+            // VersionBar
+            // 
+            this.VersionBar.BackColor = System.Drawing.Color.Transparent;
+            this.VersionBar.Controls.Add(this.label1);
+            this.VersionBar.Controls.Add(this.label18);
+            this.VersionBar.Controls.Add(this.label19);
+            this.VersionBar.Controls.Add(this.label20);
+            this.VersionBar.Controls.Add(this.lblVersionID);
+            this.VersionBar.Location = new System.Drawing.Point(10, 330);
+            this.VersionBar.Name = "VersionBar";
+            this.VersionBar.Size = new System.Drawing.Size(540, 28);
+            this.VersionBar.TabIndex = 48;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label1.Location = new System.Drawing.Point(8, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 17);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "EveJima";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // crlNotificay
+            // 
+            this.crlNotificay.Icon = ((System.Drawing.Icon)(resources.GetObject("crlNotificay.Icon")));
+            this.crlNotificay.Text = "Eve JIma";
+            this.crlNotificay.Visible = true;
+            this.crlNotificay.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.crlNotificay_MouseDoubleClick);
+            // 
+            // RefreshActivePilot
+            // 
+            this.RefreshActivePilot.Enabled = true;
+            this.RefreshActivePilot.Interval = 1000;
+            this.RefreshActivePilot.Tick += new System.EventHandler(this.Event_RefreshActivePilot);
+            // 
+            // _mapToolbarControl1
             // 
             this._mapToolbarControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this._mapToolbarControl1.Location = new System.Drawing.Point(95, 592);
@@ -412,6 +412,7 @@
             this.Activated += new System.EventHandler(this.WindowMonitoring_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WindowMonitoring_FormClosing);
             this.Load += new System.EventHandler(this.WindowMonitoring_Load);
+            this.Shown += new System.EventHandler(this.WindowMonitoring_Shown);
             this.ResizeEnd += new System.EventHandler(this.Event_WindowEndResize);
             this.LocationChanged += new System.EventHandler(this.Event_LocationChange);
             this.DoubleClick += new System.EventHandler(this.Event_WindowDoubleClick);

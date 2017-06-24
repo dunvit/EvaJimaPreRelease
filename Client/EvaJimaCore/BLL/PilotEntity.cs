@@ -71,7 +71,8 @@ namespace EveJimaCore.BLL
             if (Location.SolarSystemName == "unknown") return;
 
             SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
-            Global.MapApiFunctions.PublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
+            SpaceMap.ApiPublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
+            
             SpaceMap.Update();
 
             SpaceMap.Activate(Name, Location.SolarSystemName);
@@ -139,7 +140,8 @@ namespace EveJimaCore.BLL
             if(Location.SolarSystemName != "unknown")
             {
                 SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
-                Global.MapApiFunctions.PublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
+                
+                SpaceMap.ApiPublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
                 SpaceMap.Update();
 
                 SpaceMap.Activate(Name, Location.SolarSystemName);

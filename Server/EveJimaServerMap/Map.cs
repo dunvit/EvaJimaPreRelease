@@ -9,6 +9,7 @@ using log4net;
 using System.Collections.Concurrent;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace EveJimaServerMap
 {
@@ -17,21 +18,20 @@ namespace EveJimaServerMap
         readonly ILog _log = LogManager.GetLogger("All");
         readonly ILog _commandsLog = LogManager.GetLogger("Commands");
 
-        public string Key { get; set; }
-
-        public string Owner { get; set; }
-
-        //System.Collections.Concurrent.ConcurrentDictionary<> 
-
+        public MapInformation Information = new MapInformation();
+            
+        [JsonIgnore]
         public ConcurrentDictionary<string, SolarSystem> Systems { get; set; }
 
+        [JsonIgnore]
         private ConcurrentDictionary<string, SolarSystem> DeletedSystems { get; set; }
 
+        [JsonIgnore]
         private readonly Random _randomBase = new Random();
 
         public void Initialization(string key, MapType type)
         {
-            Key = key;
+            Information.Key = key;
             Systems = new ConcurrentDictionary<string, SolarSystem>();
             DeletedSystems = new ConcurrentDictionary<string, SolarSystem>();
 
@@ -44,7 +44,7 @@ namespace EveJimaServerMap
                 break;
             }
 
-            LoadFromFile(Key);
+            LoadFromFile(Information.Key);
         }
 
 
@@ -75,9 +75,9 @@ namespace EveJimaServerMap
                     Systems.TryRemove(visitedSolarSystem.Name, out element);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                _log.ErrorFormat("[Map.GarbageCollector] Critical error {0}" , ex);
             }
         }
 
@@ -115,8 +115,11 @@ namespace EveJimaServerMap
             {
                 foreach (var solarSystem in Systems)
                 {
-                    solarSystem.Value.Connections.Remove(system);
-                    solarSystem.Value.LastUpdate = DateTime.UtcNow;
+                    if(solarSystem.Value.Connections.Contains(system))
+                    {
+                        solarSystem.Value.Connections.Remove(system);
+                        solarSystem.Value.LastUpdate = DateTime.UtcNow;
+                    }
                 }
 
                 var deletedSolarSystem = GetSystem(system);
@@ -147,10 +150,10 @@ namespace EveJimaServerMap
 
                 var json = File.ReadAllText(dataFile);
 
-                var history = new Map();
+                var history = new MapInformation();
                 MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(history.GetType());
-                history = ser.ReadObject(ms) as Map;
+                history = ser.ReadObject(ms) as MapInformation;
                 ms.Close();
 
 
@@ -158,14 +161,19 @@ namespace EveJimaServerMap
 
                 if (history == null) return;
 
-                Systems = history.Systems;
+                foreach(var solarSystem in history.SystemsForSave)
+                {
+                    Systems.TryAdd(solarSystem.Name, solarSystem);
+                }
+
+                Information = history;
 
                 // Remove old systems by TTL from web.config
                 GarbageCollector();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                _log.ErrorFormat("[Map.LoadFromFile] Map: {1} Critical error {0}", ex, key);
             }
 
             
@@ -191,7 +199,7 @@ namespace EveJimaServerMap
 
                         if (system.LocationInMap == new Point(0, 0))
                         {
-                            _commandsLog.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, systemTo, systemFrom);
+                            _commandsLog.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Information.Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, systemTo, systemFrom);
                             AddSpaceMapCoordinates(systemTo, systemFrom, isFirstStarSystemInMap);
                         }
 
@@ -202,7 +210,7 @@ namespace EveJimaServerMap
 
                     AddConnectionSolarSystem(systemFrom, systemTo);
 
-                    _commandsLog.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Key, 0 + ":" + 0, systemTo, systemFrom);
+                    _commandsLog.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Information.Key, 0 + ":" + 0, systemTo, systemFrom);
                     AddSpaceMapCoordinates(systemTo, systemFrom, isFirstStarSystemInMap);
 
                     if(isNeedSave) Save();
@@ -223,24 +231,37 @@ namespace EveJimaServerMap
         private static readonly object SyncRoot = new object();
         public void Save()
         {
-            try
+
+            lock (SyncRoot)
             {
-                lock (SyncRoot)
+                try
                 {
-                    var dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Key);
+                    var dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Information.Key);
 
-                    var jsonFormatter = new DataContractJsonSerializer(typeof(Map));
 
-                    using (var fs = new FileStream(dataFile, FileMode.OpenOrCreate))
+                    Information.SystemsForSave = new List<SolarSystem>();
+
+                    foreach (var solarSystem in Systems.Values)
                     {
-                        jsonFormatter.WriteObject(fs, this);
+                        Information.SystemsForSave.Add(solarSystem);
+                    }
+
+                    var jsonFormatter = new DataContractJsonSerializer(typeof(MapInformation));
+
+                    File.Delete(dataFile);
+
+                    using (var fs = new FileStream(dataFile, FileMode.Create))
+                    {
+                        jsonFormatter.WriteObject(fs, Information);
                     }
                 }
+                catch (Exception ex)
+                {
+                    _log.ErrorFormat("[Map.Save] Critical error {0}", ex);
+                }
+                    
             }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("[Map.Save] Critical error {0}", ex);
-            }
+
             
         }
 
@@ -250,21 +271,30 @@ namespace EveJimaServerMap
 
             var list = new List<SolarSystem>();
 
-            foreach (var solarSystem in Systems.Values)
+            try
             {
-                if (solarSystem.LastUpdate > lastUpdate)
-                {
-                    try
-                    {
-                        list.Add(solarSystem);
-                    }
-                    catch (Exception)
-                    {
-                        
-                    }
+                var updatePoint = lastUpdate.AddSeconds(-2);
 
-                    
+                foreach (var solarSystem in Systems.Values)
+                {
+                    _commandsLog.InfoFormat("[GetUpdates] solarSystem {0} solarSystem.LastUpdate {1} lastUpdate {2} ", solarSystem, solarSystem.LastUpdate.Ticks, updatePoint.Ticks);
+
+                    if (solarSystem.LastUpdate.Ticks > updatePoint.Ticks)
+                    {
+                        try
+                        {
+                            list.Add(solarSystem);
+                        }
+                        catch (Exception ex)
+                        {
+                            _log.ErrorFormat("[Map.GetUpdates] Critical error {0}", ex);
+                        }
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                _log.ErrorFormat("[Map.GetUpdates] Critical error {0}", ex);
             }
             
             return list;
@@ -318,7 +348,7 @@ namespace EveJimaServerMap
                     if (systemCurrent != null)
                     {
                         systemCurrent.LocationInMap = new Point(5000, 5000);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1}", Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1}", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         return;
                     }
@@ -341,25 +371,25 @@ namespace EveJimaServerMap
                 {
                     case "A":
                         systemCurrent.LocationInMap = GetLocationPoint(systemPrevious);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'A'", Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'A'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
 
                     case "B":
                         systemCurrent.LocationInMap = GetLocationPoint(systemPrevious);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'B'", Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'B'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
 
                     case "C":
                         systemCurrent.LocationInMap = GetLocationPoint(systemPrevious);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'C'", Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'C'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
 
                     case "D":
                         systemCurrent.LocationInMap = new Point(systemPrevious.LocationInMap.X, systemPrevious.LocationInMap.Y);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'D'", Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'D'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
                 }
@@ -508,7 +538,7 @@ namespace EveJimaServerMap
             {
                 lock (SyncRoot)
                 {
-                    var dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Key);
+                    var dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Information.Key);
 
                     if (File.Exists(dataFile))
                     {

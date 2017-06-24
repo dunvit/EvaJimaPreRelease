@@ -11,6 +11,8 @@ namespace EveJimaCore.BLL.Map
     {
         readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
         readonly ILog _errorsLog = LogManager.GetLogger("Errors");
+        readonly ILog _apiCallsLog = LogManager.GetLogger("ApiCalls");
+        //ApiCalls
 
         private string _mapServerAddress = "";//"http://www.evajima-maps.somee.com";// "http://localhost:51135"; //
 
@@ -19,16 +21,29 @@ namespace EveJimaCore.BLL.Map
             _mapServerAddress = mapServerAddress;
         }
 
-        public string PublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)
+        public List<SolarSystem> PublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)
         {
             var address = _mapServerAddress + "/api/PublishSolarSystem?pilot=" + pilotName + "&mapKey=" + key + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo;
 
-            using (var client = new WebClient())
-            {
-                var dataVerification = client.DownloadString(address);
+            _apiCallsLog.Info(address);
 
-                return dataVerification;
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    var dataVerification = client.DownloadString(address);
+
+                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+
+                    return updatedSystems;
+                }
             }
+            catch(Exception ex)
+            {
+                _errorsLog.ErrorFormat("[.PublishSolarSystem] Critical error. Address '{0}' Exception {1}", address, ex);
+            }
+
+            return null;
         }
 
         public Map LoadMap(string key, string system, string pilot)
@@ -37,6 +52,8 @@ namespace EveJimaCore.BLL.Map
             try
             {
                 var address = _mapServerAddress + "/api/map?key=" + key + "&system=" + system + "&pilot=" + pilot + "";
+
+                _apiCallsLog.Info(address);
 
                 using (var client = new WebClient())
                 {
@@ -58,6 +75,8 @@ namespace EveJimaCore.BLL.Map
             {
                 var address = _mapServerAddress + "/api/map?key=" + key + "";
 
+                _apiCallsLog.Info(address);
+
                 using (var client = new WebClient())
                 {
                     var dataVerification = client.DownloadString(address);
@@ -78,6 +97,8 @@ namespace EveJimaCore.BLL.Map
             {
                 var address = _mapServerAddress + "/api/UpdateSolarSystemCoordinates?mapKey=" + key + "&system=" + system + "&pilot=" + pilot + "&positionX=" + positionX + "&positionY=" + positionY + "";
 
+                _apiCallsLog.Info(address);
+
                 using (var client = new WebClient())
                 {
                     var dataVerification = client.DownloadString(address);
@@ -95,11 +116,13 @@ namespace EveJimaCore.BLL.Map
             return string.Empty;
         }
 
-        public string DeleteSolarSystem(string key, string system, string pilot)
+        public List<SolarSystem> DeleteSolarSystem(string key, string system, string pilot)
         {
             try
             {
                 var address = _mapServerAddress + "/api/DeleteSolarSystem?mapKey=" + key + "&system=" + system + "&pilotName=" + pilot;
+
+                _apiCallsLog.Info(address);
 
                 using (var client = new WebClient())
                 {
@@ -107,14 +130,16 @@ namespace EveJimaCore.BLL.Map
 
                     _commandsLog.InfoFormat("[Map.DeleteSolarSystem] Delete Solar System {2} with map key ='{0}' for pilot ='{1}'", key, pilot, system);
 
-                    return dataVerification;
+                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+
+                    return updatedSystems;
                 }
             }
             catch(Exception ex)
             {
                 _commandsLog.ErrorFormat("[Map.DeleteSolarSystem] Critical error - Delete Solar System {2} with map key ='{0}' for pilot ='{1}' Exception {3}", key, pilot, system, ex);
 
-                return "Failure";
+                return new List<SolarSystem>();
             }
             
         }
@@ -122,6 +147,8 @@ namespace EveJimaCore.BLL.Map
         public List<SolarSystem> GetUpdates(string key, string pilot, long delta)
         {
             var address = _mapServerAddress + "/api/GetUpdates?mapKey=" + key + "&pilot=" + pilot + "&ticks=" + delta + "";
+
+            _apiCallsLog.Info(address);
 
             using (var client = new WebClient())
             {
@@ -136,6 +163,8 @@ namespace EveJimaCore.BLL.Map
             try
             {
                 var address = _mapServerAddress + "/api/GetUpdates?mapKey=" + key + "&pilot=" + pilot + "&ticks=" + delta + "&deleted=true";
+
+                _apiCallsLog.Info(address);
 
                 using (var client = new WebClient())
                 {
@@ -158,6 +187,8 @@ namespace EveJimaCore.BLL.Map
         {
             var address = _mapServerAddress + "/api/GetUpdatesPilotes?mapKey=" + key + "&ticks=" + delta + "&pilot=" + pilot;
 
+            _apiCallsLog.Info(address);
+
             using (var client = new WebClient())
             {
                 var dataVerification = client.DownloadString(address);
@@ -169,6 +200,8 @@ namespace EveJimaCore.BLL.Map
         public string PublishSignature(string pilotName, string key, string systemName, string type, string code, string name)
         {
             var address = _mapServerAddress + "/api/Signatures?mapKey=" + key + "&systemName=" + systemName + "&type=" + type + "&code=" + code + "&name=" + name + "";
+
+            _apiCallsLog.Info(address);
 
             using (var client = new WebClient())
             {
@@ -183,6 +216,8 @@ namespace EveJimaCore.BLL.Map
             try
             {
                 var address = _mapServerAddress + "/api/Signatures?mapKey=" + mapKey + "&pilot=" + pilot + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo + "";
+
+                _apiCallsLog.Info(address);
 
                 using (var client = new WebClient())
                 {
@@ -200,7 +235,7 @@ namespace EveJimaCore.BLL.Map
             }
         }
 
-        public string PublishSignatures(string pilotName, string key, string system, List<CosmicSignature> signatures)
+        public List<SolarSystem> PublishSignatures(string pilotName, string key, string system, List<CosmicSignature> signatures)
         {
             try
             {
@@ -208,11 +243,15 @@ namespace EveJimaCore.BLL.Map
 
                 var address = _mapServerAddress + "/api/PublishSignatures?pilotName=" + pilotName + "&key=" + key + "&system=" + system + "&signatures=" + signaturesJson;
 
+                _apiCallsLog.Info(address);
+
                 using (var client = new WebClient())
                 {
                     var dataVerification = client.DownloadString(address);
 
-                    return dataVerification;
+                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+
+                    return updatedSystems;
                 }
             }
             catch(Exception ex)
@@ -227,6 +266,8 @@ namespace EveJimaCore.BLL.Map
         {
             var address = _mapServerAddress + "/api/DeleteSignature?pilotName=" + pilotName + "&key=" + key + "&system=" + system + "&code=" + code;
 
+            _apiCallsLog.Info(address);
+
             using (var client = new WebClient())
             {
                 var dataVerification = client.DownloadString(address);
@@ -235,9 +276,11 @@ namespace EveJimaCore.BLL.Map
             }
         }
 
-        public string DeleteConnectionBetweenSolarSystems(string pilotName, string key, string systemFrom, string systemTo)
+        public List<SolarSystem> DeleteConnectionBetweenSolarSystems(string pilotName, string key, string systemFrom, string systemTo)
         {
             var address = _mapServerAddress + "/api/DeathNotice?mapKey=" + key + "&pilot=" + pilotName + "&solarSystemFrom=" + systemFrom + "&solarSystemTo=" + systemTo;
+
+            _apiCallsLog.Info(address);
 
             try
             {
@@ -245,7 +288,9 @@ namespace EveJimaCore.BLL.Map
                 {
                     var dataVerification = client.DownloadString(address);
 
-                    return dataVerification;
+                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+
+                    return updatedSystems;
                 }
             }
             catch (Exception ex)
