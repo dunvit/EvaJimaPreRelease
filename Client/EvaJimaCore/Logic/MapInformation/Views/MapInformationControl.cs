@@ -6,11 +6,13 @@ using EveJimaCore.BLL.Map;
 using EveJimaCore.Logic.MapInformation;
 using EveJimaCore.Logic.MapInformation.Views;
 using EveJimaUniverse;
+using log4net;
 
 namespace TestPlatform.Logic.Views
 {
     public partial class MapInformationControl : UserControl
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(MapInformationControl));
         public string SelectedTab { get; set; }
 
         Dictionary<string, Panel> _informationControls;
@@ -30,6 +32,7 @@ namespace TestPlatform.Logic.Views
         public event Action<string, List<CosmicSignature>> UpdateSignatures;
 
         public event Action<string> ChangeMapKey;
+        public event Action<string> ReloadMap;
 
         public MapInformationControl()
         {
@@ -42,6 +45,7 @@ namespace TestPlatform.Logic.Views
 
             _informationMapSettingsView = new InformationMapSettingsView { Visible = true, Dock = DockStyle.Fill };
             _informationMapSettingsView.ChangeMapKey += Event_ChangeMapKey;
+            _informationMapSettingsView.ReloadMap += Event_ReloadMap;
 
             _solarSystemInformationControl.CentreScreenLocationSystem += Event_CentreScreenLocationSystem;
             _solarSystemInformationControl.CentreScreenSelectedSystem += Event_CentreScreenSelectedSystem;
@@ -67,9 +71,14 @@ namespace TestPlatform.Logic.Views
             ActivatePanel("SolarSystem");
         }
 
-        private void Event_ChangeMapKey(string obj)
+        private void Event_ReloadMap(string mapKey)
         {
-            ChangeMapKey(obj);
+            ReloadMap(mapKey);
+        }
+
+        private void Event_ChangeMapKey(string mapKey)
+        {
+            ChangeMapKey(mapKey);
         }
 
         private void Event_UpdateSignatures(string arg1, List<CosmicSignature> arg2)
@@ -99,6 +108,8 @@ namespace TestPlatform.Logic.Views
 
         public void ChangeLocation(Map spaceMap)
         {
+            if(spaceMap == null) return;
+
             foreach (var control in _informationControls.Values)
             {
                 var controlPart = control.Controls[0] as IMapInformationControl;
@@ -147,7 +158,9 @@ namespace TestPlatform.Logic.Views
 
         public void ForceRefresh(Map spaceMap)
         {
+            Log.DebugFormat("[MapInformationControl.ForceRefresh] start");
             ChangeLocation(spaceMap);
+            Log.DebugFormat("[MapInformationControl.ForceRefresh] end");
         }
     }
 }

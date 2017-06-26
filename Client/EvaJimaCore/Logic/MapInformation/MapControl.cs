@@ -13,11 +13,12 @@ namespace EveJimaCore.Logic.MapInformation
     {
         readonly ILog _errorsLog = LogManager.GetLogger("Errors");
         readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
+        private static readonly ILog Log = LogManager.GetLogger(typeof(MapControl));
 
         public MapControl()
         {
             InitializeComponent();
-
+            Log.DebugFormat("[MapControl.MapControl] start");
             containerInformation.CentreScreenLocationSystem += Event_CentreScreenLocationSystem;
             containerInformation.CentreScreenSelectedSystem += Event_CentreScreenSelectedSystem;
             containerInformation.DeleteSelectedSystem += Event_DeleteSelectedSystem;
@@ -25,10 +26,21 @@ namespace EveJimaCore.Logic.MapInformation
             containerInformation.DeathNotice += Event_DeathNotice;
             containerToolbar.OnSelectTab += Event_SelectTab;
             containerInformation.ChangeMapKey += Event_ChangeMapKey;
+            containerInformation.ReloadMap += Event_ReloadMap;
             containerMap.SelectSolarSystem += Event_SelectSolarSystem;
             containerMap.RelocateSolarSystem += Event_RelocateSolarSystem;
+            containerMap.ReloadMap += Event_ReloadMap;
             Global.Presenter.OnLocationChange += Event_LocationChanged;
             Global.Presenter.OnChangeActivePilot += Event_ActivePilotChanged;
+        }
+
+        private void Event_ReloadMap(string key)
+        {
+            var screen = new ScreenUpdateToServer { ActionType = "ReloadMap", MapKey = key };
+            screen.RefreshMapControl += Event_RefreshMap;
+            screen.ShowDialog();
+
+            _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "After change mapKey");
         }
 
         private void Event_ChangeMapKey(string key)
@@ -44,6 +56,7 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void Event_RefreshMap(string obj)
         {
+            Log.DebugFormat("[MapControl.Event_RefreshMap] start");
             containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
             containerInformation.ForceRefresh(Global.Pilots.Selected.SpaceMap);
         }
@@ -65,9 +78,11 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void Event_DeleteSelectedSystem(string selectedSolarSystemName)
         {
-            Global.MapApiFunctions.DeleteSolarSystem(Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName, Global.Pilots.Selected.Name);
+            var screen = new ScreenUpdateToServer { ActionType = "DeleteSystem", MapKey = Global.Pilots.Selected.SpaceMap.Key };
+            screen.RefreshMapControl += Event_RefreshMap;
+            screen.ShowDialog();
 
-            Global.Pilots.Selected.SpaceMap.RemoveSystem(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
+            _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "After change mapKey");
 
             containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
             containerInformation.ForceRefresh(Global.Pilots.Selected.SpaceMap);
@@ -102,12 +117,15 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void Event_ActivePilotChanged(Map spaceMap)
         {
+            Log.DebugFormat("[MapControl.Event_ActivePilotChanged] start");
             containerMap.ForceRefresh(spaceMap);
         }
 
         private void Event_LocationChanged(Map spaceMap)
         {
+            Log.DebugFormat("[MapControl.Event_LocationChanged] start");
             containerInformation.ChangeLocation(spaceMap);
+            Log.DebugFormat("[MapControl.Event_LocationChanged] end");
         }
 
         private void Event_SelectTab(string containerName)

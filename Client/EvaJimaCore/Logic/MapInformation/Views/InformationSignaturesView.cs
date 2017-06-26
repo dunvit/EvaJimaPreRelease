@@ -7,11 +7,14 @@ using EvaJimaCore;
 using EveJimaCore.BLL.Map;
 using EveJimaCore.Logic.MapInformation.Views;
 using EveJimaUniverse;
+using log4net;
 
 namespace EveJimaCore.Logic.MapInformation
 {
     public partial class InformationSignaturesView : UserControl, IMapInformationControl
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(InformationSignaturesView));
+
         public event Action<string, List<CosmicSignature>> UpdateSignatures;
 
         private BindingSource signaturesSource = new BindingSource();
@@ -25,10 +28,18 @@ namespace EveJimaCore.Logic.MapInformation
 
         public void ForceRefresh(Map spaceMap)
         {
+            Log.DebugFormat("[InformationSignaturesView.ForceRefresh] start");
             var solarSystem = spaceMap.GetSystem(spaceMap.SelectedSolarSystemName);
+
+            if(solarSystem == null)
+            {
+                Log.DebugFormat($"[InformationSignaturesView.ForceRefresh] spaceMap.SelectedSolarSystemName {spaceMap.SelectedSolarSystemName} not found");
+                return;
+            }
 
             selectedSolarSystemName = solarSystem.Name;
             FillSignaturesContainer(solarSystem.Signatures);
+            Log.DebugFormat("[InformationSignaturesView.ForceRefresh] end");
         }
 
         private void ejButton2_Click(object sender, System.EventArgs e)

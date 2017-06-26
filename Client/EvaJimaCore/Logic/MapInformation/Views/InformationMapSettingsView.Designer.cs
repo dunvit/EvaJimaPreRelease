@@ -40,6 +40,7 @@
             this.lnlSystemText = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.cmdReload = new EveJimaCore.WhlControls.ejButton();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.cmdReload);
             this.groupBox2.Controls.Add(this.txtServerAddress);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.checkBox2);
@@ -191,6 +193,27 @@
             this.label4.Text = "Map Key";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // cmdReload
+            // 
+            this.cmdReload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cmdReload.AutoSize = true;
+            this.cmdReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdReload.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdReload.FlatAppearance.BorderSize = 0;
+            this.cmdReload.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdReload.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdReload.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdReload.ForeColor = System.Drawing.Color.OliveDrab;
+            this.cmdReload.Location = new System.Drawing.Point(114, 304);
+            this.cmdReload.Name = "cmdReload";
+            this.cmdReload.Size = new System.Drawing.Size(83, 23);
+            this.cmdReload.TabIndex = 152;
+            this.cmdReload.Tag = "MapSignatures";
+            this.cmdReload.Text = "Reload Map";
+            this.cmdReload.UseVisualStyleBackColor = true;
+            this.cmdReload.Click += new System.EventHandler(this.cmdReload_Click);
+            // 
             // InformationMapSettingsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,5 +242,6 @@
         private System.Windows.Forms.Label lnlSystemText;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private WhlControls.ejButton cmdReload;
     }
 }

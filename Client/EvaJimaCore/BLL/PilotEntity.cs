@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Net;
+using System.Threading.Tasks;
 using System.Timers;
 using EvaJimaCore;
 using EveJimaUniverse;
@@ -16,7 +17,7 @@ namespace EveJimaCore.BLL
     {
         private static readonly ILog Log = LogManager.GetLogger("All");
 
-        readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
+        readonly ILog _commandsLog = LogManager.GetLogger("All");
 
         public DelegateChangeSolarSystem OnChangeSolarSystem;
         
@@ -71,6 +72,7 @@ namespace EveJimaCore.BLL
             if (Location.SolarSystemName == "unknown") return;
 
             SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
+            SpaceMap.OnChangeStatus += AddToLog;
             SpaceMap.ApiPublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
             
             SpaceMap.Update();
@@ -87,9 +89,17 @@ namespace EveJimaCore.BLL
             aTimer.Enabled = true;
         }
 
+        private void AddToLog(string message)
+        {
+            Log.Debug(message);
+        }
+
         private void Event_Refresh(object sender, ElapsedEventArgs e)
         {
-            RefreshInfo();
+            Task.Run(() =>
+            {
+                RefreshInfo();
+            });
         }
 
         public string RefreshToken { get; set; }

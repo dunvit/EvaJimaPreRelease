@@ -58,6 +58,7 @@ namespace EveJimaCore.WhlControls
 
             try
             {
+                Log.DebugFormat("[whlSolarSystem.RefreshSolarSystem] start");
                 SolarSystem = location.Clone() as StarSystemEntity;
 
                 if (Global.Pilots.Selected.Location.SolarSystemName == "unknown") return;

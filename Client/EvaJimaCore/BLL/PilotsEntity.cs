@@ -41,8 +41,11 @@ namespace EveJimaCore.BLL
         public void SetSelected(PilotEntity pilot)
         {
             Selected = pilot;
+            Log.DebugFormat("[PilotsEntity.SetSelected] Before  Global.Presenter.ActivatePilot : {0}", pilot.Name);
             Global.Presenter.ActivatePilot(pilot.Name);
+            Log.DebugFormat("[PilotsEntity.SetSelected] Before  Global.Presenter.ChangeActivePilot : {0}", pilot.Name);
             Global.Presenter.ChangeActivePilot(pilot.Name);
+            Log.DebugFormat("[PilotsEntity.SetSelected] End : {0}", pilot.Name);
         }
 
         public void Add(PilotEntity newPilot)
@@ -61,7 +64,9 @@ namespace EveJimaCore.BLL
             {
                 Log.DebugFormat("[PilotsEntity.Activate] pilot.Name {0}", pilot.Name);
                 Selected = pilot;
+                Log.DebugFormat("[PilotsEntity.Activate] Before Global.Presenter.ActivatePilot. pilot.Name {0}", pilot.Name);
                 Global.Presenter.ActivatePilot(pilot.Name);
+                Log.DebugFormat("[PilotsEntity.Activate] Before Global.Presenter.ChangeActivePilot. pilot.Name {0}", pilot.Name);
                 Global.Presenter.ChangeActivePilot(pilot.Name);
                 if (OnActivatePilot != null) OnActivatePilot(pilot);
             }

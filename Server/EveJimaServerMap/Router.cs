@@ -213,6 +213,8 @@ namespace EveJimaServerMap
 
                 Server.RelocatePilot(mapKey, pilot, systemTo);
 
+                if (systemFrom == null) dtTime = new DateTime(2015, 5, 5);
+
                 var updatedSystems = map.GetUpdates(dtTime);
 
                 _commandsLog.InfoFormat("[PublishSolarSystem] Get updated systems after publish system with key {0} from {1} to {2} for pilot {3}. Count updated systems is {4}", mapKey, systemFrom, systemTo, pilot, updatedSystems.Count);

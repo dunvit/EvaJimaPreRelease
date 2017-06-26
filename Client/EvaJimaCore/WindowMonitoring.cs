@@ -125,9 +125,11 @@ namespace EveJimaCore
 
         private void GlobalEvent_ActivatePilot(PilotEntity pilot)
         {
+            Log.DebugFormat("[WindowMonitoring.GlobalEvent_ActivatePilot] Before ContainerEvent_ChangeSolarSystemInfo : {0}", pilot.Name);
             ContainerEvent_ChangeSolarSystemInfo(Global.Space.GetTitle(pilot.Location));
-
+            Log.DebugFormat("[WindowMonitoring.GlobalEvent_ActivatePilot] Before ActivateLocationTab : {0}", pilot.Name);
             ActivateLocationTab();
+            Log.DebugFormat("[WindowMonitoring.GlobalEvent_ActivatePilot] End : {0}", pilot.Name);
         }
 
         private void ActivateLocationTab()
@@ -469,7 +471,7 @@ namespace EveJimaCore
             {
                 Log.ErrorFormat("[WindowMonitoring.Event_ChangeSelectedPilot] Critical error. Exception {0}", ex);
             }
-            
+            Log.DebugFormat("[WindowMonitoring.Event_ChangeSelectedPilot] end");
         }
 
 
@@ -794,7 +796,7 @@ namespace EveJimaCore
             if (Global.Pilots.Count() > 0)
             {
                 _containerSolarSystem.RefreshSolarSystem(location);
-                _containerTravelHistory.RefreshSolarSystem(location);
+                //_containerTravelHistory.RefreshSolarSystem(location);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using EvaJimaCore;
 using EveJimaUniverse;
 using log4net;
@@ -11,7 +12,8 @@ namespace EveJimaCore.BLL.Map
     {
         public event Action<string> OnChangeStatus;
 
-        readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
+        private static readonly ILog Log = LogManager.GetLogger(typeof(Map));
+        readonly ILog _commandsLog = LogManager.GetLogger("All");
 
         public string Key { get; set; }
 
@@ -33,6 +35,8 @@ namespace EveJimaCore.BLL.Map
 
         public string PreviousLocationSolarSystemName { get; set; }
 
+        private bool isStoppedUpdates;
+
         public Map()
         {
             Systems = new List<SolarSystem>();
@@ -48,24 +52,60 @@ namespace EveJimaCore.BLL.Map
 
             aTimer = new System.Timers.Timer();
             aTimer.Elapsed += Event_Refresh;
-            aTimer.Interval = 5000;
+            aTimer.Interval = 10000;
             aTimer.Enabled = true;
         }
 
         public string GetOwner()
         {
-            Owner = Global.MapApiFunctions.GetMapOwner(Key);
+            if(Owner == null)
+            {
+                Log.DebugFormat("[Map.GetOwner] start");
+                Owner = Global.MapApiFunctions.GetMapOwner(Key);
+                Log.DebugFormat("[Map.GetOwner] end");
+            }
 
             return Owner;
         }
 
         private void Event_Refresh(object sender, EventArgs e)
         {
-            _commandsLog.DebugFormat("[Map.Event_Refresh] Refresh map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
+            if(isRunUpdate)
+            {
+                _commandsLog.DebugFormat("[Map.Event_Refresh] Updates stopped because previous not ended for map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
 
-            if (Key == string.Empty) return;
+                return;
+            }
+
+            if (isStoppedUpdates)
+            {
+                _commandsLog.DebugFormat("[Map.Event_Refresh] Updates stopped for map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
+                return;
+            }
+
+            if (isGlobalReload)
+            {
+                _commandsLog.DebugFormat("[Map.Event_Refresh] Updates stopped for Global Reload for map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
+                return;
+            }
+
+            if(Key == string.Empty) return;
+
+            _commandsLog.DebugFormat("[Map.Event_Refresh] Start Refresh map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
 
             Update();
+
+            _commandsLog.DebugFormat("[Map.Event_Refresh] End Refresh map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
+        }
+
+        private void UpdatesStop()
+        {
+            aTimer.Stop();
+        }
+
+        private void UpdatesStart()
+        {
+            aTimer.Start();
         }
 
         public SolarSystem GetSystem(string name)
@@ -73,22 +113,81 @@ namespace EveJimaCore.BLL.Map
             return Systems.FirstOrDefault(solarSystem => solarSystem.Name == name);
         }
 
+        private bool isGlobalReload;
+
         public void Reload(string key)
         {
-            _isUpdateInProgress = true;
+            UpdatesStop();
 
-            _commandsLog.InfoFormat("[Map.Reload] Reload map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
+            if (isGlobalReload)
+            {
+                _commandsLog.DebugFormat("[Map.Reload] Updates stopped for Global Reload for map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
+                return;
+            }
+
+
+            isStoppedUpdates = true;
+            isGlobalReload = true;
+
+            
+            _commandsLog.DebugFormat("[Map.Reload] Load systems for map with key ='{0}' for pilot ='{1}'  _lastUpdate = '{2}'", Key, ActivePilot, _lastUpdate);
+
+            while (isRunUpdate)
+            {
+                _commandsLog.InfoFormat("[Map.Reload] Waiting for Reload map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
+                Thread.Sleep(1000);
+            }
+
             _lastUpdate = new DateTime(2015, 5, 5).Ticks;
-            Key = key;
-
-            ApiPublishSolarSystem(ActivePilot, Key, null, LocationSolarSystemName);
-
-            Global.Pilots.Selected.Key = key;
-            Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, Key);
-
-            _isUpdateInProgress = false;
-
             Update();
+
+            isStoppedUpdates = false;
+            isGlobalReload = false;
+
+            UpdatesStart();
+        }
+
+        private readonly object _updateLock = new object();
+        private readonly object _resetLock = new object();
+
+        public void Reset(string key)
+        {
+            UpdatesStop();
+
+            if (isGlobalReload)
+            {
+                _commandsLog.DebugFormat("[Map.Reset] Updates stopped for Global Reload for map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
+                return;
+            }
+
+            isGlobalReload = true;
+            isStoppedUpdates = true;
+
+            lock (_resetLock)
+            {
+                while(isRunUpdate)
+                {
+                    
+                    _commandsLog.InfoFormat("[Map.Reset] Waiting for reset map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
+                    Thread.Sleep(1000);
+                }
+
+                _commandsLog.InfoFormat("[Map.Reset] Reset map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
+                _lastUpdate = new DateTime(2015, 5, 5).Ticks;
+                Key = key;
+
+                ApiPublishSolarSystem(ActivePilot, Key, null, LocationSolarSystemName);
+
+                Global.Pilots.Selected.Key = key;
+                Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, Key);
+
+                Update();
+            }
+
+            isStoppedUpdates = false;
+            isGlobalReload = false;
+
+            UpdatesStart();
         }
 
         public List<SolarSystem> ApiPublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)
@@ -133,59 +232,74 @@ namespace EveJimaCore.BLL.Map
             return updatedSystems;
         }
 
-
-        private bool _isUpdateInProgress;
-
         public long GetLastUpdate()
         {
             return _lastUpdate;
         }
 
+        private bool isRunUpdate = false;
 
         public string Update()
         {
-            if(_isUpdateInProgress) return string.Empty;
-
-            _isUpdateInProgress = true;
 
             var message = "";
 
-            if(string.IsNullOrEmpty(Owner))
+            
+
+            lock(_updateLock)
             {
-                OnChangeStatus?.Invoke($"Get map owner for map {Key}...");
+                isRunUpdate = true;
+
+                message = UpdateMap();
+
+                isRunUpdate = false;
+            }
+
+            return message;
+        }
+
+        private string UpdateMap()
+        {
+            Log.DebugFormat($"[Map.UpdateMap] start for {ActivePilot}");
+
+            var message = "";
+
+            if (string.IsNullOrEmpty(Owner))
+            {
+                OnChangeStatus?.Invoke($"Get map owner for map {Key} active pilot {ActivePilot}...");
                 Owner = GetOwner();
             }
 
-            OnChangeStatus?.Invoke($"Start get updates for map {Key}...");
+            OnChangeStatus?.Invoke($"Start get updates for map {Key} active pilot {ActivePilot}...");
 
             var updatedSystems = Global.MapApiFunctions.GetUpdates(Key, ActivePilot, _lastUpdate);
 
-            OnChangeStatus?.Invoke($"End get updates for map {Key}. Updated {updatedSystems.Count} solar systems.");
+            OnChangeStatus?.Invoke($"End get updates for map {Key}. Updated {updatedSystems.Count} solar systems. active pilot {ActivePilot}");
 
             _commandsLog.DebugFormat("[Map.Update] Load systems for map with key ='{0}' for pilot ='{1}' Updated Systems = '{2}' _lastUpdate = '{3}'", Key, ActivePilot, updatedSystems.Count, _lastUpdate);
 
             if (updatedSystems.Count > 0)
             {
-                message = string.Format("{0:HH:mm:ss}", DateTime.UtcNow) + " Updated " + updatedSystems.Count + " systems.";
+                message = string.Format("{0:HH:mm:ss}", DateTime.UtcNow) + " Updated " + updatedSystems.Count + $" systems. active pilot {ActivePilot}";
 
                 UpdateSolarSystems(updatedSystems);
             }
 
             var deletedSystems = Global.MapApiFunctions.GetDeletes(Key, ActivePilot, _lastUpdate);
 
-            OnChangeStatus?.Invoke($"End get deleted systems for map {Key}. Removed {deletedSystems.Count} solar systems.");
+            OnChangeStatus?.Invoke($"End get deleted systems for map {Key}. Removed {deletedSystems.Count} solar systems. active pilot {ActivePilot}");
 
             if (deletedSystems.Count > 0)
             {
                 message = message + Environment.NewLine;
-                message = message + string.Format("{0:HH:mm:ss}", DateTime.UtcNow) + " Deleted " + deletedSystems.Count + " systems.";
+                message = message + string.Format("{0:HH:mm:ss}", DateTime.UtcNow) + " Deleted " + deletedSystems.Count + $" systems. active pilot {ActivePilot}";
 
                 GarbageCollector(deletedSystems);
             }
 
             var updatePilotes = Global.MapApiFunctions.GetPilotes(Key, _lastUpdate, ActivePilot);
 
-            OnChangeStatus?.Invoke($"End get active pilotes for map {Key}. Updated {updatePilotes.Count} pilotes.");
+            OnChangeStatus?.Invoke($"End get active pilotes for map {Key}. Updated {updatePilotes.Count} pilotes. active pilot {ActivePilot}");
 
             if (updatePilotes.Count > 0)
             {
@@ -196,9 +310,9 @@ namespace EveJimaCore.BLL.Map
 
             HideUnconnectedSystems();
 
-            OnChangeStatus?.Invoke($"End remove old connection for map {Key}.");
+            OnChangeStatus?.Invoke($"End remove old connection for map {Key}. active pilot {ActivePilot}");
 
-            _isUpdateInProgress = false;
+            Log.DebugFormat($"[Map.UpdateMap] end for {ActivePilot}");
 
             return message;
         }

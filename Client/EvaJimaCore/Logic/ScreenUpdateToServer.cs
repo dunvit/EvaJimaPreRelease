@@ -44,6 +44,7 @@ namespace EveJimaCore.Logic
             }
 
             lblUpdateLog.Text = message;
+            _commandsLog.InfoFormat("[ScreenUpdateToServer.UpdateActionLog] " + message);
             Refresh();
         }
 
@@ -59,19 +60,34 @@ namespace EveJimaCore.Logic
                 case "ChangeMapKey":
                     label1.Text = @"Update server. Please wait.";
                     _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "Start change mapKey");
-                    Global.Pilots.Selected.SpaceMap.Reload(MapKey);
+                    Global.Pilots.Selected.SpaceMap.Reset(MapKey);
 
                     Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, MapKey);
                     Global.ApplicationSettings.Save();
 
                     _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "End change mapKey");
-                    RefreshMapControl(MapKey);
+                    if (RefreshMapControl != null) RefreshMapControl(MapKey);
+                    Close();
+                    break;
+
+                case "ReloadMap":
+                    Global.Pilots.Selected.SpaceMap.Reload(MapKey);
+                    if (RefreshMapControl != null) RefreshMapControl(MapKey);
+                    Close();
+                    break;
+
+                case "DeleteSystem":
+                    Global.MapApiFunctions.DeleteSolarSystem(Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName, Global.Pilots.Selected.Name);
+
+                    Global.Pilots.Selected.SpaceMap.RemoveSystem(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
+
+                    
                     Close();
                     break;
 
                 case "LoadAllPilotesFromStorage":
                     label1.Text = @"Load data from CCP SSO (single sign-on) site.";
-                    AuthorizeAllPilotsInAccount("");
+                    if (AuthorizeAllPilotsInAccount != null) AuthorizeAllPilotsInAccount("");
                     Close();
                     break;
             }

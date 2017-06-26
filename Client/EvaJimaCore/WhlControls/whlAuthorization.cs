@@ -170,7 +170,7 @@ namespace EveJimaCore.WhlControls
             crlPilotPortrait.Visible = true;
 
             lblAuthorizationInfo.Text = TextAfterAuthorizationInfo + Environment.NewLine + Environment.NewLine + TextAuthorizationInfo;
-
+            Log.DebugFormat("[whlAuthorization.RefreshPilotInfo] cmbPilots.SelectedIndex");
             if (OnChangeSelectedPilot != null) OnChangeSelectedPilot();
         }
 

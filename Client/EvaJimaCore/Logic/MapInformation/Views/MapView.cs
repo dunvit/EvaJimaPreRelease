@@ -14,9 +14,12 @@ namespace EveJimaCore.Logic.MapInformation
 {
     public partial class MapView : UserControl
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(MapView));
         readonly ILog _commandsLog = LogManager.GetLogger("Errors");
 
         private readonly Dictionary<string, StarSystemEntity> _systemsInformation = new Dictionary<string, StarSystemEntity>();
+
+        public event Action<string> ReloadMap;
 
         private Point ScreenCenter { get; set; }
 
@@ -80,6 +83,10 @@ namespace EveJimaCore.Logic.MapInformation
 
                 isDragging = true;
                 _drugAndDropStartPosition = new Point((Width / 2) - e.X, (Height / 2) - e.Y);
+
+                //ScreenCenter = new Point(mapPoint.X, mapPoint.Y);
+
+                //RecalculateOffsetPositions(ScreenCenter);
 
             }
 
@@ -168,6 +175,7 @@ namespace EveJimaCore.Logic.MapInformation
         {
             try
             {
+                Log.DebugFormat("[MapInformationControl.MapView] start");
                 SpaceMap = spaceMap;
 
                 if (spaceMap == null) return;
@@ -175,6 +183,7 @@ namespace EveJimaCore.Logic.MapInformation
                 ScreenCenter = SpaceMap.GetSystem(SpaceMap.LocationSolarSystemName).LocationInMap;
 
                 RecalculateOffsetPositions(ScreenCenter);
+                Log.DebugFormat("[MapInformationControl.MapView] end");
             }
             catch (Exception ex)
             {
@@ -207,6 +216,11 @@ namespace EveJimaCore.Logic.MapInformation
                     Height / 2 - 0, 3, 3);
 
                 e.Graphics.DrawEllipse(new Pen(Color.Red, 2), rectangleMapCenter);
+
+                var rectangleScreenCenter = new Rectangle(ScreenCenter.X - Width / 2, ScreenCenter.Y - Height / 2, 3, 3);
+                e.Graphics.DrawEllipse(new Pen(Color.DarkOrange, 2), rectangleScreenCenter);
+                //ScreenCenter
+
 
                 lblUpdateTime.Text = @"Updated at " + DateTime.UtcNow.ToLongTimeString();
 
@@ -355,6 +369,8 @@ namespace EveJimaCore.Logic.MapInformation
                 Global.Pilots.Selected.SpaceMap.GetSystem(relocatedSystem).LocationInMap = new Point(e.X + MapPosition.X, e.Y + MapPosition.Y);
             }
 
+            //lblUpdateTime.Text = "" + @"Coordinates Local x=" + (e.X + MapPosition.X) + @" y=" + (e.Y + MapPosition.Y);
+
             if (isDragging)
             {
                 //var screenCenter = new Point(MapPosition.X + e.X + drugAndDropStartPosition.X, MapPosition.Y + e.Y + drugAndDropStartPosition.Y);
@@ -381,6 +397,11 @@ namespace EveJimaCore.Logic.MapInformation
             RecalculateOffsetPositions(ScreenCenter);
 
             Refresh();
+        }
+
+        private void cmdReload_Click(object sender, EventArgs e)
+        {
+            if (ReloadMap != null) ReloadMap(SpaceMap.Key);
         }
     }
 }
