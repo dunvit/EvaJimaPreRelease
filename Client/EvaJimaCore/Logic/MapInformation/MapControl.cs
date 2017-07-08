@@ -31,27 +31,49 @@ namespace EveJimaCore.Logic.MapInformation
             containerMap.RelocateSolarSystem += Event_RelocateSolarSystem;
             containerMap.ReloadMap += Event_ReloadMap;
             Global.Presenter.OnLocationChange += Event_LocationChanged;
+            Global.Presenter.OnChangeScreen += Event_ChangeScren;
             Global.Presenter.OnChangeActivePilot += Event_ActivePilotChanged;
+        }
+
+        private void Event_ChangeScren(string screenName)
+        {
+            if(screenName == "Map")
+            {
+                containerMap.StartDrawMap();
+            }
+            else
+            {
+                containerMap.StopDrawMap();
+            }
         }
 
         private void Event_ReloadMap(string key)
         {
+            containerMap.StopDrawMap();
+
             var screen = new ScreenUpdateToServer { ActionType = "ReloadMap", MapKey = key };
             screen.RefreshMapControl += Event_RefreshMap;
             screen.ShowDialog();
 
             _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "After change mapKey");
+
+            containerMap.StartDrawMap();
         }
 
         private void Event_ChangeMapKey(string key)
         {
+            containerMap.StopDrawMap();
+
             var screen = new ScreenUpdateToServer { ActionType  = "ChangeMapKey", MapKey = key};
             screen.RefreshMapControl += Event_RefreshMap;
             screen.ShowDialog();
 
             _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "After change mapKey");
 
-            
+            containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
+            containerInformation.ForceRefresh(Global.Pilots.Selected.SpaceMap);
+
+            containerMap.StartDrawMap();
         }
 
         private void Event_RefreshMap(string obj)
@@ -119,6 +141,7 @@ namespace EveJimaCore.Logic.MapInformation
         {
             Log.DebugFormat("[MapControl.Event_ActivePilotChanged] start");
             containerMap.ForceRefresh(spaceMap);
+            containerInformation.ForceRefresh(spaceMap);
         }
 
         private void Event_LocationChanged(Map spaceMap)

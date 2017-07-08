@@ -179,6 +179,8 @@ namespace EveJimaCore.WhlControls
         {
             if (Pilotes.Count <= 0) return;
 
+            PilotEntity pilot = null;
+
             foreach (var pilotEntity in Pilotes)
             {
                 Global.Pilots.Add(pilotEntity);
@@ -186,10 +188,13 @@ namespace EveJimaCore.WhlControls
                 cmbPilots.Items.Add(pilotEntity.Name.Trim());
                 cmbPilots.Text = pilotEntity.Name.Trim();
 
-                Global.Pilots.SetSelected(pilotEntity);
+                pilot = pilotEntity;
+
+                //Global.Pilots.SetSelected(pilotEntity);
             }
 
-            
+            if(pilot != null) Global.Pilots.SetSelected(pilot);
+
             cmbPilots.Invoke(new MethodInvoker(delegate
             {
                 btnLogInWithEveOnline.Visible = true;
@@ -213,7 +218,7 @@ namespace EveJimaCore.WhlControls
         {
             if (_isLoadedPilotesFromStorage)
             {
-
+                
                 Global.Pilots.Activate(cmbPilots.Text);
 
                 RefreshPilotInfo();

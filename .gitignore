@@ -28,3 +28,9 @@
 *.suo
 *.gitattributes
 /Server/EveJimaServerMap/obj/Debug
+/Client/EveJimaUniverse/bin/Release
+/Client/EveJimaUniverse/obj/Release
+/Server/EveJimaServerMap/bin/Release
+/Server/EveJimaServerMap/obj/Release
+/Server/Server/obj/Release/Package/PackageTmp/bin
+/Server/Server/obj/Release

@@ -21,7 +21,10 @@ namespace EveJimaCore.Logic
         public ScreenUpdateToServer()
         {
             InitializeComponent();
-            if(Global.Pilots.Selected != null) Global.Pilots.Selected.SpaceMap.OnChangeStatus += Event_ChangeStatus;
+            if(Global.Pilots.Selected != null)
+            {
+                Global.Pilots.Selected.SpaceMap.OnChangeStatus += Event_ChangeStatus;
+            }
 
             Messages.GetInstance().OnGetGlobalMessage += Event_ChangeStatus;
         }

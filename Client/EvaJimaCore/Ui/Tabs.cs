@@ -138,6 +138,9 @@ namespace EvaJimaCore.Ui
 
         public void Activate(string tabName)
         {
+            Global.Presenter.ChangeScreen(tabName);
+
+
             if (activeTab != null)
             {
                 if (activeTab.Name != tabName)

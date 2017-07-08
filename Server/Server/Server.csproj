@@ -268,6 +268,7 @@
     <Content Include="Data\WSpaceSystemInfo - Basic Solar Systems.csv" />
     <Content Include="Data\WSpaceSystemInfo - Systems.csv" />
     <Content Include="Data\WSpaceSystemInfo - Wormholes.csv" />
+    <None Include="Properties\PublishProfiles\1.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

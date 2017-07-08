@@ -27,7 +27,7 @@ namespace EveJimaCore.BLL.Map
 
         public List<PilotLocation> Pilotes { get; set; }
 
-        private System.Timers.Timer aTimer;
+        private System.Timers.Timer _mapUpdateTimer;
 
         public string SelectedSolarSystemName { get; set; }
 
@@ -42,18 +42,21 @@ namespace EveJimaCore.BLL.Map
             Systems = new List<SolarSystem>();
 
             _lastUpdate = new DateTime(2015,5,5).Ticks;
+
+            _mapUpdateTimer = new System.Timers.Timer();
+            _mapUpdateTimer.Elapsed += Event_Refresh;
+            _mapUpdateTimer.Interval = 10000;
+            _mapUpdateTimer.Enabled = false;
+            _mapUpdateTimer.Stop();
         }
 
         public void Activate(string owner, string system)
         {
+            OnChangeStatus?.Invoke($"[Map.Activate] Start updates for current map '{Key}' for pilot {ActivePilot}");
+
             ActivePilot = owner;
             SelectedSolarSystemName = system;
             LocationSolarSystemName = system;
-
-            aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += Event_Refresh;
-            aTimer.Interval = 10000;
-            aTimer.Enabled = true;
         }
 
         public string GetOwner()
@@ -70,6 +73,8 @@ namespace EveJimaCore.BLL.Map
 
         private void Event_Refresh(object sender, EventArgs e)
         {
+            if(Global.Pilots.Selected.Name != ActivePilot) return;
+
             if(isRunUpdate)
             {
                 _commandsLog.DebugFormat("[Map.Event_Refresh] Updates stopped because previous not ended for map with key ='{0}' for pilot ='{1}'", Key, ActivePilot);
@@ -100,12 +105,12 @@ namespace EveJimaCore.BLL.Map
 
         private void UpdatesStop()
         {
-            aTimer.Stop();
+            _mapUpdateTimer.Stop();
         }
 
         private void UpdatesStart()
         {
-            aTimer.Start();
+            _mapUpdateTimer.Start();
         }
 
         public SolarSystem GetSystem(string name)
@@ -150,6 +155,7 @@ namespace EveJimaCore.BLL.Map
         private readonly object _updateLock = new object();
         private readonly object _resetLock = new object();
 
+
         public void Reset(string key)
         {
             UpdatesStop();
@@ -163,6 +169,8 @@ namespace EveJimaCore.BLL.Map
             isGlobalReload = true;
             isStoppedUpdates = true;
 
+            var count = 0;
+
             lock (_resetLock)
             {
                 while(isRunUpdate)
@@ -170,6 +178,8 @@ namespace EveJimaCore.BLL.Map
                     
                     _commandsLog.InfoFormat("[Map.Reset] Waiting for reset map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
                     Thread.Sleep(1000);
+                    count++;
+                    if(count > 3) isRunUpdate = false;
                 }
 
                 _commandsLog.InfoFormat("[Map.Reset] Reset map with key ='{0}' to key '{2}' for pilot ='{1}'", Key, ActivePilot, key);
@@ -192,20 +202,22 @@ namespace EveJimaCore.BLL.Map
 
         public List<SolarSystem> ApiPublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)
         {
-            OnChangeStatus?.Invoke($"Start Publish Solar System for map '{Key}' with pilot '{pilotName}'. Relocated from '{systemFrom}' to '{systemTo}'");
+            OnChangeStatus?.Invoke($"[Map.ApiPublishSolarSystem] Start Publish Solar System for map '{Key}' with pilot '{pilotName}'. Relocated from '{systemFrom}' to '{systemTo}'");
 
             var updatedSystems = Global.MapApiFunctions.PublishSolarSystem(pilotName, Key, systemFrom, systemTo);
 
-            OnChangeStatus?.Invoke($"End get updates for map '{Key}' after PublishSolarSystem. Updated {updatedSystems.Count} solar systems.");
+            OnChangeStatus?.Invoke($"[Map.ApiPublishSolarSystem] End get updates for map '{Key}' after PublishSolarSystem. Updated {updatedSystems.Count} solar systems.");
 
             UpdateSolarSystems(updatedSystems);
+
+            //_lastUpdate = DateTime.UtcNow.Ticks;
 
             return updatedSystems;
         }
 
         public List<SolarSystem> ApiDeleteSolarSystem(string key , string solarSystemName, string pilotName)
         {
-            OnChangeStatus?.Invoke($"Start Delete Solar System for map '{key}' with pilot '{pilotName}'. Deleted solar system name is '{solarSystemName}'");
+            OnChangeStatus?.Invoke($"[Map.ApiDeleteSolarSystem] Start Delete Solar System for map '{key}' with pilot '{pilotName}'. Deleted solar system name is '{solarSystemName}'");
 
             var updatedSystems = Global.MapApiFunctions.DeleteSolarSystem(key, solarSystemName, pilotName);
 
@@ -214,14 +226,11 @@ namespace EveJimaCore.BLL.Map
             RemoveSystem(solarSystemName);
 
             return updatedSystems;
-
-            
-
         }
 
         public List<SolarSystem> ApiPublishSignatures(string key, string solarSystemName, string pilotName, List<CosmicSignature> signatures)
         {
-            OnChangeStatus?.Invoke($"Start Publish Signatures Solar System '{solarSystemName}' for map '{key}' with pilot '{pilotName}'. signatures count is '{signatures.Count}'");
+            OnChangeStatus?.Invoke($"[Map.ApiPublishSignatures] Start Publish Signatures Solar System '{solarSystemName}' for map '{key}' with pilot '{pilotName}'. signatures count is '{signatures.Count}'");
 
             var updatedSystems = Global.MapApiFunctions.PublishSignatures(pilotName, key, solarSystemName, signatures);
 
@@ -266,15 +275,15 @@ namespace EveJimaCore.BLL.Map
 
             if (string.IsNullOrEmpty(Owner))
             {
-                OnChangeStatus?.Invoke($"Get map owner for map {Key} active pilot {ActivePilot}...");
+                OnChangeStatus?.Invoke($"[Map.UpdateMap] Get map owner for map {Key} active pilot {ActivePilot}...");
                 Owner = GetOwner();
             }
 
-            OnChangeStatus?.Invoke($"Start get updates for map {Key} active pilot {ActivePilot}...");
+            OnChangeStatus?.Invoke($"[Map.UpdateMap] Start get updates for map {Key} active pilot {ActivePilot}...");
 
             var updatedSystems = Global.MapApiFunctions.GetUpdates(Key, ActivePilot, _lastUpdate);
 
-            OnChangeStatus?.Invoke($"End get updates for map {Key}. Updated {updatedSystems.Count} solar systems. active pilot {ActivePilot}");
+            OnChangeStatus?.Invoke($"[Map.UpdateMap] End get updates for map {Key}. Updated {updatedSystems.Count} solar systems. active pilot {ActivePilot}");
 
             _commandsLog.DebugFormat("[Map.Update] Load systems for map with key ='{0}' for pilot ='{1}' Updated Systems = '{2}' _lastUpdate = '{3}'", Key, ActivePilot, updatedSystems.Count, _lastUpdate);
 
@@ -287,7 +296,7 @@ namespace EveJimaCore.BLL.Map
 
             var deletedSystems = Global.MapApiFunctions.GetDeletes(Key, ActivePilot, _lastUpdate);
 
-            OnChangeStatus?.Invoke($"End get deleted systems for map {Key}. Removed {deletedSystems.Count} solar systems. active pilot {ActivePilot}");
+            OnChangeStatus?.Invoke($"[Map.UpdateMap] End get deleted systems for map {Key}. Removed {deletedSystems.Count} solar systems. active pilot {ActivePilot}");
 
             if (deletedSystems.Count > 0)
             {
@@ -299,7 +308,7 @@ namespace EveJimaCore.BLL.Map
 
             var updatePilotes = Global.MapApiFunctions.GetPilotes(Key, _lastUpdate, ActivePilot);
 
-            OnChangeStatus?.Invoke($"End get active pilotes for map {Key}. Updated {updatePilotes.Count} pilotes. active pilot {ActivePilot}");
+            OnChangeStatus?.Invoke($"[Map.UpdateMap] End get active pilotes for map {Key}. Updated {updatePilotes.Count} pilotes. active pilot {ActivePilot}");
 
             if (updatePilotes.Count > 0)
             {
@@ -310,7 +319,7 @@ namespace EveJimaCore.BLL.Map
 
             HideUnconnectedSystems();
 
-            OnChangeStatus?.Invoke($"End remove old connection for map {Key}. active pilot {ActivePilot}");
+            OnChangeStatus?.Invoke($"[Map.UpdateMap] End remove old connection for map {Key}. active pilot {ActivePilot}");
 
             Log.DebugFormat($"[Map.UpdateMap] end for {ActivePilot}");
 
@@ -321,6 +330,10 @@ namespace EveJimaCore.BLL.Map
 
         private void HideUnconnectedSystems()
         {
+            OnChangeStatus?.Invoke($"[Map.HideUnconnectedSystems] for map {Key}. active pilot {ActivePilot}");
+
+            if (LocationSolarSystemName == null) return;
+
             _systems = new List<string>();
 
             foreach (var solarSystem in Systems)
@@ -329,6 +342,10 @@ namespace EveJimaCore.BLL.Map
             }
 
             CheckConnectionsForSystem(LocationSolarSystemName);
+
+            var system = GetSystem(LocationSolarSystemName);
+
+            system.IsHidden = false;
         }
 
         private void CheckConnectionsForSystem(string locationSolarSystemName)
@@ -371,14 +388,14 @@ namespace EveJimaCore.BLL.Map
                 if (system != null)
                 {
                     system.LocationInMap = updatedSystem.LocationInMap;
-                    _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} updated system {2} Coordinates {1}", Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, system.Name);
+                    _commandsLog.DebugFormat("[UpdateSolarSystemCoordinates] For map with key {0} updated system {2} Coordinates {1}", Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, system.Name);
                     system.Signatures = updatedSystem.Signatures;
                     system.Connections = updatedSystem.Connections;
                 }
                 else
                 {
                     Systems.Add(updatedSystem);
-                    _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} added system {2} Coordinates {1}", Key, updatedSystem.LocationInMap.X + ":" + updatedSystem.LocationInMap.Y, updatedSystem.Name);
+                    _commandsLog.DebugFormat("[UpdateSolarSystemCoordinates] For map with key {0} added system {2} Coordinates {1}", Key, updatedSystem.LocationInMap.X + ":" + updatedSystem.LocationInMap.Y, updatedSystem.Name);
                 }
 
 
@@ -467,7 +484,7 @@ namespace EveJimaCore.BLL.Map
 
         public void RemoveSystem(string solarSystem)
         {
-            OnChangeStatus?.Invoke($"Check is removed solar system '{solarSystem}' current for selected pilot {Global.Pilots.Selected.Name}...");
+            OnChangeStatus?.Invoke($"[Map.RemoveSystem] Check is removed solar system '{solarSystem}' current for selected pilot {Global.Pilots.Selected.Name}...");
 
             if (solarSystem == LocationSolarSystemName) return;
 
@@ -484,13 +501,37 @@ namespace EveJimaCore.BLL.Map
         {
             var updatedSystems = Global.MapApiFunctions.DeleteConnectionBetweenSolarSystems(ActivePilot, Key, PreviousLocationSolarSystemName, locationSolarSystem);
 
-            OnChangeStatus?.Invoke($"End get updates for map '{Key}' after DeathNotice delete connection from system {PreviousLocationSolarSystemName} to system {locationSolarSystem}. Updated {updatedSystems.Count} solar systems.");
+            OnChangeStatus?.Invoke($"[Map.ApiPublishDeathNotice] End get updates for map '{Key}' after DeathNotice delete connection from system {PreviousLocationSolarSystemName} to system {locationSolarSystem}. Updated {updatedSystems.Count} solar systems.");
 
             UpdateSolarSystems(updatedSystems);
 
-            _commandsLog.InfoFormat("[DeathNotice] For map with key {0} delete connection from system {2} to system {1}", Key, locationSolarSystem, PreviousLocationSolarSystemName);
+            _commandsLog.InfoFormat("[Map.ApiPublishDeathNotice] For map with key {0} delete connection from system {2} to system {1}", Key, locationSolarSystem, PreviousLocationSolarSystemName);
 
             return updatedSystems;
+        }
+
+        public void CheckIsActivePilot(string pilotName)
+        {
+            if(pilotName == ActivePilot)
+            {
+                OnChangeStatus?.Invoke($"[Map.CheckIsActivePilot] Start updates for current map '{Key}' for pilot {ActivePilot}");
+
+                _mapUpdateTimer = new System.Timers.Timer();
+                _mapUpdateTimer.Elapsed += Event_Refresh;
+                _mapUpdateTimer.Interval = 10000;
+                _mapUpdateTimer.Enabled = true;
+                _mapUpdateTimer.Start();
+                return;
+            }
+
+            OnChangeStatus?.Invoke($"[Map.CheckIsActivePilot] Stop updates for current map '{Key}' for pilot {ActivePilot}");
+
+            _mapUpdateTimer = new System.Timers.Timer();
+            _mapUpdateTimer.Elapsed += Event_Refresh;
+            _mapUpdateTimer.Interval = 10000;
+            _mapUpdateTimer.Enabled = false;
+            _mapUpdateTimer.Stop();
+            //Stop updates for current map
         }
     }
 }

@@ -51,10 +51,12 @@ namespace TestPlatform.Logic
             cmdSystemInformation.Tag = "SolarSystem";
             cmdMapSignatures.Tag = "MapSignatures";
             cmdMapSettings.Tag = "MapSettings";
+            cmdPilotes.Tag = "Pilotes";
 
             _toolbarControls.Add("SolarSystem", cmdSystemInformation);
             _toolbarControls.Add("MapSignatures", cmdMapSignatures);
             _toolbarControls.Add("MapSettings", cmdMapSettings);
+            _toolbarControls.Add("Pilotes", cmdPilotes);
 
             ActivatePanel("SolarSystem");
         }

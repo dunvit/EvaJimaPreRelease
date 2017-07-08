@@ -31,6 +31,7 @@
             this.cmdSystemInformation = new System.Windows.Forms.Button();
             this.cmdMapSignatures = new System.Windows.Forms.Button();
             this.cmdMapSettings = new System.Windows.Forms.Button();
+            this.cmdPilotes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmdSystemInformation
@@ -45,7 +46,7 @@
             this.cmdSystemInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdSystemInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSystemInformation.ForeColor = System.Drawing.Color.White;
-            this.cmdSystemInformation.Location = new System.Drawing.Point(4, 4);
+            this.cmdSystemInformation.Location = new System.Drawing.Point(1, 4);
             this.cmdSystemInformation.Name = "cmdSystemInformation";
             this.cmdSystemInformation.Size = new System.Drawing.Size(80, 23);
             this.cmdSystemInformation.TabIndex = 0;
@@ -64,7 +65,7 @@
             this.cmdMapSignatures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMapSignatures.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdMapSignatures.ForeColor = System.Drawing.Color.White;
-            this.cmdMapSignatures.Location = new System.Drawing.Point(89, 4);
+            this.cmdMapSignatures.Location = new System.Drawing.Point(84, 4);
             this.cmdMapSignatures.Name = "cmdMapSignatures";
             this.cmdMapSignatures.Size = new System.Drawing.Size(75, 23);
             this.cmdMapSignatures.TabIndex = 1;
@@ -83,19 +84,39 @@
             this.cmdMapSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMapSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdMapSettings.ForeColor = System.Drawing.Color.White;
-            this.cmdMapSettings.Location = new System.Drawing.Point(168, 4);
+            this.cmdMapSettings.Location = new System.Drawing.Point(220, 4);
             this.cmdMapSettings.Name = "cmdMapSettings";
-            this.cmdMapSettings.Size = new System.Drawing.Size(75, 23);
+            this.cmdMapSettings.Size = new System.Drawing.Size(67, 23);
             this.cmdMapSettings.TabIndex = 2;
             this.cmdMapSettings.Text = "Settings";
             this.cmdMapSettings.UseVisualStyleBackColor = true;
             this.cmdMapSettings.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Event_SelectToolBarElement);
+            // 
+            // cmdPilotes
+            // 
+            this.cmdPilotes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdPilotes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdPilotes.FlatAppearance.BorderSize = 0;
+            this.cmdPilotes.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdPilotes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdPilotes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cmdPilotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPilotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPilotes.ForeColor = System.Drawing.Color.White;
+            this.cmdPilotes.Location = new System.Drawing.Point(163, 4);
+            this.cmdPilotes.Name = "cmdPilotes";
+            this.cmdPilotes.Size = new System.Drawing.Size(56, 23);
+            this.cmdPilotes.TabIndex = 3;
+            this.cmdPilotes.Text = "Pilotes";
+            this.cmdPilotes.UseVisualStyleBackColor = true;
+            this.cmdPilotes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Event_SelectToolBarElement);
             // 
             // ToolbarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.Controls.Add(this.cmdPilotes);
             this.Controls.Add(this.cmdMapSettings);
             this.Controls.Add(this.cmdMapSignatures);
             this.Controls.Add(this.cmdSystemInformation);
@@ -112,5 +133,6 @@
         private System.Windows.Forms.Button cmdSystemInformation;
         private System.Windows.Forms.Button cmdMapSignatures;
         private System.Windows.Forms.Button cmdMapSettings;
+        private System.Windows.Forms.Button cmdPilotes;
     }
 }

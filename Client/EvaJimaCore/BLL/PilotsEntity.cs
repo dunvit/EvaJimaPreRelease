@@ -42,20 +42,25 @@ namespace EveJimaCore.BLL
         {
             Selected = pilot;
             Log.DebugFormat("[PilotsEntity.SetSelected] Before  Global.Presenter.ActivatePilot : {0}", pilot.Name);
-            Global.Presenter.ActivatePilot(pilot.Name);
-            Log.DebugFormat("[PilotsEntity.SetSelected] Before  Global.Presenter.ChangeActivePilot : {0}", pilot.Name);
-            Global.Presenter.ChangeActivePilot(pilot.Name);
+            
+            Log.InfoFormat("[PilotsEntity.SetSelected] Before  Global.Presenter.ChangeActivePilot : {0}", pilot.Name);
+            //Global.Presenter.GlobalEventsChangeActivePilot(pilot.Name);
             Log.DebugFormat("[PilotsEntity.SetSelected] End : {0}", pilot.Name);
         }
 
-        public void Add(PilotEntity newPilot)
+        public void Add(PilotEntity pilot)
         {
-            _pilots.Add(newPilot);
+            _pilots.Add(pilot);
 
             if (OnAddPilot != null)
             {
-                OnAddPilot(newPilot);
+                OnAddPilot(pilot);
             }
+
+            if(_pilots.Count == 1) SetSelected(pilot);
+
+
+            Global.Presenter.GlobalEventsActivatePilot(pilot.Name);
         }
 
         public void Activate(string pilotName)
@@ -65,9 +70,8 @@ namespace EveJimaCore.BLL
                 Log.DebugFormat("[PilotsEntity.Activate] pilot.Name {0}", pilot.Name);
                 Selected = pilot;
                 Log.DebugFormat("[PilotsEntity.Activate] Before Global.Presenter.ActivatePilot. pilot.Name {0}", pilot.Name);
-                Global.Presenter.ActivatePilot(pilot.Name);
                 Log.DebugFormat("[PilotsEntity.Activate] Before Global.Presenter.ChangeActivePilot. pilot.Name {0}", pilot.Name);
-                Global.Presenter.ChangeActivePilot(pilot.Name);
+                Global.Presenter.GlobalEventsChangeActivePilot(pilot.Name);
                 if (OnActivatePilot != null) OnActivatePilot(pilot);
             }
         }

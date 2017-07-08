@@ -171,6 +171,16 @@ namespace EveJimaCore.Logic.MapInformation
 
         private Map SpaceMap { get; set; }
 
+        public void StopDrawMap()
+        {
+            aTimer.Enabled = false;
+        }
+
+        public void StartDrawMap()
+        {
+            aTimer.Enabled = true;
+        }
+
         public void ForceRefresh(Map spaceMap)
         {
             try
@@ -197,6 +207,8 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void Event_Paint(object sender, PaintEventArgs e)
         {
+            //Log.InfoFormat($"[MapInformationControl.Event_Paint] start for pilot {SpaceMap.ActivePilot}");
+
             if (isPainting) return;
 
             isPainting = true;

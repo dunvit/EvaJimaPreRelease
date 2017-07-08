@@ -305,6 +305,7 @@ namespace EveJimaServerMap
             var list = new List<SolarSystem>();
 
             if(lastUpdate.Year == 1) return list;
+            if (lastUpdate.Year == 2015) return list;
 
             foreach (var solarSystem in DeletedSystems.Values)
             {

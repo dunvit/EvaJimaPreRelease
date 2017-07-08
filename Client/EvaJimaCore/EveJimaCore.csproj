@@ -120,6 +120,12 @@
     <Compile Include="Logic\MapInformation\Views\InformationMapSettingsView.Designer.cs">
       <DependentUpon>InformationMapSettingsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\MapInformation\Views\InformationPilotesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Logic\MapInformation\Views\InformationPilotesView.Designer.cs">
+      <DependentUpon>InformationPilotesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\MapInformation\Views\InformationSignaturesView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -343,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logic\MapInformation\Views\InformationMapSettingsView.resx">
       <DependentUpon>InformationMapSettingsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logic\MapInformation\Views\InformationPilotesView.resx">
+      <DependentUpon>InformationPilotesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logic\MapInformation\Views\InformationSignaturesView.resx">
       <DependentUpon>InformationSignaturesView.cs</DependentUpon>

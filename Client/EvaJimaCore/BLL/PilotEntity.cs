@@ -17,8 +17,6 @@ namespace EveJimaCore.BLL
     {
         private static readonly ILog Log = LogManager.GetLogger("All");
 
-        readonly ILog _commandsLog = LogManager.GetLogger("All");
-
         public DelegateChangeSolarSystem OnChangeSolarSystem;
         
         public event DelegateEnterToSolarSystem OnEnterToSolarSystem;
@@ -57,7 +55,7 @@ namespace EveJimaCore.BLL
             ActivatePilot();
         }
 
-        private Timer aTimer;
+        private Timer _updateMapTimer;
 
         private void ActivatePilot()
         {
@@ -72,7 +70,9 @@ namespace EveJimaCore.BLL
             if (Location.SolarSystemName == "unknown") return;
 
             SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
-            SpaceMap.OnChangeStatus += AddToLog;
+            Global.Presenter.OnActivatePilot += SpaceMap.CheckIsActivePilot;
+            SpaceMap.OnChangeStatus += GetMapMessage;
+
             SpaceMap.ApiPublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
             
             SpaceMap.Update();
@@ -83,15 +83,15 @@ namespace EveJimaCore.BLL
 
             if (SpaceMap != null) ChangeLocation();
 
-            aTimer = new Timer();
-            aTimer.Elapsed += Event_Refresh;
-            aTimer.Interval = 5000;
-            aTimer.Enabled = true;
+            _updateMapTimer = new Timer();
+            _updateMapTimer.Elapsed += Event_Refresh;
+            _updateMapTimer.Interval = 5000;
+            _updateMapTimer.Enabled = true;
         }
 
-        private void AddToLog(string message)
+        private void GetMapMessage(string message)
         {
-            Log.Debug(message);
+            Log.Info(message);
         }
 
         private void Event_Refresh(object sender, ElapsedEventArgs e)
@@ -145,7 +145,7 @@ namespace EveJimaCore.BLL
 
             LoadLocationInfo();
 
-            if(Key == null) Key = Name;
+            if(Key == null) Key = DateTime.UtcNow.Ticks.ToString();
 
             if(Location.SolarSystemName != "unknown")
             {
@@ -160,6 +160,8 @@ namespace EveJimaCore.BLL
             }
 
             LoadCharacterInfo();
+
+            Global.ApplicationSettings.UpdatePilotInStorage(Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, Key);
 
             _lastTokenUpdate = DateTime.Now;
 
@@ -197,13 +199,13 @@ namespace EveJimaCore.BLL
                     Location = new StarSystemEntity();
                 }
 
-                _commandsLog.DebugFormat("[Pilot {0}] Call CrestData.GetLocation with ID={1}", Name, Id);
+                Log.DebugFormat("[Pilot {0}] Call CrestData.GetLocation with ID={1}", Name, Id);
 
                 dynamic locationInfo = CrestData.GetLocation(Id);
 
                 if (Location.SolarSystemName == locationInfo.SelectToken("solarSystem.name").Value)
                 {
-                    _commandsLog.DebugFormat("[Pilot {0}] No need change location {1}", Name, Location.SolarSystemName);
+                    Log.DebugFormat("[Pilot {0}] No need change location {1}", Name, Location.SolarSystemName);
                     return;
                 }
 
@@ -286,7 +288,7 @@ namespace EveJimaCore.BLL
 
             if (_isBusy == false)
             {
-                _commandsLog.DebugFormat("[Pilot '{0}'] Load location info.", Name);
+                Log.DebugFormat("[Pilot '{0}'] Load location info.", Name);
                 LoadLocationInfo();
             }
         }
@@ -296,18 +298,18 @@ namespace EveJimaCore.BLL
         {
             if (Key == null) return;
 
-            _commandsLog.InfoFormat("[Pilot '{3}'] Publish system with key {0} from {1} to {2} ", Name, LocationPreviousSystemName, LocationCurrentSystemName, Name);
+            Log.InfoFormat("[Pilot '{3}'] Publish system with key {0} from {1} to {2} ", Name, LocationPreviousSystemName, LocationCurrentSystemName, Name);
 
             SpaceMap.Publish(Name, LocationPreviousSystemName, LocationCurrentSystemName);
 
             if (OnChangeSolarSystem == null) return;
 
-            _commandsLog.InfoFormat("[Pilot '{3}'] Call OnChangeSolarSystem with key after publish {0} from {1} to {2} ", Name, LocationPreviousSystemName, LocationCurrentSystemName, Name);
+            Log.InfoFormat("[Pilot '{3}'] Call OnChangeSolarSystem with key after publish {0} from {1} to {2} ", Name, LocationPreviousSystemName, LocationCurrentSystemName, Name);
 
             try
             {
                 SpaceMap.SelectedSolarSystemName = LocationCurrentSystemName;
-                Global.Presenter.ActivatePilot(Name);
+                
                 if(OnChangeSolarSystem != null) OnChangeSolarSystem(this, LocationPreviousSystemName, LocationCurrentSystemName);
                 if(OnEnterToSolarSystem != null)  OnEnterToSolarSystem(Name, LocationPreviousSystemName, LocationCurrentSystemName);
             }

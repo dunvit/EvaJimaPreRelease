@@ -7,23 +7,32 @@ namespace EveJimaCore
     {
         public event Action<BLL.Map.Map> OnLocationChange;
         public event Action<BLL.Map.Map> OnChangeActivePilot;
+        public event Action<string> OnActivatePilot;
+        public event Action<string> OnChangeScreen;
 
-        public void ActivatePilot(string pilotName)
+        public void GlobalEventsActivatePilot(string pilotName)
         {
             if(pilotName == Global.Pilots.Selected.Name)
             {
                 OnLocationChange?.Invoke(Global.Pilots.Selected.SpaceMap);
             }
+
+            OnActivatePilot?.Invoke(pilotName);
         }
 
-        public void ChangeActivePilot(string pilotName)
+        public void GlobalEventsChangeActivePilot(string pilotName)
         {
             OnChangeActivePilot?.Invoke(Global.Pilots.Selected.SpaceMap);
         }
 
-        public void SelectSolarSystem(string solarSystemName)
+        public void GlobalEventsSelectSolarSystem(string solarSystemName)
         {
             Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName = solarSystemName;
+        }
+
+        public void ChangeScreen(string screen)
+        {
+            OnChangeScreen?.Invoke(screen);
         }
     }
 }
