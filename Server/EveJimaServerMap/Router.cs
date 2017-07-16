@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Dynamic;
 using System.Web;
 using EveJimaUniverse;
 using log4net;
@@ -31,54 +32,15 @@ namespace EveJimaServerMap
             }
         }
 
-        public string LoadMap(string key, string system, string pilot)
+
+        public string DeleteSignature(string pilotName, string key, string system, string code, long ticks)
         {
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
-                Server.RelocatePilot(key, pilot, system);
+                var dtTime = new DateTime(ticks);
 
-                var mapObject = Server.GetMap(key, pilot);
-
-                var map = JsonConvert.SerializeObject(mapObject);
-
-                _commandsLog.InfoFormat("[Map] Load map with key {0}", key);
-
-                return map;
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("[Map] Load map with key {0} exception {1}", key, ex);
-                return "Failure";
-            }
-        }
-
-        public string GetMapOwner(string key)
-        {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
-
-            try
-            {
-                var mapOwner = Server.GetMapOwner(key);
-
-                _commandsLog.InfoFormat("[Map.GetMapOwner] Return map owner {1} with map key {0}", key, mapOwner);
-
-                return mapOwner;
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("[Map.GetMapOwner] With key {0} exception {1}", key, ex);
-                return "Failure";
-            }
-        }
-
-        public string DeleteSignature(string pilotName, string key, string system, string code)
-        {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
-
-            try
-            {
                 var map = Server.GetMap(key, pilotName);
 
                 map.DeleteSignature(system, code);
@@ -87,7 +49,7 @@ namespace EveJimaServerMap
 
                 map.Save();
 
-                return "Ok";
+                return Server.BuildUpdateString(key, pilotName, dtTime.Ticks);
             }
             catch (Exception ex)
             {
@@ -97,19 +59,21 @@ namespace EveJimaServerMap
 
         }
 
-        public string DeleteSolarSystem(string mapKey, string system, string pilotName)
+        public string DeleteSolarSystem(string mapKey, string system, string pilotName, long ticks)
         {
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
-                var dtTime = DateTime.UtcNow;
+                var dtTime = new DateTime(ticks);
 
-                Server.GetMap(mapKey, pilotName).DeleteSolarSystem(system);
+                var map = Server.GetMap(mapKey, pilotName);
+
+                map.DeleteSolarSystem(system);
 
                 _commandsLog.InfoFormat("[DeleteSolarSystem] Delete solar system {1} on map with key {0} ", mapKey, system);
 
-                return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilotName).GetUpdates(dtTime));
+                return Server.BuildUpdateString(mapKey, pilotName, dtTime.Ticks);
             }
             catch (Exception ex)
             {
@@ -118,15 +82,13 @@ namespace EveJimaServerMap
             }
         }
 
-        public string GetUpdatedSystems(string mapKey, string pilot, long ticks)
+        public string GetAllUpdates(string mapKey, string pilot, long ticks)
         {
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
-                var dtTime = new DateTime(ticks);
-
-                return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilot).GetUpdates(dtTime));
+                return Server.BuildUpdateString(mapKey, pilot, ticks);
             }
             catch (Exception ex)
             {
@@ -135,10 +97,11 @@ namespace EveJimaServerMap
             }
         }
 
+
         //DeathNotice
-        public string DeathNotice(string mapKey, string pilot, string systemFrom, string systemTo)
+        public string DeathNotice(string mapKey, string pilot, string systemFrom, string systemTo, long ticks)
         {
-            var dtTime = DateTime.UtcNow;
+            var dtTime = new DateTime(ticks);
 
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
@@ -148,7 +111,7 @@ namespace EveJimaServerMap
 
                 map.DeleteSolarSystemConnection(systemTo, systemFrom);
 
-                return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilot).GetUpdates(dtTime));
+                return Server.BuildUpdateString(mapKey, pilot, dtTime.Ticks);
             }
             catch (Exception ex)
             {
@@ -157,45 +120,13 @@ namespace EveJimaServerMap
             }
         }
 
-        public string GetDeletedSystems(string mapKey, string pilot, long ticks, bool deleted)
+        public string PublishSolarSystem(string pilot, string mapKey, string systemFrom, string systemTo, long ticks)
         {
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
-                return JsonConvert.SerializeObject(Server.GetMap(mapKey, pilot).GetDeleted(new DateTime(ticks)));
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("[GetDeletedSystems] Get updates (deleted systems) with key {0} ticks {2} exception {1}", mapKey, ex, ticks);
-
-                return "Failure";
-            }
-        }
-
-        public string GetUpdatedPilotes(string mapKey, long ticks, string pilot)
-        {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
-
-            try
-            {
-                return JsonConvert.SerializeObject(Server.GetPilotes(mapKey, new DateTime(ticks)));
-            }
-            catch (Exception ex)
-            {
-                _log.ErrorFormat("[MapUpdates] Get updates (pilotes) with key {0} exception {1}", mapKey, ex);
-
-                return "Failure";
-            }
-        }
-
-        public string PublishSolarSystem(string pilot, string mapKey, string systemFrom, string systemTo)
-        {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
-
-            try
-            {
-                var dtTime = DateTime.UtcNow;
+                var dtTime = new DateTime(ticks);
 
                 // First login to EveJima
                 if ( systemFrom == null )
@@ -215,11 +146,7 @@ namespace EveJimaServerMap
 
                 if (systemFrom == null) dtTime = new DateTime(2015, 5, 5);
 
-                var updatedSystems = map.GetUpdates(dtTime);
-
-                _commandsLog.InfoFormat("[PublishSolarSystem] Get updated systems after publish system with key {0} from {1} to {2} for pilot {3}. Count updated systems is {4}", mapKey, systemFrom, systemTo, pilot, updatedSystems.Count);
-
-                return JsonConvert.SerializeObject(updatedSystems);
+                return Server.BuildUpdateString(mapKey, pilot, dtTime.Ticks);
             }
             catch (Exception ex)
             {
@@ -229,13 +156,13 @@ namespace EveJimaServerMap
 
         }
 
-        public string PublishSignatures(string pilotName, string key, string system, string signatures)
+        public string PublishSignatures(string pilotName, string key, string system, string signatures, long ticks)
         {
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
-                var dtTime = DateTime.UtcNow;
+                var dtTime = new DateTime(ticks);
 
                 var map = Server.GetMap(key, pilotName);
 
@@ -251,7 +178,7 @@ namespace EveJimaServerMap
 
                 _commandsLog.InfoFormat("[PublishSignatures] Get updated systems after publish system with key {0} for {1} for pilot {2}. Count updated systems is {3}", key, system, pilotName, updatedSystems.Count);
 
-                return JsonConvert.SerializeObject(updatedSystems);
+                return Server.BuildUpdateString(key, pilotName, dtTime.Ticks);
             }
             catch (Exception ex)
             {
@@ -260,12 +187,14 @@ namespace EveJimaServerMap
             }
         }
 
-        public string UpdateSolarSystemCoordinates(string mapKey, string system, string pilot, int positionX, int positionY)
+        public string UpdateSolarSystemCoordinates(string mapKey, string system, string pilot, int positionX, int positionY, long ticks)
         {
             _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
+                var dtTime = new DateTime(ticks);
+
                 var map = Server.GetMap(mapKey, pilot);
 
                 var solarSystem = map.GetSystem(system);
@@ -275,7 +204,8 @@ namespace EveJimaServerMap
                 _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} system {2} set oordinates {1}", mapKey, positionX + ":" + positionY, system);
 
                 map.Save();
-                return "Ok";
+
+                return Server.BuildUpdateString(mapKey, pilot, dtTime.Ticks);
             }
             catch (Exception ex)
             {

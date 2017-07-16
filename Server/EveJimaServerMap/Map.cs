@@ -124,6 +124,8 @@ namespace EveJimaServerMap
 
                 var deletedSolarSystem = GetSystem(system);
 
+                deletedSolarSystem.LastUpdate = DateTime.UtcNow;
+
                 DeletedSystems.TryAdd(deletedSolarSystem.Name, deletedSolarSystem);
 
                 SolarSystem element;
@@ -273,13 +275,13 @@ namespace EveJimaServerMap
 
             try
             {
-                var updatePoint = lastUpdate.AddSeconds(-2);
+                //var updatePoint = lastUpdate.AddSeconds(-2);
 
                 foreach (var solarSystem in Systems.Values)
                 {
-                    _commandsLog.InfoFormat("[GetUpdates] solarSystem {0} solarSystem.LastUpdate {1} lastUpdate {2} ", solarSystem, solarSystem.LastUpdate.Ticks, updatePoint.Ticks);
+                    _commandsLog.InfoFormat("[GetUpdates] solarSystem {0} solarSystem.LastUpdate {1} lastUpdate {2} ", solarSystem, solarSystem.LastUpdate.Ticks, lastUpdate.Ticks);
 
-                    if (solarSystem.LastUpdate.Ticks > updatePoint.Ticks)
+                    if (solarSystem.LastUpdate.Ticks > lastUpdate.Ticks)
                     {
                         try
                         {
@@ -309,7 +311,7 @@ namespace EveJimaServerMap
 
             foreach (var solarSystem in DeletedSystems.Values)
             {
-                if (solarSystem.LastUpdate > lastUpdate)
+                if (solarSystem.LastUpdate.Ticks > lastUpdate.Ticks)
                 {
                     try
                     {

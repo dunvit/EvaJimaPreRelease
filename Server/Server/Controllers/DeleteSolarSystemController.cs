@@ -4,9 +4,9 @@ namespace Server.Controllers
 {
     public class DeleteSolarSystemController : ApiController
     {
-        public string Get(string mapKey, string system, string pilotName)
+        public string Get(string mapKey, string system, string pilotName, long ticks)
         {
-            return GlobalData.MapRouter.DeleteSolarSystem(mapKey, system, pilotName);
+            return GlobalData.MapRouter.DeleteSolarSystem(mapKey, system, pilotName, ticks);
         }
     }
 }

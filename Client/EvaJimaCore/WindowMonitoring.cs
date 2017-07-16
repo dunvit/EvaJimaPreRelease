@@ -642,7 +642,7 @@ namespace EveJimaCore
 
             Global.Pilots.Selected.Key = Global.Pilots.Selected.Name;
             Global.Pilots.Selected.SpaceMap.Key = Global.Pilots.Selected.Name;
-            Global.Pilots.Selected.SpaceMap.Update();
+            Global.Pilots.Selected.SpaceMap.GetUpdates();
         }
 
         public void BringApplicationToFront()

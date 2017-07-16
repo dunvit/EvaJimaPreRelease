@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using EveJimaUniverse;
 using log4net;
+using Newtonsoft.Json;
 
 namespace EveJimaServerMap
 {
@@ -17,6 +19,33 @@ namespace EveJimaServerMap
         public Server(MapType type)
         {
             this.type = type;
+        }
+
+        public string BuildUpdateString(string mapKey, string pilot, long ticks)
+        {
+            var dtTime = new DateTime(ticks);
+
+            var map = GetMap(mapKey, pilot);
+
+            var updatedSystems = map.GetUpdates(dtTime);
+
+            var deletedSystems = map.GetDeleted(dtTime);
+
+            var updatedPilots = GetPilotes(mapKey, dtTime);
+
+            dynamic genericUpdateData = new ExpandoObject();
+
+            genericUpdateData.Owner = map.Information.Owner;
+
+            genericUpdateData.SystemsUpdated = updatedSystems;
+
+            genericUpdateData.SystemsDeleted = deletedSystems;
+
+            genericUpdateData.Pilots = updatedPilots;
+
+            genericUpdateData.UpdateTime = DateTime.UtcNow.Ticks;
+
+            return JsonConvert.SerializeObject(genericUpdateData);
         }
 
         public Map GetMap(string key, string pilotName, string systemFrom, string systemTo)
@@ -195,7 +224,7 @@ namespace EveJimaServerMap
 
             foreach (var solarSystem in Pilots)
             {
-                if (solarSystem.LastUpdate > lastUpdate && solarSystem.MapKey == mapKey)
+                if (solarSystem.MapKey == mapKey) //solarSystem.LastUpdate > lastUpdate && 
                 {
                     try
                     {

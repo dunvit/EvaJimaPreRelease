@@ -93,8 +93,8 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void Event_DeathNotice(string selectedSolarSystemName)
         {
-            Global.MapApiFunctions.PublishDeadLetter(Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.Name, Global.Pilots.Selected.LocationPreviousSystemName, selectedSolarSystemName);
-            Global.Pilots.Selected.SpaceMap.Update();
+            Global.MapApiFunctions.PublishDeadLetter(Global.Pilots.Selected.SpaceMap, Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.Name, Global.Pilots.Selected.LocationPreviousSystemName, selectedSolarSystemName);
+
             containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
         }
 
@@ -124,7 +124,7 @@ namespace EveJimaCore.Logic.MapInformation
         {
             try
             {
-                Global.MapApiFunctions.UpdateSolarSystemCoordinates(Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName, Global.Pilots.Selected.SpaceMap.ActivePilot, solarSystemNewLocationInMap.X, solarSystemNewLocationInMap.Y);
+                Global.MapApiFunctions.UpdateSolarSystemCoordinates(Global.Pilots.Selected.SpaceMap, Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName, Global.Pilots.Selected.SpaceMap.ActivePilot, solarSystemNewLocationInMap.X, solarSystemNewLocationInMap.Y, Global.Pilots.Selected.SpaceMap.GetLastUpdate());
             }
             catch (Exception ex)
             {

@@ -178,10 +178,8 @@
     <Compile Include="Controllers\DeathNoticeController.cs" />
     <Compile Include="Controllers\DeleteSignatureController.cs" />
     <Compile Include="Controllers\DeleteSolarSystemController.cs" />
-    <Compile Include="Controllers\GetUpdatesController.cs" />
-    <Compile Include="Controllers\GetUpdatesPilotesController.cs" />
     <Compile Include="Controllers\LostAndFoundController.cs" />
-    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\MapUpdatesController.cs" />
     <Compile Include="Controllers\PublishSolarSystemController.cs" />
     <Compile Include="Controllers\MonitoringController.cs" />
     <Compile Include="Controllers\PublishSignaturesController.cs" />

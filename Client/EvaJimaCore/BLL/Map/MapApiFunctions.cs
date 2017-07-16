@@ -14,7 +14,8 @@ namespace EveJimaCore.BLL.Map
         readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
         readonly ILog _errorsLog = LogManager.GetLogger("Errors");
         readonly ILog _apiCallsLog = LogManager.GetLogger("ApiCalls");
-        //ApiCalls
+
+        private object _mylock = new object();
 
         private string _mapServerAddress = "";//"http://www.evajima-maps.somee.com";// "http://localhost:51135"; //
 
@@ -23,10 +24,97 @@ namespace EveJimaCore.BLL.Map
             _mapServerAddress = mapServerAddress;
         }
 
-        public List<SolarSystem> PublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)
+        public MapUpdateHistory UpdateMap(Map map)
+        {
+            Log.DebugFormat($"[MapApiFunctions.UpdateMap] start for '{map.ActivePilot}' and map '{map.Key}'");
+
+            lock (_mylock)
+            {
+                try
+                {
+                    var result = Update(map.Key, map.ActivePilot, map.GetLastUpdate());
+
+                    return PrapairData(map, result);
+                }
+                catch(Exception ex)
+                {
+                    Log.ErrorFormat("[MapApiFunctions.UpdateMap] Critical error. Exception is {0}", ex);
+                }
+
+                MapUpdateHistory historyFailure;
+
+                historyFailure.UpdatedSystems = 0;
+                historyFailure.DeletedSustems = 0;
+                historyFailure.Pilots = 0;
+                historyFailure.UpdateTime = DateTime.UtcNow;
+
+                return historyFailure;
+            }
+        }
+
+        private MapUpdateHistory PrapairData(Map map, string result)
+        {
+            dynamic deserialized = JsonConvert.DeserializeObject(result, typeof(object));
+
+            Log.DebugFormat($"[MapApiFunctions.PrapairData] Get updates for '{map.ActivePilot}' and map '{map.Key}' {deserialized.ToString()}");
+
+            map.SetOwner(deserialized.Owner.ToString());
+
+            List<SolarSystem> updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(deserialized.SystemsUpdated.ToString()) as List<SolarSystem>;
+
+            List<SolarSystem> deletedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(deserialized.SystemsDeleted.ToString()) as List<SolarSystem>;
+
+            List<PilotLocation> updatedPilots = JsonConvert.DeserializeObject<List<PilotLocation>>(deserialized.Pilots.ToString()) as List<PilotLocation>;
+
+            MapTools.UpdateSolarSystems(map, updatedSystems);
+
+            MapTools.DeleteSolarSystems(map, deletedSystems);
+
+            MapTools.RefreshPilots(map, updatedPilots);
+
+            MapTools.HideUnconnectedSystems(map);
+
+            var lastUpdate = new DateTime(long.Parse(deserialized.UpdateTime.ToString()));
+
+            map.SetLastUpdate(lastUpdate);
+
+            MapUpdateHistory history;
+            history.UpdatedSystems = updatedSystems.Count;
+            history.DeletedSustems = deletedSystems.Count;
+            history.Pilots = updatedPilots.Count;
+            history.UpdateTime = new DateTime(lastUpdate.Ticks);
+
+            return history;
+        }
+
+        private string Update(string key, string pilot, long delta)
+        {
+            Log.DebugFormat($"[MapApiFunctions.Update] start for '{pilot}' and map '{key}'");
+
+            var address = _mapServerAddress + "/api/MapUpdates?mapKey=" + key + "&pilot=" + pilot + "&ticks=" + delta + "";
+
+            _apiCallsLog.Info(address);
+
+            using (var client = new WebClient())
+            {
+                var dataVerification = client.DownloadString(address);
+
+                Log.DebugFormat($"[MapApiFunctions.Update] end for '{pilot}' and map '{key}'");
+
+                var updatedData =JsonConvert.DeserializeObject(dataVerification).ToString();
+
+                return updatedData;
+                //return JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+            }
+        }
+
+
+
+        public MapUpdateHistory PublishSolarSystem(Map map, string pilotName, string key, string systemFrom, string systemTo, long delta)
         {
             Log.DebugFormat("[MapApiFunctions.PublishSolarSystem] start");
-            var address = _mapServerAddress + "/api/PublishSolarSystem?pilot=" + pilotName + "&mapKey=" + key + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo;
+
+            var address = _mapServerAddress + "/api/PublishSolarSystem?pilot=" + pilotName + "&mapKey=" + key + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo + "&ticks=" + delta + "";
 
             _apiCallsLog.Info(address);
 
@@ -36,10 +124,11 @@ namespace EveJimaCore.BLL.Map
                 {
                     var dataVerification = client.DownloadString(address);
 
-                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
-                    Log.DebugFormat("[MapApiFunctions.PublishSolarSystem] end");
-                    return updatedSystems;
+                    Log.Debug($"[MapApiFunctions.PublishSolarSystem] end. Responce:\n\r {updatedData} \r\n for time {new DateTime(delta).ToLongTimeString()}");
+
+                    return PrapairData(map, updatedData);
                 }
             }
             catch(Exception ex)
@@ -47,64 +136,23 @@ namespace EveJimaCore.BLL.Map
                 _errorsLog.ErrorFormat("[.PublishSolarSystem] Critical error. Address '{0}' Exception {1}", address, ex);
             }
 
-            return null;
+            MapUpdateHistory historyFailure;
+
+            historyFailure.UpdatedSystems = 0;
+            historyFailure.DeletedSustems = 0;
+            historyFailure.Pilots = 0;
+            historyFailure.UpdateTime = DateTime.UtcNow;
+
+            return historyFailure;
         }
 
-        public Map LoadMap(string key, string system, string pilot)
-        {
-
-            try
-            {
-                var address = _mapServerAddress + "/api/map?key=" + key + "&system=" + system + "&pilot=" + pilot + "";
-
-                _apiCallsLog.Info(address);
-
-                using (var client = new WebClient())
-                {
-                    var dataVerification = client.DownloadString(address);
-
-                    return JsonConvert.DeserializeObject<Map>(JsonConvert.DeserializeObject(dataVerification).ToString());
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-            
-        }
-
-        public string GetMapOwner(string key)
-        {
-            Log.DebugFormat("[MapApiFunctions.GetMapOwner] start");
-            try
-            {
-                var address = _mapServerAddress + "/api/map?key=" + key + "";
-
-                _apiCallsLog.Info(address);
-
-                using (var client = new WebClient())
-                {
-                    var dataVerification = client.DownloadString(address);
-
-                    Log.DebugFormat("[MapApiFunctions.GetMapOwner] end");
-
-                    return dataVerification.Replace("\"","");
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-
-        }
-
-        public string UpdateSolarSystemCoordinates(string key, string system, string pilot, int positionX, int positionY)
+        public MapUpdateHistory UpdateSolarSystemCoordinates(Map map, string key, string system, string pilot, int positionX, int positionY, long delta)
         {
             Log.DebugFormat("[MapApiFunctions.UpdateSolarSystemCoordinates] start");
 
             try
             {
-                var address = _mapServerAddress + "/api/UpdateSolarSystemCoordinates?mapKey=" + key + "&system=" + system + "&pilot=" + pilot + "&positionX=" + positionX + "&positionY=" + positionY + "";
+                var address = _mapServerAddress + "/api/UpdateSolarSystemCoordinates?mapKey=" + key + "&system=" + system + "&pilot=" + pilot + "&positionX=" + positionX + "&positionY=" + positionY + "&ticks=" + delta + "";
 
                 _apiCallsLog.Info(address);
 
@@ -112,11 +160,13 @@ namespace EveJimaCore.BLL.Map
                 {
                     var dataVerification = client.DownloadString(address);
 
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
+
                     _commandsLog.DebugFormat("[MapApiFunctions.UpdateSolarSystemCoordinates] Change solar system coordinates complete. Point = {0} SolarSystemName = {1} ", system, key);
 
                     Log.DebugFormat("[MapApiFunctions.UpdateSolarSystemCoordinates] end");
 
-                    return dataVerification;
+                    return PrapairData(map, updatedData);
                 }
             }
             catch (Exception ex)
@@ -124,16 +174,23 @@ namespace EveJimaCore.BLL.Map
                 _errorsLog.ErrorFormat("[MapApiFunctions.UpdateSolarSystemCoordinates] Point = {1} SolarSystemName = {2} Critical error {0}", ex, system, key);
             }
 
-            return string.Empty;
+            MapUpdateHistory historyFailure;
+
+            historyFailure.UpdatedSystems = 0;
+            historyFailure.DeletedSustems = 0;
+            historyFailure.Pilots = 0;
+            historyFailure.UpdateTime = DateTime.UtcNow;
+
+            return historyFailure;
         }
 
-        public List<SolarSystem> DeleteSolarSystem(string key, string system, string pilot)
+        public MapUpdateHistory DeleteSolarSystem(Map map, string system)
         {
-            Log.DebugFormat("[MapApiFunctions.DeleteSolarSystem] start");
+            Log.DebugFormat($"[MapApiFunctions.DeleteSolarSystem] start for system {system}");
 
             try
             {
-                var address = _mapServerAddress + "/api/DeleteSolarSystem?mapKey=" + key + "&system=" + system + "&pilotName=" + pilot;
+                var address = _mapServerAddress + "/api/DeleteSolarSystem?mapKey=" + map.Key + "&system=" + system + "&pilotName=" + map.ActivePilot + "&ticks=" + map.GetLastUpdate() + "";
 
                 _apiCallsLog.Info(address);
 
@@ -141,114 +198,39 @@ namespace EveJimaCore.BLL.Map
                 {
                     var dataVerification = client.DownloadString(address);
 
-                    _commandsLog.InfoFormat("[Map.DeleteSolarSystem] Delete Solar System {2} with map key ='{0}' for pilot ='{1}'", key, pilot, system);
+                    _commandsLog.InfoFormat("[Map.DeleteSolarSystem] Delete Solar System {2} with map key ='{0}' for pilot ='{1}'", map.Key, map.ActivePilot, system);
 
-                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
-                    Log.DebugFormat("[MapApiFunctions.DeleteSolarSystem] end");
+                    Log.DebugFormat($"[MapApiFunctions.DeleteSolarSystem] end  for system {system}");
 
-                    return updatedSystems;
+                    return PrapairData(map, updatedData);
                 }
             }
             catch(Exception ex)
             {
-                _commandsLog.ErrorFormat("[Map.DeleteSolarSystem] Critical error - Delete Solar System {2} with map key ='{0}' for pilot ='{1}' Exception {3}", key, pilot, system, ex);
+                _commandsLog.ErrorFormat("[Map.DeleteSolarSystem] Critical error - Delete Solar System {2} with map key ='{0}' for pilot ='{1}' Exception {3}", map.Key, map.ActivePilot, system, ex);
 
-                return new List<SolarSystem>();
+                MapUpdateHistory historyFailure;
+
+                historyFailure.UpdatedSystems = 0;
+                historyFailure.DeletedSustems = 0;
+                historyFailure.Pilots = 0;
+                historyFailure.UpdateTime = DateTime.UtcNow;
+
+                return historyFailure;
             }
             
         }
 
-        public List<SolarSystem> GetUpdates(string key, string pilot, long delta)
-        {
-            Log.DebugFormat($"[MapApiFunctions.GetUpdates] start for '{pilot}' and map '{key}'");
 
-            var address = _mapServerAddress + "/api/GetUpdates?mapKey=" + key + "&pilot=" + pilot + "&ticks=" + delta + "";
-
-            _apiCallsLog.Info(address);
-
-            using (var client = new WebClient())
-            {
-                var dataVerification = client.DownloadString(address);
-
-                Log.DebugFormat($"[MapApiFunctions.GetUpdates] end for '{pilot}' and map '{key}'");
-
-                return JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
-            }
-        }
-
-        public List<SolarSystem> GetDeletes(string key, string pilot, long delta)
-        {
-            Log.DebugFormat("[MapApiFunctions.GetDeletes] start");
-
-            try
-            {
-                var address = _mapServerAddress + "/api/GetUpdates?mapKey=" + key + "&pilot=" + pilot + "&ticks=" + delta + "&deleted=true";
-
-                _apiCallsLog.Info(address);
-
-                using (var client = new WebClient())
-                {
-                    var dataVerification = client.DownloadString(address);
-
-                    Log.DebugFormat("[MapApiFunctions.GetDeletes] end");
-
-                    return JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
-                }
-            }
-            catch(Exception)
-            {
-                
-                throw;
-            }
-
-
-            
-        }
-
-        public List<PilotLocation> GetPilotes(string key, long delta, string pilot)
-        {
-            Log.DebugFormat("[MapApiFunctions.GetPilotes] start");
-
-            var address = _mapServerAddress + "/api/GetUpdatesPilotes?mapKey=" + key + "&ticks=" + delta + "&pilot=" + pilot;
-
-            _apiCallsLog.Info(address);
-
-            using (var client = new WebClient())
-            {
-                var dataVerification = client.DownloadString(address);
-
-                Log.DebugFormat("[MapApiFunctions.GetPilotes] end");
-
-                return JsonConvert.DeserializeObject<List<PilotLocation>>(JsonConvert.DeserializeObject(dataVerification).ToString());
-            }
-        }
-
-        public string PublishSignature(string pilotName, string key, string systemName, string type, string code, string name)
-        {
-            Log.DebugFormat("[MapApiFunctions.PublishSignature] start");
-
-            var address = _mapServerAddress + "/api/Signatures?mapKey=" + key + "&systemName=" + systemName + "&type=" + type + "&code=" + code + "&name=" + name + "";
-
-            _apiCallsLog.Info(address);
-
-            using (var client = new WebClient())
-            {
-                var dataVerification = client.DownloadString(address);
-
-                Log.DebugFormat("[MapApiFunctions.PublishSignature] end");
-
-                return dataVerification;
-            }
-        }
-
-        public string PublishDeadLetter(string mapKey, string pilot, string systemFrom, string systemTo)
+        public MapUpdateHistory PublishDeadLetter(Map map, string mapKey, string pilot, string systemFrom, string systemTo)
         {
             Log.DebugFormat("[MapApiFunctions.PublishDeadLetter] start");
 
             try
             {
-                var address = _mapServerAddress + "/api/Signatures?mapKey=" + mapKey + "&pilot=" + pilot + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo + "";
+                var address = _mapServerAddress + "/api/Signatures?mapKey=" + mapKey + "&pilot=" + pilot + "&systemFrom=" + systemFrom + "&systemTo=" + systemTo + "&ticks=" + map.GetLastUpdate() + "";
 
                 _apiCallsLog.Info(address);
 
@@ -258,19 +240,29 @@ namespace EveJimaCore.BLL.Map
 
                     _commandsLog.InfoFormat("[MapApiFunctions.PublishDeadLetter] PublishDeadLetter in system {2}, previous syste, {3} with map key ='{0}' for pilot ='{1}'", mapKey, pilot, systemTo, systemFrom);
 
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
+
                     Log.DebugFormat("[MapApiFunctions.PublishDeadLetter] end");
 
-                    return dataVerification;
+                    return PrapairData(map, updatedData);
                 }
             }
             catch (Exception ex)
             {
                 _errorsLog.ErrorFormat("[MapApiFunctions.PublishDeadLetter] PublishDeadLetter in system {2}, previous syste, {3} with map key ='{0}' for pilot ='{1}' exception is {4}", mapKey, pilot, systemTo, systemFrom, ex);
-                return "Failure";
+
+                MapUpdateHistory historyFailure;
+
+                historyFailure.UpdatedSystems = 0;
+                historyFailure.DeletedSustems = 0;
+                historyFailure.Pilots = 0;
+                historyFailure.UpdateTime = DateTime.UtcNow;
+
+                return historyFailure;
             }
         }
 
-        public List<SolarSystem> PublishSignatures(string pilotName, string key, string system, List<CosmicSignature> signatures)
+        public MapUpdateHistory PublishSignatures(Map map, string pilotName, string key, string system, List<CosmicSignature> signatures)
         {
             Log.DebugFormat("[MapApiFunctions.PublishSignatures] start");
 
@@ -278,7 +270,7 @@ namespace EveJimaCore.BLL.Map
             {
                 var signaturesJson = JsonConvert.SerializeObject(signatures, Formatting.Indented);
 
-                var address = _mapServerAddress + "/api/PublishSignatures?pilotName=" + pilotName + "&key=" + key + "&system=" + system + "&signatures=" + signaturesJson;
+                var address = _mapServerAddress + "/api/PublishSignatures?pilotName=" + pilotName + "&key=" + key + "&system=" + system + "&signatures=" + signaturesJson + "&ticks=" + map.GetLastUpdate() + ""; ;
 
                 _apiCallsLog.Info(address);
 
@@ -286,11 +278,11 @@ namespace EveJimaCore.BLL.Map
                 {
                     var dataVerification = client.DownloadString(address);
 
-                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
                     Log.DebugFormat("[MapApiFunctions.PublishSignatures] end");
 
-                    return updatedSystems;
+                    return PrapairData(map, updatedData);
                 }
             }
             catch(Exception ex)
@@ -298,32 +290,55 @@ namespace EveJimaCore.BLL.Map
                 _errorsLog.ErrorFormat("[MapApiFunctions.PublishSignatures] MapKey = {3} SolarSystemName = {2} Signatures = {1}  Critical error {0}", ex, signatures, system, key);
             }
 
-            return null;
+            MapUpdateHistory historyFailure;
+
+            historyFailure.UpdatedSystems = 0;
+            historyFailure.DeletedSustems = 0;
+            historyFailure.Pilots = 0;
+            historyFailure.UpdateTime = DateTime.UtcNow;
+
+            return historyFailure;
         }
 
-        public string DeleteSignature(string pilotName, string key, string system, string code)
+        public MapUpdateHistory DeleteSignature(Map map, string pilotName, string key, string system, string code)
         {
             Log.DebugFormat("[MapApiFunctions.DeleteSignature] start");
 
-            var address = _mapServerAddress + "/api/DeleteSignature?pilotName=" + pilotName + "&key=" + key + "&system=" + system + "&code=" + code;
-
-            _apiCallsLog.Info(address);
-
-            using (var client = new WebClient())
+            try
             {
-                var dataVerification = client.DownloadString(address);
+                var address = _mapServerAddress + "/api/DeleteSignature?pilotName=" + pilotName + "&key=" + key + "&system=" + system + "&code=" + code + "&ticks=" + map.GetLastUpdate() + ""; ;
 
-                Log.DebugFormat("[MapApiFunctions.DeleteSignature] end");
+                _apiCallsLog.Info(address);
 
-                return dataVerification;
+                using (var client = new WebClient())
+                {
+                    var dataVerification = client.DownloadString(address);
+
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
+
+                    Log.DebugFormat("[MapApiFunctions.DeleteSignature] end");
+
+                    return PrapairData(map, updatedData);
+                }
+            }
+            catch(Exception ex)
+            {
+                MapUpdateHistory historyFailure;
+
+                historyFailure.UpdatedSystems = 0;
+                historyFailure.DeletedSustems = 0;
+                historyFailure.Pilots = 0;
+                historyFailure.UpdateTime = DateTime.UtcNow;
+
+                return historyFailure;
             }
         }
 
-        public List<SolarSystem> DeleteConnectionBetweenSolarSystems(string pilotName, string key, string systemFrom, string systemTo)
+        public MapUpdateHistory DeleteConnectionBetweenSolarSystems(Map map, string pilotName, string key, string systemFrom, string systemTo)
         {
             Log.DebugFormat("[MapApiFunctions.DeleteConnectionBetweenSolarSystems] start");
 
-            var address = _mapServerAddress + "/api/DeathNotice?mapKey=" + key + "&pilot=" + pilotName + "&solarSystemFrom=" + systemFrom + "&solarSystemTo=" + systemTo;
+            var address = _mapServerAddress + "/api/DeathNotice?mapKey=" + key + "&pilot=" + pilotName + "&solarSystemFrom=" + systemFrom + "&solarSystemTo=" + systemTo + "&ticks=" + map.GetLastUpdate() + ""; ;
 
             _apiCallsLog.Info(address);
 
@@ -333,11 +348,11 @@ namespace EveJimaCore.BLL.Map
                 {
                     var dataVerification = client.DownloadString(address);
 
-                    var updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(JsonConvert.DeserializeObject(dataVerification).ToString());
+                    var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
                     Log.DebugFormat("[MapApiFunctions.DeleteConnectionBetweenSolarSystems] end");
 
-                    return updatedSystems;
+                    return PrapairData(map, updatedData);
                 }
             }
             catch (Exception ex)
@@ -345,7 +360,14 @@ namespace EveJimaCore.BLL.Map
                 _errorsLog.ErrorFormat("[MapApiFunctions.DeleteConnectionBetweenSolarSystems] MapKey = {3} systemFrom = {2} systemTo = {1}  Critical error {0}", ex, systemTo, systemFrom, key);
             }
 
-            return null;
+            MapUpdateHistory historyFailure;
+
+            historyFailure.UpdatedSystems = 0;
+            historyFailure.DeletedSustems = 0;
+            historyFailure.Pilots = 0;
+            historyFailure.UpdateTime = DateTime.UtcNow;
+
+            return historyFailure;
         }
     }
 }

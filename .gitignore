@@ -34,3 +34,5 @@
 /Server/EveJimaServerMap/obj/Release
 /Server/Server/obj/Release/Package/PackageTmp/bin
 /Server/Server/obj/Release
+/Server/Server/Logs
+/Server/Server/Data

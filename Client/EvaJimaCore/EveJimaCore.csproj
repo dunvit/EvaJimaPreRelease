@@ -87,6 +87,7 @@
     <Compile Include="BLL\Map\Map.cs" />
     <Compile Include="BLL\Map\MapApiFunctions.cs" />
     <Compile Include="BLL\Map\MapTools.cs" />
+    <Compile Include="BLL\Map\MapUpdateHistory.cs" />
     <Compile Include="BLL\Map\PilotLocation.cs" />
     <Compile Include="BLL\MetricsWriter.cs" />
     <Compile Include="BLL\PilotEntity.cs" />
@@ -201,12 +202,6 @@
     </Compile>
     <Compile Include="WhlControls\whlLostAndFoundOffice.Designer.cs">
       <DependentUpon>whlLostAndFoundOffice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WhlControls\whlMap.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="WhlControls\whlMap.Designer.cs">
-      <DependentUpon>whlMap.cs</DependentUpon>
     </Compile>
     <Compile Include="WhlControls\whlRouter.cs">
       <SubType>UserControl</SubType>
@@ -408,9 +403,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WhlControls\whlLostAndFoundOffice.resx">
       <DependentUpon>whlLostAndFoundOffice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WhlControls\whlMap.resx">
-      <DependentUpon>whlMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WhlControls\whlPilotInfo.resx">
       <DependentUpon>whlPilotInfo.cs</DependentUpon>

@@ -234,7 +234,7 @@ namespace EveJimaCore.Logic.MapInformation
                 //ScreenCenter
 
 
-                lblUpdateTime.Text = @"Updated at " + DateTime.UtcNow.ToLongTimeString();
+                lblUpdateTime.Text = @"Updated at " + SpaceMap.LastUpdateTime.ToLongTimeString();
 
                 #region Draw selected solar system aura
 

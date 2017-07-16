@@ -80,7 +80,7 @@ namespace EveJimaCore.Logic
                     break;
 
                 case "DeleteSystem":
-                    Global.MapApiFunctions.DeleteSolarSystem(Global.Pilots.Selected.SpaceMap.Key, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName, Global.Pilots.Selected.Name);
+                    Global.MapApiFunctions.DeleteSolarSystem(Global.Pilots.Selected.SpaceMap, Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
 
                     Global.Pilots.Selected.SpaceMap.RemoveSystem(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
 
