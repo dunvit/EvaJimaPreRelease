@@ -153,21 +153,40 @@ namespace EJTests
         }
 
         [TestMethod]
-        public void FullFlowMapTest()
+        public void FullFlowMapTest_Server()
         {
             var name = "threads_" + DateTime.UtcNow.Ticks;
 
-            RunFillMap(name);
-        }
-
-        private void RunFillMap(string name)
-        {
             const string pilotFirst = "Scarlett Orwell";
             const string pilotSecond = "Dana Su-Shiloff";
 
             var mapFirst = Initialization(pilotFirst, name);
             var mapSecond = Initialization(pilotSecond, name);
 
+            mapFirst.IsPublic = true;
+            mapSecond.IsPublic = true;
+
+            RunFillMap(name, mapFirst, mapSecond, pilotFirst, pilotSecond);
+        }
+
+        [TestMethod]
+        public void FullFlowMapTest_Local()
+        {
+            var name = "threads_" + DateTime.UtcNow.Ticks;
+
+            const string pilotFirst = "Scarlett Orwell";
+            const string pilotSecond = "Dana Su-Shiloff";
+
+            var mapFirst = Initialization(pilotFirst, name);
+            var mapSecond = Initialization(pilotSecond, name);
+
+            
+
+            RunFillMap(name, mapFirst, mapSecond, pilotFirst, pilotSecond);
+        }
+
+        private void RunFillMap(string name, Map mapFirst, Map mapSecond, string pilotFirst, string pilotSecond)
+        {
             Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "", "J213734").UpdatedSystems, 1);
             Thread.Sleep(2000);
             Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J165920").UpdatedSystems, 2);

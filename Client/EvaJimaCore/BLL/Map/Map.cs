@@ -43,6 +43,8 @@ namespace EveJimaCore.BLL.Map
             Systems = new List<SolarSystem>();
 
             _lastUpdate = new DateTime(2015,5,5).Ticks;
+
+            
         }
 
         public void Activate(string owner, string system)
