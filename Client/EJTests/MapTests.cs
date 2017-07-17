@@ -166,6 +166,7 @@ namespace EJTests
             const string pilotSecond = "Dana Su-Shiloff";
 
             var mapFirst = Initialization(pilotFirst, name);
+            var mapSecond = Initialization(pilotSecond, name);
 
             Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "", "J213734").UpdatedSystems, 1);
             Thread.Sleep(2000);
@@ -180,7 +181,7 @@ namespace EJTests
 
             Assert.AreEqual(mapFirst.Systems.Count, 3);
 
-            var mapSecond = Initialization(pilotSecond, name);
+            
 
             Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "", "J122635").UpdatedSystems, 1);
             Thread.Sleep(2000);
@@ -254,7 +255,7 @@ namespace EJTests
         [TestMethod]
         public void SignaturesAdditionTests()
         {
-            var key = "CJQ_2000";
+            var key = "threads_" + DateTime.UtcNow.Ticks;
             var pilot = "Scarlett Orwell";
 
             var map = Initialization(pilot, key);
@@ -262,21 +263,14 @@ namespace EJTests
             Global.MapApiFunctions = new MapApiFunctions();
             Global.MapApiFunctions.Initialization(Server_MapAddress);
 
-           Global.MapApiFunctions.PublishSolarSystem(map, pilot, key, "", "J213734", new DateTime(2015, 5, 5).Ticks);
+            Global.MapApiFunctions.PublishSolarSystem(map, pilot, key, "", "J213734", new DateTime(2015, 5, 5).Ticks);
             Global.MapApiFunctions.PublishSolarSystem(map, pilot, key, "J213734", "J214318", new DateTime(2015, 5, 5).Ticks);
 
-            SignaturesTests(key, pilot);
+            SignaturesTests(map, pilot);
         }
 
-        public void SignaturesTests(string mapKey, string pilot)
+        public void SignaturesTests(Map map, string pilot)
         {
-            var name = mapKey;
-
-            var mapFirst = Initialization(pilot, name);
-
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
-
             var signatures = new List<CosmicSignature>
             {
                 new CosmicSignature { SolarSystemName = "J213734", Code = "KFG-768", Name = "To Hek", Type = SignatureType.WH },
@@ -284,10 +278,10 @@ namespace EJTests
                 new CosmicSignature { SolarSystemName = "J213734", Code = "ABC-231", Name = "", Type = SignatureType.Gas }
             };
 
-            Global.MapApiFunctions.PublishSignatures(mapFirst, pilot, name, "J213734", signatures);
+            Global.MapApiFunctions.PublishSignatures(map, pilot, map.Key, "J213734", signatures);
 
 
-            Assert.AreEqual(mapFirst.GetSystem("J213734").Signatures.Count, 3);
+            Assert.AreEqual(map.GetSystem("J213734").Signatures.Count, 3);
 
             signatures = new List<CosmicSignature>
             {
@@ -295,9 +289,9 @@ namespace EJTests
                 new CosmicSignature { SolarSystemName = "J213734", Code = "ABC-231", Name = "Bountiful Frontier Reservoir", Type = SignatureType.Gas }
             };
 
-            Global.MapApiFunctions.PublishSignatures(mapFirst, pilot, name, "J213734", signatures);
+            Global.MapApiFunctions.PublishSignatures(map, pilot, map.Key, "J213734", signatures);
 
-            Assert.AreEqual(mapFirst.GetSystem("J213734").Signatures.Count, 2);
+            Assert.AreEqual(map.GetSystem("J213734").Signatures.Count, 2);
 
             signatures = new List<CosmicSignature>
             {
@@ -306,11 +300,11 @@ namespace EJTests
                 new CosmicSignature { SolarSystemName = "J213734", Code = "ABC-231", Name = "", Type = SignatureType.Unknown }
             };
 
-            Global.MapApiFunctions.PublishSignatures(mapFirst, pilot, name, "J213734", signatures);
+            Global.MapApiFunctions.PublishSignatures(map, pilot, map.Key, "J213734", signatures);
 
-            Assert.AreEqual(mapFirst.GetSystem("J213734").Signatures.Count, 3);
+            Assert.AreEqual(map.GetSystem("J213734").Signatures.Count, 3);
 
-            Global.MapApiFunctions.DeleteSignature(mapFirst, pilot, name, "J213734", "UHT-116");
+            Global.MapApiFunctions.DeleteSignature(map, pilot, map.Key, "J213734", "UHT-116");
 
             signatures = new List<CosmicSignature>
             {
@@ -319,105 +313,10 @@ namespace EJTests
                 new CosmicSignature { SolarSystemName = "J214318", Code = "ABC-171", Name = "", Type = SignatureType.Unknown }
             };
 
-            Global.MapApiFunctions.PublishSignatures(mapFirst, pilot, name, "J214318", signatures);
+            Global.MapApiFunctions.PublishSignatures(map, pilot, map.Key, "J214318", signatures);
 
-            Assert.AreEqual(mapFirst.GetSystem("J214318").Signatures.Count, 2);
+            Assert.AreEqual(map.GetSystem("J214318").Signatures.Count, 3);
         }
-
-        [TestMethod]
-        public void CheckSystemTypeTests()
-        {
-            var name = DateTime.UtcNow.Ticks.ToString();
-
-            name = "CJQ1_" + name;
-
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
-
-            const string pilot = "Scarlett Orwell";
-
-            var map = new Map { ActivePilot = pilot, Key = name };
-
-
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "", "J213734", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J213734", "Hek", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "Hek", "Jita", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "Jita", "Uedama", map.GetLastUpdate()), "\"Ok\"");
-
-            
-
-            Global.MapApiFunctions.UpdateMap(map);
-        }
-
-        [TestMethod]
-        public void PilotRelocationTests()
-        {
-            var name = DateTime.UtcNow.Ticks.ToString();
-
-            name = "PilotRelocation_" + name;
-
-            const string pilot = "Scarlett Orwell";
-
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
-
-            var map = new Map { ActivePilot = pilot, Key = name };
-
-            var delta = DateTime.UtcNow.Ticks;
-
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map ,pilot, name, "", "J200000", delta), "\"Ok\"");
-
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "", "J300000", delta), "\"Ok\"");
-        }
-
-        [TestMethod]
-        public void CreateMap()
-        {
-            var name = DateTime.UtcNow.Ticks.ToString();
-
-            name = "CJQ_" + name;
-
-            var pilot = "Scarlett Orwell";
-
-            Global.MapApiFunctions = new MapApiFunctions();
-            Global.MapApiFunctions.Initialization(Server_MapAddress);
-
-            var map = new Map { ActivePilot = pilot, Key = name };
-
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "", "J213734", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J213734", "J165920", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165920", "J165936", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165920", "J165943", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165953", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165954", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165955", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165956", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165957", map.GetLastUpdate()), "\"Ok\"");
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165958", map.GetLastUpdate()), "\"Ok\"");
-
-            
-
-            Global.MapApiFunctions.UpdateMap(map);
-
-            Assert.AreEqual(map.Systems.Count, 10);
-
-            Assert.AreEqual(Global.MapApiFunctions.DeleteSolarSystem(map, "J165953").UpdatedSystems, 1);
-
-            Global.MapApiFunctions.UpdateMap(map);
-
-            Assert.AreEqual(map.Systems.Count, 9);
-
-            var system = map.GetSystem("J165943");
-
-            Assert.AreEqual(system.Connections.Count, 6);
-
-            var delta = DateTime.UtcNow.Ticks;
-
-            Assert.AreEqual(Global.MapApiFunctions.PublishSolarSystem(map, pilot, name, "J165943", "J165014", delta), "\"Ok\"");
-
-            Assert.AreEqual(map.Systems, 2);
-        }
-
 
     }
 }

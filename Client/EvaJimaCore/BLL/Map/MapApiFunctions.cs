@@ -9,6 +9,8 @@ namespace EveJimaCore.BLL.Map
 {
     public class MapApiFunctions
     {
+        public EveJimaServerMap.Router MapRouter { get; set; }
+
         private static readonly ILog Log = LogManager.GetLogger(typeof(MapApiFunctions));
 
         readonly ILog _commandsLog = LogManager.GetLogger("CommandsMap");
@@ -22,6 +24,8 @@ namespace EveJimaCore.BLL.Map
         public void Initialization(string mapServerAddress)
         {
             _mapServerAddress = mapServerAddress;
+
+            MapRouter = new EveJimaServerMap.Router("client");
         }
 
         public MapUpdateHistory UpdateMap(Map map)
@@ -32,7 +36,7 @@ namespace EveJimaCore.BLL.Map
             {
                 try
                 {
-                    var result = Update(map.Key, map.ActivePilot, map.GetLastUpdate());
+                    var result = Update(map, map.Key, map.ActivePilot, map.GetLastUpdate());
 
                     return PrapairData(map, result);
                 }
@@ -87,7 +91,7 @@ namespace EveJimaCore.BLL.Map
             return history;
         }
 
-        private string Update(string key, string pilot, long delta)
+        private string Update(Map map, string key, string pilot, long delta)
         {
             Log.DebugFormat($"[MapApiFunctions.Update] start for '{pilot}' and map '{key}'");
 
@@ -97,7 +101,16 @@ namespace EveJimaCore.BLL.Map
 
             using (var client = new WebClient())
             {
-                var dataVerification = client.DownloadString(address);
+                string dataVerification;
+
+                if (map.IsPublic)
+                {
+                    dataVerification = client.DownloadString(address);
+                }
+                else
+                {
+                    dataVerification = MapRouter.GetAllUpdates(key, pilot, delta);
+                }
 
                 Log.DebugFormat($"[MapApiFunctions.Update] end for '{pilot}' and map '{key}'");
 
@@ -122,7 +135,16 @@ namespace EveJimaCore.BLL.Map
             {
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.PublishSolarSystem(pilotName, key, systemFrom, systemTo, delta);
+                    }
 
                     var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
@@ -158,7 +180,16 @@ namespace EveJimaCore.BLL.Map
 
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.UpdateSolarSystemCoordinates( key, system, pilot, positionX, positionY, delta);
+                    }
 
                     var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
@@ -196,7 +227,16 @@ namespace EveJimaCore.BLL.Map
 
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.DeleteSolarSystem(map.Key, system, map.ActivePilot, map.GetLastUpdate());
+                    }
 
                     _commandsLog.InfoFormat("[Map.DeleteSolarSystem] Delete Solar System {2} with map key ='{0}' for pilot ='{1}'", map.Key, map.ActivePilot, system);
 
@@ -236,7 +276,16 @@ namespace EveJimaCore.BLL.Map
 
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.DeathNotice(map.Key, map.ActivePilot, systemFrom, systemTo, map.GetLastUpdate());
+                    }
 
                     _commandsLog.InfoFormat("[MapApiFunctions.PublishDeadLetter] PublishDeadLetter in system {2}, previous syste, {3} with map key ='{0}' for pilot ='{1}'", mapKey, pilot, systemTo, systemFrom);
 
@@ -276,7 +325,16 @@ namespace EveJimaCore.BLL.Map
 
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.PublishSignatures(map.ActivePilot,map.Key,  system, signaturesJson, map.GetLastUpdate());
+                    }
 
                     var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
@@ -312,7 +370,16 @@ namespace EveJimaCore.BLL.Map
 
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.DeleteSignature(map.ActivePilot, map.Key, system, code, map.GetLastUpdate());
+                    }
 
                     var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 
@@ -346,7 +413,16 @@ namespace EveJimaCore.BLL.Map
             {
                 using (var client = new WebClient())
                 {
-                    var dataVerification = client.DownloadString(address);
+                    string dataVerification;
+
+                    if (map.IsPublic)
+                    {
+                        dataVerification = client.DownloadString(address);
+                    }
+                    else
+                    {
+                        dataVerification = MapRouter.DeathNotice(map.Key, map.ActivePilot,  systemFrom, systemTo, map.GetLastUpdate());
+                    }
 
                     var updatedData = JsonConvert.DeserializeObject(dataVerification).ToString();
 

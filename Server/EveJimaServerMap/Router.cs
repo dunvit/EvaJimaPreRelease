@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Dynamic;
 using System.Web;
 using EveJimaUniverse;
 using log4net;
@@ -12,8 +11,6 @@ namespace EveJimaServerMap
     public class Router
     {
         readonly ILog _log = LogManager.GetLogger("All");
-        readonly ILog _apiCallsLog = LogManager.GetLogger("ApiCalls");
-        readonly ILog _commandsLog = LogManager.GetLogger("Commands");
 
         public Server Server { get; set; }
 
@@ -28,14 +25,12 @@ namespace EveJimaServerMap
                 case "client":
                     Server = new Server(MapType.Client);
                     break;
-
             }
         }
 
-
         public string DeleteSignature(string pilotName, string key, string system, string code, long ticks)
         {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
@@ -45,7 +40,7 @@ namespace EveJimaServerMap
 
                 map.DeleteSignature(system, code);
 
-                _commandsLog.InfoFormat("[DeleteSignature] For map with key {0} system {1} signature code {2}", key, system, code);
+                _log.InfoFormat("[DeleteSignature] For map with key {0} system {1} signature code {2}", key, system, code);
 
                 map.Save();
 
@@ -61,7 +56,7 @@ namespace EveJimaServerMap
 
         public string DeleteSolarSystem(string mapKey, string system, string pilotName, long ticks)
         {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
@@ -71,7 +66,7 @@ namespace EveJimaServerMap
 
                 map.DeleteSolarSystem(system);
 
-                _commandsLog.InfoFormat("[DeleteSolarSystem] Delete solar system {1} on map with key {0} ", mapKey, system);
+                _log.InfoFormat("[DeleteSolarSystem] Delete solar system {1} on map with key {0} ", mapKey, system);
 
                 return Server.BuildUpdateString(mapKey, pilotName, dtTime.Ticks);
             }
@@ -84,7 +79,7 @@ namespace EveJimaServerMap
 
         public string GetAllUpdates(string mapKey, string pilot, long ticks)
         {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
@@ -103,7 +98,7 @@ namespace EveJimaServerMap
         {
             var dtTime = new DateTime(ticks);
 
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
@@ -122,29 +117,29 @@ namespace EveJimaServerMap
 
         public string PublishSolarSystem(string pilot, string mapKey, string systemFrom, string systemTo, long ticks)
         {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
                 var dtTime = new DateTime(ticks);
 
                 // First login to EveJima
-                if ( systemFrom == null )
+                if ( string.IsNullOrEmpty(systemFrom) )
                 {
                     Server.RelocatePilot(mapKey, pilot, systemTo);
                 }
-                
-                _commandsLog.InfoFormat("[PublishSolarSystem] Relocate pilot '{3}' system with key '{0}' from '{1}' to '{2}' ", mapKey, systemFrom, systemTo, pilot);
+
+                _log.InfoFormat("[PublishSolarSystem] Relocate pilot '{3}' system with key '{0}' from '{1}' to '{2}' ", mapKey, systemFrom, systemTo, pilot);
 
                 var map = Server.GetMap(mapKey, pilot, systemFrom, systemTo);
 
                 map.AddSolarSystem(systemFrom, systemTo);
 
-                _commandsLog.InfoFormat("[PublishSolarSystem] Publish system with key {0} from {1} to {2} for pilot {3}", mapKey, systemFrom, systemTo, pilot);
+                _log.InfoFormat("[PublishSolarSystem] Publish system with key {0} from {1} to {2} for pilot {3}", mapKey, systemFrom, systemTo, pilot);
 
                 Server.RelocatePilot(mapKey, pilot, systemTo);
 
-                if (systemFrom == null) dtTime = new DateTime(2015, 5, 5);
+                if (string.IsNullOrEmpty(systemFrom)) dtTime = new DateTime(2015, 5, 5);
 
                 return Server.BuildUpdateString(mapKey, pilot, dtTime.Ticks);
             }
@@ -158,7 +153,7 @@ namespace EveJimaServerMap
 
         public string PublishSignatures(string pilotName, string key, string system, string signatures, long ticks)
         {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
@@ -170,13 +165,13 @@ namespace EveJimaServerMap
 
                 map.UpdateSignatures(system, listSignatures);
 
-                _commandsLog.InfoFormat("[PublishSignatures] For map with key {0} system {1} ", key, system);
+                _log.InfoFormat("[PublishSignatures] For map with key {0} system {1} ", key, system);
 
                 map.Save();
 
                 var updatedSystems = map.GetUpdates(dtTime);
 
-                _commandsLog.InfoFormat("[PublishSignatures] Get updated systems after publish system with key {0} for {1} for pilot {2}. Count updated systems is {3}", key, system, pilotName, updatedSystems.Count);
+                _log.InfoFormat("[PublishSignatures] Get updated systems after publish system with key {0} for {1} for pilot {2}. Count updated systems is {3}", key, system, pilotName, updatedSystems.Count);
 
                 return Server.BuildUpdateString(key, pilotName, dtTime.Ticks);
             }
@@ -189,7 +184,7 @@ namespace EveJimaServerMap
 
         public string UpdateSolarSystemCoordinates(string mapKey, string system, string pilot, int positionX, int positionY, long ticks)
         {
-            _apiCallsLog.InfoFormat(HttpContext.Current.Request.Url.ToString());
+            //_log.InfoFormat(HttpContext.Current.Request.Url.ToString());
 
             try
             {
@@ -201,7 +196,7 @@ namespace EveJimaServerMap
 
                 solarSystem.LocationInMap = new Point(positionX, positionY);
 
-                _commandsLog.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} system {2} set oordinates {1}", mapKey, positionX + ":" + positionY, system);
+                _log.InfoFormat("[UpdateSolarSystemCoordinates] For map with key {0} system {2} set oordinates {1}", mapKey, positionX + ":" + positionY, system);
 
                 map.Save();
 

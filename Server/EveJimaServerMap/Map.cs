@@ -16,7 +16,7 @@ namespace EveJimaServerMap
     public class Map
     {
         readonly ILog _log = LogManager.GetLogger("All");
-        readonly ILog _commandsLog = LogManager.GetLogger("Commands");
+
 
         public MapInformation Information = new MapInformation();
             
@@ -28,6 +28,9 @@ namespace EveJimaServerMap
 
         [JsonIgnore]
         private readonly Random _randomBase = new Random();
+
+        [JsonIgnore]
+        private MapType Deployment { get; set; }
 
         public void Initialization(string key, MapType type)
         {
@@ -43,6 +46,8 @@ namespace EveJimaServerMap
                 case MapType.Server:
                 break;
             }
+
+            Deployment = type;
 
             LoadFromFile(Information.Key);
         }
@@ -145,7 +150,22 @@ namespace EveJimaServerMap
         {
             try
             {
-                var dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + key);
+                string dataFile;
+
+                switch(Deployment)
+                {
+                    case MapType.Server:
+                        dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + key);
+                        break;
+
+                        case MapType.Client:
+                        dataFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"EveJima/Maps", "Settings.dat");
+                        break;
+
+                    default:
+                        dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + key);
+                        break;
+                }
 
                 if (File.Exists(dataFile) == false) return;
 
@@ -201,7 +221,7 @@ namespace EveJimaServerMap
 
                         if (system.LocationInMap == new Point(0, 0))
                         {
-                            _commandsLog.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Information.Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, systemTo, systemFrom);
+                            _log.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Information.Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, systemTo, systemFrom);
                             AddSpaceMapCoordinates(systemTo, systemFrom, isFirstStarSystemInMap);
                         }
 
@@ -212,7 +232,7 @@ namespace EveJimaServerMap
 
                     AddConnectionSolarSystem(systemFrom, systemTo);
 
-                    _commandsLog.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Information.Key, 0 + ":" + 0, systemTo, systemFrom);
+                    _log.InfoFormat("[AddSolarSystem] [AddSpaceMapCoordinates] For map with key {0} systemTo {2} systemFrom {3} coordinates before {1}", Information.Key, 0 + ":" + 0, systemTo, systemFrom);
                     AddSpaceMapCoordinates(systemTo, systemFrom, isFirstStarSystemInMap);
 
                     if(isNeedSave) Save();
@@ -238,7 +258,30 @@ namespace EveJimaServerMap
             {
                 try
                 {
-                    var dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Information.Key);
+                    string dataFile;
+                    string mapFolder;
+
+                    switch (Deployment)
+                    {
+                        case MapType.Server:
+                            dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Information.Key);
+                            break;
+
+                        case MapType.Client:
+                            dataFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"EveJima\Maps", Information.Key);
+                            mapFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"EveJima\Maps");
+                            if (!Directory.Exists(mapFolder)) Directory.CreateDirectory(mapFolder);
+
+                            break;
+
+                        default:
+                            mapFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"EveJima\Maps", Information.Key);
+
+                            if (!Directory.Exists(mapFolder)) Directory.CreateDirectory(mapFolder);
+
+                            dataFile = HttpContext.Current.Server.MapPath("~/Data/Maps/Map_" + Information.Key);
+                            break;
+                    }
 
 
                     Information.SystemsForSave = new List<SolarSystem>();
@@ -249,8 +292,7 @@ namespace EveJimaServerMap
                     }
 
                     var jsonFormatter = new DataContractJsonSerializer(typeof(MapInformation));
-
-                    File.Delete(dataFile);
+                    if(File.Exists(dataFile)) File.Delete(dataFile);
 
                     using (var fs = new FileStream(dataFile, FileMode.Create))
                     {
@@ -279,7 +321,7 @@ namespace EveJimaServerMap
 
                 foreach (var solarSystem in Systems.Values)
                 {
-                    _commandsLog.InfoFormat("[GetUpdates] solarSystem {0} solarSystem.LastUpdate {1} lastUpdate {2} ", solarSystem, solarSystem.LastUpdate.Ticks, lastUpdate.Ticks);
+                    _log.InfoFormat("[GetUpdates] solarSystem {0} solarSystem.LastUpdate {1} lastUpdate {2} ", solarSystem, solarSystem.LastUpdate.Ticks, lastUpdate.Ticks);
 
                     if (solarSystem.LastUpdate.Ticks > lastUpdate.Ticks)
                     {
@@ -351,7 +393,7 @@ namespace EveJimaServerMap
                     if (systemCurrent != null)
                     {
                         systemCurrent.LocationInMap = new Point(5000, 5000);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1}", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _log.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1}", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         return;
                     }
@@ -374,25 +416,25 @@ namespace EveJimaServerMap
                 {
                     case "A":
                         systemCurrent.LocationInMap = GetLocationPoint(systemPrevious);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'A'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _log.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'A'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
 
                     case "B":
                         systemCurrent.LocationInMap = GetLocationPoint(systemPrevious);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'B'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _log.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'B'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
 
                     case "C":
                         systemCurrent.LocationInMap = GetLocationPoint(systemPrevious);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'C'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _log.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'C'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
 
                     case "D":
                         systemCurrent.LocationInMap = new Point(systemPrevious.LocationInMap.X, systemPrevious.LocationInMap.Y);
-                        _commandsLog.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'D'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
+                        _log.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1} for type 'D'", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         break;
                 }

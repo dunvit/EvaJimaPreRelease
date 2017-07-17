@@ -36,6 +36,8 @@ namespace EveJimaCore.BLL.Map
 
         public string PreviousLocationSolarSystemName { get; set; }
 
+        public bool IsPublic { get; set; }
+
         public Map()
         {
             Systems = new List<SolarSystem>();

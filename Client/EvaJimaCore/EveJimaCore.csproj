@@ -481,6 +481,10 @@
     <None Include="Resources\url.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Server\EveJimaServerMap\EveJimaServerMap.csproj">
+      <Project>{E67AC071-4E51-4CF3-BA0E-2796BAFA47A5}</Project>
+      <Name>EveJimaServerMap</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EvaJimaSettings\EveJimaSettings.csproj">
       <Project>{6ed83e00-e836-4395-9fbc-7a3878455274}</Project>
       <Name>EveJimaSettings</Name>
