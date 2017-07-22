@@ -35,7 +35,8 @@ namespace EveJimaCore.BLL
 
         public string SelectedSolarSystem { get; set; }
 
-        public CrestAuthorization CrestData { get; set; }
+        //public CrestAuthorization CrestData { get; set; }
+        public EsiAuthorization EsiData { get; set; }
 
         private DateTime _lastTokenUpdate;
 
@@ -125,11 +126,17 @@ namespace EveJimaCore.BLL
         {
             Log.DebugFormat("[Pilot.ReInitialization] starting for id = {0} refreshToken = {1}", id, refreshToken);
 
-            CrestData = new CrestAuthorization(refreshToken, Global.Settings.CCPSSO_AUTH_CLIENT_ID, Global.Settings.CCPSSO_AUTH_CLIENT_SECRET);
+            //CrestData = new CrestAuthorization(refreshToken, Global.Settings.CCPSSO_AUTH_CLIENT_ID, Global.Settings.CCPSSO_AUTH_CLIENT_SECRET);
 
-            CrestData.Refresh(refreshToken);
+            //CrestData.Refresh(refreshToken);
 
-            dynamic data = CrestData.ObtainingCharacterData();
+            //dynamic data = CrestData.ObtainingCharacterData();
+
+            EsiData = new EsiAuthorization(Global.ApplicationSettings.Authorization_ClientId, Global.ApplicationSettings.Authorization_ClientSecret);
+
+            EsiData.Refresh(refreshToken);
+
+            dynamic data = EsiData.ObtainingCharacterData();
 
             Id = data.CharacterID;
             Name = data.CharacterName;
@@ -145,13 +152,12 @@ namespace EveJimaCore.BLL
         {
             Log.DebugFormat("[Pilot.Initialization] starting for token = {0}", token);
 
-            CrestData = new CrestAuthorization(token, Global.Settings.CCPSSO_AUTH_CLIENT_ID, Global.Settings.CCPSSO_AUTH_CLIENT_SECRET);
+            EsiData = new EsiAuthorization(Global.ApplicationSettings.Authorization_ClientId, Global.ApplicationSettings.Authorization_ClientSecret);
+            EsiData.Authorization(token);
 
-            RefreshToken = CrestData.RefreshToken;
+            RefreshToken = EsiData.RefreshToken;
 
-            dynamic data = CrestData.ObtainingCharacterData();
-
-            
+            dynamic data = EsiData.ObtainingCharacterData();
 
             Id = data.CharacterID;
             Name = data.CharacterName;
@@ -173,7 +179,7 @@ namespace EveJimaCore.BLL
 
             LoadCharacterInfo();
 
-            Global.ApplicationSettings.UpdatePilotInStorage(Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, Key);
+            Global.ApplicationSettings.UpdatePilotInStorage(Name, Id.ToString(), EsiData.RefreshToken, Key);
 
             _lastTokenUpdate = DateTime.Now;
 
@@ -183,7 +189,7 @@ namespace EveJimaCore.BLL
         {
             Log.DebugFormat("[Pilot.LoadCharacterInfo] starting for Id = {0}", Id);
 
-            dynamic characterInfo = CrestData.GetCharacterInfo(Id);
+            dynamic characterInfo = EsiData.GetCharacterInfo(Id);
 
             var portraitAddress = characterInfo.SelectToken("portrait.64x64.href").Value;
 
@@ -213,35 +219,41 @@ namespace EveJimaCore.BLL
 
                 Log.DebugFormat("[Pilot {0}] Call CrestData.GetLocation with ID={1}", Name, Id);
 
-                dynamic locationInfo = CrestData.GetLocation(Id);
+                dynamic locationInfo = EsiData.GetLocation(Id);
 
-                if (Location.SolarSystemName == locationInfo.SelectToken("solarSystem.name").Value)
+                var systemId = locationInfo.solar_system_id.ToString();
+
+                dynamic solarSystemInfo = EsiData.GetSolarSystemInfo(systemId);
+
+                var systemName = solarSystemInfo.name.ToString();
+
+                if (Location.SolarSystemName == systemName)
                 {
                     Log.DebugFormat("[Pilot {0}] No need change location {1}", Name, Location.SolarSystemName);
                     return;
                 }
 
-                if (locationInfo.SelectToken("solarSystem.id").Value != null)
+                if (!string.IsNullOrEmpty(systemId))
                 {
-                    if (LocationCurrentSystemName != locationInfo.SelectToken("solarSystem.name").Value)
+                    if (LocationCurrentSystemName != systemName)
                     {
                         LocationPreviousSystemName = LocationCurrentSystemName;
-                        LocationCurrentSystemName = locationInfo.SelectToken("solarSystem.name").Value;
+                        LocationCurrentSystemName = systemName;
 
                         isNeedChangeLocation = true;
                     }
 
                 }
 
-                if (Global.Space.SolarSystems.ContainsKey(locationInfo.SelectToken("solarSystem.name").Value.ToString()))
+                if (Global.Space.SolarSystems.ContainsKey(systemName))
                 {
-                    var location = (StarSystemEntity)Global.Space.SolarSystems[locationInfo.SelectToken("solarSystem.name").Value.ToString()];
+                    var location = (StarSystemEntity)Global.Space.SolarSystems[systemName];
 
                     Location = location.Clone() as StarSystemEntity;
 
                     if (Location != null)
                     {
-                        Location.Id = locationInfo.SelectToken("solarSystem.id").Value.ToString();
+                        Location.Id = systemId;
                     }
                 }
                 else
@@ -253,9 +265,9 @@ namespace EveJimaCore.BLL
                     Location.Static2 = "";
                     Location.Static = "";
 
-                    Location.Id = locationInfo.SelectToken("solarSystem.id").Value.ToString();
+                    Location.Id = systemId;
 
-                    Location.SolarSystemName = locationInfo.SelectToken("solarSystem.name").Value;
+                    Location.SolarSystemName = systemName;
 
                 }
 
@@ -289,9 +301,9 @@ namespace EveJimaCore.BLL
             var span = DateTime.Now - _lastTokenUpdate;
             var ms = (int)span.TotalMilliseconds;
 
-            if (ms > CrestData.ExpiresIn * 1000 - 20000)
+            if (ms > EsiData.ExpiresIn * 1000 - 20000)
             {
-                CrestData.Refresh();
+                EsiData.Refresh();
 
                 _lastTokenUpdate = DateTime.Now;
 

@@ -394,7 +394,7 @@ namespace EveJimaCore
         private void WindowMonitoring_Load(object sender, EventArgs e)
         {
             lblVersionID.Text = Global.Settings.CurrentVersion;
-            lblVersionID.Text = @"2.01.8";
+            lblVersionID.Text = @"2.01.11";
 
             Log.DebugFormat("[WindowMonitoring] Version: {0}", lblVersionID.Text);
             

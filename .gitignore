@@ -36,3 +36,7 @@
 /Server/Server/obj/Release
 /Server/Server/Logs
 /Server/Server/Data
+/Server/.vs/config
+/Server/packages
+/Server/Server/bin
+/Server/Server/Properties/PublishProfiles/1.pubxml.user

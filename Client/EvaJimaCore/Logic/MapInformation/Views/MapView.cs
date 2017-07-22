@@ -303,12 +303,29 @@ namespace EveJimaCore.Logic.MapInformation
                     if(solarSystem.IsHidden) continue;
 
                     var systemLabel = solarSystem.Name;
+                    var systemTypeLabel = "";
 
                     if(_systemsInformation.ContainsKey(solarSystem.Name) == false)
                         _systemsInformation.Add(solarSystem.Name, Global.Space.GetSolarSystem(solarSystem.Name));
 
 
-                    if(Tools.IsWSpaceSystem(solarSystem.Name)) systemLabel = systemLabel + "[C" + _systemsInformation[solarSystem.Name].Class + "]";
+                    if(Tools.IsWSpaceSystem(solarSystem.Name))
+                    {
+                        if(_systemsInformation[solarSystem.Name].Class != null)
+                        {
+                            systemLabel = systemLabel + "[C" + _systemsInformation[solarSystem.Name].Class + "]";
+                            systemTypeLabel = "[C" + _systemsInformation[solarSystem.Name].Class + "]";
+                        }
+                        else
+                        {
+                            systemLabel = systemLabel + "[Shattered]";
+                            systemTypeLabel = " [Shattered]";
+                        }
+
+
+                    }
+
+                    //Shattered
 
                     var drawFont = new Font("Verdana", 8, FontStyle.Bold);
                     var drawBrushName = new SolidBrush(Tools.GetColorBySolarSystem(_systemsInformation[solarSystem.Name].Security.ToString()));
@@ -335,7 +352,7 @@ namespace EveJimaCore.Logic.MapInformation
                     if(Tools.IsWSpaceSystem(solarSystem.Name))
                     {
                         var drawBrush = new SolidBrush(Tools.GetColorBySolarSystem("C" + _systemsInformation[solarSystem.Name].Class));
-                        e.Graphics.DrawString("[C" + _systemsInformation[solarSystem.Name].Class + "]", drawFont, drawBrush,
+                        e.Graphics.DrawString(systemTypeLabel, drawFont, drawBrush,
                             solarSystem.LocationInMap.X - MapPosition.X + 2 - stringSize.Width / 2 + stringSize2.Width,
                             solarSystem.LocationInMap.Y - MapPosition.Y - 30, drawFormat);
                     }

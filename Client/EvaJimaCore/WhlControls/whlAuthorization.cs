@@ -101,16 +101,17 @@ namespace EveJimaCore.WhlControls
         {
             var data = WebUtility.UrlEncode(@"http://localhost:" + Global.Settings.CCPSSO_AUTH_PORT + "/WormholeLocator");
 
-            var address = "https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=" + data +
-                          "&client_id=" + Global.Settings.CCPSSO_AUTH_CLIENT_ID + "&scope=" + Global.Settings.CCPSSO_AUTH_SCOPES + "&state=" +
-                          Global.Settings.CCPSSO_AUTH_CLIENT_STATE + "";
+            //var address = "https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=" + data +
+            //              "&client_id=" + Global.Settings.CCPSSO_AUTH_CLIENT_ID + "&scope=" + Global.Settings.CCPSSO_AUTH_SCOPES + "&state=" +
+            //              Global.Settings.CCPSSO_AUTH_CLIENT_STATE + "";
 
 
             #region ESI
-            //var address = "https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=" + data +
-            //              "&client_id=" + Global.Settings.CCPSSO_AUTH_CLIENT_ID +
-            //              "&scope=" + Global.Settings.CCPSSO_AUTH_SCOPES + "&state=" +
-            //              Global.Settings.CCPSSO_AUTH_CLIENT_STATE + "";
+
+            var address = "https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=" + data +
+                          "&client_id=" + Global.ApplicationSettings.Authorization_ClientId +
+                          "&scope=" + Global.ApplicationSettings.Authorization_Scopes + "&state=" +
+                          Global.ApplicationSettings.Authorization_ClientState + "";
             #endregion
 
             Process.Start(address);
@@ -130,23 +131,26 @@ namespace EveJimaCore.WhlControls
             if (Global.Pilots.IsExist(_currentPilot.Id) == false)
             {
 
-                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.CrestData.RefreshToken);
+                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.EsiData.RefreshToken);
 
-                Global.Pilots.Add(_currentPilot);
+                //Global.Pilots.Add(_currentPilot);
 
                 cmbPilots.Items.Add(_currentPilot.Name.Trim());
                 cmbPilots.Text = _currentPilot.Name.Trim();
+
+                Pilotes.Add(_currentPilot);
             }
             else
             {
                 // Update token
-                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.CrestData.RefreshToken);
+                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.EsiData.RefreshToken);
             }
 
             cmbPilots.Visible = true;
 
             Global.Pilots.SetSelected(_currentPilot);
 
+            ShowPilots();
         }
 
 

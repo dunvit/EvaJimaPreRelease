@@ -38,9 +38,9 @@ namespace EveJimaCore
 
         public static void SetWaypoint(PilotEntity pilot, string clearOtherWaypoints, string solarSystemId)
         {
-            var Log = LogManager.GetLogger(typeof(CrestAuthorization));
+            var Log = LogManager.GetLogger(typeof(CrestApiFunctions));
 
-            Log.DebugFormat("[CrestAuthorization.SetWaypointRefresh] started for refresh_token = {0}", pilot.CrestData.AccessToken);
+            Log.DebugFormat("[CrestAuthorization.SetWaypointRefresh] started for refresh_token = {0}", pilot.EsiData.AccessToken);
 
             var url = "https://crest-tq.eveonline.com//characters/" + pilot.Id + "/ui/autopilot/waypoints/";
 
@@ -49,7 +49,7 @@ namespace EveJimaCore
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
-                httpWebRequest.Headers.Add("Authorization", "Bearer " + pilot.CrestData.AccessToken);
+                httpWebRequest.Headers.Add("Authorization", "Bearer " + pilot.EsiData.AccessToken);
                 httpWebRequest.Host = "crest-tq.eveonline.com";
 
                 IDisposable disposableResponse = httpWebRequest as IDisposable;

@@ -87,7 +87,7 @@ namespace EveJimaCore.BLL.Map
             ApiPublishSolarSystem(ActivePilot, Key, null, LocationSolarSystemName);
 
             Global.Pilots.Selected.Key = key;
-            Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, Key);
+            Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.EsiData.RefreshToken, Key);
         }
 
         public MapUpdateHistory ApiPublishSolarSystem(string pilotName, string key, string systemFrom, string systemTo)

@@ -65,7 +65,7 @@ namespace EveJimaCore.Logic
                     _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "Start change mapKey");
                     Global.Pilots.Selected.SpaceMap.Reset(MapKey);
 
-                    Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.CrestData.RefreshToken, MapKey);
+                    Global.ApplicationSettings.UpdatePilotInStorage(Global.Pilots.Selected.Name, Global.Pilots.Selected.Id.ToString(), Global.Pilots.Selected.EsiData.RefreshToken, MapKey);
                     Global.ApplicationSettings.Save();
 
                     _commandsLog.InfoFormat("[ScreenUpdateToServer.Event_Activate] " + "End change mapKey");

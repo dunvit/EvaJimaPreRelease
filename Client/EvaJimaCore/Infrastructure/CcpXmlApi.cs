@@ -10,7 +10,7 @@ namespace EveJimaCore
 {
     public class CcpXmlApi
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(CrestAuthorization));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(CcpXmlApi));
 
         public string GetPilotIdByName(string name)
         {

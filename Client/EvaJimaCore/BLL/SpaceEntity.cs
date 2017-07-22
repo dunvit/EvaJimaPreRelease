@@ -41,6 +41,7 @@ namespace EveJimaCore.BLL
             return new StarSystemEntity { Id = "-1", SolarSystemName = systemName };
         }
 
+
         public StarSystemEntity SolarSystem(string systemName)
         {
             if (SolarSystems.ContainsKey(systemName))

@@ -9,9 +9,9 @@ using Newtonsoft.Json.Linq;
 
 namespace EveJimaCore
 {
-    public class CrestAuthorization
+    public class CrestAuthorizationXXX
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(CrestAuthorization));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(CrestAuthorizationXXX));
 
         public string AccessToken { get; set; }
 
@@ -25,7 +25,7 @@ namespace EveJimaCore
         
         private string CCPSSO_AUTH_CLIENT_SECRET = "";
 
-        public CrestAuthorization(string token, string clientID, string clientSecret)
+        public CrestAuthorizationXXX(string token, string clientID, string clientSecret)
         {
             CCPSSO_AUTH_CLIENT_ID = clientID;
             CCPSSO_AUTH_CLIENT_SECRET = clientSecret;

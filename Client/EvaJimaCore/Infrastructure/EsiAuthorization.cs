@@ -10,10 +10,10 @@ namespace EveJimaCore
 {
     public class EsiAuthorization
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(CrestAuthorization));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(EsiAuthorization));
 
-        private const string CLIENT_ID = "8f1e2ac9d4aa467c88b12674926dc5e6";
-        private const string CLIENT_SECRET = "GZyvG71OxmfHzcDrTMreHw6CV7sDUwiBMiPSpbPn";
+        private string CLIENT_ID = "";
+        private string CLIENT_SECRET = "";
 
         public string AccessToken { get; set; }
 
@@ -23,20 +23,26 @@ namespace EveJimaCore
 
         public int ExpiresIn { get; set; }
 
-        public EsiAuthorization(string token)
+        public EsiAuthorization(string clientID, string clientSecret)
         {
-            Log.DebugFormat("[CrestAuthorization.CrestAuthorization] started for token = {0}", token);
+            Log.DebugFormat("[EsiAuthorization.EsiAuthorization] started for clientID = {0} and clientSecret = {1}", clientID, clientSecret);
+
+            CLIENT_ID = clientID;
+            CLIENT_SECRET = clientSecret;
+        }
+
+        public void Authorization(string token)
+        {
+            Log.DebugFormat("[EsiAuthorization.Authorization] started for token = {0}", token);
 
             VerifyAuthorizationCode(token);
 
             Refresh();
-
-            
         }
 
         private void VerifyAuthorizationCode(string token)
         {
-            Log.DebugFormat("[CrestAuthorization.VerifyAuthorizationCode] started for token = {0}", token);
+            Log.DebugFormat("[EsiAuthorization.VerifyAuthorizationCode] started for token = {0}", token);
 
             var url = "https://login.eveonline.com/oauth/token";
 
@@ -44,11 +50,12 @@ namespace EveJimaCore
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
-            var encoded = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(CLIENT_ID + ":" + CLIENT_SECRET));
+            var encoded = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(CLIENT_ID + ":" + CLIENT_SECRET));
 
-            Log.DebugFormat("[CrestAuthorization.VerifyAuthorizationCode] encoded is {0}", encoded);
+            Log.DebugFormat("[EsiAuthorization.VerifyAuthorizationCode] encoded is {0}", encoded);
 
             httpWebRequest.Headers.Add("Authorization", "Basic " + encoded);
+            httpWebRequest.ContentType = "application/json";
             httpWebRequest.Host = "login.eveonline.com";
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
@@ -66,7 +73,7 @@ namespace EveJimaCore
                 {
                     var result = streamReader.ReadToEnd();
 
-                    Log.DebugFormat("[CrestAuthorization.VerifyAuthorizationCode] result = {0}", result);
+                    Log.DebugFormat("[EsiAuthorization.VerifyAuthorizationCode] result = {0}", result);
 
                     dynamic data = JObject.Parse(result);
 
@@ -79,14 +86,20 @@ namespace EveJimaCore
             }
             catch (Exception ex)
             {
-                Log.ErrorFormat("[CrestAuthorization.VerifyAuthorizationCode] Critical error. Exception is {0}", ex);
+                Log.ErrorFormat("[EsiAuthorization.VerifyAuthorizationCode] Critical error. Exception is {0}", ex);
             }
 
         }
 
+        public void Refresh(string refreshToken)
+        {
+            RefreshToken = refreshToken;
+            Refresh();
+        }
+
         public void Refresh()
         {
-            Log.DebugFormat("[CrestAuthorization.Refresh] started for refresh_token = {0}", RefreshToken);
+            Log.DebugFormat("[EsiAuthorization.Refresh] started for refresh_token = {0}", RefreshToken);
 
             var url = "https://login.eveonline.com/oauth/token";
 
@@ -96,7 +109,7 @@ namespace EveJimaCore
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "POST";
 
-                var encoded = Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(CLIENT_ID + ":" + CLIENT_SECRET));
+                var encoded = Convert.ToBase64String(Encoding.GetEncoding("ISO-8859-1").GetBytes(CLIENT_ID + ":" + CLIENT_SECRET));
                 httpWebRequest.Headers.Add("Authorization", "Basic " + encoded);
                 httpWebRequest.Host = "login.eveonline.com";
 
@@ -113,7 +126,7 @@ namespace EveJimaCore
                 {
                     var result = streamReader.ReadToEnd();
 
-                    Log.DebugFormat("[CrestAuthorization.Refresh] result = {0}", result);
+                    Log.DebugFormat("[EsiAuthorization.Refresh] result = {0}", result);
 
                     dynamic data = JObject.Parse(result);
 
@@ -125,14 +138,14 @@ namespace EveJimaCore
             }
             catch (Exception ex)
             {
-                Log.ErrorFormat("Critical error in [CrestAuthorization.Refresh] Exception is {0}", ex);
+                Log.ErrorFormat("Critical error in [EsiAuthorization.Refresh] Exception is {0}", ex);
             }
 
         }
 
         public dynamic ObtainingCharacterData()
         {
-            Log.DebugFormat("[CrestAuthorization.ObtainingCharacterData] AccessToken = {0}", AccessToken);
+            Log.DebugFormat("[EsiAuthorization.ObtainingCharacterData] AccessToken = {0}", AccessToken);
 
             var url = "https://login.eveonline.com/oauth/verify";
 
@@ -146,7 +159,7 @@ namespace EveJimaCore
             {
                 var result = streamReader.ReadToEnd();
 
-                Log.DebugFormat("[CrestAuthorization.ObtainingCharacterData] result = {0}", result);
+                Log.DebugFormat("[EsiAuthorization.ObtainingCharacterData] result = {0}", result);
 
                 return JObject.Parse(result);
 
@@ -154,30 +167,77 @@ namespace EveJimaCore
 
         }
 
+        public dynamic GetSolarSystemInfo(string systemId)
+        {
+            Log.DebugFormat("[EsiAuthorization.GetSolarSystemInfo] started. systemId = {0}", systemId);
+
+            try
+            {
+                var url = "https://esi.tech.ccp.is/latest/universe/systems/" + systemId + "/";
+
+                Trace.TraceInformation(DateTime.Now.ToLongTimeString() + " Start Get solar system. " + url);
+
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+
+                httpWebRequest.Method = "GET";
+                httpWebRequest.Headers.Add("Authorization", "Bearer " + AccessToken);
+                httpWebRequest.ContentType = "application/json";
+                
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    Log.DebugFormat("[EsiAuthorization.GetSolarSystemInfo] result = {0}", result);
+
+                    return JObject.Parse(result);
+
+                }
+            }
+            catch(Exception ex)
+            {
+                Log.ErrorFormat("Critical error in [EsiAuthorization.GetSolarSystemInfo] systemId = {1} Exception is {0}", ex, systemId);
+                return null;
+            }
+
+            return null;
+        }
+
         public dynamic GetLocation(long pilotId)
         {
-            Log.DebugFormat("[CrestAuthorization.GetLocation] started. pilotId = {0}", pilotId);
+            Log.DebugFormat("[EsiAuthorization.GetLocation] started. pilotId = {0}", pilotId);
 
-            var url = "https://crest-tq.eveonline.com//characters/" + pilotId + "/location/";
-
-            Trace.TraceInformation(DateTime.Now.ToLongTimeString() + " Start Get location. " + url);
-
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-
-            httpWebRequest.Method = "GET";
-            httpWebRequest.Headers.Add("Authorization", "Bearer " + AccessToken);
-            httpWebRequest.Host = "crest-tq.eveonline.com";
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            try
             {
-                var result = streamReader.ReadToEnd();
+                var url = "https://esi.tech.ccp.is/latest/characters/" + pilotId + "/location/";
 
-                Log.DebugFormat("[CrestAuthorization.GetLocation] result = {0}", result);
+                Trace.TraceInformation(DateTime.Now.ToLongTimeString() + " Start Get location. " + url);
 
-                return JObject.Parse(result);
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
 
+                httpWebRequest.Method = "GET";
+                httpWebRequest.Headers.Add("Authorization", "Bearer " + AccessToken);
+                httpWebRequest.ContentType = "application/json";
+                //httpWebRequest.Host = "crest-tq.eveonline.com";
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    Log.DebugFormat("[EsiAuthorization.GetLocation] result = {0}", result);
+
+                    return JObject.Parse(result);
+
+                }
             }
+            catch(Exception ex)
+            {
+                Log.ErrorFormat("Critical error in [EsiAuthorization.Refresh] Exception is {0}", ex);
+                return null;
+            }
+
+            
         }
 
         public dynamic GetCharacterInfo(long pilotId)
