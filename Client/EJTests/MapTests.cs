@@ -75,6 +75,7 @@ namespace EJTests
         public void LoadMapTest()
         {
             var name = "threads_" + DateTime.UtcNow.Ticks;
+            //var name = "CJQ_2000";
             const string pilotFirst = "Scarlett Orwell";
 
             var map = Initialization(pilotFirst, name);
@@ -156,6 +157,7 @@ namespace EJTests
         public void FullFlowMapTest_Server()
         {
             var name = "threads_" + DateTime.UtcNow.Ticks;
+            
 
             const string pilotFirst = "Scarlett Orwell";
             const string pilotSecond = "Dana Su-Shiloff";
@@ -172,7 +174,8 @@ namespace EJTests
         [TestMethod]
         public void FullFlowMapTest_Local()
         {
-            var name = "threads_" + DateTime.UtcNow.Ticks;
+            //var name = "threads_" + DateTime.UtcNow.Ticks;
+            var name = "CJQ_2000";
 
             const string pilotFirst = "Scarlett Orwell";
             const string pilotSecond = "Dana Su-Shiloff";

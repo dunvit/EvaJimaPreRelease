@@ -8,6 +8,7 @@ using System.Net;
 using System.Globalization;
 using CefSharp;
 using CefSharp.WinForms;
+using log4net;
 
 namespace WBrowser
 {
@@ -18,8 +19,11 @@ namespace WBrowser
 
     public delegate void BrowserAfterBeforeShowDialog();
 
+    
+
     public partial class WBrowser : Form
     {
+        private static readonly ILog Log = LogManager.GetLogger("All");
 
         public BrowserChangeShowFavorites OnChangeShowFavorites;
         public BrowserBeforeShowDialog OnBrowserBeforeShowDialog;
@@ -43,13 +47,29 @@ namespace WBrowser
         {
             if (address == getCurrentBrowser().Address) return;
 
-            adrBarTextBox.Text = address;
-            getCurrentBrowser().Load(address);
+            try
+            {
+                adrBarTextBox.Text = address;
+                getCurrentBrowser().Load(address);
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("[WBrowser.Navigate] Critical error. Exception {0}", ex);
+            }
+            
         }
 
         public void OpenNewTab(string address)
         {
-            addNewTab(address);
+            try
+            {
+                addNewTab(address);
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("[WBrowser.OpenNewTab] Critical error. Exception {0}", ex);
+            }
+            
         }
 
 
@@ -115,15 +135,23 @@ namespace WBrowser
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            setVisibility();
-            addNewTab();
+            try
+            {
+                setVisibility();
+                addNewTab();
 
-            if (linkBar.Visible == true) showLinks();
-            else while (linkBar.Items.Count > 3) linkBar.Items[linkBar.Items.Count - 1].Dispose();
+                if (linkBar.Visible == true) showLinks();
+                else while (linkBar.Items.Count > 3) linkBar.Items[linkBar.Items.Count - 1].Dispose();
 
-            showFavorites();
+                showFavorites();
 
-            browserTabControl.MouseClick += Event_TabMouseClick;
+                browserTabControl.MouseClick += Event_TabMouseClick;
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("[WBrowser.Form1_Load] Critical error. Exception {0}", ex);
+            }
+            
         }
 
 
@@ -134,32 +162,49 @@ namespace WBrowser
 
         public void DisposeBrowser()
         {
-            var pages = browserTabControl.TabPages;
-
-            foreach (TabPage page in pages)
+            try
             {
-                if(page.Controls.Count > 0)
-                {
-                    var control = page.Controls[0] as ChromiumWebBrowser;
+                var pages = browserTabControl.TabPages;
 
-                    if (control != null)
+                foreach (TabPage page in pages)
+                {
+                    if (page.Controls.Count > 0)
                     {
-                        //Log.DebugFormat("[whlBrowser.AddTab] Dispose browser address {0}", control.Address);
-                        control.Dispose();
+                        var control = page.Controls[0] as ChromiumWebBrowser;
+
+                        if (control != null)
+                        {
+                            //Log.DebugFormat("[whlBrowser.AddTab] Dispose browser address {0}", control.Address);
+                            control.Dispose();
+                        }
                     }
                 }
+
+                Cef.Shutdown();
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("[WBrowser.DisposeBrowser] Critical error. Exception {0}", ex);
             }
 
-            Cef.Shutdown();
+
         }
         //form closed
         private void WBrowser_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (File.Exists(settingsXml))
+            try
             {
-                settings.Save(settingsXml);
-                File.Delete("source.txt");
+                if (File.Exists(settingsXml))
+                {
+                    settings.Save(settingsXml);
+                    File.Delete("source.txt");
+                }
             }
+            catch (Exception ex)
+            {
+                Log.ErrorFormat("[WBrowser.WBrowser_FormClosed] Critical error. Exception {0}", ex);
+            }
+            
             
         }
 

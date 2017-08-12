@@ -159,7 +159,7 @@ namespace EveJimaServerMap
                         break;
 
                         case MapType.Client:
-                        dataFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"EveJima/Maps", "Settings.dat");
+                        dataFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"EveJima\Maps\", key);
                         break;
 
                     default:
@@ -392,7 +392,16 @@ namespace EveJimaServerMap
                 {
                     if (systemCurrent != null)
                     {
-                        systemCurrent.LocationInMap = new Point(5000, 5000);
+                        var isNeedSetStartPoint = true;
+
+                        foreach(var solarSystem in Systems.Values.Where(solarSystem => solarSystem.LocationInMap.X == 5000 && solarSystem.LocationInMap.Y == 5000))
+                        {
+                            systemCurrent.LocationInMap = GetLocationPoint(solarSystem);
+                            isNeedSetStartPoint = false;
+                        }
+
+                        if(isNeedSetStartPoint) systemCurrent.LocationInMap = new Point(5000, 5000);
+
                         _log.InfoFormat("[AddSpaceMapCoordinates] For map with key {0} system {2} set oordinates {1}", Information.Key, systemCurrent.LocationInMap.X + ":" + systemCurrent.LocationInMap.Y, systemTo);
 
                         return;

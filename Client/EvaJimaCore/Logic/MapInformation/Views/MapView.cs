@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -33,9 +34,17 @@ namespace EveJimaCore.Logic.MapInformation
 
         public event Action<Point, string> RelocateSolarSystem;
 
+        public event Action<string, string> DeleteSolarSystemConnection;
+
+        public Hashtable SolarSystems { get; private set; }
+        public List<SolarSystemsConnection> SolarSystemsConnections { get; private set; }
+
         public MapView()
         {
             InitializeComponent();
+
+            SolarSystems = new Hashtable();
+            SolarSystemsConnections = new List<SolarSystemsConnection>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Elapsed += Event_Refresh;
@@ -77,19 +86,6 @@ namespace EveJimaCore.Logic.MapInformation
         {
             var mapPoint = new Point(MapPosition.X + e.X, MapPosition.Y + e.Y);
 
-            if (e.Button == MouseButtons.Left)
-            {
-                if (IsSelectedSolarSystem(mapPoint)) return;
-
-                isDragging = true;
-                _drugAndDropStartPosition = new Point((Width / 2) - e.X, (Height / 2) - e.Y);
-
-                //ScreenCenter = new Point(mapPoint.X, mapPoint.Y);
-
-                //RecalculateOffsetPositions(ScreenCenter);
-
-            }
-
             if (e.Button == MouseButtons.Right)
             {
                 var selectedSystem = GetSolarSystem(mapPoint);
@@ -104,9 +100,49 @@ namespace EveJimaCore.Logic.MapInformation
 
                     if (Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName != null) SelectSolarSystem(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
                 }
-
-
             }
+
+            if(e.Button == MouseButtons.Left)
+            {
+                var selectedConnection = GetConnection(SolarSystemsConnections, mapPoint);
+
+                if(selectedConnection != null)
+                {
+                    var dialogResult = MessageBox.Show($"Do you want delete connection between solar systems {selectedConnection.SolarSystemTo} and {selectedConnection.SolarSystemFrom}?", @"Delete connection", MessageBoxButtons.YesNo);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DeleteSolarSystemConnection(selectedConnection.SolarSystemTo, selectedConnection.SolarSystemFrom);
+                    }
+
+                    return;
+                }
+            }
+
+            if (e.Button == MouseButtons.Left)
+            {
+                if (IsSelectedSolarSystem(mapPoint)) return;
+
+                isDragging = true;
+                _drugAndDropStartPosition = new Point((Width / 2) - e.X, (Height / 2) - e.Y);
+            }
+
+        }
+
+        private SolarSystemsConnection GetConnection(List<SolarSystemsConnection> systemsConnections, Point mapPoint)
+        {
+            foreach(var solarSystemsConnection in systemsConnections)
+            {
+                var locationX = Math.Abs(solarSystemsConnection.Location.X - mapPoint.X);
+                var locationY = Math.Abs(solarSystemsConnection.Location.Y - mapPoint.Y);
+
+                if (locationX < 10 && locationY < 10)
+                {
+                    return solarSystemsConnection;
+                }
+            }
+
+            return null;
         }
 
         private string GetSolarSystem(Point mapPoint)
@@ -186,6 +222,10 @@ namespace EveJimaCore.Logic.MapInformation
             try
             {
                 Log.DebugFormat("[MapInformationControl.MapView] start");
+
+                SolarSystems = new Hashtable();
+                SolarSystemsConnections = new List<SolarSystemsConnection>();
+
                 SpaceMap = spaceMap;
 
                 if (spaceMap == null) return;
@@ -193,6 +233,9 @@ namespace EveJimaCore.Logic.MapInformation
                 ScreenCenter = SpaceMap.GetSystem(SpaceMap.LocationSolarSystemName).LocationInMap;
 
                 RecalculateOffsetPositions(ScreenCenter);
+
+                RecalculateSolarSystems(spaceMap);
+
                 Log.DebugFormat("[MapInformationControl.MapView] end");
             }
             catch (Exception ex)
@@ -201,6 +244,41 @@ namespace EveJimaCore.Logic.MapInformation
             }
 
 
+        }
+
+        private void RecalculateSolarSystems(Map spaceMap)
+        {
+            foreach(var solarSystem in spaceMap.Systems)
+            {
+                try
+                {
+                    SolarSystems.Add(solarSystem.Name, solarSystem);
+
+                    foreach (var connection in solarSystem.Connections)
+                    {
+                        var connectedSolarSystem = SpaceMap.Systems.FirstOrDefault(system => system.Name == connection);
+
+                        if (connectedSolarSystem?.Name == null) continue;
+                        if (connectedSolarSystem.IsDeleted) continue;
+
+                        var pointFrom = new Point(solarSystem.LocationInMap.X, solarSystem.LocationInMap.Y);
+                        var pointTo = new Point(connectedSolarSystem.LocationInMap.X, connectedSolarSystem.LocationInMap.Y);
+
+                        //Draw connection line center
+                        var centerLinePoint = new Point((pointFrom.X + pointTo.X) / 2, (pointFrom.Y + pointTo.Y) / 2);
+
+                        var newConnection = new SolarSystemsConnection {Location = centerLinePoint, SolarSystemFrom = solarSystem.Name, SolarSystemTo = connectedSolarSystem.Name };
+
+                        SolarSystemsConnections.Add(newConnection);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    _commandsLog.ErrorFormat("[MapView.RecalculateSolarSystems] Critical error {0}", ex);
+                }
+                
+            }
         }
 
         private bool isPainting;
@@ -224,15 +302,12 @@ namespace EveJimaCore.Logic.MapInformation
                     RecalculateOffsetPositions(screenCenter);
                 }
 
-                var rectangleMapCenter = new Rectangle(Width / 2 - 0,
-                    Height / 2 - 0, 3, 3);
+                var rectangleMapCenter = new Rectangle(Width / 2 - 0, Height / 2 - 0, 3, 3);
 
                 e.Graphics.DrawEllipse(new Pen(Color.Red, 2), rectangleMapCenter);
 
                 var rectangleScreenCenter = new Rectangle(ScreenCenter.X - Width / 2, ScreenCenter.Y - Height / 2, 3, 3);
                 e.Graphics.DrawEllipse(new Pen(Color.DarkOrange, 2), rectangleScreenCenter);
-                //ScreenCenter
-
 
                 lblUpdateTime.Text = @"Updated at " + SpaceMap.LastUpdateTime.ToLongTimeString();
 
@@ -289,6 +364,29 @@ namespace EveJimaCore.Logic.MapInformation
                             connectedSolarSystem.LocationInMap.Y - MapPosition.Y);
 
                         e.Graphics.DrawLine(pen, pointFrom, pointTo);
+                    }
+                }
+
+                #endregion
+
+                #region Draw connection delete points
+
+                foreach(var centerLinePoint in SolarSystemsConnections.Select(solarSystemsConnection => new Point(solarSystemsConnection.Location.X - MapPosition.X, solarSystemsConnection.Location.Y - MapPosition.Y)))
+                {
+                    var coordinates = PointToClient(Cursor.Position);
+
+                    var locationX = Math.Abs(centerLinePoint.X - coordinates.X);
+                    var locationY = Math.Abs(centerLinePoint.Y - coordinates.Y);
+
+                    if(locationX < 10 && locationY < 10)
+                    {
+                        e.Graphics.DrawLine(new Pen(Color.DarkOrange, 2),
+                            new Point(centerLinePoint.X - 5, centerLinePoint.Y - 5),
+                            new Point(centerLinePoint.X + 5, centerLinePoint.Y + 5));
+
+                        e.Graphics.DrawLine(new Pen(Color.DarkOrange, 2),
+                            new Point(centerLinePoint.X + 5, centerLinePoint.Y - 5),
+                            new Point(centerLinePoint.X - 5, centerLinePoint.Y + 5));
                     }
                 }
 

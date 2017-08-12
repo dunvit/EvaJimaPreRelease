@@ -4,6 +4,7 @@ using System.Linq;
 using EvaJimaCore;
 using EveJimaUniverse;
 using log4net;
+using Newtonsoft.Json;
 
 namespace EveJimaCore.BLL.Map
 {
@@ -118,6 +119,15 @@ namespace EveJimaCore.BLL.Map
             return updatedSystems;
         }
 
+        public MapUpdateHistory ApiDeleteConnectionBeetwenSolarSystems(string solarSystemFrom, string solarSystemTo)
+        {
+            OnChangeStatus?.Invoke($"[Map.ApiDeleteSolarSystem] For map '{Key}' delete connection beetwen solar systems '{solarSystemFrom}' and '{solarSystemTo}'.");
+
+            var result = Global.MapApiFunctions.DeleteConnectionBetweenSolarSystems(this, ActivePilot, Key, solarSystemFrom, solarSystemTo);
+
+            return result;
+        }
+
         public MapUpdateHistory ApiPublishSignatures(string key, string solarSystemName, string pilotName, List<CosmicSignature> signatures)
         {
             OnChangeStatus?.Invoke($"[Map.ApiPublishSignatures] Start Publish Signatures Solar System '{solarSystemName}' for map '{key}' with pilot '{pilotName}'. signatures count is '{signatures.Count}'");
@@ -197,6 +207,13 @@ namespace EveJimaCore.BLL.Map
             _commandsLog.InfoFormat("[Map.ApiPublishDeathNotice] For map with key {0} delete connection from system {2} to system {1}", Key, locationSolarSystem, PreviousLocationSolarSystemName);
 
             return result;
+        }
+
+        public Map Clone()
+        {
+            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
+
+            return JsonConvert.DeserializeObject<Map>(JsonConvert.SerializeObject(this), deserializeSettings);
         }
     }
 }

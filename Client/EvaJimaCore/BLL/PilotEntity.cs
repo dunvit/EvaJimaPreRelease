@@ -60,9 +60,6 @@ namespace EveJimaCore.BLL
         {
             Key = Global.ApplicationSettings.GetPilotKey(Name);
 
-            // TODO: Remove 
-            // 1973
-            //Location.SolarSystemName = "J213734";
             LocationCurrentSystemName = Location.SolarSystemName;
 
             // Pilot not are log in

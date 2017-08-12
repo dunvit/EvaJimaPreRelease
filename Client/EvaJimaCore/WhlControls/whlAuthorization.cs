@@ -101,21 +101,33 @@ namespace EveJimaCore.WhlControls
         {
             var data = WebUtility.UrlEncode(@"http://localhost:" + Global.Settings.CCPSSO_AUTH_PORT + "/WormholeLocator");
 
-            //var address = "https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=" + data +
-            //              "&client_id=" + Global.Settings.CCPSSO_AUTH_CLIENT_ID + "&scope=" + Global.Settings.CCPSSO_AUTH_SCOPES + "&state=" +
-            //              Global.Settings.CCPSSO_AUTH_CLIENT_STATE + "";
-
-
-            #region ESI
-
             var address = "https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=" + data +
                           "&client_id=" + Global.ApplicationSettings.Authorization_ClientId +
                           "&scope=" + Global.ApplicationSettings.Authorization_Scopes + "&state=" +
                           Global.ApplicationSettings.Authorization_ClientState + "";
-            #endregion
 
             Process.Start(address);
+        }
 
+        private void AddPilotToPilotsList(PilotEntity pilot)
+        {
+            var isPilotExist = false;
+
+            foreach(var item in cmbPilots.Items)
+            {
+                if(item.ToString() == pilot.Name)
+                {
+                    isPilotExist = true;
+                }
+            }
+
+            if(isPilotExist == false)
+            {
+                cmbPilots.Items.Add(pilot.Name.Trim());
+                cmbPilots.Text = pilot.Name.Trim();
+            }
+
+            
         }
 
         public void PilotAuthorizeFlow(string code)
@@ -135,8 +147,7 @@ namespace EveJimaCore.WhlControls
 
                 //Global.Pilots.Add(_currentPilot);
 
-                cmbPilots.Items.Add(_currentPilot.Name.Trim());
-                cmbPilots.Text = _currentPilot.Name.Trim();
+                AddPilotToPilotsList(_currentPilot);
 
                 Pilotes.Add(_currentPilot);
             }
@@ -189,8 +200,10 @@ namespace EveJimaCore.WhlControls
             {
                 Global.Pilots.Add(pilotEntity);
 
-                cmbPilots.Items.Add(pilotEntity.Name.Trim());
-                cmbPilots.Text = pilotEntity.Name.Trim();
+                //cmbPilots.Items.Add(pilotEntity.Name.Trim());
+                //cmbPilots.Text = pilotEntity.Name.Trim();
+
+                AddPilotToPilotsList(pilotEntity);
 
                 pilot = pilotEntity;
 

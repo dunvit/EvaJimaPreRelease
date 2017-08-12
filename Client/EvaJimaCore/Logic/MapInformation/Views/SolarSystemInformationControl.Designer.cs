@@ -50,12 +50,10 @@
             this.txtSolarSystemEffect = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.whlButton4 = new EveJimaCore.whlButton();
-            this.whlButton3 = new EveJimaCore.whlButton();
             this.whlButton2 = new EveJimaCore.whlButton();
             this.whlButton1 = new EveJimaCore.whlButton();
             this.cmdDeathNotice = new EveJimaCore.WhlControls.ejButton();
             this.cmdMapSignatures = new EveJimaCore.WhlControls.ejButton();
-            this.ejButton4 = new EveJimaCore.WhlControls.ejButton();
             this.ejButton3 = new EveJimaCore.WhlControls.ejButton();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -74,9 +72,9 @@
             this.groupBox3.Controls.Add(this.cmdZkillboard);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
             this.groupBox3.ForeColor = System.Drawing.Color.FloralWhite;
-            this.groupBox3.Location = new System.Drawing.Point(3, 321);
+            this.groupBox3.Location = new System.Drawing.Point(3, 291);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(310, 311);
+            this.groupBox3.Size = new System.Drawing.Size(310, 341);
             this.groupBox3.TabIndex = 148;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = " Internal resourses";
@@ -325,18 +323,16 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.whlButton4);
-            this.groupBox1.Controls.Add(this.whlButton3);
             this.groupBox1.Controls.Add(this.whlButton2);
             this.groupBox1.Controls.Add(this.whlButton1);
             this.groupBox1.Controls.Add(this.cmdDeathNotice);
             this.groupBox1.Controls.Add(this.cmdMapSignatures);
-            this.groupBox1.Controls.Add(this.ejButton4);
             this.groupBox1.Controls.Add(this.ejButton3);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.FloralWhite;
             this.groupBox1.Location = new System.Drawing.Point(3, 167);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 148);
+            this.groupBox1.Size = new System.Drawing.Size(310, 118);
             this.groupBox1.TabIndex = 146;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " Commands ";
@@ -348,28 +344,13 @@
             this.whlButton4.ForeColor = System.Drawing.Color.LightGray;
             this.whlButton4.IsActive = true;
             this.whlButton4.IsTabControlButton = false;
-            this.whlButton4.Location = new System.Drawing.Point(243, 110);
+            this.whlButton4.Location = new System.Drawing.Point(243, 81);
             this.whlButton4.Margin = new System.Windows.Forms.Padding(9, 3, 9, 3);
             this.whlButton4.Name = "whlButton4";
             this.whlButton4.Size = new System.Drawing.Size(44, 26);
             this.whlButton4.TabIndex = 146;
             this.whlButton4.Value = ">>";
             this.whlButton4.Click += new System.EventHandler(this.Click_SendDeathNotice);
-            // 
-            // whlButton3
-            // 
-            this.whlButton3.BackColor = System.Drawing.Color.Black;
-            this.whlButton3.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.whlButton3.ForeColor = System.Drawing.Color.LightGray;
-            this.whlButton3.IsActive = true;
-            this.whlButton3.IsTabControlButton = false;
-            this.whlButton3.Location = new System.Drawing.Point(243, 82);
-            this.whlButton3.Margin = new System.Windows.Forms.Padding(7, 3, 7, 3);
-            this.whlButton3.Name = "whlButton3";
-            this.whlButton3.Size = new System.Drawing.Size(44, 26);
-            this.whlButton3.TabIndex = 145;
-            this.whlButton3.Value = ">>";
-            this.whlButton3.Click += new System.EventHandler(this.Event_DeleteSelectedSystem);
             // 
             // whlButton2
             // 
@@ -412,7 +393,7 @@
             this.cmdDeathNotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdDeathNotice.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDeathNotice.ForeColor = System.Drawing.Color.Red;
-            this.cmdDeathNotice.Location = new System.Drawing.Point(15, 110);
+            this.cmdDeathNotice.Location = new System.Drawing.Point(15, 81);
             this.cmdDeathNotice.Name = "cmdDeathNotice";
             this.cmdDeathNotice.Size = new System.Drawing.Size(158, 23);
             this.cmdDeathNotice.TabIndex = 143;
@@ -442,27 +423,6 @@
             this.cmdMapSignatures.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdMapSignatures.UseVisualStyleBackColor = true;
             this.cmdMapSignatures.Click += new System.EventHandler(this.Event_CentreSelectedSystem);
-            // 
-            // ejButton4
-            // 
-            this.ejButton4.AutoSize = true;
-            this.ejButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ejButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.ejButton4.FlatAppearance.BorderSize = 0;
-            this.ejButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.ejButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.ejButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ejButton4.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ejButton4.ForeColor = System.Drawing.Color.OrangeRed;
-            this.ejButton4.Location = new System.Drawing.Point(14, 81);
-            this.ejButton4.Name = "ejButton4";
-            this.ejButton4.Size = new System.Drawing.Size(152, 23);
-            this.ejButton4.TabIndex = 142;
-            this.ejButton4.Tag = "MapSignatures";
-            this.ejButton4.Text = "Delete Selected System";
-            this.ejButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ejButton4.UseVisualStyleBackColor = true;
-            this.ejButton4.Click += new System.EventHandler(this.Event_DeleteSelectedSystem);
             // 
             // ejButton3
             // 
@@ -528,12 +488,10 @@
         private System.Windows.Forms.Label txtSolarSystemEffect;
         private whlButton whlButton4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private whlButton whlButton3;
         private whlButton whlButton2;
         private whlButton whlButton1;
         private WhlControls.ejButton cmdDeathNotice;
         private WhlControls.ejButton cmdMapSignatures;
-        private WhlControls.ejButton ejButton4;
         private WhlControls.ejButton ejButton3;
     }
 }

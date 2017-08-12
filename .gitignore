@@ -40,3 +40,4 @@
 /Server/packages
 /Server/Server/bin
 /Server/Server/Properties/PublishProfiles/1.pubxml.user
+/Client/.vs/config

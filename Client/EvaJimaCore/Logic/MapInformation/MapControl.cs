@@ -29,10 +29,25 @@ namespace EveJimaCore.Logic.MapInformation
             containerInformation.ReloadMap += Event_ReloadMap;
             containerMap.SelectSolarSystem += Event_SelectSolarSystem;
             containerMap.RelocateSolarSystem += Event_RelocateSolarSystem;
+            containerMap.DeleteSolarSystemConnection += Event_DeleteSolarSystemConnection;
             containerMap.ReloadMap += Event_ReloadMap;
             Global.Presenter.OnLocationChange += Event_LocationChanged;
             Global.Presenter.OnChangeScreen += Event_ChangeScren;
             Global.Presenter.OnChangeActivePilot += Event_ActivePilotChanged;
+        }
+
+        private void Event_DeleteSolarSystemConnection(string solarSystemFrom, string solarSystemTo)
+        {
+            containerMap.StopDrawMap();
+
+            _commandsLog.InfoFormat($"[MapControl.Event_DeleteSolarSystemConnection]  Delete connection between {solarSystemFrom} and {solarSystemTo} solar systems.");
+
+            Global.Pilots.Selected.SpaceMap.ApiDeleteConnectionBeetwenSolarSystems( solarSystemFrom, solarSystemTo);
+
+            containerMap.ForceRefresh(Global.Pilots.Selected.SpaceMap);
+            
+
+            containerMap.StartDrawMap();
         }
 
         private void Event_ChangeScren(string screenName)
