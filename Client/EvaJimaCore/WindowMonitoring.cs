@@ -84,7 +84,7 @@ namespace EveJimaCore
                 //ContainerTabs.AddTab("Signatures", TabSize.Small, null, _containerTravelHistory);
                 ContainerTabs.AddTab("WebBrowser", TabSize.Large, cmdOpenWebBrowser1, _containerBrowser);
                 ContainerTabs.AddTab("Map", TabSize.Map, cmdMap, _containerMap);
-                //ContainerTabs.AddTab("Version", TabSize.Large, cmdVersion, _containerVersion);
+                ContainerTabs.AddTab("Version", TabSize.Large, cmdVersion1, _containerVersion);
                 //ContainerTabs.AddTab("LostAndFoundOffice", TabSize.Small, null, _containerLostAndFoundOffice);
                 //ContainerTabs.AddTab("Router", TabSize.Small, null, _containerRouter);
 

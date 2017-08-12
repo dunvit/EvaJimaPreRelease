@@ -96,16 +96,15 @@ namespace EveJimaCore.WhlControls
             {
                 Log.Debug("[whlVersion.Event_StartUpdateVersion] Start update");
 
-                string text = File.ReadAllText("settings.txt");
-                text = text.Replace("VersionContent.txt", "VersionContent_" + Global.Settings.CurrentVersion.Replace(".","") + ".txt");
-                File.WriteAllText("settings.txt", text);
+                //string text = File.ReadAllText("settings.txt");
+                //text = text.Replace("VersionContent.txt", "VersionContent_" + Global.Settings.CurrentVersion.Replace(".","") + ".txt");
+                //File.WriteAllText("settings.txt", text);
+
+                Global.ApplicationSettings.Server_update_content_version = Global.ApplicationSettings.Server_update_uri_version.Replace("Version.txt", "" + Global.Settings.CurrentVersion + "/VersionContent.txt");
+                Global.ApplicationSettings.Save();
 
                 try
                 {
-                    //ProcessStartInfo startInfo = new ProcessStartInfo();
-                    //startInfo.CreateNoWindow = false;
-                    //startInfo.UseShellExecute = false;
-                    //startInfo.FileName = AppDomain.CurrentDomain.BaseDirectory + "updater.exe";
                     try
                     {
                         Process.Start(@"updater.exe");

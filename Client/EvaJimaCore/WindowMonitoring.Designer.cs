@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.crlNotificay = new System.Windows.Forms.NotifyIcon(this.components);
             this.RefreshActivePilot = new System.Windows.Forms.Timer(this.components);
+            this.cmdVersion1 = new EveJimaCore.WhlControls.ejButton();
             this._mapToolbarControl1 = new EveJimaCore.Logic.ToolBar.MapToolbarControl();
             this.cmdOpenWebBrowser1 = new EveJimaCore.WhlControls.ejButton();
             this.cmdShowContainerBookmarks1 = new EveJimaCore.WhlControls.ejButton();
@@ -270,6 +271,25 @@
             this.RefreshActivePilot.Interval = 1000;
             this.RefreshActivePilot.Tick += new System.EventHandler(this.Event_RefreshActivePilot);
             // 
+            // cmdVersion1
+            // 
+            this.cmdVersion1.AutoSize = true;
+            this.cmdVersion1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdVersion1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.cmdVersion1.FlatAppearance.BorderSize = 0;
+            this.cmdVersion1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.cmdVersion1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.cmdVersion1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdVersion1.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdVersion1.ForeColor = System.Drawing.Color.Silver;
+            this.cmdVersion1.Location = new System.Drawing.Point(10, 408);
+            this.cmdVersion1.Name = "cmdVersion1";
+            this.cmdVersion1.Size = new System.Drawing.Size(63, 23);
+            this.cmdVersion1.TabIndex = 72;
+            this.cmdVersion1.Text = "Version";
+            this.cmdVersion1.UseVisualStyleBackColor = true;
+            this.cmdVersion1.Visible = false;
+            // 
             // _mapToolbarControl1
             // 
             this._mapToolbarControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
@@ -393,6 +413,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.ClientSize = new System.Drawing.Size(1443, 1053);
+            this.Controls.Add(this.cmdVersion1);
             this.Controls.Add(this._mapToolbarControl1);
             this.Controls.Add(this.cmdOpenWebBrowser1);
             this.Controls.Add(this.cmdShowContainerBookmarks1);
@@ -453,5 +474,6 @@
         private WhlControls.ejButton cmdShowContainerBookmarks1;
         private WhlControls.ejButton cmdOpenWebBrowser1;
         private Logic.ToolBar.MapToolbarControl _mapToolbarControl1;
+        private WhlControls.ejButton cmdVersion1;
     }
 }
