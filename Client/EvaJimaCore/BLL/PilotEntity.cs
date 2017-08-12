@@ -65,9 +65,13 @@ namespace EveJimaCore.BLL
             // Pilot not are log in
             if (Location.SolarSystemName == "unknown") return;
 
+            
+
             SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
             
             SpaceMap.OnChangeStatus += GetMapMessage;
+
+            
 
             SpaceMap.Activate(Name, Location.SolarSystemName);
 
@@ -161,7 +165,7 @@ namespace EveJimaCore.BLL
 
             LoadLocationInfo();
 
-            if(Key == null) Key = DateTime.UtcNow.Ticks.ToString();
+            if(Key == null) Key = Name + "'s map"; 
 
             if(Location.SolarSystemName != "unknown")
             {

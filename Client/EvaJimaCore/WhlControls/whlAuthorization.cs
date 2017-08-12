@@ -83,9 +83,7 @@ namespace EveJimaCore.WhlControls
                 {
                     Messages.GetInstance().PublishMessage($"Start authorize for {pilot.Item1}");
 
-                    var currentPilot = new PilotEntity(pilot.Item2, pilot.Item3);
-
-                    currentPilot.Key = pilot.Item4 != "" ? pilot.Item4 : currentPilot.Name.Replace(" ", "_").Replace("-", "_");
+                    var currentPilot = new PilotEntity(pilot.Item2, pilot.Item3) { Key = pilot.Item4 };
 
                     Pilotes.Add(currentPilot);
                 }
@@ -143,7 +141,7 @@ namespace EveJimaCore.WhlControls
             if (Global.Pilots.IsExist(_currentPilot.Id) == false)
             {
 
-                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.EsiData.RefreshToken);
+                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.EsiData.RefreshToken, _currentPilot.Key);
 
                 //Global.Pilots.Add(_currentPilot);
 
@@ -154,7 +152,7 @@ namespace EveJimaCore.WhlControls
             else
             {
                 // Update token
-                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.EsiData.RefreshToken);
+                Global.ApplicationSettings.UpdatePilotInStorage(_currentPilot.Name, _currentPilot.Id.ToString(), _currentPilot.EsiData.RefreshToken, _currentPilot.Key);
             }
 
             cmbPilots.Visible = true;
@@ -198,6 +196,15 @@ namespace EveJimaCore.WhlControls
 
             foreach (var pilotEntity in Pilotes)
             {
+                var isFirstMapLoad = false;
+
+                if (pilotEntity.Key == "")
+                {
+                    pilotEntity.Key = Name + "'s map";
+                    isFirstMapLoad = true;
+                }
+
+
                 Global.Pilots.Add(pilotEntity);
 
                 //cmbPilots.Items.Add(pilotEntity.Name.Trim());
@@ -208,6 +215,13 @@ namespace EveJimaCore.WhlControls
                 pilot = pilotEntity;
 
                 //Global.Pilots.SetSelected(pilotEntity);
+
+                if (isFirstMapLoad)
+                {
+                    Global.ApplicationSettings.UpdatePilotInStorage(pilotEntity.Name, pilotEntity.Id.ToString(), pilotEntity.RefreshToken, pilotEntity.Key);
+
+                    Global.ApplicationSettings.Save();
+                }
             }
 
             if(pilot != null) Global.Pilots.SetSelected(pilot);
