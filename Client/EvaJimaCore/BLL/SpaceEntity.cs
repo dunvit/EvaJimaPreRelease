@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using CsvHelper;
 using EvaJimaCore;
 using EveJimaUniverse;
@@ -12,7 +14,7 @@ namespace EveJimaCore.BLL
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(SpaceEntity));
 
-        public readonly Dictionary<string, WormholeEntity> WormholeTypes = new Dictionary<string, WormholeEntity>();
+        public Dictionary<string, WormholeEntity> WormholeTypes = new Dictionary<string, WormholeEntity>();
 
         public readonly Dictionary<string, StarSystemEntity> SolarSystems = new Dictionary<string, StarSystemEntity>();
 
@@ -129,22 +131,19 @@ namespace EveJimaCore.BLL
 
             try
             {
-                using (var sr = new StreamReader(@"Data/WSpaceSystemInfo - Wormholes.csv"))
-                {
-                    var records = new CsvReader(sr).GetRecords<WormholeEntity>();
+                var json = File.ReadAllText(@"Data/Wormholes.dat");
+                var WormholeTypesAfterLoad = new Dictionary<string, WormholeEntity>();
 
-                    foreach (var record in records)
-                    {
-                        WormholeTypes.Add(record.Name.Trim(), record);
-                    }
-                }
+                var ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
+                var ser = new DataContractJsonSerializer(WormholeTypesAfterLoad.GetType());
+                WormholeTypes = ser.ReadObject(ms) as Dictionary<string, WormholeEntity>;
+                ms.Close();
+
             }
             catch (Exception ex)
             {
                 Log.ErrorFormat("[SpaceEntity.LoadWormholes] Critical error = {0}", ex);
             }
-
-            
         }
 
         private void LoadWormholeStarSystems()

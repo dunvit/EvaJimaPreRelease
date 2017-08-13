@@ -200,21 +200,15 @@ namespace EveJimaCore.WhlControls
 
                 if (pilotEntity.Key == "")
                 {
-                    pilotEntity.Key = Name + "'s map";
+                    pilotEntity.Key = Name;
                     isFirstMapLoad = true;
                 }
 
-
                 Global.Pilots.Add(pilotEntity);
-
-                //cmbPilots.Items.Add(pilotEntity.Name.Trim());
-                //cmbPilots.Text = pilotEntity.Name.Trim();
 
                 AddPilotToPilotsList(pilotEntity);
 
                 pilot = pilotEntity;
-
-                //Global.Pilots.SetSelected(pilotEntity);
 
                 if (isFirstMapLoad)
                 {

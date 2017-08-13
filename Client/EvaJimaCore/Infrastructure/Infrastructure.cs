@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -14,7 +15,7 @@ namespace EveJimaCore
     {
         public CcpXmlApi EveXmlApi = new CcpXmlApi();
  
-        public static void GetSolarSystems()
+        public static Dictionary<string, string> GetSolarSystems()
         {
             const string url = "https://crest-tq.eveonline.com/solarsystems/";
 
@@ -24,27 +25,30 @@ namespace EveJimaCore
 
             var jsonData = JObject.Parse(result);
 
-            var data = jsonData["items"].ToString().Trim(); ;
+            var data = jsonData["items"].ToString().Trim(); 
             
             var a = JArray.Parse(data);
+
+            var returnCollection = new Dictionary<string, string>();
 
             foreach (var o in a.Children<JObject>())
             {
                 var id = o["id"].ToString().Trim();
                 var name = o["name"].ToString().Trim();
-   
-                Global.Space.BasicSolarSystems.Add(name, id);
+
+                returnCollection.Add(name, id);
             }
 
+            return returnCollection;
 
-            using (var sw = new StreamWriter(@"Data/BasicSolarSystems.csv"))
-            {
-                var writer = new CsvWriter(sw);
+            //using (var sw = new StreamWriter(@"Data/BasicSolarSystems.csv"))
+            //{
+            //    var writer = new CsvWriter(sw);
 
-                IEnumerable records = Global.Space.BasicSolarSystems.ToList();
+            //    IEnumerable records = Global.Space.BasicSolarSystems.ToList();
 
-                writer.WriteRecords(records);
-            }
+            //    writer.WriteRecords(records);
+            //}
         }
     }
 }

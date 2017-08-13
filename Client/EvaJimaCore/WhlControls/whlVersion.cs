@@ -107,6 +107,7 @@ namespace EveJimaCore.WhlControls
                 {
                     try
                     {
+                        //Process.Start("https://github.com/dunvit/EveJima/releases/tag/" + Global.Settings.CurrentVersion);
                         Process.Start(@"updater.exe");
                     }
                     catch (Exception ex2)

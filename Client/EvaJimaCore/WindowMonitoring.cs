@@ -393,8 +393,7 @@ namespace EveJimaCore
 
         private void WindowMonitoring_Load(object sender, EventArgs e)
         {
-            lblVersionID.Text = Global.Settings.CurrentVersion;
-            lblVersionID.Text = @"2.01.11";
+            lblVersionID.Text = Global.ApplicationSettings.CurrentVersion;
 
             Log.DebugFormat("[WindowMonitoring] Version: {0}", lblVersionID.Text);
             
@@ -811,6 +810,8 @@ namespace EveJimaCore
 
         private void WindowMonitoring_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(_containerVersion == null) return;
+
             _containerVersion.DisposeBrowser();
             _containerVersion = null;
 
