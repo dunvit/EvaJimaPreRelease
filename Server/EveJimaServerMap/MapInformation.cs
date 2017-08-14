@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EveJimaUniverse;
+﻿using System.Collections.Generic;
 
 namespace EveJimaServerMap
 {
@@ -13,6 +8,6 @@ namespace EveJimaServerMap
 
         public string Owner { get; set; }
 
-        public List<SolarSystem> SystemsForSave { get; set; }
+        public List<EveJimaUniverse.System> SystemsForSave { get; set; }
     }
 }

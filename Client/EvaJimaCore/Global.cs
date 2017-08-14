@@ -4,6 +4,7 @@ using EveJimaCore.BLL;
 using EveJimaCore.BLL.LostAndFound;
 using EveJimaCore.BLL.Map;
 using EveJimaSettings;
+using EveJimaUniverse;
 
 namespace EvaJimaCore
 {
@@ -21,7 +22,7 @@ namespace EvaJimaCore
 
         public static Infrastructure Infrastructure;
 
-        public static SpaceEntity Space;
+        public static Universe Space;
 
         public static InternalBrowser InternalBrowser;
 
@@ -57,7 +58,8 @@ namespace EvaJimaCore
 
             Infrastructure = new Infrastructure();
 
-            Space = new SpaceEntity();
+            Space = new Universe();
+            Space.Initialization();
 
             InternalBrowser = new InternalBrowser();
 

@@ -21,10 +21,10 @@ namespace EveJimaServerMap
         public MapInformation Information = new MapInformation();
             
         [JsonIgnore]
-        public ConcurrentDictionary<string, SolarSystem> Systems { get; set; }
+        public ConcurrentDictionary<string, EveJimaUniverse.System> Systems { get; set; }
 
         [JsonIgnore]
-        private ConcurrentDictionary<string, SolarSystem> DeletedSystems { get; set; }
+        private ConcurrentDictionary<string, EveJimaUniverse.System> DeletedSystems { get; set; }
 
         [JsonIgnore]
         private readonly Random _randomBase = new Random();
@@ -35,8 +35,8 @@ namespace EveJimaServerMap
         public void Initialization(string key, MapType type)
         {
             Information.Key = key;
-            Systems = new ConcurrentDictionary<string, SolarSystem>();
-            DeletedSystems = new ConcurrentDictionary<string, SolarSystem>();
+            Systems = new ConcurrentDictionary<string, EveJimaUniverse.System>();
+            DeletedSystems = new ConcurrentDictionary<string, EveJimaUniverse.System>();
 
             switch(type)
             {
@@ -58,7 +58,7 @@ namespace EveJimaServerMap
         {
             try
             {
-                var removeCollection = new List<SolarSystem>();
+                var removeCollection = new List<EveJimaUniverse.System>();
 
                 foreach (var visitedSolarSystem in Systems)
                 {
@@ -73,11 +73,11 @@ namespace EveJimaServerMap
 
                 foreach (var visitedSolarSystem in removeCollection)
                 {
-                    DeletedSystems.TryAdd(visitedSolarSystem.Name, visitedSolarSystem);
+                    DeletedSystems.TryAdd(visitedSolarSystem.SolarSystemName, visitedSolarSystem);
 
-                    SolarSystem element;
+                    EveJimaUniverse.System element;
 
-                    Systems.TryRemove(visitedSolarSystem.Name, out element);
+                    Systems.TryRemove(visitedSolarSystem.SolarSystemName, out element);
                 }
             }
             catch (Exception ex)
@@ -92,15 +92,15 @@ namespace EveJimaServerMap
             {
                 foreach (var solarSystem in Systems)
                 {
-                    if(solarSystem.Value.Name == systemTo)
+                    if(solarSystem.Value.SolarSystemName == systemTo)
                     {
-                        solarSystem.Value.Connections.Remove(systemFrom);
+                        solarSystem.Value.ConnectedSolarSystems.Remove(systemFrom);
                         solarSystem.Value.LastUpdate = DateTime.UtcNow;
                     }
 
-                    if (solarSystem.Value.Name == systemFrom)
+                    if (solarSystem.Value.SolarSystemName == systemFrom)
                     {
-                        solarSystem.Value.Connections.Remove(systemTo);
+                        solarSystem.Value.ConnectedSolarSystems.Remove(systemTo);
                         solarSystem.Value.LastUpdate = DateTime.UtcNow;
                     }
                 }
@@ -120,9 +120,9 @@ namespace EveJimaServerMap
             {
                 foreach (var solarSystem in Systems)
                 {
-                    if(solarSystem.Value.Connections.Contains(system))
+                    if(solarSystem.Value.ConnectedSolarSystems.Contains(system))
                     {
-                        solarSystem.Value.Connections.Remove(system);
+                        solarSystem.Value.ConnectedSolarSystems.Remove(system);
                         solarSystem.Value.LastUpdate = DateTime.UtcNow;
                     }
                 }
@@ -131,11 +131,11 @@ namespace EveJimaServerMap
 
                 deletedSolarSystem.LastUpdate = DateTime.UtcNow;
 
-                DeletedSystems.TryAdd(deletedSolarSystem.Name, deletedSolarSystem);
+                DeletedSystems.TryAdd(deletedSolarSystem.SolarSystemName, deletedSolarSystem);
 
-                SolarSystem element;
+                EveJimaUniverse.System element;
 
-                Systems.TryRemove(deletedSolarSystem.Name, out element);
+                Systems.TryRemove(deletedSolarSystem.SolarSystemName, out element);
 
                 Save();
             }
@@ -185,7 +185,7 @@ namespace EveJimaServerMap
 
                 foreach(var solarSystem in history.SystemsForSave)
                 {
-                    Systems.TryAdd(solarSystem.Name, solarSystem);
+                    Systems.TryAdd(solarSystem.SolarSystemName, solarSystem);
                 }
 
                 Information = history;
@@ -284,7 +284,7 @@ namespace EveJimaServerMap
                     }
 
 
-                    Information.SystemsForSave = new List<SolarSystem>();
+                    Information.SystemsForSave = new List<EveJimaUniverse.System>();
 
                     foreach (var solarSystem in Systems.Values)
                     {
@@ -309,11 +309,11 @@ namespace EveJimaServerMap
             
         }
 
-        public List<SolarSystem> GetUpdates(DateTime lastUpdate)
+        public List<EveJimaUniverse.System> GetUpdates(DateTime lastUpdate)
         {
             GarbageCollector();
 
-            var list = new List<SolarSystem>();
+            var list = new List<EveJimaUniverse.System>();
 
             try
             {
@@ -344,9 +344,9 @@ namespace EveJimaServerMap
             return list;
         }
 
-        public List<SolarSystem> GetDeleted(DateTime lastUpdate)
+        public List<EveJimaUniverse.System> GetDeleted(DateTime lastUpdate)
         {
-            var list = new List<SolarSystem>();
+            var list = new List<EveJimaUniverse.System>();
 
             if(lastUpdate.Year == 1) return list;
             if (lastUpdate.Year == 2015) return list;
@@ -373,7 +373,7 @@ namespace EveJimaServerMap
         {
             foreach (var solarSystem in Systems.Values)
             {
-                if (system == solarSystem.Name)
+                if (system == solarSystem.SolarSystemName)
                 {
                     return true;
                 }
@@ -457,7 +457,7 @@ namespace EveJimaServerMap
 
 
 
-        private Point GetLocationPoint(SolarSystem fromSystem)
+        private Point GetLocationPoint(EveJimaUniverse.System fromSystem)
         {
             var deltaX = 0;
             var deltaY = 0;
@@ -516,9 +516,9 @@ namespace EveJimaServerMap
 
             if (system != null)
             {
-                if (system.Connections.Contains(systemToName) == false)
+                if (system.ConnectedSolarSystems.Contains(systemToName) == false)
                 {
-                    system.Connections.Add(systemToName);
+                    system.ConnectedSolarSystems.Add(systemToName);
 
                     system.LastUpdate = DateTime.UtcNow;
                 }
@@ -528,9 +528,9 @@ namespace EveJimaServerMap
 
             if (systemCurrentLocation == null) return;
 
-            if (string.IsNullOrEmpty(systemFromName) == false && systemCurrentLocation.Connections.Contains(systemFromName) == false)
+            if (string.IsNullOrEmpty(systemFromName) == false && systemCurrentLocation.ConnectedSolarSystems.Contains(systemFromName) == false)
             {
-                systemCurrentLocation.Connections.Add(systemFromName);
+                systemCurrentLocation.ConnectedSolarSystems.Add(systemFromName);
 
                 systemCurrentLocation.LastUpdate = DateTime.UtcNow;
             }
@@ -538,12 +538,12 @@ namespace EveJimaServerMap
 
         private void InsertNewPoint(string systemName)
         {
-            var system = new SolarSystem { Name = systemName, Created = DateTime.UtcNow};
+            var system = new EveJimaUniverse.System { SolarSystemName = systemName, Created = DateTime.UtcNow};
 
-            Systems.TryAdd(system.Name, system);
+            Systems.TryAdd(system.SolarSystemName, system);
         }
 
-        public SolarSystem GetSystem(string systemName)
+        public EveJimaUniverse.System GetSystem(string systemName)
         {
             if(Systems.ContainsKey(systemName))
             {

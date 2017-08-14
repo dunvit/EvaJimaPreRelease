@@ -22,6 +22,9 @@ namespace EJTests
             Global.MapApiFunctions.Initialization(Server_MapAddress);
             Global.ApplicationSettings = new ApplicationSettings();
 
+            Global.Space = new Universe();
+            Global.Space.Initialization();
+
             log4net.Config.XmlConfigurator.Configure();
         }
 
@@ -60,9 +63,9 @@ namespace EJTests
 
             Assert.AreEqual(map.ApiPublishDeathNotice("Jita").UpdatedSystems, 2);
 
-            Assert.AreEqual(map.GetSystem("Jita").Connections.Count, 0);
+            Assert.AreEqual(map.GetSystem("Jita").ConnectedSolarSystems.Count, 0);
 
-            Assert.AreEqual(map.GetSystem("J165920").Connections.Count, 1);
+            Assert.AreEqual(map.GetSystem("J165920").ConnectedSolarSystems.Count, 1);
 
         }
 
@@ -183,9 +186,86 @@ namespace EJTests
             var mapFirst = Initialization(pilotFirst, name);
             var mapSecond = Initialization(pilotSecond, name);
 
-            
 
-            RunFillMap(name, mapFirst, mapSecond, pilotFirst, pilotSecond);
+
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "", "J213734").UpdatedSystems, 1);
+            Thread.Sleep(2000);
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J165920").UpdatedSystems, 2);
+            Thread.Sleep(2000);
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J165920", "J165936").UpdatedSystems, 2);
+            Thread.Sleep(2000);
+
+            mapFirst.SetLastUpdate(new DateTime(2017, 5, 5));
+
+            Global.MapApiFunctions.UpdateMap(mapFirst);
+
+            Assert.AreEqual(mapFirst.Systems.Count, 3);
+
+
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "", "J122635").UpdatedSystems, 1);
+            Thread.Sleep(2000);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J122635", "J112520").UpdatedSystems, 2);
+            Thread.Sleep(2000);
+
+
+            Global.MapApiFunctions.UpdateMap(mapSecond);
+            Global.MapApiFunctions.UpdateMap(mapFirst);
+
+            Assert.AreEqual(mapSecond.Systems.Count, 2);
+
+            Assert.AreEqual(mapFirst.Systems.Count, 3);
+
+            Assert.AreEqual(mapFirst.Pilotes.Count, 2);
+            Assert.AreEqual(mapSecond.Pilotes.Count, 2);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J112520", "J165920").UpdatedSystems, 5);
+            Thread.Sleep(2000);
+
+            Global.MapApiFunctions.UpdateMap(mapSecond);
+            Global.MapApiFunctions.UpdateMap(mapFirst);
+
+            Assert.AreEqual(mapSecond.Systems.Count, 5);
+            Assert.AreEqual(mapFirst.Systems.Count, 5);
+
+            var systemJ168936 = mapSecond.GetSystem("J112520");
+
+            Assert.AreEqual(systemJ168936.ConnectedSolarSystems.Count, 2);
+
+            var systemJ165920 = mapSecond.GetSystem("J165920");
+
+            Assert.AreEqual(systemJ165920.ConnectedSolarSystems.Count, 3);
+
+            Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J214318").UpdatedSystems, 2);
+            Thread.Sleep(2000);
+
+            //SignaturesTests(name, pilotFirst);
+            //Thread.Sleep(2000);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J165920", "Jita").UpdatedSystems, 4);
+            Thread.Sleep(2000);
+
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "Jita", "Hek").UpdatedSystems, 2);
+            Thread.Sleep(2000);
+
+            var deleteHistory = Global.MapApiFunctions.DeleteSolarSystem(mapFirst, "Jita");
+
+            Assert.AreEqual(deleteHistory.DeletedSustems, 1);
+            Assert.AreEqual(deleteHistory.UpdatedSystems, 2);
+            Thread.Sleep(2000);
+
+            mapSecond.ActivePilot = pilotFirst;
+
+            mapSecond.LocationSolarSystemName = "J165920";
+
+            Global.MapApiFunctions.UpdateMap(mapSecond);
+
+            var systemHek = mapSecond.GetSystem("Hek");
+
+            Assert.AreEqual(systemHek.IsHidden, true);
+
+            Assert.AreEqual(mapSecond.GetSystem("J165920").IsHidden, false);
         }
 
         private void RunFillMap(string name, Map mapFirst, Map mapSecond, string pilotFirst, string pilotSecond)
@@ -208,7 +288,7 @@ namespace EJTests
             Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "", "J122635").UpdatedSystems, 1);
             Thread.Sleep(2000);
 
-            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J122635", "J168936").UpdatedSystems, 2);
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J122635", "J112520").UpdatedSystems, 2);
             Thread.Sleep(2000);
 
             
@@ -222,7 +302,7 @@ namespace EJTests
             Assert.AreEqual(mapFirst.Pilotes.Count, 2);
             Assert.AreEqual(mapSecond.Pilotes.Count, 2);
 
-            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J168936", "J165920").UpdatedSystems, 5);
+            Assert.AreEqual(mapSecond.ApiPublishSolarSystem(pilotSecond, name, "J112520", "J165920").UpdatedSystems, 5);
             Thread.Sleep(2000);
 
             Global.MapApiFunctions.UpdateMap(mapSecond);
@@ -231,13 +311,13 @@ namespace EJTests
             Assert.AreEqual(mapSecond.Systems.Count, 5);
             Assert.AreEqual(mapFirst.Systems.Count, 5);
 
-            var systemJ168936 = mapSecond.GetSystem("J168936");
+            var systemJ168936 = mapSecond.GetSystem("J112520");
 
-            Assert.AreEqual(systemJ168936.Connections.Count, 2);
+            Assert.AreEqual(systemJ168936.ConnectedSolarSystems.Count, 2);
 
             var systemJ165920 = mapSecond.GetSystem("J165920");
 
-            Assert.AreEqual(systemJ165920.Connections.Count, 3);
+            Assert.AreEqual(systemJ165920.ConnectedSolarSystems.Count, 3);
 
             Assert.AreEqual(mapFirst.ApiPublishSolarSystem(pilotFirst, name, "J213734", "J214318").UpdatedSystems, 2);
             Thread.Sleep(2000);

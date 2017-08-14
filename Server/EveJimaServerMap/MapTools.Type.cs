@@ -15,13 +15,13 @@ namespace EveJimaServerMap
             return systemName.Replace(numbersInSystemName, "") == "J";
         }
 
-        private static SolarSystem GetSystem(ConcurrentDictionary<string, SolarSystem> systems, string system)
+        private static EveJimaUniverse.System GetSystem(ConcurrentDictionary<string, EveJimaUniverse.System> systems, string system)
         {
             return systems[system];
             //return systems.FirstOrDefault(solarSystem => solarSystem.Name == system);
         }
 
-        public static string GetSystemType(ConcurrentDictionary<string, SolarSystem> systems, string system)
+        public static string GetSystemType(ConcurrentDictionary<string, EveJimaUniverse.System> systems, string system)
         {
             if (IsWSpaceSystem(system))
             {
@@ -32,7 +32,7 @@ namespace EveJimaServerMap
 
             var isNeedAddSolarSystemToMap = false;
 
-            foreach (var connected in systemPrevious.Connections)
+            foreach (var connected in systemPrevious.ConnectedSolarSystems)
             {
                 if (IsWSpaceSystem(connected))
                 {
@@ -40,11 +40,11 @@ namespace EveJimaServerMap
                 }
             }
 
-            foreach (var connected in systemPrevious.Connections)
+            foreach (var connected in systemPrevious.ConnectedSolarSystems)
             {
                 var connectedSystem = GetSystem(systems, connected);
 
-                foreach (var connectedOfConnected in connectedSystem.Connections)
+                foreach (var connectedOfConnected in connectedSystem.ConnectedSolarSystems)
                 {
                     if (IsWSpaceSystem(connectedOfConnected))
                     {

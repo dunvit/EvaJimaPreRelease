@@ -14,7 +14,7 @@ namespace EveJimaCore.WhlControls
         public bool IsSelected { get; set; }
         public bool IsCurrentLocation { get; set; }
 
-        private StarSystemEntity _solarSystem ;
+        private EveJimaUniverse.System _solarSystem ;
 
         public mapSolarSystem()
         {
@@ -23,7 +23,7 @@ namespace EveJimaCore.WhlControls
 
         public void Initialize(string solarSystemName)
         {
-            _solarSystem = Global.Space.GetSolarSystem(solarSystemName);
+            _solarSystem = Global.Space.GetSystemByName(solarSystemName);
 
             lblSolarSystemName.Text = _solarSystem.SolarSystemName;
         }

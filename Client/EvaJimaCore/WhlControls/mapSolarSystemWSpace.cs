@@ -16,7 +16,7 @@ namespace EveJimaCore.WhlControls
             InitializeComponent();
         }
 
-        public void RefreshSolarSystem( StarSystemEntity location)
+        public void RefreshSolarSystem(EveJimaUniverse.System location)
         {
             if (location == null) return;
 

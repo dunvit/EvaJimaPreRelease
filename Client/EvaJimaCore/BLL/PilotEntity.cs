@@ -31,7 +31,7 @@ namespace EveJimaCore.BLL
 
         public Map.Map SpaceMap { get; set; }
 
-        public StarSystemEntity Location { get; set; }
+        public EveJimaUniverse.System Location { get; set; }
 
         public string SelectedSolarSystem { get; set; }
 
@@ -215,7 +215,7 @@ namespace EveJimaCore.BLL
             {
                 if (Location == null)
                 {
-                    Location = new StarSystemEntity();
+                    Location = new EveJimaUniverse.System();
                 }
 
                 Log.DebugFormat("[Pilot {0}] Call CrestData.GetLocation with ID={1}", Name, Id);
@@ -246,11 +246,11 @@ namespace EveJimaCore.BLL
 
                 }
 
-                if (Global.Space.SolarSystems.ContainsKey(systemName))
+                if (Global.Space.GetSystemByName(systemName) != null)
                 {
-                    var location = (StarSystemEntity)Global.Space.SolarSystems[systemName];
+                    var location = Global.Space.GetSystemByName(systemName);
 
-                    Location = location.Clone() as StarSystemEntity;
+                    Location = location.Clone() as EveJimaUniverse.System;
 
                     if (Location != null)
                     {

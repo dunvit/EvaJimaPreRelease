@@ -496,18 +496,20 @@ namespace WBrowser
 
         private void CloseTab(int index)
         {
-
-            var control = browserTabControl.TabPages[index].Controls[0] as ChromiumWebBrowser;
-
-            if (control != null)
+            if(browserTabControl.TabPages[index].Controls.Count > 0)
             {
-                try
+                var control = browserTabControl.TabPages[index].Controls[0] as ChromiumWebBrowser;
+
+                if(control != null)
                 {
-                    //control.Dispose();
-                }
-                catch (Exception ex)
-                {
-                    var a = ex;
+                    try
+                    {
+                        //control.Dispose();
+                    }
+                    catch(Exception ex)
+                    {
+                        var a = ex;
+                    }
                 }
             }
 

@@ -64,9 +64,9 @@ namespace EveJimaCore.BLL.Map
 
             map.SetOwner(deserialized.Owner.ToString());
 
-            List<SolarSystem> updatedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(deserialized.SystemsUpdated.ToString()) as List<SolarSystem>;
+            List<EveJimaUniverse.System> updatedSystems = JsonConvert.DeserializeObject<List<EveJimaUniverse.System>>(deserialized.SystemsUpdated.ToString()) as List<EveJimaUniverse.System>;
 
-            List<SolarSystem> deletedSystems = JsonConvert.DeserializeObject<List<SolarSystem>>(deserialized.SystemsDeleted.ToString()) as List<SolarSystem>;
+            List<EveJimaUniverse.System> deletedSystems = JsonConvert.DeserializeObject<List<EveJimaUniverse.System>>(deserialized.SystemsDeleted.ToString()) as List<EveJimaUniverse.System>;
 
             List<PilotLocation> updatedPilots = JsonConvert.DeserializeObject<List<PilotLocation>>(deserialized.Pilots.ToString()) as List<PilotLocation>;
 
@@ -76,7 +76,7 @@ namespace EveJimaCore.BLL.Map
 
             MapTools.RefreshPilots(map, updatedPilots);
 
-            MapTools.HideUnconnectedSystems(map);
+            if(updatedSystems.Count > 0 ) MapTools.HideUnconnectedSystems(map);
 
             var lastUpdate = new DateTime(long.Parse(deserialized.UpdateTime.ToString()));
 

@@ -240,7 +240,7 @@ namespace EveJimaCore.WhlControls
 
             if (solarSystemName == "") return;
 
-            if (Global.Space.BasicSolarSystems.ContainsKey(solarSystemName.ToUpper()) == false)
+            if (Global.Space.GetSystemByName(solarSystemName.ToUpper()) == null)
             {
                 e.Cancel = true;
                 MessageBoxLoader.Show(string.Format("Solar system with name \"" + solarSystemName + "\" is not exist."), this);

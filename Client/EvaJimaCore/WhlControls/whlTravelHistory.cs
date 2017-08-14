@@ -16,7 +16,7 @@ namespace EveJimaCore.WhlControls
     public partial class whlTravelHistory : BaseContainer
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlTravelHistory));
-        public StarSystemEntity SolarSystem { get; set; }
+        public EveJimaUniverse.System SolarSystem { get; set; }
 
         public DelegateShowLocation OnShowLocation;
 
@@ -25,12 +25,12 @@ namespace EveJimaCore.WhlControls
             InitializeComponent();
         }
 
-        public void RefreshSolarSystem(StarSystemEntity location)
+        public void RefreshSolarSystem(EveJimaUniverse.System location)
         {
             LoadTravelHistorySignatures(location);
         }
 
-        private void LoadTravelHistorySignatures(StarSystemEntity location)
+        private void LoadTravelHistorySignatures(EveJimaUniverse.System location)
         {
             listHistorySignatures.Items.Clear();
             listCosmicSifnatures.Items.Clear();

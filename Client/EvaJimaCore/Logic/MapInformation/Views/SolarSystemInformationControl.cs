@@ -30,7 +30,7 @@ namespace EveJimaCore.Logic.MapInformation
             if(spaceMap != null) FillInformationForCurrentSolarSystems(spaceMap.GetSystem(spaceMap.SelectedSolarSystemName));
         }
 
-        private void FillInformationForCurrentSolarSystems(SolarSystem solarSystem)
+        private void FillInformationForCurrentSolarSystems(EveJimaUniverse.System solarSystem)
         {
             if(solarSystem == null) return;
 
@@ -42,24 +42,22 @@ namespace EveJimaCore.Logic.MapInformation
 
             try
             {
-                txtSolarSystemName.Text = solarSystem.Name;
+                txtSolarSystemName.Text = solarSystem.SolarSystemName;
 
-                if(solarSystem.Information == null) solarSystem.Information = Global.Space.GetSolarSystem(solarSystem.Name);
+                txtSolarSystemClass.Text = solarSystem.Class;
 
-                txtSolarSystemClass.Text = solarSystem.Information.Class;
-
-                if (solarSystem.Information.Effect != null)
+                if (solarSystem.Effect != null)
                 {
-                    txtSolarSystemEffect.Text = solarSystem.Information.Effect.Trim() == "" ? "None" : solarSystem.Information.Effect.Trim();
+                    txtSolarSystemEffect.Text = solarSystem.Effect.Trim() == "" ? "None" : solarSystem.Effect.Trim();
                 }
                 else
                 {
                     txtSolarSystemEffect.Text = "";
                 }
 
-                if (solarSystem.Information.Region != null)
+                if (solarSystem.Region != null)
                 {
-                    txtSolarSystemRegion.Text = solarSystem.Information.Region.Replace(" Unknown (", "").Replace(")", "");
+                    txtSolarSystemRegion.Text = solarSystem.Region.Replace(" Unknown (", "").Replace(")", "");
                 }
                 else
                 {
@@ -75,11 +73,11 @@ namespace EveJimaCore.Logic.MapInformation
 
                 label1.Visible = false;
 
-                txtSolarSystemName.ForeColor = Tools.GetColorBySolarSystem(solarSystem.Information.Security.ToString());
+                txtSolarSystemName.ForeColor = Tools.GetColorBySolarSystem(solarSystem.Security.ToString());
 
-                if (string.IsNullOrEmpty(solarSystem.Information.Static) == false)
+                if (string.IsNullOrEmpty(solarSystem.Static) == false)
                 {
-                    var wormholeI = Global.Space.WormholeTypes[solarSystem.Information.Static.Trim()];
+                    var wormholeI = Global.Space.WormholeTypes[solarSystem.Static.Trim()];
 
                     txtSolarSystemStaticI.Text = wormholeI.Name + " " + wormholeI.LeadsTo;
                     txtSolarSystemStaticI.Visible = true;
@@ -88,10 +86,10 @@ namespace EveJimaCore.Logic.MapInformation
                     //toolTip1.SetToolTip(txtSolarSystemStaticI, "Max Stable Mass=" + wormholeI.TotalMass + "\r\nMax Jump  Mass=" + wormholeI.SingleMass + "\r\nMax Life time =" + wormholeI.Lifetime);
                 }
 
-                if (string.IsNullOrEmpty(solarSystem.Information.Static2) == false)
+                if (string.IsNullOrEmpty(solarSystem.Static2) == false)
                 {
                     label1.Visible = true;
-                    var wormholeII = Global.Space.WormholeTypes[solarSystem.Information.Static2.Trim()];
+                    var wormholeII = Global.Space.WormholeTypes[solarSystem.Static2.Trim()];
 
                     txtSolarSystemStaticII.Text = wormholeII.Name + " " + wormholeII.LeadsTo;
                     txtSolarSystemStaticII.Visible = true;
@@ -113,7 +111,7 @@ namespace EveJimaCore.Logic.MapInformation
 
         private void cmdZkillboard_Click(object sender, EventArgs e)
         {
-            Global.InternalBrowser.OnBrowserNavigate(("https://zkillboard.com/system/" + Global.Space.BasicSolarSystems[Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName.ToUpper()] + "/"));
+            Global.InternalBrowser.OnBrowserNavigate(("https://zkillboard.com/system/" + Global.Space.GetSystemByName(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName.ToUpper()).Id + "/"));
         }
 
         private void cmdEllatha_Click(object sender, EventArgs e)

@@ -794,7 +794,7 @@ namespace EveJimaCore
             }
         }
 
-        private void RefreshSolarSystemInformation(StarSystemEntity location)
+        private void RefreshSolarSystemInformation(EveJimaUniverse.System location)
         {
             if (InvokeRequired)
             {

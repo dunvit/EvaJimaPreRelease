@@ -37,7 +37,7 @@ namespace EveJimaCore.Logic.MapInformation
                 return;
             }
 
-            selectedSolarSystemName = solarSystem.Name;
+            selectedSolarSystemName = solarSystem.SolarSystemName;
             FillSignaturesContainer(solarSystem.Signatures);
             Log.DebugFormat("[InformationSignaturesView.ForceRefresh] end");
         }

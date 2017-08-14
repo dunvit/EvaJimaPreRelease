@@ -27,7 +27,7 @@ namespace EveJimaCore.BLL.Map
 
         public DateTime LastUpdateTime { get; private set; }
 
-        public List<SolarSystem> Systems { get; set; }
+        public List<EveJimaUniverse.System> Systems { get; set; }
 
         public List<PilotLocation> Pilotes { get; set; }
 
@@ -41,7 +41,7 @@ namespace EveJimaCore.BLL.Map
 
         public Map()
         {
-            Systems = new List<SolarSystem>();
+            Systems = new List<EveJimaUniverse.System>();
 
             _lastUpdate = new DateTime(2015,5,5).Ticks;
 
@@ -67,9 +67,42 @@ namespace EveJimaCore.BLL.Map
             Owner = owner;
         }
 
-        public SolarSystem GetSystem(string name)
+        public EveJimaUniverse.System GetSystem(string name)
         {
-            return Systems.FirstOrDefault(solarSystem => solarSystem.Name == name);
+            var system = Systems.FirstOrDefault(solarSystem => solarSystem.SolarSystemName == name);
+
+            if( system == null) return null;
+
+            return system.Region == null ? GetSolarSystemInformation(system) : system;
+        }
+
+        private EveJimaUniverse.System GetSolarSystemInformation(EveJimaUniverse.System system)
+        {
+            try
+            {
+                var systemInformation = Global.Space.GetSystemByName(system.SolarSystemName);
+
+                system.Id = systemInformation.Id;
+                system.Region = systemInformation.Region;
+                system.Class = systemInformation.Class;
+                system.Constelation = systemInformation.Constelation;
+                system.Effect = systemInformation.Effect;
+                system.Moons = systemInformation.Moons;
+                system.Planets = systemInformation.Planets;
+                system.Security = systemInformation.Security;
+                system.Static = systemInformation.Static;
+                system.Static2 = systemInformation.Static2;
+                system.Sun = systemInformation.Sun;
+
+                return system;
+            }
+            catch(Exception)
+            {
+
+                return system;
+            }
+
+            
         }
 
         private bool isGlobalReload;

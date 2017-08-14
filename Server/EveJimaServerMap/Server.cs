@@ -102,9 +102,9 @@ namespace EveJimaServerMap
 
         private List<string> mergedSystems; 
 
-        private void MapsMergeAddSystem(Map map, Map localMap, SolarSystem system)
+        private void MapsMergeAddSystem(Map map, Map localMap, EveJimaUniverse.System system)
         {
-            foreach(var connection in system.Connections)
+            foreach(var connection in system.ConnectedSolarSystems)
             {
                 var connectedSystem = localMap.GetSystem(connection);
 
@@ -112,7 +112,7 @@ namespace EveJimaServerMap
                 {
                     mergedSystems.Add(connection);
                     
-                    map.AddSolarSystem(system.Name, connectedSystem.Name, false);
+                    map.AddSolarSystem(system.SolarSystemName, connectedSystem.SolarSystemName, false);
 
                     MapsMergeAddSystem(map, localMap, connectedSystem);
                 }

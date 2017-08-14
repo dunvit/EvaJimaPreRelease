@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace EveJimaUniverse
 {
-    public class SolarSystem : ICloneable
+    public class SolarSystem1 : ICloneable
     {
         public string Name { get; set; }
 
@@ -19,11 +19,11 @@ namespace EveJimaUniverse
 
         public DateTime Created { get; set; }
 
-        public StarSystemEntity Information
-        {
-            get;
-            set;
-        }
+        //public StarSystemEntity Information
+        //{
+        //    get;
+        //    set;
+        //}
 
 
 

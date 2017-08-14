@@ -15,7 +15,7 @@ namespace EveJimaCore.WhlControls
 
         private static readonly ILog Log = LogManager.GetLogger(typeof(whlSolarSystemOffline));
 
-        public StarSystemEntity SolarSystem { get; set; }
+        public EveJimaUniverse.System SolarSystem { get; set; }
 
 
         private ToolTip toolTip1 = new ToolTip();
@@ -36,9 +36,9 @@ namespace EveJimaCore.WhlControls
             toolTip2.ShowAlways = true;
         }
 
-        public void RefreshSolarSystem(StarSystemEntity location)
+        public void RefreshSolarSystem(EveJimaUniverse.System location)
         {
-            SolarSystem = location.Clone() as StarSystemEntity;
+            SolarSystem = location.Clone() as EveJimaUniverse.System;
 
             txtSolarSystemClass.Text = location.Class;
             if (location.Effect != null) txtSolarSystemEffect.Text = location.Effect.Trim();
@@ -92,7 +92,7 @@ namespace EveJimaCore.WhlControls
         {
             if (string.IsNullOrEmpty(txtSolarSystem.Text)) return;
 
-            OnBrowserNavigate("https://zkillboard.com/system/" + Global.Space.BasicSolarSystems[txtSolarSystem.Text.Trim().ToUpper()] + "/");
+            OnBrowserNavigate("https://zkillboard.com/system/" + Global.Space.GetSystemByName(txtSolarSystem.Text.Trim().ToUpper()).Id + "/");
         }
 
         private void Event_ShowSuperpute(object sender, EventArgs e)
@@ -147,17 +147,17 @@ namespace EveJimaCore.WhlControls
 
             try
             {
-                if (SolarSystem == null) SolarSystem = new StarSystemEntity();
+                if (SolarSystem == null) SolarSystem = new EveJimaUniverse.System();
 
-                if (Global.Space.SolarSystems.ContainsKey(solarSystemName))
+                if (Global.Space.GetSystemByName(solarSystemName) != null)
                 {
-                    var location = Global.Space.SolarSystems[solarSystemName];
+                    var location = Global.Space.GetSystemByName(solarSystemName);
 
-                    SolarSystem = location.Clone() as StarSystemEntity;
+                    SolarSystem = location.Clone() as EveJimaUniverse.System;
 
                     if (SolarSystem != null)
                     {
-                        SolarSystem.Id = Global.Space.BasicSolarSystems[solarSystemName.ToUpper()];
+                        SolarSystem.Id = Global.Space.GetSystemByName(solarSystemName.ToUpper()).Id;
                     }
                 }
                 else
@@ -169,7 +169,7 @@ namespace EveJimaCore.WhlControls
                     SolarSystem.Static2 = "";
                     SolarSystem.Static = "";
 
-                    SolarSystem.Id = Global.Space.BasicSolarSystems[solarSystemName.ToUpper()];
+                    SolarSystem.Id = Global.Space.GetSystemByName(solarSystemName.ToUpper()).Id;
 
                     SolarSystem.SolarSystemName = solarSystemName;
 

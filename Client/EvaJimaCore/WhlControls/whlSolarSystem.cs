@@ -18,7 +18,7 @@ namespace EveJimaCore.WhlControls
 
         public BrowserNavigate OnBrowserNavigate;
 
-        public StarSystemEntity SolarSystem { get; set; }
+        public EveJimaUniverse.System SolarSystem { get; set; }
 
         private ToolTip toolTip1 = new ToolTip();
         private ToolTip toolTip2 = new ToolTip();
@@ -52,14 +52,14 @@ namespace EveJimaCore.WhlControls
 
         }
 
-        public void RefreshSolarSystem(StarSystemEntity location)
+        public void RefreshSolarSystem(EveJimaUniverse.System location)
         {
             if (location == null) return;
 
             try
             {
                 Log.DebugFormat("[whlSolarSystem.RefreshSolarSystem] start");
-                SolarSystem = location.Clone() as StarSystemEntity;
+                SolarSystem = location.Clone() as EveJimaUniverse.System;
 
                 if (Global.Pilots.Selected.Location.SolarSystemName == "unknown") return;
 
