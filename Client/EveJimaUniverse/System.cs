@@ -2,33 +2,41 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace EveJimaUniverse
 {
     public class System
     {
         public string Id { get; set; }
-        public string SolarSystemName { get; set; }
-        public string Class { get; set; }
-        public string Static { get; set; }
-        public string Static2 { get; set; }
-        public string Sun { get; set; }
-        public string Planets { get; set; }
-        public string Moons { get; set; }
-        public string Effect { get; set; }
-        public string Region { get; set; }
-        public string Constelation { get; set; }
 
+        public string Name { get; set; }
+         
+        public string Class { get; set; }
+         
+        public string Static { get; set; }
+         
+        public string Static2 { get; set; }
+         
+        public string Sun { get; set; }
+         
+        public string Planets { get; set; }
+         
+        public string Moons { get; set; }
+         
+        public string Effect { get; set; }
+         
+        public string Region { get; set; }
+         
+        public string Constelation { get; set; }
+         
         public SecurityStatus Security { get; set; }
 
         public object Clone()
         {
             return MemberwiseClone();
         }
-
-        public int JumpsCountFromLocation { get; set; }
-
-        //public DateTime LastVisit { get; set; }
 
         public DateTime Created { get; set; }
 
@@ -66,15 +74,7 @@ namespace EveJimaUniverse
 
         public CosmicSignature GetSignature(string code)
         {
-            foreach (var cosmicSignature in Signatures)
-            {
-                if (cosmicSignature.Code == code)
-                {
-                    return cosmicSignature;
-                }
-            }
-
-            return null;
+            return Signatures.FirstOrDefault(cosmicSignature => cosmicSignature.Code == code);
         }
     }
 }

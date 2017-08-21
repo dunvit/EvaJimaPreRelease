@@ -69,7 +69,7 @@ namespace EveJimaCore.BLL.Map
 
         public EveJimaUniverse.System GetSystem(string name)
         {
-            var system = Systems.FirstOrDefault(solarSystem => solarSystem.SolarSystemName == name);
+            var system = Systems.FirstOrDefault(solarSystem => solarSystem.Name == name);
 
             if( system == null) return null;
 
@@ -80,7 +80,7 @@ namespace EveJimaCore.BLL.Map
         {
             try
             {
-                var systemInformation = Global.Space.GetSystemByName(system.SolarSystemName);
+                var systemInformation = Global.Space.GetSystemByName(system.Name);
 
                 system.Id = systemInformation.Id;
                 system.Region = systemInformation.Region;

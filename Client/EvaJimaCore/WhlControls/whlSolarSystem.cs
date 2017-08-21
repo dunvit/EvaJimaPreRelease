@@ -61,9 +61,9 @@ namespace EveJimaCore.WhlControls
                 Log.DebugFormat("[whlSolarSystem.RefreshSolarSystem] start");
                 SolarSystem = location.Clone() as EveJimaUniverse.System;
 
-                if (Global.Pilots.Selected.Location.SolarSystemName == "unknown") return;
+                if (Global.Pilots.Selected.Location.Name == "unknown") return;
 
-                txtSolarSystemName.Text = Global.Pilots.Selected.Location.SolarSystemName;
+                txtSolarSystemName.Text = Global.Pilots.Selected.Location.Name;
 
                 txtSolarSystemStaticI.Text = "";
                 txtSolarSystemStaticII.Text = "";
@@ -76,14 +76,14 @@ namespace EveJimaCore.WhlControls
                 txtSolarSystemStaticIData.Visible = false;
                 txtSolarSystemStaticIIData.Visible = false;
 
-                if (Tools.IsWSpaceSystem(Global.Pilots.Selected.Location.SolarSystemName) == false) return;
+                if (Tools.IsWSpaceSystem(Global.Pilots.Selected.Location.Name) == false) return;
                 
                 txtSolarSystemClass.Text = Global.Pilots.Selected.Location.Class;
                 txtSolarSystemEffect.Text = Global.Pilots.Selected.Location.Effect.Trim();
                 txtSolarSystemRegion.Text = Global.Pilots.Selected.Location.Region.Replace(" Unknown (", "").Replace(")", "");
                 txtSolarSystemConstellation.Text = Global.Pilots.Selected.Location.Constelation.Replace(" Unknown (", "").Replace(")", "");
 
-                var title = Global.Pilots.Selected.Location.SolarSystemName + "";
+                var title = Global.Pilots.Selected.Location.Name + "";
 
                 if (string.IsNullOrEmpty(Global.Pilots.Selected.Location.Class) == false)
                 {
@@ -160,36 +160,36 @@ namespace EveJimaCore.WhlControls
             switch (cmbServices.Text)
             {
                 case "Zkillboard":
-                    if (SolarSystem != null && SolarSystem.SolarSystemName != "unknown")
+                    if (SolarSystem != null && SolarSystem.Name != "unknown")
                         OnBrowserNavigate("https://zkillboard.com/system/" + Global.Pilots.Selected.Location.Id.Replace("J", "") + "/");
                     break;
                 case "Superpute":
-                    if (SolarSystem != null && SolarSystem.SolarSystemName != "unknown")
-                        OnBrowserNavigate("http://superpute.com/system/" + Global.Pilots.Selected.Location.SolarSystemName + "");
+                    if (SolarSystem != null && SolarSystem.Name != "unknown")
+                        OnBrowserNavigate("http://superpute.com/system/" + Global.Pilots.Selected.Location.Name + "");
                     break;
                 case "Ellatha":
-                    if (SolarSystem != null && SolarSystem.SolarSystemName != "unknown")
+                    if (SolarSystem != null && SolarSystem.Name != "unknown")
                     {
-                        if (Global.Pilots.Selected.Location.SolarSystemName.Contains("J") == false)
+                        if (Global.Pilots.Selected.Location.Name.Contains("J") == false)
                         {
                             MessageBox.Show(@"Ellatha only for W-Space systems");
                             return;
                         }
 
-                        OnBrowserNavigate("http://www.ellatha.com/eve/WormholeSystemview.asp?key=" + Global.Pilots.Selected.Location.SolarSystemName.Replace("J", "") + "");
+                        OnBrowserNavigate("http://www.ellatha.com/eve/WormholeSystemview.asp?key=" + Global.Pilots.Selected.Location.Name.Replace("J", "") + "");
                     }
                     break;
                 case "Dotlan":
-                    if (SolarSystem != null && SolarSystem.SolarSystemName != "unknown")
-                        OnBrowserNavigate("http://evemaps.dotlan.net/system/" + Global.Pilots.Selected.Location.SolarSystemName + "");
+                    if (SolarSystem != null && SolarSystem.Name != "unknown")
+                        OnBrowserNavigate("http://evemaps.dotlan.net/system/" + Global.Pilots.Selected.Location.Name + "");
                     break;
                 case "Tripwire":
-                    if (SolarSystem != null && SolarSystem.SolarSystemName != "unknown")
-                        OnBrowserNavigate("https://tripwire.eve-apps.com/?system=" + SolarSystem.SolarSystemName + "");
+                    if (SolarSystem != null && SolarSystem.Name != "unknown")
+                        OnBrowserNavigate("https://tripwire.eve-apps.com/?system=" + SolarSystem.Name + "");
                     break;
                 case "Pasta.gg":
-                    if (SolarSystem != null && SolarSystem.SolarSystemName != "unknown")
-                        OnBrowserNavigate("http://wh.pasta.gg/" + SolarSystem.SolarSystemName + "");
+                    if (SolarSystem != null && SolarSystem.Name != "unknown")
+                        OnBrowserNavigate("http://wh.pasta.gg/" + SolarSystem.Name + "");
                     break;
 
             }

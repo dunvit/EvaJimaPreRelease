@@ -95,7 +95,6 @@
     <Compile Include="BLL\PilotsEntity.cs" />
     <Compile Include="BLL\Router\Waypoint.cs" />
     <Compile Include="BLL\Router\Waypoints.cs" />
-    <Compile Include="BLL\SpaceEntity.cs" />
     <Compile Include="Browser\Address.cs" />
     <Compile Include="Browser\Bookmarks.cs" />
     <Compile Include="Browser\History.cs" />
@@ -324,21 +323,9 @@
     <Content Include="Data\Universe.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Data\Waypoints.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Content Include="Data\Wormholes.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Data\WSpaceSystemInfo - Base Solar Systems.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\WSpaceSystemInfo - Basic Solar Systems.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\WSpaceSystemInfo - Systems.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="EvaJimaCore.pfx" />
     <None Include="packages.config" />
   </ItemGroup>

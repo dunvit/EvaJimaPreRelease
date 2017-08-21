@@ -171,7 +171,7 @@ namespace EveJimaCore.WhlControls
 
                     SolarSystem.Id = Global.Space.GetSystemByName(solarSystemName.ToUpper()).Id;
 
-                    SolarSystem.SolarSystemName = solarSystemName;
+                    SolarSystem.Name = solarSystemName;
 
                 }
             }
@@ -181,7 +181,7 @@ namespace EveJimaCore.WhlControls
 
                 if (SolarSystem != null)
                 {
-                    SolarSystem.SolarSystemName = "unknown";
+                    SolarSystem.Name = "unknown";
                 }
             }
         }

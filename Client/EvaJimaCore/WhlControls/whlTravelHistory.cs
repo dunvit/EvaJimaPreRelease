@@ -35,27 +35,27 @@ namespace EveJimaCore.WhlControls
             listHistorySignatures.Items.Clear();
             listCosmicSifnatures.Items.Clear();
 
-            var fileName = @"Data/TravelHistory/" + location.SolarSystemName + ".csv";
+            //var fileName = @"Data/TravelHistory/" + location.SolarSystemName + ".csv";
 
-            try
-            {
-                if (File.Exists(fileName) == false) return;
+            //try
+            //{
+            //    if (File.Exists(fileName) == false) return;
 
-                using (var sr = new StreamReader(fileName))
-                {
-                    var records = new CsvReader(sr).GetRecords<BasicCosmicSignature>();
+            //    using (var sr = new StreamReader(fileName))
+            //    {
+            //        var records = new CsvReader(sr).GetRecords<BasicCosmicSignature>();
 
-                    foreach (var record in records)
-                    {
-                        Log.DebugFormat("[whlTravelHistory.LoadTravelHistorySignatures] Read csv row. {0} {1}", record.Key, record.Value);
-                        listHistorySignatures.Items.Add(record.Key.Trim());
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.ErrorFormat("[whlTravelHistory.LoadTravelHistorySignatures] Critical error = {0}", ex);
-            }
+            //        foreach (var record in records)
+            //        {
+            //            Log.DebugFormat("[whlTravelHistory.LoadTravelHistorySignatures] Read csv row. {0} {1}", record.Key, record.Value);
+            //            listHistorySignatures.Items.Add(record.Key.Trim());
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Log.ErrorFormat("[whlTravelHistory.LoadTravelHistorySignatures] Critical error = {0}", ex);
+            //}
             
         }
 
@@ -124,7 +124,7 @@ namespace EveJimaCore.WhlControls
 
             try
             {
-                var filename = @"Data/TravelHistory/" + Global.Pilots.Selected.Location.SolarSystemName + ".csv";
+                var filename = @"Data/TravelHistory/" + Global.Pilots.Selected.Location.Name + ".csv";
 
                 if (File.Exists(@"Data/TravelHistory/") == false)
                 {

@@ -25,7 +25,7 @@ namespace EveJimaCore.WhlControls
         {
             _solarSystem = Global.Space.GetSystemByName(solarSystemName);
 
-            lblSolarSystemName.Text = _solarSystem.SolarSystemName;
+            lblSolarSystemName.Text = _solarSystem.Name;
         }
 
         private void Event_OnPaint(object sender, PaintEventArgs e)

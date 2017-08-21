@@ -16,9 +16,9 @@ namespace EJTests
         {
             var map = new Map();
 
-            map.Systems.Add(new EveJimaUniverse.System { SolarSystemName = "J213734", ConnectedSolarSystems = new List<string> { "J213735", "J213736" }, LocationInMap = new Point(5000, 5000)});
-            map.Systems.Add(new EveJimaUniverse.System { SolarSystemName = "J213735", ConnectedSolarSystems = new List<string> { "J213734" }, LocationInMap = new Point(5200, 5300) });
-            map.Systems.Add(new EveJimaUniverse.System { SolarSystemName = "J213736", ConnectedSolarSystems = new List<string> { "J213734" }, LocationInMap = new Point(4800, 4990) });
+            map.Systems.Add(new EveJimaUniverse.System { Name = "J213734", ConnectedSolarSystems = new List<string> { "J213735", "J213736" }, LocationInMap = new Point(5000, 5000)});
+            map.Systems.Add(new EveJimaUniverse.System { Name = "J213735", ConnectedSolarSystems = new List<string> { "J213734" }, LocationInMap = new Point(5200, 5300) });
+            map.Systems.Add(new EveJimaUniverse.System { Name = "J213736", ConnectedSolarSystems = new List<string> { "J213734" }, LocationInMap = new Point(4800, 4990) });
 
             map.LocationSolarSystemName = "J213734";
 
@@ -35,7 +35,7 @@ namespace EJTests
 
             Assert.IsTrue(map.Systems.Count == mapForView.Systems.Count);
 
-            map.Systems.Add(new EveJimaUniverse.System { SolarSystemName = "J213737", ConnectedSolarSystems = new List<string> { "J213736" }, LocationInMap = new Point(4700, 4790) });
+            map.Systems.Add(new EveJimaUniverse.System { Name = "J213737", ConnectedSolarSystems = new List<string> { "J213736" }, LocationInMap = new Point(4700, 4790) });
 
             Assert.IsFalse(map.Systems.Count == mapForView.Systems.Count);
 

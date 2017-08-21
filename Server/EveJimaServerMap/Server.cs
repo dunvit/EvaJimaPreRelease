@@ -112,7 +112,7 @@ namespace EveJimaServerMap
                 {
                     mergedSystems.Add(connection);
                     
-                    map.AddSolarSystem(system.SolarSystemName, connectedSystem.SolarSystemName, false);
+                    map.AddSolarSystem(system.Name, connectedSystem.Name, false);
 
                     MapsMergeAddSystem(map, localMap, connectedSystem);
                 }

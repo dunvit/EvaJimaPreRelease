@@ -42,7 +42,7 @@ namespace EveJimaCore.Logic.MapInformation
 
             try
             {
-                txtSolarSystemName.Text = solarSystem.SolarSystemName;
+                txtSolarSystemName.Text = solarSystem.Name;
 
                 txtSolarSystemClass.Text = solarSystem.Class;
 
@@ -118,7 +118,7 @@ namespace EveJimaCore.Logic.MapInformation
         {
             if (Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName != "unknown")
             {
-                if (Global.Pilots.Selected.Location.SolarSystemName.Contains("J") == false)
+                if (Global.Pilots.Selected.Location.Name.Contains("J") == false)
                 {
                     MessageBox.Show(@"Ellatha only for W-Space systems");
                     return;

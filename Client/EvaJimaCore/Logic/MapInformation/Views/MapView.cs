@@ -34,17 +34,17 @@ namespace EveJimaCore.Logic.MapInformation
 
         public event Action<Point, string> RelocateSolarSystem;
 
-        public event Action<string, string> DeleteSolarSystemConnection;
+        public event Action<string, string> DeleteWormhole;
 
         public Hashtable SolarSystems { get; private set; }
-        public List<SolarSystemsConnection> SolarSystemsConnections { get; private set; }
+        public List<Wormhole> Wormholes { get; private set; }
 
         public MapView()
         {
             InitializeComponent();
 
             SolarSystems = new Hashtable();
-            SolarSystemsConnections = new List<SolarSystemsConnection>();
+            Wormholes = new List<Wormhole>();
 
             aTimer = new System.Timers.Timer();
             aTimer.Elapsed += Event_Refresh;
@@ -59,7 +59,7 @@ namespace EveJimaCore.Logic.MapInformation
         private bool isRelocateSystem;
         private string relocatedSystem;
 
-        private Point relocatedSystemStartPosition = new Point(0, 0);
+        private Point _relocatedSystemStartPosition = new Point(0, 0);
         private Point _drugAndDropStartPosition = new Point(0, 0);
 
         private void Map_MouseUp(object sender, MouseEventArgs e)
@@ -78,7 +78,7 @@ namespace EveJimaCore.Logic.MapInformation
                 }
 
                 relocatedSystem = string.Empty;
-                relocatedSystemStartPosition = new Point(0, 0);
+                _relocatedSystemStartPosition = new Point(0, 0);
             }
         }
 
@@ -94,7 +94,7 @@ namespace EveJimaCore.Logic.MapInformation
                 {
                     relocatedSystem = selectedSystem;
                     isRelocateSystem = true;
-                    relocatedSystemStartPosition = new Point(e.X, e.Y);
+                    _relocatedSystemStartPosition = new Point(e.X, e.Y);
 
                     Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName = selectedSystem;
 
@@ -104,7 +104,7 @@ namespace EveJimaCore.Logic.MapInformation
 
             if(e.Button == MouseButtons.Left)
             {
-                var selectedConnection = GetConnection(SolarSystemsConnections, mapPoint);
+                var selectedConnection = GetWormhole(Wormholes, mapPoint);
 
                 if(selectedConnection != null)
                 {
@@ -112,7 +112,7 @@ namespace EveJimaCore.Logic.MapInformation
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        DeleteSolarSystemConnection(selectedConnection.SolarSystemTo, selectedConnection.SolarSystemFrom);
+                        DeleteWormhole(selectedConnection.SolarSystemTo, selectedConnection.SolarSystemFrom);
                     }
 
                     return;
@@ -129,7 +129,7 @@ namespace EveJimaCore.Logic.MapInformation
 
         }
 
-        private SolarSystemsConnection GetConnection(List<SolarSystemsConnection> systemsConnections, Point mapPoint)
+        private Wormhole GetWormhole(List<Wormhole> systemsConnections, Point mapPoint)
         {
             foreach(var solarSystemsConnection in systemsConnections)
             {
@@ -154,7 +154,7 @@ namespace EveJimaCore.Logic.MapInformation
 
                 if (locationX < 25 && locationY < 25)
                 {
-                    return visitedSolarSystem.SolarSystemName;
+                    return visitedSolarSystem.Name;
                 }
             }
 
@@ -170,7 +170,7 @@ namespace EveJimaCore.Logic.MapInformation
 
                 if (locationX < 25 && locationY < 25)
                 {
-                    Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName = visitedSolarSystem.SolarSystemName;
+                    Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName = visitedSolarSystem.Name;
 
                     if (Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName != null) SelectSolarSystem(Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName);
 
@@ -224,7 +224,7 @@ namespace EveJimaCore.Logic.MapInformation
                 Log.DebugFormat("[MapInformationControl.MapView] start");
 
                 SolarSystems = new Hashtable();
-                SolarSystemsConnections = new List<SolarSystemsConnection>();
+                Wormholes = new List<Wormhole>();
 
                 SpaceMap = spaceMap;
 
@@ -252,13 +252,13 @@ namespace EveJimaCore.Logic.MapInformation
             {
                 try
                 {
-                    SolarSystems.Add(solarSystem.SolarSystemName, solarSystem);
+                    SolarSystems.Add(solarSystem.Name, solarSystem);
 
                     foreach (var connection in solarSystem.ConnectedSolarSystems)
                     {
-                        var connectedSolarSystem = SpaceMap.Systems.FirstOrDefault(system => system.SolarSystemName == connection);
+                        var connectedSolarSystem = SpaceMap.Systems.FirstOrDefault(system => system.Name == connection);
 
-                        if (connectedSolarSystem?.SolarSystemName == null) continue;
+                        if (connectedSolarSystem?.Name == null) continue;
                         if (connectedSolarSystem.IsDeleted) continue;
 
                         var pointFrom = new Point(solarSystem.LocationInMap.X, solarSystem.LocationInMap.Y);
@@ -267,9 +267,9 @@ namespace EveJimaCore.Logic.MapInformation
                         //Draw connection line center
                         var centerLinePoint = new Point((pointFrom.X + pointTo.X) / 2, (pointFrom.Y + pointTo.Y) / 2);
 
-                        var newConnection = new SolarSystemsConnection {Location = centerLinePoint, SolarSystemFrom = solarSystem.SolarSystemName, SolarSystemTo = connectedSolarSystem.SolarSystemName };
+                        var newConnection = new Wormhole {Location = centerLinePoint, SolarSystemFrom = solarSystem.Name, SolarSystemTo = connectedSolarSystem.Name };
 
-                        SolarSystemsConnections.Add(newConnection);
+                        Wormholes.Add(newConnection);
                     }
 
                 }
@@ -315,7 +315,7 @@ namespace EveJimaCore.Logic.MapInformation
 
                 foreach(var solarSystem in SpaceMap.Systems)
                 {
-                    if(solarSystem.SolarSystemName == null || solarSystem.SolarSystemName != SpaceMap.SelectedSolarSystemName) continue;
+                    if(solarSystem.Name == null || solarSystem.Name != SpaceMap.SelectedSolarSystemName) continue;
 
                     var rectangle = new Rectangle(solarSystem.LocationInMap.X - MapPosition.X - 14,
                         solarSystem.LocationInMap.Y - MapPosition.Y - 14, 28, 28);
@@ -330,7 +330,7 @@ namespace EveJimaCore.Logic.MapInformation
 
                 foreach(var solarSystem in SpaceMap.Systems)
                 {
-                    if(solarSystem.SolarSystemName == null || solarSystem.SolarSystemName != SpaceMap.LocationSolarSystemName) continue;
+                    if(solarSystem.Name == null || solarSystem.Name != SpaceMap.LocationSolarSystemName) continue;
 
                     var rectangle = new Rectangle(solarSystem.LocationInMap.X - MapPosition.X - 12,
                         solarSystem.LocationInMap.Y - MapPosition.Y - 12, 24, 24);
@@ -345,15 +345,15 @@ namespace EveJimaCore.Logic.MapInformation
 
                 foreach(var solarSystem in SpaceMap.Systems)
                 {
-                    if(solarSystem.SolarSystemName == null) continue;
+                    if(solarSystem.Name == null) continue;
                     if(solarSystem.IsDeleted) continue;
                     if(solarSystem.IsHidden) continue;
 
                     foreach(var connection in solarSystem.ConnectedSolarSystems)
                     {
-                        var connectedSolarSystem = SpaceMap.Systems.FirstOrDefault(system => system.SolarSystemName == connection);
+                        var connectedSolarSystem = SpaceMap.Systems.FirstOrDefault(system => system.Name == connection);
 
-                        if(connectedSolarSystem.SolarSystemName == null) continue;
+                        if(connectedSolarSystem.Name == null) continue;
                         if(connectedSolarSystem.IsDeleted) continue;
 
                         var pen = new Pen(Color.Gray, 1);
@@ -371,7 +371,7 @@ namespace EveJimaCore.Logic.MapInformation
 
                 #region Draw connection delete points
 
-                foreach(var centerLinePoint in SolarSystemsConnections.Select(solarSystemsConnection => new Point(solarSystemsConnection.Location.X - MapPosition.X, solarSystemsConnection.Location.Y - MapPosition.Y)))
+                foreach(var centerLinePoint in Wormholes.Select(solarSystemsConnection => new Point(solarSystemsConnection.Location.X - MapPosition.X, solarSystemsConnection.Location.Y - MapPosition.Y)))
                 {
                     var coordinates = PointToClient(Cursor.Position);
 
@@ -396,23 +396,23 @@ namespace EveJimaCore.Logic.MapInformation
 
                 foreach(var solarSystem in SpaceMap.Systems)
                 {
-                    if(solarSystem.SolarSystemName == null) continue;
+                    if(solarSystem.Name == null) continue;
                     if(solarSystem.IsDeleted) continue;
                     if(solarSystem.IsHidden) continue;
 
-                    var systemLabel = solarSystem.SolarSystemName;
+                    var systemLabel = solarSystem.Name;
                     var systemTypeLabel = "";
 
-                    if(_systemsInformation.ContainsKey(solarSystem.SolarSystemName) == false)
-                        _systemsInformation.Add(solarSystem.SolarSystemName, Global.Space.GetSystemByName(solarSystem.SolarSystemName));
+                    if(_systemsInformation.ContainsKey(solarSystem.Name) == false)
+                        _systemsInformation.Add(solarSystem.Name, Global.Space.GetSystemByName(solarSystem.Name));
 
 
-                    if(Tools.IsWSpaceSystem(solarSystem.SolarSystemName))
+                    if(Tools.IsWSpaceSystem(solarSystem.Name))
                     {
-                        if(_systemsInformation[solarSystem.SolarSystemName].Class != null)
+                        if(_systemsInformation[solarSystem.Name].Class != null)
                         {
-                            systemLabel = systemLabel + "[C" + _systemsInformation[solarSystem.SolarSystemName].Class + "]";
-                            systemTypeLabel = "[C" + _systemsInformation[solarSystem.SolarSystemName].Class + "]";
+                            systemLabel = systemLabel + "[C" + _systemsInformation[solarSystem.Name].Class + "]";
+                            systemTypeLabel = "[C" + _systemsInformation[solarSystem.Name].Class + "]";
                         }
                         else
                         {
@@ -426,30 +426,30 @@ namespace EveJimaCore.Logic.MapInformation
                     //Shattered
 
                     var drawFont = new Font("Verdana", 8, FontStyle.Bold);
-                    var drawBrushName = new SolidBrush(Tools.GetColorBySolarSystem(_systemsInformation[solarSystem.SolarSystemName].Security.ToString()));
+                    var drawBrushName = new SolidBrush(Tools.GetColorBySolarSystem(_systemsInformation[solarSystem.Name].Security.ToString()));
 
-                    if(Tools.IsWSpaceSystem(solarSystem.SolarSystemName))
+                    if(Tools.IsWSpaceSystem(solarSystem.Name))
                     {
-                        drawBrushName = new SolidBrush(Tools.GetColorBySolarSystem("C" + _systemsInformation[solarSystem.SolarSystemName].Class));
+                        drawBrushName = new SolidBrush(Tools.GetColorBySolarSystem("C" + _systemsInformation[solarSystem.Name].Class));
                     }
 
                     var stringSize = e.Graphics.MeasureString(systemLabel, drawFont);
 
-                    var stringSize2 = e.Graphics.MeasureString(solarSystem.SolarSystemName, drawFont);
+                    var stringSize2 = e.Graphics.MeasureString(solarSystem.Name, drawFont);
 
                     var drawFormat = new StringFormat();
 
 
                     if(solarSystem.Type == "A" || solarSystem.Type == "B" || solarSystem.Type == "C")
                     {
-                        e.Graphics.DrawString(solarSystem.SolarSystemName, drawFont, drawBrushName,
+                        e.Graphics.DrawString(solarSystem.Name, drawFont, drawBrushName,
                             solarSystem.LocationInMap.X - MapPosition.X + 2 - stringSize.Width / 2, solarSystem.LocationInMap.Y - MapPosition.Y - 30,
                             drawFormat);
                     }
 
-                    if(Tools.IsWSpaceSystem(solarSystem.SolarSystemName))
+                    if(Tools.IsWSpaceSystem(solarSystem.Name))
                     {
-                        var drawBrush = new SolidBrush(Tools.GetColorBySolarSystem("C" + _systemsInformation[solarSystem.SolarSystemName].Class));
+                        var drawBrush = new SolidBrush(Tools.GetColorBySolarSystem("C" + _systemsInformation[solarSystem.Name].Class));
                         e.Graphics.DrawString(systemTypeLabel, drawFont, drawBrush,
                             solarSystem.LocationInMap.X - MapPosition.X + 2 - stringSize.Width / 2 + stringSize2.Width,
                             solarSystem.LocationInMap.Y - MapPosition.Y - 30, drawFormat);
@@ -458,7 +458,7 @@ namespace EveJimaCore.Logic.MapInformation
                     var rectangle = new Rectangle(solarSystem.LocationInMap.X - MapPosition.X - 8, solarSystem.LocationInMap.Y - MapPosition.Y - 8, 16,
                         16);
 
-                    e.Graphics.FillEllipse(new SolidBrush(Tools.GetColorBySolarSystem(_systemsInformation[solarSystem.SolarSystemName].Security.ToString())),
+                    e.Graphics.FillEllipse(new SolidBrush(Tools.GetColorBySolarSystem(_systemsInformation[solarSystem.Name].Security.ToString())),
                         rectangle);
                     e.Graphics.DrawEllipse(new Pen(Color.DimGray, 1), rectangle);
                 }
@@ -510,7 +510,7 @@ namespace EveJimaCore.Logic.MapInformation
 
         public void CentreScreenBySelectedSystem()
         {
-            ScreenCenter = Global.Pilots.Selected.SpaceMap.Systems.FirstOrDefault(system => system.SolarSystemName == Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName).LocationInMap;
+            ScreenCenter = Global.Pilots.Selected.SpaceMap.Systems.FirstOrDefault(system => system.Name == Global.Pilots.Selected.SpaceMap.SelectedSolarSystemName).LocationInMap;
 
             RecalculateOffsetPositions(ScreenCenter);
 
@@ -519,7 +519,7 @@ namespace EveJimaCore.Logic.MapInformation
 
         public void CentreScreenByLocationSystem()
         {
-            ScreenCenter = Global.Pilots.Selected.SpaceMap.Systems.FirstOrDefault(system => system.SolarSystemName == Global.Pilots.Selected.SpaceMap.LocationSolarSystemName).LocationInMap;
+            ScreenCenter = Global.Pilots.Selected.SpaceMap.Systems.FirstOrDefault(system => system.Name == Global.Pilots.Selected.SpaceMap.LocationSolarSystemName).LocationInMap;
 
             RecalculateOffsetPositions(ScreenCenter);
 

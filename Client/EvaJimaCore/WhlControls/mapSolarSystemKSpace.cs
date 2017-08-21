@@ -29,7 +29,7 @@ namespace EveJimaCore.WhlControls
 
             try
             {
-                txtSolarSystemName.Text = location.SolarSystemName;
+                txtSolarSystemName.Text = location.Name;
                 
                 txtSolarSystemRegion.Text = location.Region.Replace(" Unknown (", "").Replace(")", "");
 

@@ -60,20 +60,20 @@ namespace EveJimaCore.BLL
         {
             Key = Global.ApplicationSettings.GetPilotKey(Name);
 
-            LocationCurrentSystemName = Location.SolarSystemName;
+            LocationCurrentSystemName = Location.Name;
 
             // Pilot not are log in
-            if (Location.SolarSystemName == "unknown") return;
+            if (Location.Name == "unknown") return;
 
             
 
-            SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
+            SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.Name };
             
             SpaceMap.OnChangeStatus += GetMapMessage;
 
             
 
-            SpaceMap.Activate(Name, Location.SolarSystemName);
+            SpaceMap.Activate(Name, Location.Name);
 
             SpaceMap.ApiPublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
 
@@ -110,9 +110,9 @@ namespace EveJimaCore.BLL
 
         private void UpdateMap()
         {
-            Log.DebugFormat($"[Pilot.UpdateMap] starting update map for pilot for id = {Id} name= {Name} location {Location.SolarSystemName}");
+            Log.DebugFormat($"[Pilot.UpdateMap] starting update map for pilot for id = {Id} name= {Name} location {Location.Name}");
 
-            if (Location.SolarSystemName == "unknown") return;
+            if (Location.Name == "unknown") return;
 
             Global.MapApiFunctions.UpdateMap(SpaceMap);
         }
@@ -167,11 +167,11 @@ namespace EveJimaCore.BLL
 
             if(Key == null) Key = Name + "'s map"; 
 
-            if(Location.SolarSystemName != "unknown")
+            if(Location.Name != "unknown")
             {
-                SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.SolarSystemName };
+                SpaceMap = new Map.Map { Key = Key, ActivePilot = Name, SelectedSolarSystemName = Location.Name };
 
-                SpaceMap.Activate(Name, Location.SolarSystemName);
+                SpaceMap.Activate(Name, Location.Name);
 
                 SpaceMap.ApiPublishSolarSystem(Name, Key, null, LocationCurrentSystemName);
 
@@ -228,9 +228,9 @@ namespace EveJimaCore.BLL
 
                 var systemName = solarSystemInfo.name.ToString();
 
-                if (Location.SolarSystemName == systemName)
+                if (Location.Name == systemName)
                 {
-                    Log.DebugFormat("[Pilot {0}] No need change location {1}", Name, Location.SolarSystemName);
+                    Log.DebugFormat("[Pilot {0}] No need change location {1}", Name, Location.Name);
                     return;
                 }
 
@@ -268,7 +268,7 @@ namespace EveJimaCore.BLL
 
                     Location.Id = systemId;
 
-                    Location.SolarSystemName = systemName;
+                    Location.Name = systemName;
 
                 }
 
@@ -284,7 +284,7 @@ namespace EveJimaCore.BLL
 
                 if (Location != null)
                 {
-                    Location.SolarSystemName = "unknown";
+                    Location.Name = "unknown";
                 }
             }
             finally

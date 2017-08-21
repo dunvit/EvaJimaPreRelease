@@ -22,7 +22,7 @@ namespace EveJimaCore.WhlControls
 
             try
             {
-                txtSolarSystemName.Text = location.SolarSystemName;
+                txtSolarSystemName.Text = location.Name;
                 txtSolarSystemClass.Text = location.Class;
                 if(location.Effect != null)
                 {

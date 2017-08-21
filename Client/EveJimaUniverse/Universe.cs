@@ -14,7 +14,7 @@ namespace EveJimaUniverse
 
         public List<System> Systems = new List<System>();
 
-        public Dictionary<string, WormholeEntity> WormholeTypes = new Dictionary<string, WormholeEntity>();
+        public Dictionary<string, WormholeType> WormholeTypes = new Dictionary<string, WormholeType>();
 
         public Universe()
         {
@@ -49,7 +49,7 @@ namespace EveJimaUniverse
 
         public System GetSystemByName(string name)
         {
-            return Systems.FirstOrDefault(system => system.SolarSystemName.ToUpper() == name.ToUpper());
+            return Systems.FirstOrDefault(system => system.Name.ToUpper() == name.ToUpper());
         }
 
         private void LoadWormholeTypes()
@@ -59,11 +59,11 @@ namespace EveJimaUniverse
             try
             {
                 var json = File.ReadAllText(@"Data/Wormholes.dat");
-                var WormholeTypesAfterLoad = new Dictionary<string, WormholeEntity>();
+                var WormholeTypesAfterLoad = new Dictionary<string, WormholeType>();
 
                 var ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
                 var ser = new DataContractJsonSerializer(WormholeTypesAfterLoad.GetType());
-                WormholeTypes = ser.ReadObject(ms) as Dictionary<string, WormholeEntity>;
+                WormholeTypes = ser.ReadObject(ms) as Dictionary<string, WormholeType>;
                 ms.Close();
 
             }
@@ -75,7 +75,7 @@ namespace EveJimaUniverse
 
         public string GetTitle(System solarSystem)
         {
-            var title = solarSystem.SolarSystemName + "";
+            var title = solarSystem.Name + "";
 
             if (string.IsNullOrEmpty(solarSystem.Class) == false)
             {

@@ -29,14 +29,14 @@ namespace EveJimaCore.Logic.MapInformation
             containerInformation.ReloadMap += Event_ReloadMap;
             containerMap.SelectSolarSystem += Event_SelectSolarSystem;
             containerMap.RelocateSolarSystem += Event_RelocateSolarSystem;
-            containerMap.DeleteSolarSystemConnection += Event_DeleteSolarSystemConnection;
+            containerMap.DeleteWormhole += EventDeleteWormhole;
             containerMap.ReloadMap += Event_ReloadMap;
             Global.Presenter.OnLocationChange += Event_LocationChanged;
             Global.Presenter.OnChangeScreen += Event_ChangeScren;
             Global.Presenter.OnChangeActivePilot += Event_ActivePilotChanged;
         }
 
-        private void Event_DeleteSolarSystemConnection(string solarSystemFrom, string solarSystemTo)
+        private void EventDeleteWormhole(string solarSystemFrom, string solarSystemTo)
         {
             containerMap.StopDrawMap();
 

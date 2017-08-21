@@ -414,7 +414,7 @@
             this.cmdMapSignatures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdMapSignatures.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdMapSignatures.ForeColor = System.Drawing.Color.LightGray;
-            this.cmdMapSignatures.Location = new System.Drawing.Point(14, 23);
+            this.cmdMapSignatures.Location = new System.Drawing.Point(14, 55);
             this.cmdMapSignatures.Name = "cmdMapSignatures";
             this.cmdMapSignatures.Size = new System.Drawing.Size(153, 23);
             this.cmdMapSignatures.TabIndex = 140;
@@ -435,7 +435,7 @@
             this.ejButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ejButton3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ejButton3.ForeColor = System.Drawing.Color.LightGray;
-            this.ejButton3.Location = new System.Drawing.Point(15, 52);
+            this.ejButton3.Location = new System.Drawing.Point(15, 26);
             this.ejButton3.Name = "ejButton3";
             this.ejButton3.Size = new System.Drawing.Size(152, 23);
             this.ejButton3.TabIndex = 141;

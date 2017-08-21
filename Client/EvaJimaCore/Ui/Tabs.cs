@@ -73,6 +73,9 @@ namespace EvaJimaCore.Ui
         {
             var button = sender as Button;
 
+            if (button.Tag.ToString() == "Map" && Global.Pilots.Selected == null) return;
+
+
             foreach (Tab tab in _list.Values)
             {
                 if (tab.Button != null)
@@ -92,7 +95,7 @@ namespace EvaJimaCore.Ui
                     return;
                 }
 
-                if (Global.Pilots.Selected.Location.SolarSystemName == "unknown")
+                if (Global.Pilots.Selected.Location.Name == "unknown")
                 {
                     //button.IsActive = false;
                     return;
@@ -140,6 +143,9 @@ namespace EvaJimaCore.Ui
         {
             Global.Presenter.ChangeScreen(tabName);
 
+            if(tabName == "Map" && Global.Pilots.Selected == null) return;
+
+            //var map = Global.Pilots.Selected.SpaceMap;
 
             if (activeTab != null)
             {

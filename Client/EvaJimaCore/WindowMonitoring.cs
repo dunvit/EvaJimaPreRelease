@@ -539,7 +539,7 @@ namespace EveJimaCore
 
             if (Visible == false)
             {
-                if (Tools.IsWSpaceSystem(Global.Pilots.Selected.Location.SolarSystemName))
+                if (Tools.IsWSpaceSystem(Global.Pilots.Selected.Location.Name))
                 {
                 crlNotificay.BalloonTipTitle = @"EveJima";
                 crlNotificay.BalloonTipText = @"Active pilot enter to new location. " + info;
@@ -553,7 +553,7 @@ namespace EveJimaCore
 
         private void ContainerEvent_ShowTravelHistory()
         {
-            if (Global.Pilots.Count() == 0 || Global.Pilots.Selected == null || Global.Pilots.Selected.Location == null || Global.Pilots.Selected.Location.SolarSystemName == "unknown") return;
+            if (Global.Pilots.Count() == 0 || Global.Pilots.Selected == null || Global.Pilots.Selected.Location == null || Global.Pilots.Selected.Location.Name == "unknown") return;
 
             ContainerTabs.Activate("Signatures");
         }
@@ -561,7 +561,7 @@ namespace EveJimaCore
 
         private void ContainerEvent_ShowLocation()
         {
-            if (Global.Pilots.Count() == 0 || Global.Pilots.Selected == null || Global.Pilots.Selected.Location == null || Global.Pilots.Selected.Location.SolarSystemName == "unknown") return;
+            if (Global.Pilots.Count() == 0 || Global.Pilots.Selected == null || Global.Pilots.Selected.Location == null || Global.Pilots.Selected.Location.Name == "unknown") return;
             
             ContainerTabs.Activate("Location");
         }
@@ -589,7 +589,7 @@ namespace EveJimaCore
 
         private void DrawPilotPanel(PilotEntity pilot)
         {
-            if (pilot.Location != null && pilot.Location.SolarSystemName != "unknown")
+            if (pilot.Location != null && pilot.Location.Name != "unknown")
             {
                 //cmdLocation.IsActive = true;
                 //cmdLocation.Refresh();

@@ -17,19 +17,19 @@ namespace EveJimaCore.BLL.Map
 
             foreach (var updatedSystem in updatedSystems)
             {
-                var system = map.GetSystem(updatedSystem.SolarSystemName);
+                var system = map.GetSystem(updatedSystem.Name);
 
                 if (system != null)
                 {
                     system.LocationInMap = updatedSystem.LocationInMap;
-                    Log.DebugFormat("[MapTools.UpdateSolarSystems] For map with key {0} updated system {2} Coordinates {1}", map.Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, system.SolarSystemName);
+                    Log.DebugFormat("[MapTools.UpdateSolarSystems] For map with key {0} updated system {2} Coordinates {1}", map.Key, system.LocationInMap.X + ":" + system.LocationInMap.Y, system.Name);
                     system.Signatures = updatedSystem.Signatures;
                     system.ConnectedSolarSystems = updatedSystem.ConnectedSolarSystems;
                 }
                 else
                 {
                     map.Systems.Add(updatedSystem);
-                    Log.DebugFormat("[MapTools.UpdateSolarSystems] For map with key {0} added system {2} Coordinates {1}", map.Key, updatedSystem.LocationInMap.X + ":" + updatedSystem.LocationInMap.Y, updatedSystem.SolarSystemName);
+                    Log.DebugFormat("[MapTools.UpdateSolarSystems] For map with key {0} added system {2} Coordinates {1}", map.Key, updatedSystem.LocationInMap.X + ":" + updatedSystem.LocationInMap.Y, updatedSystem.Name);
                 }
             }
 
@@ -50,18 +50,18 @@ namespace EveJimaCore.BLL.Map
 
                     foreach (var connection in solarSystem.ConnectedSolarSystems)
                     {
-                        if (connection == updatedSystem.SolarSystemName) isNeedRemoveConnection = true;
+                        if (connection == updatedSystem.Name) isNeedRemoveConnection = true;
                     }
 
                     if (isNeedRemoveConnection)
                     {
-                        solarSystem.ConnectedSolarSystems.Remove(updatedSystem.SolarSystemName);
+                        solarSystem.ConnectedSolarSystems.Remove(updatedSystem.Name);
                     }
                 }
 
-                map.Systems.RemoveAll(x => x.SolarSystemName == updatedSystem.SolarSystemName);
+                map.Systems.RemoveAll(x => x.Name == updatedSystem.Name);
 
-                Log.InfoFormat("[MapTools.DeleteSolarSystems] Remove solar system {1} map with key ='{0}' for pilot {2}", map.Key, updatedSystem.SolarSystemName, map.ActivePilot);
+                Log.InfoFormat("[MapTools.DeleteSolarSystems] Remove solar system {1} map with key ='{0}' for pilot {2}", map.Key, updatedSystem.Name, map.ActivePilot);
             }
         }
 
@@ -96,9 +96,9 @@ namespace EveJimaCore.BLL.Map
 
             foreach ( var solarSystem in map.Systems )
             {
-                if (solarSystem.SolarSystemName != null)
+                if (solarSystem.Name != null)
                 {
-                    solarSystem.Type = UpdateSystemType(map, solarSystem.SolarSystemName);
+                    solarSystem.Type = UpdateSystemType(map, solarSystem.Name);
                 }
             }
         }
@@ -192,8 +192,8 @@ namespace EveJimaCore.BLL.Map
 
         public static SecurityStatus GetConnectionType(EveJimaUniverse.System solarSystemFrom, EveJimaUniverse.System solarSystemTo)
         {
-            var _solarSystemFromInfo = Global.Space.GetSystemByName(solarSystemFrom.SolarSystemName);
-            var _solarSystemToInfo = Global.Space.GetSystemByName(solarSystemTo.SolarSystemName);
+            var _solarSystemFromInfo = Global.Space.GetSystemByName(solarSystemFrom.Name);
+            var _solarSystemToInfo = Global.Space.GetSystemByName(solarSystemTo.Name);
 
             if ( _solarSystemFromInfo.Security == SecurityStatus.WSpace || _solarSystemToInfo.Security == SecurityStatus.WSpace )
             {

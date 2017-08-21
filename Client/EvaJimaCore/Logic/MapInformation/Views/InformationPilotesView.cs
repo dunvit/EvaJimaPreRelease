@@ -97,7 +97,7 @@ namespace EveJimaCore.Logic.MapInformation.Views
 
             try
             {
-                txtSolarSystemName.Text = solarSystem.SolarSystemName;
+                txtSolarSystemName.Text = solarSystem.Name;
 
 
                 txtSolarSystemClass.Text = solarSystem.Class;

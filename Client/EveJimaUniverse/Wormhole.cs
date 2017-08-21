@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace EveJimaUniverse
 {
-    public class SolarSystemsConnection
+    public class Wormhole
     {
         public string SolarSystemFrom { get; set; }
         public string SolarSystemTo { get; set; }

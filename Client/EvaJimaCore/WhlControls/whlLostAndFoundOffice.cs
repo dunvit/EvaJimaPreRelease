@@ -37,7 +37,7 @@ namespace EveJimaCore.WhlControls
 
         public void Refresh(PilotEntity pilot)
         {
-            if (pilot.Location.SolarSystemName == "unknown")
+            if (pilot.Location.Name == "unknown")
             {
                 cmdRemove.Enabled = false;
                 cmdShow.Enabled = false;
