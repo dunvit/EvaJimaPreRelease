@@ -13,7 +13,7 @@ namespace EveJimaCore
 
         private Messages()
         {
-            Name = System.Guid.NewGuid().ToString();
+            Name = Guid.NewGuid().ToString();
         }
 
         public static Messages GetInstance()
